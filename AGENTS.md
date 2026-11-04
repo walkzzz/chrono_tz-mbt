@@ -79,11 +79,15 @@ You can browse and install extra skills here:
 - **S3 tz 包 — NaiveDateTime/Date/CjDuration** ✅ 完成（moon check ✓ + moon test 42/42 ✓ + moon info ✓ + moon fmt ✓）
   - `tz/datetime.mbt` — CjDuration + NaiveDateTime + Date（~340 行，集成 Hinnant 算法）
   - `tz/datetime_wbtest.mbt` — 28 白盒测试
-- **S4 tz 包 — tz_offset / local_result / trait** ⏳ 下一步（TzError 定义在此 Sprint）
+- **S4 tz 包 — tz_offset / local_result / trait** ✅ 完成（moon check ✓ + moon test 54/54 ✓ + moon info ✓ + moon fmt ✓）
+  - `tz/timezone_impl.mbt` — TzError suberror + binary_search + TzOffset + LocalResult[T] + TimeZone trait（~140 行）
+  - `tz/timezone_impl_wbtest.mbt` — 12 白盒测试
+  - `core/timezone_core.mbt` — Ordering 改 `pub(all) enum` 供外部包构造
+- **S5 tz 包 — tz_impl / DateTime / DST** ⏳ 下一步（Tz::timespans/offset_from_utc/local + DateTime + GapInfo）
 
-### MoonBit 语法要点（S1~S3 实践验证）
+### MoonBit 语法要点（S1~S4 实践验证）
 
-- **标准库无 `Ordering` 枚举**：`Compare` trait 的 `compare` 返回 `Int32`（负/零/正）；自定义 `pub enum Ordering { Less; Equal; Greater }`
+- **标准库无 `Ordering` 枚举**：`Compare` trait 的 `compare` 返回 `Int32`（负/零/正）；自定义 `pub(all) enum Ordering { Less; Equal; Greater }`（S4 改 pub(all) 供外部构造）
 - **`derive(Show)` 已弃用**：用 `derive(Debug)`；`assert_eq` 需 `Debug` trait
 - **derive 后必须显式 `pub extend`**：`derive(Eq, Compare, Debug)` 后需三条 `pub extend T with Trait::{method}`，否则警告 `implicit_impl_as_method`
 - **`pub extend` 模板**：
@@ -98,6 +102,9 @@ You can browse and install extra skills here:
 - **abort 替代 fail!**：MoonBit 无 `fail!` 语法；用 `abort(msg : String) -> T`（泛型返回任意类型）
 - **StringView vs String**：`s[:10]` 返回 `StringView` 非 `String`，拼接需 `.to_string()` 或直接构造
 - **`<>` 不合法**：MoonBit 不等用 `!=`（`Eq::not_equal`）
+- **suberror 语法**：`pub(all) suberror TzError { Variant(T); ... } derive(Debug)` + `pub extend TzError with Debug::{to_repr}`；自动提升 Error，可用 `raise TzError(...)` 抛错
+- **`pub enum` vs `pub(all) enum`**：`pub enum` 外部包只能 match 不能构造；`pub(all) enum` 可构造（黑盒测试需 pub(all)）
+- **Int32 无 to_int**：`Int32` 只有 `to_int64`；数组 `arr[i]` 需 `Int` 索引，`arr.get(i)` 接受 `Int32` 返回 `T?`
 
 ### 文档
 

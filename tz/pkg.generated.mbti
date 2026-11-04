@@ -3,11 +3,25 @@ package "walkzzz/chrono_tz-mbt/tz"
 
 import {
   "moonbitlang/core/debug",
+  "walkzzz/chrono_tz-mbt/core",
 }
 
 // Values
+pub fn binary_search(Int32, Int32, (Int32) -> @core.Ordering) -> Result[Int32, Int32]
 
 // Errors
+pub(all) suberror TzError {
+  InvalidTzName(String)
+  InvalidDate(Int64, Int64, Int64)
+  InvalidTime(Int64, Int64, Int64)
+  InvalidDayOfYear(Int64, Int64, Int32)
+  InvalidTimestamp(Int64)
+  InvalidFormatString(String)
+  ParseError(String, Int32)
+  Rfc3339ParseError(String, Int32)
+  TzOffsetOutOfRange(Int32)
+} derive(@debug.Debug)
+pub fn TzError::to_repr(Self) -> @debug.Repr
 
 // Types and methods
 pub struct CjDuration {
@@ -50,6 +64,19 @@ pub fn Date::ordinal(Self) -> Int64
 pub fn Date::to_repr(Self) -> @debug.Repr
 pub fn Date::weekday(Self) -> Int64
 pub fn Date::year(Self) -> Int64
+
+pub enum LocalResult[T] {
+  Single(T)
+  Ambiguous(T, T)
+  None
+}
+pub fn[T] LocalResult::earliest(Self[T]) -> T
+pub fn[T] LocalResult::is_ambiguous(Self[T]) -> Bool
+pub fn[T] LocalResult::is_none(Self[T]) -> Bool
+pub fn[T] LocalResult::is_single(Self[T]) -> Bool
+pub fn[T] LocalResult::latest(Self[T]) -> T
+pub fn[T] LocalResult::single(Self[T]) -> T?
+pub fn[T] LocalResult::unwrap(Self[T]) -> T
 
 pub struct NaiveDateTime {
   year : Int64
@@ -691,6 +718,24 @@ pub fn Tz::name(Self) -> String
 pub fn Tz::not_equal(Self, Self) -> Bool
 pub fn Tz::to_repr(Self) -> @debug.Repr
 
+pub struct TzOffset {
+  tz : Tz
+  span : @core.FixedTimespan
+} derive(Eq, @debug.Debug)
+pub fn TzOffset::abbreviation(Self) -> String
+pub fn TzOffset::equal(Self, Self) -> Bool
+pub fn TzOffset::make(Tz, @core.FixedTimespan) -> Self
+pub fn TzOffset::not_equal(Self, Self) -> Bool
+pub fn TzOffset::offset(Self) -> String
+pub fn TzOffset::offset_sec(Self) -> Int32
+pub fn TzOffset::to_repr(Self) -> @debug.Repr
+pub fn TzOffset::to_string(Self) -> String
+pub fn TzOffset::tz_id(Self) -> String
+
 // Type aliases
 
 // Traits
+pub trait TimeZone {
+  fn offset_from_utc_date_time(Self, NaiveDateTime) -> TzOffset
+  fn offset_from_local_date_time(Self, NaiveDateTime) -> LocalResult[TzOffset]
+}

@@ -55,7 +55,7 @@ pub fn FixedTimespanSet::op_lt(Self, Self) -> Bool
 pub fn FixedTimespanSet::to_repr(Self) -> @debug.Repr
 pub fn FixedTimespanSet::utc_span(Self, Int32) -> Span
 
-pub enum Ordering {
+pub(all) enum Ordering {
   Less
   Equal
   Greater

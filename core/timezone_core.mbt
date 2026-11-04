@@ -13,7 +13,7 @@ pub const IANA_TZDB_VERSION : String = "2025b"
 /// MoonBit 标准库未提供此枚举（其 `Compare` trait 的 `compare` 方法返回
 /// `Int32` 的负/零/正），本项目为 DST 三分支判断的类型安全与可读性自定义。
 /// 序关系按声明顺序：`Less < Equal < Greater`。
-pub enum Ordering {
+pub(all) enum Ordering {
   Less
   Equal
   Greater
