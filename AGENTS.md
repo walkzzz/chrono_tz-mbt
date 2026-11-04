@@ -76,9 +76,12 @@ You can browse and install extra skills here:
   - `data/` — 6 大洲数据文件（38711 行，从 moon-chrono_tz 复制事实性 IANA tzdata）
   - `tz/tz_variants.mbt` — Tz 枚举 597 + name + from_str（独立重写，纯二分查找，去掉 LRU 缓存）
   - `tz/tz_variants_test.mbt` — 3 黑盒测试
-- **S3 tz 包 — NaiveDateTime/Date/CjDuration** ⏳ 下一步
+- **S3 tz 包 — NaiveDateTime/Date/CjDuration** ✅ 完成（moon check ✓ + moon test 42/42 ✓ + moon info ✓ + moon fmt ✓）
+  - `tz/datetime.mbt` — CjDuration + NaiveDateTime + Date（~340 行，集成 Hinnant 算法）
+  - `tz/datetime_wbtest.mbt` — 28 白盒测试
+- **S4 tz 包 — tz_offset / local_result / trait** ⏳ 下一步（TzError 定义在此 Sprint）
 
-### MoonBit 语法要点（S1 实践验证）
+### MoonBit 语法要点（S1~S3 实践验证）
 
 - **标准库无 `Ordering` 枚举**：`Compare` trait 的 `compare` 返回 `Int32`（负/零/正）；自定义 `pub enum Ordering { Less; Equal; Greater }`
 - **`derive(Show)` 已弃用**：用 `derive(Debug)`；`assert_eq` 需 `Debug` trait
@@ -92,6 +95,9 @@ You can browse and install extra skills here:
 - **moon.pkg 零依赖**：空文件（非 `{}`）
 - **Int64 字面量**：`L` 后缀（如 `1000000L`）；Int32 无后缀
 - **for 区间**：`0..<n` 半开（仓颉 `0..n` 含 n）
+- **abort 替代 fail!**：MoonBit 无 `fail!` 语法；用 `abort(msg : String) -> T`（泛型返回任意类型）
+- **StringView vs String**：`s[:10]` 返回 `StringView` 非 `String`，拼接需 `.to_string()` 或直接构造
+- **`<>` 不合法**：MoonBit 不等用 `!=`（`Eq::not_equal`）
 
 ### 文档
 

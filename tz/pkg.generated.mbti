@@ -10,6 +10,82 @@ import {
 // Errors
 
 // Types and methods
+pub struct CjDuration {
+  secs : Int64
+} derive(Compare, Eq, @debug.Debug)
+pub fn CjDuration::compare(Self, Self) -> Int32
+pub fn CjDuration::equal(Self, Self) -> Bool
+pub fn CjDuration::hours(Int64) -> Self
+pub fn CjDuration::make(Int64) -> Self
+pub fn CjDuration::minutes(Int64) -> Self
+pub fn CjDuration::not_equal(Self, Self) -> Bool
+pub fn CjDuration::of_seconds(Int64) -> Self
+pub fn CjDuration::op_add(Self, Self) -> Self
+pub fn CjDuration::op_ge(Self, Self) -> Bool
+pub fn CjDuration::op_gt(Self, Self) -> Bool
+pub fn CjDuration::op_le(Self, Self) -> Bool
+pub fn CjDuration::op_lt(Self, Self) -> Bool
+pub fn CjDuration::op_sub(Self, Self) -> Self
+pub fn CjDuration::to_repr(Self) -> @debug.Repr
+pub fn CjDuration::zero() -> Self
+
+pub struct Date {
+  year : Int64
+  month : Int64
+  day : Int64
+} derive(Compare, Eq, @debug.Debug)
+pub fn Date::and_hms(Self, Int64, Int64, Int64) -> NaiveDateTime
+pub fn Date::compare(Self, Self) -> Int32
+pub fn Date::day(Self) -> Int64
+pub fn Date::equal(Self, Self) -> Bool
+pub fn Date::from_ordinal(Int64, Int64) -> Self
+pub fn Date::make(Int64, Int64, Int64) -> Self
+pub fn Date::month(Self) -> Int64
+pub fn Date::not_equal(Self, Self) -> Bool
+pub fn Date::op_ge(Self, Self) -> Bool
+pub fn Date::op_gt(Self, Self) -> Bool
+pub fn Date::op_le(Self, Self) -> Bool
+pub fn Date::op_lt(Self, Self) -> Bool
+pub fn Date::ordinal(Self) -> Int64
+pub fn Date::to_repr(Self) -> @debug.Repr
+pub fn Date::weekday(Self) -> Int64
+pub fn Date::year(Self) -> Int64
+
+pub struct NaiveDateTime {
+  year : Int64
+  month : Int64
+  day : Int64
+  hour : Int64
+  min : Int64
+  sec : Int64
+} derive(Compare, Eq, @debug.Debug)
+pub fn NaiveDateTime::add_days(Self, Int64) -> Self
+pub fn NaiveDateTime::add_seconds(Self, Int64) -> Self
+pub fn NaiveDateTime::compare(Self, Self) -> Int32
+pub fn NaiveDateTime::day(Self) -> Int64
+pub fn NaiveDateTime::days_in_month(Int64, Int64) -> Int64
+pub fn NaiveDateTime::equal(Self, Self) -> Bool
+pub fn NaiveDateTime::from_timestamp(Int64) -> Self
+pub fn NaiveDateTime::hour(Self) -> Int64
+pub fn NaiveDateTime::is_leap_year(Int64) -> Bool
+pub fn NaiveDateTime::make(Int64, Int64, Int64, Int64, Int64, Int64) -> Self
+pub fn NaiveDateTime::minute(Self) -> Int64
+pub fn NaiveDateTime::month(Self) -> Int64
+pub fn NaiveDateTime::not_equal(Self, Self) -> Bool
+pub fn NaiveDateTime::op_ge(Self, Self) -> Bool
+pub fn NaiveDateTime::op_gt(Self, Self) -> Bool
+pub fn NaiveDateTime::op_le(Self, Self) -> Bool
+pub fn NaiveDateTime::op_lt(Self, Self) -> Bool
+pub fn NaiveDateTime::ordinal(Self) -> Int64
+pub fn NaiveDateTime::second(Self) -> Int64
+pub fn NaiveDateTime::sub_seconds(Self, Int64) -> Self
+pub fn NaiveDateTime::timestamp(Self) -> Int64
+pub fn NaiveDateTime::to_date_time_string(Self) -> String
+pub fn NaiveDateTime::to_repr(Self) -> @debug.Repr
+pub fn NaiveDateTime::to_rfc_string(Self) -> String
+pub fn NaiveDateTime::weekday(Self) -> Int64
+pub fn NaiveDateTime::year(Self) -> Int64
+
 pub(all) enum Tz {
   Africa__Abidjan
   Africa__Accra
