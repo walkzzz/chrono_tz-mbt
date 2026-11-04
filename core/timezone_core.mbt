@@ -202,9 +202,9 @@ pub extend FixedTimespanSet with Debug::{to_repr}
 ///|
 /// 由压缩索引直接构造（数据文件用，零转换开销）。
 pub fn FixedTimespanSet::make(
-  first_offset_idx~ : Int32,
-  first_abbr_idx~ : Int32,
-  rest_compact~ : Array[(Int64, Int32, Int32)],
+  first_offset_idx : Int32,
+  first_abbr_idx : Int32,
+  rest_compact : Array[(Int64, Int32, Int32)],
 ) -> FixedTimespanSet {
   FixedTimespanSet::{ first_offset_idx, first_abbr_idx, rest_compact, }
 }

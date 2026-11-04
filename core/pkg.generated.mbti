@@ -44,7 +44,7 @@ pub fn FixedTimespanSet::from_first_rest(FixedTimespan, Array[(Int64, FixedTimes
 pub fn FixedTimespanSet::get(Self, Int32) -> FixedTimespan
 pub fn FixedTimespanSet::len(Self) -> Int32
 pub fn FixedTimespanSet::local_span(Self, Int32) -> Span
-pub fn FixedTimespanSet::make(first_offset_idx~ : Int32, first_abbr_idx~ : Int32, rest_compact~ : Array[(Int64, Int32, Int32)]) -> Self
+pub fn FixedTimespanSet::make(Int32, Int32, Array[(Int64, Int32, Int32)]) -> Self
 pub fn FixedTimespanSet::name_at(Self, Int32) -> String
 pub fn FixedTimespanSet::not_equal(Self, Self) -> Bool
 pub fn FixedTimespanSet::offset_at(Self, Int32) -> Int32

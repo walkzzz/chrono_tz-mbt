@@ -103,9 +103,9 @@ test "FixedTimespan construction" {
 test "FixedTimespanSet basic" {
   // 构造一个简单时区：UTC offset 0，name "UTC"，无过渡
   let fts = FixedTimespanSet::make(
-    first_offset_idx=lookup_offset_idx_for_test(0),
-    first_abbr_idx=lookup_abbr_idx_for_test("UTC"),
-    rest_compact=[],
+    lookup_offset_idx_for_test(0),
+    lookup_abbr_idx_for_test("UTC"),
+    [],
   )
   assert_eq(FixedTimespanSet::len(fts), 1)
   assert_eq(FixedTimespanSet::offset_at(fts, 0), 0)
@@ -120,9 +120,9 @@ test "FixedTimespanSet basic" {
 test "FixedTimespanSet spans" {
   // 构造一个有 2 段的时区：先 UTC+0，后在 ts=1000000 切到 UTC+3600
   let fts = FixedTimespanSet::make(
-    first_offset_idx=lookup_offset_idx_for_test(0),
-    first_abbr_idx=lookup_abbr_idx_for_test("UTC"),
-    rest_compact=[
+    lookup_offset_idx_for_test(0),
+    lookup_abbr_idx_for_test("UTC"),
+    [
       (
         1000000L,
         lookup_offset_idx_for_test(3600),

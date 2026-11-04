@@ -85,7 +85,7 @@ pub extend FixedTimespanSet with Eq::{not_equal, equal}
 pub extend FixedTimespanSet with Compare::{op_lt, op_le, op_ge, compare, op_gt}
 pub extend FixedTimespanSet with Debug::{to_repr}
 
-pub fn FixedTimespanSet::make(first_offset_idx~ : Int32, first_abbr_idx~ : Int32, rest_compact~ : Array[(Int64, Int32, Int32)]) -> FixedTimespanSet
+pub fn FixedTimespanSet::make(first_offset_idx : Int32, first_abbr_idx : Int32, rest_compact : Array[(Int64, Int32, Int32)]) -> FixedTimespanSet
 pub fn FixedTimespanSet::from_first_rest(first : FixedTimespan, rest : Array[(Int64, FixedTimespan)]) -> FixedTimespanSet
 pub fn FixedTimespanSet::len(self : FixedTimespanSet) -> Int32
 pub fn FixedTimespanSet::utc_span(self : FixedTimespanSet, index : Int32) -> Span

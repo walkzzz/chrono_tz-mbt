@@ -1,0 +1,4 @@
+import {
+  "walkzzz/chrono_tz-mbt/core",
+  "walkzzz/chrono_tz-mbt/data",
+}

@@ -1,0 +1,695 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "walkzzz/chrono_tz-mbt/data"
+
+import {
+  "walkzzz/chrono_tz-mbt/core",
+}
+
+// Values
+pub let africa__abidjan : @core.FixedTimespanSet
+
+pub let africa__algiers : @core.FixedTimespanSet
+
+pub let africa__bissau : @core.FixedTimespanSet
+
+pub let africa__cairo : @core.FixedTimespanSet
+
+pub let africa__casablanca : @core.FixedTimespanSet
+
+pub let africa__ceuta : @core.FixedTimespanSet
+
+pub let africa__el_aaiun : @core.FixedTimespanSet
+
+pub let africa__johannesburg : @core.FixedTimespanSet
+
+pub let africa__juba : @core.FixedTimespanSet
+
+pub let africa__khartoum : @core.FixedTimespanSet
+
+pub let africa__lagos : @core.FixedTimespanSet
+
+pub let africa__maputo : @core.FixedTimespanSet
+
+pub let africa__monrovia : @core.FixedTimespanSet
+
+pub let africa__nairobi : @core.FixedTimespanSet
+
+pub let africa__ndjamena : @core.FixedTimespanSet
+
+pub let africa__sao_tome : @core.FixedTimespanSet
+
+pub let africa__tripoli : @core.FixedTimespanSet
+
+pub let africa__tunis : @core.FixedTimespanSet
+
+pub let africa__windhoek : @core.FixedTimespanSet
+
+pub let america__adak : @core.FixedTimespanSet
+
+pub let america__anchorage : @core.FixedTimespanSet
+
+pub let america__araguaina : @core.FixedTimespanSet
+
+pub let america__argentina__buenos_aires : @core.FixedTimespanSet
+
+pub let america__argentina__catamarca : @core.FixedTimespanSet
+
+pub let america__argentina__cordoba : @core.FixedTimespanSet
+
+pub let america__argentina__jujuy : @core.FixedTimespanSet
+
+pub let america__argentina__la_rioja : @core.FixedTimespanSet
+
+pub let america__argentina__mendoza : @core.FixedTimespanSet
+
+pub let america__argentina__rio_gallegos : @core.FixedTimespanSet
+
+pub let america__argentina__salta : @core.FixedTimespanSet
+
+pub let america__argentina__san_juan : @core.FixedTimespanSet
+
+pub let america__argentina__san_luis : @core.FixedTimespanSet
+
+pub let america__argentina__tucuman : @core.FixedTimespanSet
+
+pub let america__argentina__ushuaia : @core.FixedTimespanSet
+
+pub let america__asuncion : @core.FixedTimespanSet
+
+pub let america__bahia : @core.FixedTimespanSet
+
+pub let america__bahia_banderas : @core.FixedTimespanSet
+
+pub let america__barbados : @core.FixedTimespanSet
+
+pub let america__belem : @core.FixedTimespanSet
+
+pub let america__belize : @core.FixedTimespanSet
+
+pub let america__boa_vista : @core.FixedTimespanSet
+
+pub let america__bogota : @core.FixedTimespanSet
+
+pub let america__boise : @core.FixedTimespanSet
+
+pub let america__cambridge_bay : @core.FixedTimespanSet
+
+pub let america__campo_grande : @core.FixedTimespanSet
+
+pub let america__cancun : @core.FixedTimespanSet
+
+pub let america__caracas : @core.FixedTimespanSet
+
+pub let america__cayenne : @core.FixedTimespanSet
+
+pub let america__chicago : @core.FixedTimespanSet
+
+pub let america__chihuahua : @core.FixedTimespanSet
+
+pub let america__ciudad_juarez : @core.FixedTimespanSet
+
+pub let america__costa_rica : @core.FixedTimespanSet
+
+pub let america__coyhaique : @core.FixedTimespanSet
+
+pub let america__cuiaba : @core.FixedTimespanSet
+
+pub let america__danmarkshavn : @core.FixedTimespanSet
+
+pub let america__dawson : @core.FixedTimespanSet
+
+pub let america__dawson_creek : @core.FixedTimespanSet
+
+pub let america__denver : @core.FixedTimespanSet
+
+pub let america__detroit : @core.FixedTimespanSet
+
+pub let america__edmonton : @core.FixedTimespanSet
+
+pub let america__eirunepe : @core.FixedTimespanSet
+
+pub let america__el_salvador : @core.FixedTimespanSet
+
+pub let america__fort_nelson : @core.FixedTimespanSet
+
+pub let america__fortaleza : @core.FixedTimespanSet
+
+pub let america__glace_bay : @core.FixedTimespanSet
+
+pub let america__goose_bay : @core.FixedTimespanSet
+
+pub let america__grand_turk : @core.FixedTimespanSet
+
+pub let america__guatemala : @core.FixedTimespanSet
+
+pub let america__guayaquil : @core.FixedTimespanSet
+
+pub let america__guyana : @core.FixedTimespanSet
+
+pub let america__halifax : @core.FixedTimespanSet
+
+pub let america__havana : @core.FixedTimespanSet
+
+pub let america__hermosillo : @core.FixedTimespanSet
+
+pub let america__indiana__indianapolis : @core.FixedTimespanSet
+
+pub let america__indiana__knox : @core.FixedTimespanSet
+
+pub let america__indiana__marengo : @core.FixedTimespanSet
+
+pub let america__indiana__petersburg : @core.FixedTimespanSet
+
+pub let america__indiana__tell_city : @core.FixedTimespanSet
+
+pub let america__indiana__vevay : @core.FixedTimespanSet
+
+pub let america__indiana__vincennes : @core.FixedTimespanSet
+
+pub let america__indiana__winamac : @core.FixedTimespanSet
+
+pub let america__inuvik : @core.FixedTimespanSet
+
+pub let america__iqaluit : @core.FixedTimespanSet
+
+pub let america__jamaica : @core.FixedTimespanSet
+
+pub let america__juneau : @core.FixedTimespanSet
+
+pub let america__kentucky__louisville : @core.FixedTimespanSet
+
+pub let america__kentucky__monticello : @core.FixedTimespanSet
+
+pub let america__la_paz : @core.FixedTimespanSet
+
+pub let america__lima : @core.FixedTimespanSet
+
+pub let america__los_angeles : @core.FixedTimespanSet
+
+pub let america__maceio : @core.FixedTimespanSet
+
+pub let america__managua : @core.FixedTimespanSet
+
+pub let america__manaus : @core.FixedTimespanSet
+
+pub let america__martinique : @core.FixedTimespanSet
+
+pub let america__matamoros : @core.FixedTimespanSet
+
+pub let america__mazatlan : @core.FixedTimespanSet
+
+pub let america__menominee : @core.FixedTimespanSet
+
+pub let america__merida : @core.FixedTimespanSet
+
+pub let america__metlakatla : @core.FixedTimespanSet
+
+pub let america__mexico_city : @core.FixedTimespanSet
+
+pub let america__miquelon : @core.FixedTimespanSet
+
+pub let america__moncton : @core.FixedTimespanSet
+
+pub let america__monterrey : @core.FixedTimespanSet
+
+pub let america__montevideo : @core.FixedTimespanSet
+
+pub let america__new_york : @core.FixedTimespanSet
+
+pub let america__nome : @core.FixedTimespanSet
+
+pub let america__noronha : @core.FixedTimespanSet
+
+pub let america__north_dakota__beulah : @core.FixedTimespanSet
+
+pub let america__north_dakota__center : @core.FixedTimespanSet
+
+pub let america__north_dakota__new_salem : @core.FixedTimespanSet
+
+pub let america__nuuk : @core.FixedTimespanSet
+
+pub let america__ojinaga : @core.FixedTimespanSet
+
+pub let america__panama : @core.FixedTimespanSet
+
+pub let america__paramaribo : @core.FixedTimespanSet
+
+pub let america__phoenix : @core.FixedTimespanSet
+
+pub let america__portauprince : @core.FixedTimespanSet
+
+pub let america__porto_velho : @core.FixedTimespanSet
+
+pub let america__puerto_rico : @core.FixedTimespanSet
+
+pub let america__punta_arenas : @core.FixedTimespanSet
+
+pub let america__rankin_inlet : @core.FixedTimespanSet
+
+pub let america__recife : @core.FixedTimespanSet
+
+pub let america__regina : @core.FixedTimespanSet
+
+pub let america__resolute : @core.FixedTimespanSet
+
+pub let america__rio_branco : @core.FixedTimespanSet
+
+pub let america__santarem : @core.FixedTimespanSet
+
+pub let america__santiago : @core.FixedTimespanSet
+
+pub let america__santo_domingo : @core.FixedTimespanSet
+
+pub let america__sao_paulo : @core.FixedTimespanSet
+
+pub let america__scoresbysund : @core.FixedTimespanSet
+
+pub let america__sitka : @core.FixedTimespanSet
+
+pub let america__st_johns : @core.FixedTimespanSet
+
+pub let america__swift_current : @core.FixedTimespanSet
+
+pub let america__tegucigalpa : @core.FixedTimespanSet
+
+pub let america__thule : @core.FixedTimespanSet
+
+pub let america__tijuana : @core.FixedTimespanSet
+
+pub let america__toronto : @core.FixedTimespanSet
+
+pub let america__vancouver : @core.FixedTimespanSet
+
+pub let america__whitehorse : @core.FixedTimespanSet
+
+pub let america__winnipeg : @core.FixedTimespanSet
+
+pub let america__yakutat : @core.FixedTimespanSet
+
+pub let antarctica__casey : @core.FixedTimespanSet
+
+pub let antarctica__davis : @core.FixedTimespanSet
+
+pub let antarctica__macquarie : @core.FixedTimespanSet
+
+pub let antarctica__mawson : @core.FixedTimespanSet
+
+pub let antarctica__palmer : @core.FixedTimespanSet
+
+pub let antarctica__rothera : @core.FixedTimespanSet
+
+pub let antarctica__troll : @core.FixedTimespanSet
+
+pub let antarctica__vostok : @core.FixedTimespanSet
+
+pub let asia__almaty : @core.FixedTimespanSet
+
+pub let asia__amman : @core.FixedTimespanSet
+
+pub let asia__anadyr : @core.FixedTimespanSet
+
+pub let asia__aqtau : @core.FixedTimespanSet
+
+pub let asia__aqtobe : @core.FixedTimespanSet
+
+pub let asia__ashgabat : @core.FixedTimespanSet
+
+pub let asia__atyrau : @core.FixedTimespanSet
+
+pub let asia__baghdad : @core.FixedTimespanSet
+
+pub let asia__baku : @core.FixedTimespanSet
+
+pub let asia__bangkok : @core.FixedTimespanSet
+
+pub let asia__barnaul : @core.FixedTimespanSet
+
+pub let asia__beirut : @core.FixedTimespanSet
+
+pub let asia__bishkek : @core.FixedTimespanSet
+
+pub let asia__chita : @core.FixedTimespanSet
+
+pub let asia__colombo : @core.FixedTimespanSet
+
+pub let asia__damascus : @core.FixedTimespanSet
+
+pub let asia__dhaka : @core.FixedTimespanSet
+
+pub let asia__dili : @core.FixedTimespanSet
+
+pub let asia__dubai : @core.FixedTimespanSet
+
+pub let asia__dushanbe : @core.FixedTimespanSet
+
+pub let asia__famagusta : @core.FixedTimespanSet
+
+pub let asia__gaza : @core.FixedTimespanSet
+
+pub let asia__hebron : @core.FixedTimespanSet
+
+pub let asia__ho_chi_minh : @core.FixedTimespanSet
+
+pub let asia__hong_kong : @core.FixedTimespanSet
+
+pub let asia__hovd : @core.FixedTimespanSet
+
+pub let asia__irkutsk : @core.FixedTimespanSet
+
+pub let asia__jakarta : @core.FixedTimespanSet
+
+pub let asia__jayapura : @core.FixedTimespanSet
+
+pub let asia__jerusalem : @core.FixedTimespanSet
+
+pub let asia__kabul : @core.FixedTimespanSet
+
+pub let asia__kamchatka : @core.FixedTimespanSet
+
+pub let asia__karachi : @core.FixedTimespanSet
+
+pub let asia__kathmandu : @core.FixedTimespanSet
+
+pub let asia__khandyga : @core.FixedTimespanSet
+
+pub let asia__kolkata : @core.FixedTimespanSet
+
+pub let asia__krasnoyarsk : @core.FixedTimespanSet
+
+pub let asia__kuching : @core.FixedTimespanSet
+
+pub let asia__macau : @core.FixedTimespanSet
+
+pub let asia__magadan : @core.FixedTimespanSet
+
+pub let asia__makassar : @core.FixedTimespanSet
+
+pub let asia__manila : @core.FixedTimespanSet
+
+pub let asia__nicosia : @core.FixedTimespanSet
+
+pub let asia__novokuznetsk : @core.FixedTimespanSet
+
+pub let asia__novosibirsk : @core.FixedTimespanSet
+
+pub let asia__omsk : @core.FixedTimespanSet
+
+pub let asia__oral : @core.FixedTimespanSet
+
+pub let asia__pontianak : @core.FixedTimespanSet
+
+pub let asia__pyongyang : @core.FixedTimespanSet
+
+pub let asia__qatar : @core.FixedTimespanSet
+
+pub let asia__qostanay : @core.FixedTimespanSet
+
+pub let asia__qyzylorda : @core.FixedTimespanSet
+
+pub let asia__riyadh : @core.FixedTimespanSet
+
+pub let asia__sakhalin : @core.FixedTimespanSet
+
+pub let asia__samarkand : @core.FixedTimespanSet
+
+pub let asia__seoul : @core.FixedTimespanSet
+
+pub let asia__shanghai : @core.FixedTimespanSet
+
+pub let asia__singapore : @core.FixedTimespanSet
+
+pub let asia__srednekolymsk : @core.FixedTimespanSet
+
+pub let asia__taipei : @core.FixedTimespanSet
+
+pub let asia__tashkent : @core.FixedTimespanSet
+
+pub let asia__tbilisi : @core.FixedTimespanSet
+
+pub let asia__tehran : @core.FixedTimespanSet
+
+pub let asia__thimphu : @core.FixedTimespanSet
+
+pub let asia__tokyo : @core.FixedTimespanSet
+
+pub let asia__tomsk : @core.FixedTimespanSet
+
+pub let asia__ulaanbaatar : @core.FixedTimespanSet
+
+pub let asia__urumqi : @core.FixedTimespanSet
+
+pub let asia__ustnera : @core.FixedTimespanSet
+
+pub let asia__vladivostok : @core.FixedTimespanSet
+
+pub let asia__yakutsk : @core.FixedTimespanSet
+
+pub let asia__yangon : @core.FixedTimespanSet
+
+pub let asia__yekaterinburg : @core.FixedTimespanSet
+
+pub let asia__yerevan : @core.FixedTimespanSet
+
+pub let atlantic__azores : @core.FixedTimespanSet
+
+pub let atlantic__bermuda : @core.FixedTimespanSet
+
+pub let atlantic__canary : @core.FixedTimespanSet
+
+pub let atlantic__cape_verde : @core.FixedTimespanSet
+
+pub let atlantic__faroe : @core.FixedTimespanSet
+
+pub let atlantic__madeira : @core.FixedTimespanSet
+
+pub let atlantic__south_georgia : @core.FixedTimespanSet
+
+pub let atlantic__stanley : @core.FixedTimespanSet
+
+pub let australia__adelaide : @core.FixedTimespanSet
+
+pub let australia__brisbane : @core.FixedTimespanSet
+
+pub let australia__broken_hill : @core.FixedTimespanSet
+
+pub let australia__darwin : @core.FixedTimespanSet
+
+pub let australia__eucla : @core.FixedTimespanSet
+
+pub let australia__hobart : @core.FixedTimespanSet
+
+pub let australia__lindeman : @core.FixedTimespanSet
+
+pub let australia__lord_howe : @core.FixedTimespanSet
+
+pub let australia__melbourne : @core.FixedTimespanSet
+
+pub let australia__perth : @core.FixedTimespanSet
+
+pub let australia__sydney : @core.FixedTimespanSet
+
+pub let etc__gmt : @core.FixedTimespanSet
+
+pub let etc__gmtminus1 : @core.FixedTimespanSet
+
+pub let etc__gmtminus10 : @core.FixedTimespanSet
+
+pub let etc__gmtminus11 : @core.FixedTimespanSet
+
+pub let etc__gmtminus12 : @core.FixedTimespanSet
+
+pub let etc__gmtminus13 : @core.FixedTimespanSet
+
+pub let etc__gmtminus14 : @core.FixedTimespanSet
+
+pub let etc__gmtminus2 : @core.FixedTimespanSet
+
+pub let etc__gmtminus3 : @core.FixedTimespanSet
+
+pub let etc__gmtminus4 : @core.FixedTimespanSet
+
+pub let etc__gmtminus5 : @core.FixedTimespanSet
+
+pub let etc__gmtminus6 : @core.FixedTimespanSet
+
+pub let etc__gmtminus7 : @core.FixedTimespanSet
+
+pub let etc__gmtminus8 : @core.FixedTimespanSet
+
+pub let etc__gmtminus9 : @core.FixedTimespanSet
+
+pub let etc__gmtplus1 : @core.FixedTimespanSet
+
+pub let etc__gmtplus10 : @core.FixedTimespanSet
+
+pub let etc__gmtplus11 : @core.FixedTimespanSet
+
+pub let etc__gmtplus12 : @core.FixedTimespanSet
+
+pub let etc__gmtplus2 : @core.FixedTimespanSet
+
+pub let etc__gmtplus3 : @core.FixedTimespanSet
+
+pub let etc__gmtplus4 : @core.FixedTimespanSet
+
+pub let etc__gmtplus5 : @core.FixedTimespanSet
+
+pub let etc__gmtplus6 : @core.FixedTimespanSet
+
+pub let etc__gmtplus7 : @core.FixedTimespanSet
+
+pub let etc__gmtplus8 : @core.FixedTimespanSet
+
+pub let etc__gmtplus9 : @core.FixedTimespanSet
+
+pub let etc__utc : @core.FixedTimespanSet
+
+pub let europe__andorra : @core.FixedTimespanSet
+
+pub let europe__astrakhan : @core.FixedTimespanSet
+
+pub let europe__athens : @core.FixedTimespanSet
+
+pub let europe__belgrade : @core.FixedTimespanSet
+
+pub let europe__berlin : @core.FixedTimespanSet
+
+pub let europe__brussels : @core.FixedTimespanSet
+
+pub let europe__bucharest : @core.FixedTimespanSet
+
+pub let europe__budapest : @core.FixedTimespanSet
+
+pub let europe__chisinau : @core.FixedTimespanSet
+
+pub let europe__dublin : @core.FixedTimespanSet
+
+pub let europe__gibraltar : @core.FixedTimespanSet
+
+pub let europe__helsinki : @core.FixedTimespanSet
+
+pub let europe__istanbul : @core.FixedTimespanSet
+
+pub let europe__kaliningrad : @core.FixedTimespanSet
+
+pub let europe__kirov : @core.FixedTimespanSet
+
+pub let europe__kyiv : @core.FixedTimespanSet
+
+pub let europe__lisbon : @core.FixedTimespanSet
+
+pub let europe__london : @core.FixedTimespanSet
+
+pub let europe__madrid : @core.FixedTimespanSet
+
+pub let europe__malta : @core.FixedTimespanSet
+
+pub let europe__minsk : @core.FixedTimespanSet
+
+pub let europe__moscow : @core.FixedTimespanSet
+
+pub let europe__paris : @core.FixedTimespanSet
+
+pub let europe__prague : @core.FixedTimespanSet
+
+pub let europe__riga : @core.FixedTimespanSet
+
+pub let europe__rome : @core.FixedTimespanSet
+
+pub let europe__samara : @core.FixedTimespanSet
+
+pub let europe__saratov : @core.FixedTimespanSet
+
+pub let europe__simferopol : @core.FixedTimespanSet
+
+pub let europe__sofia : @core.FixedTimespanSet
+
+pub let europe__tallinn : @core.FixedTimespanSet
+
+pub let europe__tirane : @core.FixedTimespanSet
+
+pub let europe__ulyanovsk : @core.FixedTimespanSet
+
+pub let europe__vienna : @core.FixedTimespanSet
+
+pub let europe__vilnius : @core.FixedTimespanSet
+
+pub let europe__volgograd : @core.FixedTimespanSet
+
+pub let europe__warsaw : @core.FixedTimespanSet
+
+pub let europe__zurich : @core.FixedTimespanSet
+
+pub let indian__chagos : @core.FixedTimespanSet
+
+pub let indian__maldives : @core.FixedTimespanSet
+
+pub let indian__mauritius : @core.FixedTimespanSet
+
+pub let pacific__apia : @core.FixedTimespanSet
+
+pub let pacific__auckland : @core.FixedTimespanSet
+
+pub let pacific__bougainville : @core.FixedTimespanSet
+
+pub let pacific__chatham : @core.FixedTimespanSet
+
+pub let pacific__easter : @core.FixedTimespanSet
+
+pub let pacific__efate : @core.FixedTimespanSet
+
+pub let pacific__fakaofo : @core.FixedTimespanSet
+
+pub let pacific__fiji : @core.FixedTimespanSet
+
+pub let pacific__galapagos : @core.FixedTimespanSet
+
+pub let pacific__gambier : @core.FixedTimespanSet
+
+pub let pacific__guadalcanal : @core.FixedTimespanSet
+
+pub let pacific__guam : @core.FixedTimespanSet
+
+pub let pacific__honolulu : @core.FixedTimespanSet
+
+pub let pacific__kanton : @core.FixedTimespanSet
+
+pub let pacific__kiritimati : @core.FixedTimespanSet
+
+pub let pacific__kosrae : @core.FixedTimespanSet
+
+pub let pacific__kwajalein : @core.FixedTimespanSet
+
+pub let pacific__marquesas : @core.FixedTimespanSet
+
+pub let pacific__nauru : @core.FixedTimespanSet
+
+pub let pacific__niue : @core.FixedTimespanSet
+
+pub let pacific__norfolk : @core.FixedTimespanSet
+
+pub let pacific__noumea : @core.FixedTimespanSet
+
+pub let pacific__pago_pago : @core.FixedTimespanSet
+
+pub let pacific__palau : @core.FixedTimespanSet
+
+pub let pacific__pitcairn : @core.FixedTimespanSet
+
+pub let pacific__port_moresby : @core.FixedTimespanSet
+
+pub let pacific__rarotonga : @core.FixedTimespanSet
+
+pub let pacific__tahiti : @core.FixedTimespanSet
+
+pub let pacific__tarawa : @core.FixedTimespanSet
+
+pub let pacific__tongatapu : @core.FixedTimespanSet
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits
