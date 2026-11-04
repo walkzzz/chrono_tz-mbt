@@ -49,6 +49,8 @@ pub struct Date {
   day : Int64
 } derive(Compare, Eq, @debug.Debug)
 pub fn Date::and_hms(Self, Int64, Int64, Int64) -> NaiveDateTime
+pub fn Date::and_hms_opt(Self, Tz, Int64, Int64, Int64) -> LocalResult[DateTime]
+pub fn Date::and_hms_tz(Self, Tz, Int64, Int64, Int64) -> DateTime
 pub fn Date::compare(Self, Self) -> Int32
 pub fn Date::day(Self) -> Int64
 pub fn Date::equal(Self, Self) -> Bool
@@ -64,6 +66,31 @@ pub fn Date::ordinal(Self) -> Int64
 pub fn Date::to_repr(Self) -> @debug.Repr
 pub fn Date::weekday(Self) -> Int64
 pub fn Date::year(Self) -> Int64
+
+pub struct DateTime {
+  naive_utc : Int64
+  off : TzOffset
+} derive(Eq, @debug.Debug)
+pub fn DateTime::abbreviation(Self) -> String
+pub fn DateTime::equal(Self, Self) -> Bool
+pub fn DateTime::make(Int64, TzOffset) -> Self
+pub fn DateTime::naive_local(Self) -> NaiveDateTime
+pub fn DateTime::not_equal(Self, Self) -> Bool
+pub fn DateTime::offset(Self) -> TzOffset
+pub fn DateTime::offset_sec(Self) -> Int32
+pub fn DateTime::timestamp(Self) -> Int64
+pub fn DateTime::to_repr(Self) -> @debug.Repr
+pub fn DateTime::to_rfc3339(Self) -> String
+pub fn DateTime::to_string(Self) -> String
+pub fn DateTime::tz_id(Self) -> String
+pub fn DateTime::with_timezone(Self, Tz) -> Self
+
+pub struct GapInfo {
+  begin : (NaiveDateTime, TzOffset)?
+  end : DateTime?
+}
+pub fn GapInfo::detect(NaiveDateTime, Tz) -> Self?
+pub fn GapInfo::make((NaiveDateTime, TzOffset)?, DateTime?) -> Self
 
 pub enum LocalResult[T] {
   Single(T)
@@ -713,9 +740,13 @@ pub(all) enum Tz {
   Zulu
 } derive(Eq, @debug.Debug)
 pub fn Tz::equal(Self, Self) -> Bool
+pub fn Tz::from_local_date_time(Self, NaiveDateTime) -> LocalResult[DateTime]
 pub fn Tz::from_str(String) -> Self?
 pub fn Tz::name(Self) -> String
 pub fn Tz::not_equal(Self, Self) -> Bool
+pub fn Tz::offset_from_local_date_time(Self, NaiveDateTime) -> LocalResult[TzOffset]
+pub fn Tz::offset_from_utc_date_time(Self, NaiveDateTime) -> TzOffset
+pub fn Tz::timespans(Self) -> @core.FixedTimespanSet
 pub fn Tz::to_repr(Self) -> @debug.Repr
 
 pub struct TzOffset {
@@ -735,7 +766,7 @@ pub fn TzOffset::tz_id(Self) -> String
 // Type aliases
 
 // Traits
-pub trait TimeZone {
+pub(open) trait TimeZone {
   fn offset_from_utc_date_time(Self, NaiveDateTime) -> TzOffset
   fn offset_from_local_date_time(Self, NaiveDateTime) -> LocalResult[TzOffset]
 }

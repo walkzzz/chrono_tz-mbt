@@ -168,7 +168,7 @@ pub fn[T] LocalResult::is_ambiguous(self : LocalResult[T]) -> Bool {
 ///|
 /// 时区等价接口（最小子集）。
 /// S5 中 Tz 实现此 trait：`pub extend Tz with TimeZone::{offset_from_utc_date_time, offset_from_local_date_time}`。
-pub trait TimeZone {
+pub(open) trait TimeZone {
   fn offset_from_utc_date_time(Self, NaiveDateTime) -> TzOffset
   fn offset_from_local_date_time(Self, NaiveDateTime) -> LocalResult[TzOffset]
 }

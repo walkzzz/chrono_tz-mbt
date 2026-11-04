@@ -373,3 +373,159 @@ pub fn Date::ordinal(self : Date) -> Int64 {
   let year_start = @core.days_from_civil(self.year, 1L, 1L)
   days - year_start + 1L
 }
+
+///|
+/// UTC 瞬时 + 时区偏移（TzOffset），表示一个时区感知的绝对时刻。
+pub struct DateTime {
+  naive_utc : Int64
+  off : TzOffset
+} derive(Eq, Debug)
+
+///|
+pub extend DateTime with Eq::{not_equal, equal}
+
+///|
+pub extend DateTime with Debug::{to_repr}
+
+///|
+/// 由 UTC 时间戳和偏移构造。
+pub fn DateTime::make(naive_utc : Int64, offset : TzOffset) -> DateTime {
+  DateTime::{ naive_utc, off: offset, }
+}
+
+///|
+/// 返回 UTC 时间戳。
+pub fn DateTime::timestamp(self : DateTime) -> Int64 {
+  self.naive_utc
+}
+
+///|
+/// 返回偏移。
+pub fn DateTime::offset(self : DateTime) -> TzOffset {
+  self.off
+}
+
+///|
+/// 返回偏移秒数。
+pub fn DateTime::offset_sec(self : DateTime) -> Int32 {
+  self.off.offset_sec()
+}
+
+///|
+/// 返回偏移缩写。
+pub fn DateTime::abbreviation(self : DateTime) -> String {
+  self.off.abbreviation()
+}
+
+///|
+/// 返回 IANA 时区 ID。
+pub fn DateTime::tz_id(self : DateTime) -> String {
+  self.off.tz_id()
+}
+
+///|
+/// 重新绑定到新时区（UTC 瞬时不变，偏移重算）。
+pub fn DateTime::with_timezone(self : DateTime, tz : Tz) -> DateTime {
+  let naive = NaiveDateTime::from_timestamp(self.naive_utc)
+  let off = tz.offset_from_utc_date_time(naive)
+  DateTime::{ naive_utc: self.naive_utc, off, }
+}
+
+///|
+/// 返回本地墙钟时刻（UTC + offset）。
+pub fn DateTime::naive_local(self : DateTime) -> NaiveDateTime {
+  NaiveDateTime::from_timestamp(
+    self.naive_utc + self.off.offset_sec().to_int64(),
+  )
+}
+
+///|
+/// 格式化为 "YYYY-MM-DD HH:MM:SS ABBR"。
+pub fn DateTime::to_string(self : DateTime) -> String {
+  let local_dt = self.naive_local()
+  "\{local_dt.to_date_time_string()} \{self.abbreviation()}"
+}
+
+///|
+/// 格式化偏移为 ±HH:MM（用于 RFC3339）。
+fn format_offset(offset_sec : Int32) -> String {
+  let total_min = offset_sec / 60
+  let sign = if total_min < 0 { "-" } else { "+" }
+  let abs_min = if total_min < 0 { -total_min } else { total_min }
+  let h = abs_min / 60
+  let m = abs_min % 60
+  let pad2 = fn(n : Int32) -> String {
+    let s = n.to_string()
+    if s.length() >= 2 {
+      s
+    } else {
+      "0" + s
+    }
+  }
+  "\{sign}\{pad2(h)}:\{pad2(m)}"
+}
+
+///|
+/// 格式化为 RFC3339 "YYYY-MM-DDTHH:MM:SS±HH:MM"。
+pub fn DateTime::to_rfc3339(self : DateTime) -> String {
+  let local_dt = self.naive_local()
+  "\{local_dt.to_rfc_string()}\{format_offset(self.off.offset_sec())}"
+}
+
+///|
+/// 把本地墙钟 `dt` 解析为 UTC 瞬时，返回 LocalResult[DateTime]。
+pub fn Tz::from_local_date_time(
+  self : Tz,
+  dt : NaiveDateTime,
+) -> LocalResult[DateTime] {
+  let lr = self.offset_from_local_date_time(dt)
+  match lr {
+    LocalResult::Single(o) =>
+      LocalResult::Single(DateTime::{
+        naive_utc: dt.timestamp() - o.offset_sec().to_int64(),
+        off: o,
+      })
+    LocalResult::Ambiguous(a, b) =>
+      LocalResult::Ambiguous(
+        DateTime::{
+          naive_utc: dt.timestamp() - a.offset_sec().to_int64(),
+          off: a,
+        },
+        DateTime::{
+          naive_utc: dt.timestamp() - b.offset_sec().to_int64(),
+          off: b,
+        },
+      )
+    LocalResult::None => LocalResult::None
+  }
+}
+
+///|
+/// 由 Date + 时分秒 + 时区构造，返回 LocalResult[DateTime]（含 DST 歧义/缺口）。
+pub fn Date::and_hms_opt(
+  self : Date,
+  tz : Tz,
+  h : Int64,
+  m : Int64,
+  s : Int64,
+) -> LocalResult[DateTime] {
+  let naive = NaiveDateTime::make(self.year, self.month, self.day, h, m, s)
+  tz.from_local_date_time(naive)
+}
+
+///|
+/// 由 Date + 时分秒 + 时区构造，DST 缺口/歧义时 abort。
+pub fn Date::and_hms_tz(
+  self : Date,
+  tz : Tz,
+  h : Int64,
+  m : Int64,
+  s : Int64,
+) -> DateTime {
+  let naive = NaiveDateTime::make(self.year, self.month, self.day, h, m, s)
+  match tz.from_local_date_time(naive) {
+    LocalResult::Single(dt) => dt
+    _ =>
+      abort("Date::and_hms_tz: local time falls in a DST gap or is ambiguous")
+  }
+}

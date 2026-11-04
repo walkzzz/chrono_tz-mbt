@@ -83,7 +83,12 @@ You can browse and install extra skills here:
   - `tz/timezone_impl.mbt` — TzError suberror + binary_search + TzOffset + LocalResult[T] + TimeZone trait（~140 行）
   - `tz/timezone_impl_wbtest.mbt` — 12 白盒测试
   - `core/timezone_core.mbt` — Ordering 改 `pub(all) enum` 供外部包构造
-- **S5 tz 包 — tz_impl / DateTime / DST** ⏳ 下一步（Tz::timespans/offset_from_utc/local + DateTime + GapInfo）
+- **S5 tz 包 — tz_impl / DateTime / DST** ✅ 完成（moon check ✓ + moon test 76/76 ✓ native + moon info ✓ + moon fmt ✓）
+  - `tz/tz_impl.mbt` — Tz::timespans(597 arm) + offset_from_utc/local + GapInfo（~730 行）
+  - `tz/tz_impl_wbtest.mbt` — 22 白盒测试（offset/DST gap/ambiguous/DateTime/from_local/GapInfo）
+  - `tz/datetime.mbt` — 追加 DateTime + Tz::from_local_date_time + Date::and_hms_opt/and_hms_tz（~155 行）
+  - `tz/timezone_impl.mbt` — `pub trait` → `pub(open) trait` 供 Tz 实现
+  - 注：WASM target 有 597 match arm local count 限制，用 native target 测试
 
 ### MoonBit 语法要点（S1~S4 实践验证）
 
