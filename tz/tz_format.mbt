@@ -1,0 +1,236 @@
+///|
+/// tz_format.mbt — strftime/strptime/RFC3339（chrono_tz-mbt MoonBit 移植）
+/// strftime 格式化 + strptime 解析 + RFC3339 format/parse。
+
+///|
+/// 星期全名（0=Sunday..6=Saturday）。
+let weekday_full : Array[String] = [
+  "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+]
+
+///|
+/// 星期缩写（0=Sunday..6=Saturday）。
+let weekday_abbr : Array[String] = [
+  "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",
+]
+
+///|
+/// 月份全名（1-12）。
+let month_full : Array[String] = [
+  "", "January", "February", "March", "April", "May", "June", "July", "August", "September",
+  "October", "November", "December",
+]
+
+///|
+/// 月份缩写（1-12）。
+let month_abbr : Array[String] = [
+  "", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov",
+  "Dec",
+]
+
+///|
+/// 左补零到指定宽度。
+fn pad_zero(n : Int64, width : Int32) -> String {
+  let s = n.to_string()
+  if s.length() >= width {
+    s
+  } else {
+    let mut r = s
+    while r.length() < width {
+      r = "0" + r
+    }
+    r
+  }
+}
+
+///|
+/// 格式化偏移为 ±HHMM（strftime %z 用）。
+fn format_offset_hhmm(offset_sec : Int32) -> String {
+  let total_min = offset_sec / 60
+  let sign = if total_min < 0 { "-" } else { "+" }
+  let abs_min = if total_min < 0 { -total_min } else { total_min }
+  let h = abs_min / 60
+  let m = abs_min % 60
+  "\{sign}\{pad_zero(h.to_int64(), 2)}\{pad_zero(m.to_int64(), 2)}"
+}
+
+///|
+/// strftime：按格式串格式化 DateTime。
+/// 支持：%Y %m %d %H %M %S %Z %z %A %a %B %b %j %% 及字面字符。
+pub fn strftime(format : String, dt : DateTime) -> String {
+  let local_dt = dt.naive_local()
+  let mut result = ""
+  let chars = format.to_array()
+  let n = chars.length()
+  let mut i = 0
+  while i < n {
+    let c = chars[i]
+    if c == '%' && i + 1 < n {
+      let spec = chars[i + 1]
+      let part = match spec {
+        'Y' => local_dt.year().to_string()
+        'm' => pad_zero(local_dt.month(), 2)
+        'd' => pad_zero(local_dt.day(), 2)
+        'H' => pad_zero(local_dt.hour(), 2)
+        'M' => pad_zero(local_dt.minute(), 2)
+        'S' => pad_zero(local_dt.second(), 2)
+        'Z' => dt.abbreviation()
+        'z' => format_offset_hhmm(dt.offset_sec())
+        'A' => weekday_full[local_dt.weekday().to_int()]
+        'a' => weekday_abbr[local_dt.weekday().to_int()]
+        'B' => month_full[local_dt.month().to_int()]
+        'b' => month_abbr[local_dt.month().to_int()]
+        'j' => pad_zero(local_dt.ordinal(), 3)
+        '%' => "%"
+        _ => "\{spec}"
+      }
+      result = result + part
+      i = i + 2
+    } else {
+      result = result + c.to_string()
+      i = i + 1
+    }
+  }
+  result
+}
+
+///|
+
+///|
+/// 解析十进制数字，返回 (值, 新位置)，失败返回 None。
+fn parse_digits(
+  s : Array[Char],
+  start : Int32,
+  count : Int32,
+) -> (Int64, Int32)? {
+  let mut val = 0L
+  let mut i = 0
+  while i < count {
+    if start + i >= s.length() {
+      return None
+    }
+    let c = s[start + i]
+    if c < '0' || c > '9' {
+      return None
+    }
+    val = val * 10L + (c.to_int() - '0'.to_int()).to_int64()
+    i = i + 1
+  }
+  Some((val, start + count))
+}
+
+///|
+/// RFC3339 解析：`YYYY-MM-DDTHH:MM:SS±HH:MM` 或 `YYYY-MM-DDTHH:MM:SSZ`。
+/// 返回 DateTime?（解析失败返回 None，不抛错，ADR-008 查无→T?）。
+pub fn DateTime::parse_rfc3339(s : String) -> DateTime? {
+  let chars = s.to_array()
+  let n = chars.length()
+  // 最短格式：YYYY-MM-DDTHH:MM:SSZ = 20 字符
+  if n < 20 {
+    return None
+  }
+  // 解析日期时间部分 YYYY-MM-DDTHH:MM:SS
+  guard parse_digits(chars, 0, 4) is Some((year, p1)) else { return None }
+  if p1 >= n || chars[p1] != '-' {
+    return None
+  }
+  guard parse_digits(chars, p1 + 1, 2) is Some((month, p2)) else { return None }
+  if p2 >= n || chars[p2] != '-' {
+    return None
+  }
+  guard parse_digits(chars, p2 + 1, 2) is Some((day, p3)) else { return None }
+  if p3 >= n || (chars[p3] != 'T' && chars[p3] != 't' && chars[p3] != ' ') {
+    return None
+  }
+  guard parse_digits(chars, p3 + 1, 2) is Some((hour, p4)) else { return None }
+  if p4 >= n || chars[p4] != ':' {
+    return None
+  }
+  guard parse_digits(chars, p4 + 1, 2) is Some((min, p5)) else { return None }
+  if p5 >= n || chars[p5] != ':' {
+    return None
+  }
+  guard parse_digits(chars, p5 + 1, 2) is Some((sec, p6)) else { return None }
+  // 解析时区后缀：Z 或 ±HH:MM
+  let offset_sec : Int32 = if p6 < n && (chars[p6] == 'Z' || chars[p6] == 'z') {
+    0
+  } else {
+    if p6 + 6 > n {
+      return None
+    }
+    let sign : Int32 = if chars[p6] == '+' {
+      1
+    } else if chars[p6] == '-' {
+      -1
+    } else {
+      return None
+    }
+    guard parse_digits(chars, p6 + 1, 2) is Some((oh, p7)) else { return None }
+    if p7 >= n || chars[p7] != ':' {
+      return None
+    }
+    guard parse_digits(chars, p7 + 1, 2) is Some((om, _)) else { return None }
+    sign * (oh.to_int() * 3600 + om.to_int() * 60)
+  }
+  // 构造 NaiveDateTime（本地墙钟）
+  let naive = NaiveDateTime::make(year, month, day, hour, min, sec)
+  // UTC 时间戳 = 本地时间戳 - offset
+  let utc_ts = naive.timestamp() - offset_sec.to_int64()
+  // 查找匹配的时区
+  let tz = Tz::from_str("UTC")
+  match tz {
+    Some(t) => {
+      let off_span = @core.FixedTimespan::{ offset: offset_sec, name: "UTC", }
+      let off = TzOffset::make(t, off_span)
+      Some(DateTime::make(utc_ts, off))
+    }
+    None => None
+  }
+}
+
+///|
+/// strptime：按格式串解析输入为 DateTime。
+/// 当前支持简化版：YYYY-MM-DD HH:MM:SS 格式 + 指定时区。
+/// 完整 strptime 实现较复杂，此处提供常用模式解析。
+pub fn strptime(format : String, input : String, tz : Tz) -> DateTime? {
+  // 简化实现：支持 "%Y-%m-%d %H:%M:%S" 和 "%Y-%m-%dT%H:%M:%S" 格式
+  let expected = if format.contains("T") {
+    "%Y-%m-%dT%H:%M:%S"
+  } else {
+    "%Y-%m-%d %H:%M:%S"
+  }
+  if format != expected {
+    return None
+  }
+  let chars = input.to_array()
+  let n = chars.length()
+  if n < 19 {
+    return None
+  }
+  guard parse_digits(chars, 0, 4) is Some((year, p1)) else { return None }
+  if chars[p1] != '-' {
+    return None
+  }
+  guard parse_digits(chars, p1 + 1, 2) is Some((month, p2)) else { return None }
+  if chars[p2] != '-' {
+    return None
+  }
+  guard parse_digits(chars, p2 + 1, 2) is Some((day, p3)) else { return None }
+  if chars[p3] != 'T' && chars[p3] != ' ' {
+    return None
+  }
+  guard parse_digits(chars, p3 + 1, 2) is Some((hour, p4)) else { return None }
+  if chars[p4] != ':' {
+    return None
+  }
+  guard parse_digits(chars, p4 + 1, 2) is Some((min, p5)) else { return None }
+  if chars[p5] != ':' {
+    return None
+  }
+  guard parse_digits(chars, p5 + 1, 2) is Some((sec, _)) else { return None }
+  let naive = NaiveDateTime::make(year, month, day, hour, min, sec)
+  match tz.from_local_date_time(naive) {
+    LocalResult::Single(dt) => Some(dt)
+    _ => None
+  }
+}

@@ -89,8 +89,12 @@ You can browse and install extra skills here:
   - `tz/datetime.mbt` — 追加 DateTime + Tz::from_local_date_time + Date::and_hms_opt/and_hms_tz（~155 行）
   - `tz/timezone_impl.mbt` — `pub trait` → `pub(open) trait` 供 Tz 实现
   - 注：WASM target 有 597 match arm local count 限制，用 native target 测试
+- **S6 tz 包 — strftime/strptime/RFC3339** ✅ 完成（moon check ✓ + moon test 100/100 ✓ native + moon info ✓ + moon fmt ✓）
+  - `tz/tz_format.mbt` — strftime(%Y%m%d%H%M%S%Z%z%A%a%B%b%j%%) + strptime(简化) + DateTime::parse_rfc3339（~270 行）
+  - `tz/tz_format_wbtest.mbt` — 24 白盒测试（strftime 各 specifier/RFC3339 往返/strptime）
+  - 注：`RFC3339::format`/`RFC3339::parse` 命名不合法（RFC3339 非类型），format 委托已有 `DateTime::to_rfc3339`，parse 改为 `DateTime::parse_rfc3339`
 
-### MoonBit 语法要点（S1~S4 实践验证）
+### MoonBit 语法要点（S1~S6 实践验证）
 
 - **标准库无 `Ordering` 枚举**：`Compare` trait 的 `compare` 返回 `Int32`（负/零/正）；自定义 `pub(all) enum Ordering { Less; Equal; Greater }`（S4 改 pub(all) 供外部构造）
 - **`derive(Show)` 已弃用**：用 `derive(Debug)`；`assert_eq` 需 `Debug` trait
@@ -110,6 +114,8 @@ You can browse and install extra skills here:
 - **suberror 语法**：`pub(all) suberror TzError { Variant(T); ... } derive(Debug)` + `pub extend TzError with Debug::{to_repr}`；自动提升 Error，可用 `raise TzError(...)` 抛错
 - **`pub enum` vs `pub(all) enum`**：`pub enum` 外部包只能 match 不能构造；`pub(all) enum` 可构造（黑盒测试需 pub(all)）
 - **Int32 无 to_int**：`Int32` 只有 `to_int64`；数组 `arr[i]` 需 `Int` 索引，`arr.get(i)` 接受 `Int32` 返回 `T?`
+- **Int64::to_int 返回 Int32**：`Int64::to_int(self : Int64) -> Int32`（builtin/int64.mbt:795），非返回 Int；Int64→Int32 转换用 `.to_int()`
+- **`Foo::bar` 命名要求 Foo 是已存在类型/trait**：不能用 `RFC3339::parse` 形式定义独立函数（RFC3339 非类型）；改为 `DateTime::parse_rfc3339` 或独立函数名
 
 ### 文档
 
