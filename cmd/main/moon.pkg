@@ -1,0 +1,5 @@
+// import {
+//   "walkzzz/chrono_tz-mbt" @lib,
+// }
+
+pkgtype(kind: "executable")

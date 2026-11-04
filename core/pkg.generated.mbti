@@ -1,0 +1,89 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "walkzzz/chrono_tz-mbt/core"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub const IANA_TZDB_VERSION : String = "2025b"
+
+pub fn civil_from_days(Int64) -> (Int64, Int64, Int64)
+
+pub fn days_from_civil(Int64, Int64, Int64) -> Int64
+
+pub let tz_name_table : Array[String]
+
+pub let tz_offset_table : Array[Int32]
+
+// Errors
+
+// Types and methods
+pub(all) struct FixedTimespan {
+  offset : Int32
+  name : String
+} derive(Compare, Eq, @debug.Debug)
+pub fn FixedTimespan::compare(Self, Self) -> Int32
+pub fn FixedTimespan::equal(Self, Self) -> Bool
+pub fn FixedTimespan::not_equal(Self, Self) -> Bool
+pub fn FixedTimespan::op_ge(Self, Self) -> Bool
+pub fn FixedTimespan::op_gt(Self, Self) -> Bool
+pub fn FixedTimespan::op_le(Self, Self) -> Bool
+pub fn FixedTimespan::op_lt(Self, Self) -> Bool
+pub fn FixedTimespan::to_repr(Self) -> @debug.Repr
+
+pub struct FixedTimespanSet {
+  first_offset_idx : Int32
+  first_abbr_idx : Int32
+  rest_compact : Array[(Int64, Int32, Int32)]
+} derive(Compare, Eq, @debug.Debug)
+pub fn FixedTimespanSet::compare(Self, Self) -> Int32
+pub fn FixedTimespanSet::equal(Self, Self) -> Bool
+pub fn FixedTimespanSet::estimated_memory_bytes(Self) -> Int64
+pub fn FixedTimespanSet::from_first_rest(FixedTimespan, Array[(Int64, FixedTimespan)]) -> Self
+pub fn FixedTimespanSet::get(Self, Int32) -> FixedTimespan
+pub fn FixedTimespanSet::len(Self) -> Int32
+pub fn FixedTimespanSet::local_span(Self, Int32) -> Span
+pub fn FixedTimespanSet::make(first_offset_idx~ : Int32, first_abbr_idx~ : Int32, rest_compact~ : Array[(Int64, Int32, Int32)]) -> Self
+pub fn FixedTimespanSet::name_at(Self, Int32) -> String
+pub fn FixedTimespanSet::not_equal(Self, Self) -> Bool
+pub fn FixedTimespanSet::offset_at(Self, Int32) -> Int32
+pub fn FixedTimespanSet::op_ge(Self, Self) -> Bool
+pub fn FixedTimespanSet::op_gt(Self, Self) -> Bool
+pub fn FixedTimespanSet::op_le(Self, Self) -> Bool
+pub fn FixedTimespanSet::op_lt(Self, Self) -> Bool
+pub fn FixedTimespanSet::to_repr(Self) -> @debug.Repr
+pub fn FixedTimespanSet::utc_span(Self, Int32) -> Span
+
+pub enum Ordering {
+  Less
+  Equal
+  Greater
+} derive(Compare, Eq, @debug.Debug)
+pub fn Ordering::compare(Self, Self) -> Int32
+pub fn Ordering::equal(Self, Self) -> Bool
+pub fn Ordering::not_equal(Self, Self) -> Bool
+pub fn Ordering::op_ge(Self, Self) -> Bool
+pub fn Ordering::op_gt(Self, Self) -> Bool
+pub fn Ordering::op_le(Self, Self) -> Bool
+pub fn Ordering::op_lt(Self, Self) -> Bool
+pub fn Ordering::to_repr(Self) -> @debug.Repr
+
+pub(all) struct Span {
+  begin : Int64?
+  end : Int64?
+} derive(Compare, Eq, @debug.Debug)
+pub fn Span::cmp(Self, Int64) -> Ordering
+pub fn Span::compare(Self, Self) -> Int32
+pub fn Span::contains(Self, Int64) -> Bool
+pub fn Span::equal(Self, Self) -> Bool
+pub fn Span::not_equal(Self, Self) -> Bool
+pub fn Span::op_ge(Self, Self) -> Bool
+pub fn Span::op_gt(Self, Self) -> Bool
+pub fn Span::op_le(Self, Self) -> Bool
+pub fn Span::op_lt(Self, Self) -> Bool
+pub fn Span::to_repr(Self) -> @debug.Repr
+
+// Type aliases
+
+// Traits
