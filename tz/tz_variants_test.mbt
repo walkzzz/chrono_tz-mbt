@@ -45,3 +45,25 @@ test "Tz from_str name roundtrip" {
     assert_eq(@tz.Tz::from_str(name), Some(tz))
   }
 }
+
+///|
+/// 全 597 时区 from_str ↔ name 往返
+test "Tz all 597 from_str name roundtrip" {
+  let all = @tz.Tz::all()
+  assert_eq(all.length(), 597)
+  for tz in all {
+    let name = @tz.Tz::name(tz)
+    assert_eq(@tz.Tz::from_str(name), Some(tz))
+  }
+}
+
+///|
+/// Tz::all_names 与 Tz::all 长度一致且按升序
+test "Tz all_names consistent" {
+  let names = @tz.Tz::all_names()
+  assert_eq(names.length(), 597)
+  let all = @tz.Tz::all()
+  for i in 0..<597 {
+    assert_eq(@tz.Tz::name(all[i]), names[i])
+  }
+}

@@ -1856,3 +1856,23 @@ pub fn Tz::from_str(s : String) -> Tz? {
   }
   None
 }
+
+///|
+/// 返回全部 597 个时区，按 IANA ID 升序排列。
+pub fn Tz::all() -> Array[Tz] {
+  let result = Array::make(name_to_tz.length(), Tz::UTC)
+  for i in 0..<name_to_tz.length() {
+    result[i] = name_to_tz[i].1
+  }
+  result
+}
+
+///|
+/// 返回全部 597 个时区的 IANA ID，按升序排列。
+pub fn Tz::all_names() -> Array[String] {
+  let result = Array::make(name_to_tz.length(), "")
+  for i in 0..<name_to_tz.length() {
+    result[i] = name_to_tz[i].0
+  }
+  result
+}

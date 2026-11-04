@@ -93,6 +93,13 @@ You can browse and install extra skills here:
   - `tz/tz_format.mbt` — strftime(%Y%m%d%H%M%S%Z%z%A%a%B%b%j%%) + strptime(简化) + DateTime::parse_rfc3339（~270 行）
   - `tz/tz_format_wbtest.mbt` — 24 白盒测试（strftime 各 specifier/RFC3339 往返/strptime）
   - 注：`RFC3339::format`/`RFC3339::parse` 命名不合法（RFC3339 非类型），format 委托已有 `DateTime::to_rfc3339`，parse 改为 `DateTime::parse_rfc3339`
+- **S7 tz 包 — 测试（黑盒/白盒/基准）** ✅ 完成（moon check ✓ + moon test 118/118 ✓ native + moon info ✓ + moon fmt ✓）
+  - `tz/tz_variants.mbt` — 新增 `Tz::all() -> Array[Tz]` + `Tz::all_names() -> Array[String]`（遍历 name_to_tz 表，避免 597 match arm WASM 限制）
+  - `tz/tz_variants_test.mbt` — 新增 2 黑盒测试（全 597 from_str↔name 往返 + all_names 一致性）
+  - `tz/tz_all_wbtest.mbt` — 10 白盒测试（全 597 offset/timespans/DateTime/strftime 扫描 + DST 检测 + UTC 零偏移）
+  - `tz/tz_bench_wbtest.mbt` — 6 基准测试（from_str/offset_from_utc/timestamp/strftime/to_rfc3339/parse_rfc3339）
+  - `tz/moon.pkg` — 添加 `moonbitlang/core/bench` 依赖
+  - 注：Hinnant @quickcheck + 与 moon-chrono_tz 快照对比留 S8 可选扩展
 
 ### MoonBit 语法要点（S1~S6 实践验证）
 
