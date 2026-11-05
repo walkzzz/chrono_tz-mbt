@@ -84,6 +84,8 @@ pub fn DateTime::offset(Self) -> TzOffset
 pub fn DateTime::offset_sec(Self) -> Int32
 pub fn DateTime::parse_rfc3339(String) -> Self?
 pub fn DateTime::timestamp(Self) -> Int64
+pub fn DateTime::to_json(Self) -> String
+pub fn DateTime::to_json_compact(Self) -> String
 pub fn DateTime::to_repr(Self) -> @debug.Repr
 pub fn DateTime::to_rfc3339(Self) -> String
 pub fn DateTime::to_string(Self) -> String
@@ -140,6 +142,7 @@ pub fn NaiveDateTime::second(Self) -> Int64
 pub fn NaiveDateTime::sub_seconds(Self, Int64) -> Self
 pub fn NaiveDateTime::timestamp(Self) -> Int64
 pub fn NaiveDateTime::to_date_time_string(Self) -> String
+pub fn NaiveDateTime::to_json(Self) -> String
 pub fn NaiveDateTime::to_repr(Self) -> @debug.Repr
 pub fn NaiveDateTime::to_rfc_string(Self) -> String
 pub fn NaiveDateTime::weekday(Self) -> Int64

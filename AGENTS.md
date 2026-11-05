@@ -100,6 +100,12 @@ You can browse and install extra skills here:
   - `tz/tz_bench_wbtest.mbt` — 6 基准测试（from_str/offset_from_utc/timestamp/strftime/to_rfc3339/parse_rfc3339）
   - `tz/moon.pkg` — 添加 `moonbitlang/core/bench` 依赖
   - 注：Hinnant @quickcheck + 与 moon-chrono_tz 快照对比留 S8 可选扩展
+- **S8 tz 包 — 可选扩展（quickcheck/序列化）** 🔄 进行中
+  - `tz/tz_quickcheck_wbtest.mbt` — 7 Hinnant @quickcheck 性质测试（civil↔days 互逆 + timestamp 往返 + 分量范围 + weekday/ordinal 范围）
+  - `tz/tz_serialize.mbt` — DateTime/NaiveDateTime JSON 序列化（to_json/to_json_compact）
+  - `tz/tz_serialize_wbtest.mbt` — 5 序列化白盒测试
+  - `tz/moon.pkg` — 添加 `moonbitlang/core/quickcheck` 依赖
+  - 注：尚未运行 moon test 验证（bash step limit），待验证后更新状态
 
 ### MoonBit 语法要点（S1~S6 实践验证）
 
