@@ -2,12 +2,17 @@
 package "walkzzz/chrono_tz-mbt/tz"
 
 import {
+  "moonbitlang/core/bench",
   "moonbitlang/core/debug",
   "walkzzz/chrono_tz-mbt/core",
 }
 
 // Values
+pub fn bench_from_str_summary() -> @bench.Summary
+
 pub fn binary_search(Int32, Int32, (Int32) -> @core.Ordering) -> Result[Int32, Int32]
+
+pub fn quickcheck_civil_roundtrip() -> Unit raise
 
 pub fn strftime(String, DateTime) -> String
 

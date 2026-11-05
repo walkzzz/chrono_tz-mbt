@@ -120,6 +120,29 @@ fn parse_digits(
 }
 
 ///|
+/// 解析十进制数字（Int 索引版），返回 (值, 新位置)，失败返回 None。
+fn parse_digits_at(
+  s : Array[Char],
+  start : Int32,
+  count : Int32,
+) -> (Int64, Int32)? {
+  let mut val = 0L
+  let mut i = 0
+  while i < count {
+    if start + i >= s.length() {
+      return None
+    }
+    let c = s[start + i]
+    if c < '0' || c > '9' {
+      return None
+    }
+    val = val * 10L + (c.to_int() - '0'.to_int()).to_int64()
+    i = i + 1
+  }
+  Some((val, start + count))
+}
+
+///|
 /// RFC3339 解析：`YYYY-MM-DDTHH:MM:SS±HH:MM` 或 `YYYY-MM-DDTHH:MM:SSZ`。
 /// 返回 DateTime?（解析失败返回 None，不抛错，ADR-008 查无→T?）。
 pub fn DateTime::parse_rfc3339(s : String) -> DateTime? {
@@ -190,45 +213,108 @@ pub fn DateTime::parse_rfc3339(s : String) -> DateTime? {
 
 ///|
 /// strptime：按格式串解析输入为 DateTime。
-/// 当前支持简化版：YYYY-MM-DD HH:MM:SS 格式 + 指定时区。
-/// 完整 strptime 实现较复杂，此处提供常用模式解析。
+/// 支持：%Y(4位年) %m(2位月) %d(2位日) %H(2位时) %M(2位分) %S(2位秒)
+///       %y(2位年,00-68→2000s,69-99→1900s) %j(3位年中天数) %% 及字面字符。
+/// 解析失败返回 None（ADR-008 查无→T?）。
 pub fn strptime(format : String, input : String, tz : Tz) -> DateTime? {
-  // 简化实现：支持 "%Y-%m-%d %H:%M:%S" 和 "%Y-%m-%dT%H:%M:%S" 格式
-  let expected = if format.contains("T") {
-    "%Y-%m-%dT%H:%M:%S"
+  let fmt_chars = format.to_array()
+  let in_chars = input.to_array()
+  let fmt_n = fmt_chars.length()
+  let in_n = in_chars.length()
+  let mut fi = 0
+  let mut ii = 0
+  let mut year = 1970L
+  let mut month = 1L
+  let mut day = 1L
+  let mut hour = 0L
+  let mut minute = 0L
+  let mut second = 0L
+  let mut has_yday = false
+  while fi < fmt_n {
+    let fc = fmt_chars[fi]
+    if fc == '%' && fi + 1 < fmt_n {
+      let spec = fmt_chars[fi + 1]
+      match spec {
+        'Y' => {
+          guard parse_digits_at(in_chars, ii, 4) is Some((v, np)) else {
+            return None
+          }
+          year = v
+          ii = np
+        }
+        'm' => {
+          guard parse_digits_at(in_chars, ii, 2) is Some((v, np)) else {
+            return None
+          }
+          month = v
+          ii = np
+        }
+        'd' => {
+          guard parse_digits_at(in_chars, ii, 2) is Some((v, np)) else {
+            return None
+          }
+          day = v
+          ii = np
+        }
+        'H' => {
+          guard parse_digits_at(in_chars, ii, 2) is Some((v, np)) else {
+            return None
+          }
+          hour = v
+          ii = np
+        }
+        'M' => {
+          guard parse_digits_at(in_chars, ii, 2) is Some((v, np)) else {
+            return None
+          }
+          minute = v
+          ii = np
+        }
+        'S' => {
+          guard parse_digits_at(in_chars, ii, 2) is Some((v, np)) else {
+            return None
+          }
+          second = v
+          ii = np
+        }
+        'y' => {
+          guard parse_digits_at(in_chars, ii, 2) is Some((v, np)) else {
+            return None
+          }
+          year = if v <= 68L { 2000L + v } else { 1900L + v }
+          ii = np
+        }
+        'j' => {
+          guard parse_digits_at(in_chars, ii, 3) is Some((v, np)) else {
+            return None
+          }
+          day = v
+          has_yday = true
+          ii = np
+        }
+        '%' => {
+          if ii >= in_n || in_chars[ii] != '%' {
+            return None
+          }
+          ii = ii + 1
+        }
+        _ => return None
+      }
+      fi = fi + 2
+    } else {
+      if ii >= in_n || in_chars[ii] != fc {
+        return None
+      }
+      ii = ii + 1
+      fi = fi + 1
+    }
+  }
+  let naive = if has_yday {
+    let d = Date::from_ordinal(year, day)
+    NaiveDateTime::make(d.year(), d.month(), d.day(), hour, minute, second)
   } else {
-    "%Y-%m-%d %H:%M:%S"
+    NaiveDateTime::make(year, month, day, hour, minute, second)
   }
-  if format != expected {
-    return None
-  }
-  let chars = input.to_array()
-  let n = chars.length()
-  if n < 19 {
-    return None
-  }
-  guard parse_digits(chars, 0, 4) is Some((year, p1)) else { return None }
-  if chars[p1] != '-' {
-    return None
-  }
-  guard parse_digits(chars, p1 + 1, 2) is Some((month, p2)) else { return None }
-  if chars[p2] != '-' {
-    return None
-  }
-  guard parse_digits(chars, p2 + 1, 2) is Some((day, p3)) else { return None }
-  if chars[p3] != 'T' && chars[p3] != ' ' {
-    return None
-  }
-  guard parse_digits(chars, p3 + 1, 2) is Some((hour, p4)) else { return None }
-  if chars[p4] != ':' {
-    return None
-  }
-  guard parse_digits(chars, p4 + 1, 2) is Some((min, p5)) else { return None }
-  if chars[p5] != ':' {
-    return None
-  }
-  guard parse_digits(chars, p5 + 1, 2) is Some((sec, _)) else { return None }
-  let naive = NaiveDateTime::make(year, month, day, hour, min, sec)
   match tz.from_local_date_time(naive) {
     LocalResult::Single(dt) => Some(dt)
     _ => None

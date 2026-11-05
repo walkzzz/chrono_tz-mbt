@@ -196,10 +196,10 @@ test "strptime Shanghai" {
 }
 
 ///|
-test "strptime invalid format" {
+test "strptime slash format" {
   let tz = get_tz("UTC")
   let parsed = strptime("%Y/%m/%d", "2025/01/15", tz)
-  assert_true(parsed is None)
+  assert_true(parsed is Some(_))
 }
 
 ///|
@@ -207,4 +207,63 @@ test "strptime invalid input" {
   let tz = get_tz("UTC")
   let parsed = strptime("%Y-%m-%d %H:%M:%S", "2025-01-15", tz)
   assert_true(parsed is None)
+}
+
+///|
+test "strptime %y 2-digit year 2000s" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%y-%m-%d", "25-01-15", tz)
+  assert_true(parsed is Some(_))
+  let dt = parsed.unwrap()
+  let naive = dt.naive_local()
+  assert_eq(naive.year(), 2025L)
+}
+
+///|
+test "strptime %y 2-digit year 1900s" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%y-%m-%d", "99-01-15", tz)
+  assert_true(parsed is Some(_))
+  let dt = parsed.unwrap()
+  let naive = dt.naive_local()
+  assert_eq(naive.year(), 1999L)
+}
+
+///|
+test "strptime %j ordinal day" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%Y-%j", "2025-046", tz)
+  assert_true(parsed is Some(_))
+  let dt = parsed.unwrap()
+  let naive = dt.naive_local()
+  assert_eq(naive.month(), 2L)
+  assert_eq(naive.day(), 15L)
+}
+
+///|
+test "strptime %% literal percent" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%Y%%", "2025%", tz)
+  assert_true(parsed is Some(_))
+}
+
+///|
+test "strptime custom format with dots" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%Y.%m.%d %H:%M:%S", "2025.01.15 12:30:45", tz)
+  assert_true(parsed is Some(_))
+  let dt = parsed.unwrap()
+  assert_eq(dt.timestamp(), 1736944245L)
+}
+
+///|
+test "strptime date only no time" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%Y-%m-%d", "2025-07-15", tz)
+  assert_true(parsed is Some(_))
+  let dt = parsed.unwrap()
+  let naive = dt.naive_local()
+  assert_eq(naive.hour(), 0L)
+  assert_eq(naive.minute(), 0L)
+  assert_eq(naive.second(), 0L)
 }

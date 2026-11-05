@@ -254,7 +254,182 @@ fn build_system_prompt() -> String {
   }
   let table = lines.iter().join("\n")
   let count = @tz.Tz::all_names().length()
-  "You are a timezone assistant powered by chrono_tz-mbt (MoonBit, IANA tzdata 2025b, \{count} timezones).\n\nCurrent UTC: \{utc_rfc}\nTimestamp: \{ts}\n\nCurrent time in common timezones:\n\{table}\n\nYou can help with: timezone queries, time conversion, DST detection, RFC3339 parsing, strftime formatting. Answer in the user's language. Be concise."
+  "You are a timezone assistant powered by chrono_tz-mbt (MoonBit, IANA tzdata 2025b, \{count} timezones).\n\nCurrent UTC: \{utc_rfc}\nTimestamp: \{ts}\n\nCurrent time in common timezones:\n\{table}\n\nYou can help with: timezone queries, time conversion, DST detection, RFC3339 parsing, strftime formatting. Answer in the user's language. Be concise.\n\nTip: The user can also type tz: commands directly (tz:now <tz>, tz:convert <rfc> <tz>, tz:offset <tz>, tz:dst <tz>, tz:search <kw>, tz:list, tz:help) for instant local timezone queries without LLM."
+}
+
+// ============================================================
+// 时区工具调用（MCP 集成）
+// ============================================================
+
+///|
+/// 处理 tz: 前缀的时区工具命令，返回结果字符串。
+fn handle_tz_command(input : String) -> String {
+  let cmd = if input.has_prefix("tz:") {
+    input[3:input.length()].to_owned()
+  } else {
+    input
+  }
+  let parts = split_spaces_agent(cmd)
+  if parts.is_empty() || parts[0] == "" {
+    return tz_help()
+  }
+  match parts[0] {
+    "help" => tz_help()
+    "now" => {
+      if parts.length() < 2 {
+        return "Usage: tz:now <timezone>"
+      }
+      tz_now(parts[1])
+    }
+    "convert" => {
+      if parts.length() < 3 {
+        return "Usage: tz:convert <rfc3339> <timezone>"
+      }
+      tz_convert(parts[1], parts[2])
+    }
+    "offset" => {
+      if parts.length() < 2 {
+        return "Usage: tz:offset <timezone>"
+      }
+      tz_offset(parts[1])
+    }
+    "dst" => {
+      if parts.length() < 2 {
+        return "Usage: tz:dst <timezone>"
+      }
+      tz_dst(parts[1])
+    }
+    "search" => {
+      if parts.length() < 2 {
+        return "Usage: tz:search <keyword>"
+      }
+      tz_search(parts[1])
+    }
+    "list" => tz_list()
+    _ => "Unknown command: \{parts[0]}. Type 'tz:help' for available commands."
+  }
+}
+
+///|
+fn tz_help() -> String {
+  "时区工具命令:\n  tz:now <timezone>       — 当前时间\n  tz:convert <rfc3339> <tz> — 时区转换\n  tz:offset <timezone>    — 获取偏移\n  tz:dst <timezone>       — DST 检测\n  tz:search <keyword>     — 搜索时区\n  tz:list                 — 列出全部时区\n  tz:help                 — 显示帮助"
+}
+
+///|
+fn tz_now(name : String) -> String {
+  match @tz.Tz::from_str(name) {
+    Some(tz) => {
+      let ts = current_timestamp()
+      let utc_tz = match @tz.Tz::from_str("UTC") {
+        Some(t) => t
+        None => return "Error: UTC not found"
+      }
+      let naive_utc = @tz.NaiveDateTime::from_timestamp(ts)
+      let utc_off = utc_tz.offset_from_utc_date_time(naive_utc)
+      let dt = @tz.DateTime::make(ts, utc_off)
+      let local_dt = dt.with_timezone(tz)
+      "\{name}: \{local_dt.to_rfc3339()} (offset=\{local_dt.offset_sec()}s, abbr=\{local_dt.abbreviation()})"
+    }
+    None => "Error: unknown timezone '\{name}'"
+  }
+}
+
+///|
+fn tz_convert(rfc : String, name : String) -> String {
+  match @tz.DateTime::parse_rfc3339(rfc) {
+    Some(dt) =>
+      match @tz.Tz::from_str(name) {
+        Some(tz) => {
+          let converted = dt.with_timezone(tz)
+          "\{rfc} → \{name}: \{converted.to_rfc3339()}"
+        }
+        None => "Error: unknown timezone '\{name}'"
+      }
+    None => "Error: failed to parse '\{rfc}'"
+  }
+}
+
+///|
+fn tz_offset(name : String) -> String {
+  match @tz.Tz::from_str(name) {
+    Some(tz) => {
+      let ts = current_timestamp()
+      let naive = @tz.NaiveDateTime::from_timestamp(ts)
+      let off = tz.offset_from_utc_date_time(naive)
+      "\{name}: offset=\{off.offset_sec()}s, abbr=\{off.abbreviation()}"
+    }
+    None => "Error: unknown timezone '\{name}'"
+  }
+}
+
+///|
+fn tz_dst(name : String) -> String {
+  match @tz.Tz::from_str(name) {
+    Some(tz) => {
+      let ts = current_timestamp()
+      let naive = @tz.NaiveDateTime::from_timestamp(ts)
+      let summer = @tz.NaiveDateTime::make(2025L, 7L, 15L, 12L, 0L, 0L)
+      let winter = @tz.NaiveDateTime::make(2025L, 1L, 15L, 12L, 0L, 0L)
+      let off_now = tz.offset_from_utc_date_time(naive).offset_sec()
+      let off_summer = tz.offset_from_utc_date_time(summer).offset_sec()
+      let off_winter = tz.offset_from_utc_date_time(winter).offset_sec()
+      if off_summer != off_winter {
+        "\{name}: DST detected. Summer offset=\{off_summer}s, Winter offset=\{off_winter}s, Current offset=\{off_now}s"
+      } else {
+        "\{name}: No DST. Offset=\{off_now}s (constant year-round)"
+      }
+    }
+    None => "Error: unknown timezone '\{name}'"
+  }
+}
+
+///|
+fn tz_search(keyword : String) -> String {
+  let all_names = @tz.Tz::all_names()
+  let matches : Array[String] = []
+  for name in all_names {
+    if name.contains(keyword) {
+      matches.push(name)
+    }
+  }
+  if matches.is_empty() {
+    "No timezones matching '\{keyword}'."
+  } else {
+    let lines : Array[String] = []
+    lines.push("Matches (\{matches.length()}):")
+    for name in matches {
+      lines.push("  \{name}")
+    }
+    lines.iter().join("\n")
+  }
+}
+
+///|
+fn tz_list() -> String {
+  let all_names = @tz.Tz::all_names()
+  "Total: \{all_names.length()} timezones. Use tz:search <keyword> to filter."
+}
+
+///|
+/// 按空格分割字符串为数组（Agent 内部用）。
+fn split_spaces_agent(s : String) -> Array[String] {
+  let result : Array[String] = []
+  let mut current = ""
+  let chars = s.to_array()
+  for c in chars {
+    if c == ' ' {
+      if current != "" {
+        result.push(current)
+        current = ""
+      }
+    } else {
+      current = current + c.to_string()
+    }
+  }
+  if current != "" {
+    result.push(current)
+  }
+  result
 }
 
 // ============================================================
@@ -282,11 +457,6 @@ fn LineEditor::backspace(self : LineEditor) -> Bool {
     Some(_) => true
     None => false
   }
-}
-
-///|
-fn LineEditor::is_empty(self : LineEditor) -> Bool {
-  self.chars.is_empty()
 }
 
 ///|
@@ -347,6 +517,11 @@ async fn run_chat(tty : @tty.Tty, config : Config) -> Unit {
         if line == "quit" || line == "exit" {
           break
         }
+        if line.has_prefix("tz:") {
+          let result = handle_tz_command(line)
+          tty.write_string("\r\n🔧 \{result}\r\n\r\n")
+          continue
+        }
         history.push({ role: "user", content: line, })
         tty.write_string("🤖 ")
         match stream_reply(tty, config, history) {
@@ -381,6 +556,11 @@ async fn run_chat_line(tty : @tty.Tty, config : Config) -> Unit {
         }
         if line == "quit" || line == "exit" {
           break
+        }
+        if line.has_prefix("tz:") {
+          let result = handle_tz_command(line)
+          tty.write_string("🔧 \{result}\n\n")
+          continue
         }
         history.push({ role: "user", content: line, })
         tty.write_string("🤖 ")

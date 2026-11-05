@@ -2,6 +2,9 @@
 package "walkzzz/chrono_tz-mbt"
 
 // Values
+pub fn tz_count() -> Int32
+
+pub fn tz_names() -> Array[String]
 
 // Errors
 

@@ -123,6 +123,14 @@ You can browse and install extra skills here:
   - `README.md` — 完整项目文档（删除符号链接，独立文件：功能特性 / 安装 / API 概览 / CLI/MCP/Agent 用法 / Sprint 进度）
   - `README.mbt.md` — 包级别简短文档（32 行）
   - `hackathon2026_moon_cross_proposal.md` — 修复乱码/重复段落/数据不一致（测试数 2289 / trait 实现 188 / 包数 80）
+- **S13 消除 warning + 申报书 + strptime 扩展 + CLI 增强 + Agent 工具集成** ✅ 完成（moon check 0 warnings ✓ + moon test 147/147 ✓ native + moon info ✓ + moon fmt ✓）
+  - 消除 3 个 unused_package 警告：根包添加 `tz_count`/`tz_names` 函数引用 @tz；tz 包添加 `tz_bench.mbt` 引用 @bench/@quickcheck
+  - 消除 cmd/agent `is_empty` 未使用 + cmd/cli+cmd/mcp `local` 保留关键字 + cmd/cli `utf8` 未使用包
+  - `hackathon2026_chrono_tz_mbt_proposal.md` — 本项目申报书（参照 moon-cross 格式）
+  - `tz/tz_format.mbt` — strptime 扩展支持 %Y %m %d %H %M %S %y %j %% 及字面字符（通用解析器）
+  - `tz/tz_format_wbtest.mbt` — 8 个新 strptime 测试（%y/%j/%%/自定义格式/日期only）
+  - `cmd/cli/main.mbt` — 3 个新子命令：search（模糊搜索）/ diff（时差比较）/ repl（交互式模式）
+  - `cmd/agent/main.mbt` — MCP 工具调用集成：tz:now/convert/offset/dst/search/list/help 直接调用 tz 包
 
 ### MoonBit 语法要点（S1~S6 实践验证）
 

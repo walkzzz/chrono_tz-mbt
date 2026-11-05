@@ -24,3 +24,15 @@
 /// ```
 ///
 /// 依赖 `walkzzz/chrono_tz-mbt/tz` 包使用全部时区功能。
+
+///|
+/// 返回支持的 IANA 时区总数（597）。
+pub fn tz_count() -> Int32 {
+  @tz.Tz::all().length()
+}
+
+///|
+/// 返回全部 IANA 时区名称。
+pub fn tz_names() -> Array[String] {
+  @tz.Tz::all_names()
+}

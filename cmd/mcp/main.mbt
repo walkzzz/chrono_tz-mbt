@@ -487,9 +487,9 @@ fn tool_parse_rfc3339(args : Json) -> Map[String, Json] {
     Some(dt) => dt
     None => return tool_error("failed to parse RFC3339: \{rfc}")
   }
-  let local = dt.naive_local()
+  let local_dt = dt.naive_local()
   tool_ok(
-    "rfc3339: \{rfc}\ntimestamp: \{dt.timestamp()}\nyear: \{local.year()}\nmonth: \{local.month()}\nday: \{local.day()}\nhour: \{local.hour()}\nminute: \{local.minute()}\nsecond: \{local.second()}\ntimezone: \{dt.tz_id()}\noffset_sec: \{dt.offset_sec()}\nabbreviation: \{dt.abbreviation()}",
+    "rfc3339: \{rfc}\ntimestamp: \{dt.timestamp()}\nyear: \{local_dt.year()}\nmonth: \{local_dt.month()}\nday: \{local_dt.day()}\nhour: \{local_dt.hour()}\nminute: \{local_dt.minute()}\nsecond: \{local_dt.second()}\ntimezone: \{dt.tz_id()}\noffset_sec: \{dt.offset_sec()}\nabbreviation: \{dt.abbreviation()}",
   )
 }
 

@@ -1,7 +1,6 @@
 import {
   "walkzzz/chrono_tz-mbt/tz",
   "moonbitlang/core/json",
-  "moonbitlang/core/encoding/utf8",
   "moonbitlang/core/env",
 }
 
