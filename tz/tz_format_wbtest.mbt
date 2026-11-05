@@ -267,3 +267,79 @@ test "strptime date only no time" {
   assert_eq(naive.minute(), 0L)
   assert_eq(naive.second(), 0L)
 }
+
+///|
+test "strptime %B month full name" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%Y %B %d", "2025 January 15", tz)
+  assert_true(parsed is Some(_))
+  let dt = parsed.unwrap()
+  let naive = dt.naive_local()
+  assert_eq(naive.year(), 2025L)
+  assert_eq(naive.month(), 1L)
+  assert_eq(naive.day(), 15L)
+}
+
+///|
+test "strptime %b month abbr" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%Y %b %d", "2025 Sep 15", tz)
+  assert_true(parsed is Some(_))
+  let dt = parsed.unwrap()
+  let naive = dt.naive_local()
+  assert_eq(naive.month(), 9L)
+  assert_eq(naive.day(), 15L)
+}
+
+///|
+test "strptime %A weekday full name" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%Y-%m-%d %A", "2025-01-15 Wednesday", tz)
+  assert_true(parsed is Some(_))
+}
+
+///|
+test "strptime %a weekday abbr" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%Y-%m-%d %a", "2025-01-15 Wed", tz)
+  assert_true(parsed is Some(_))
+}
+
+///|
+test "strptime %Z tz abbreviation" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%Y-%m-%d %Z", "2025-01-15 UTC", tz)
+  assert_true(parsed is Some(_))
+}
+
+///|
+test "strptime %z offset hhmm" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%Y-%m-%d %z", "2025-01-15 +0800", tz)
+  assert_true(parsed is Some(_))
+}
+
+///|
+test "strptime %z offset hh:mm" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%Y-%m-%d %z", "2025-01-15 +08:00", tz)
+  assert_true(parsed is Some(_))
+}
+
+///|
+test "strptime %B invalid name" {
+  let tz = get_tz("UTC")
+  let parsed = strptime("%Y %B %d", "2025 Xanuary 15", tz)
+  assert_true(parsed is None)
+}
+
+///|
+test "strptime full format with names" {
+  let tz = get_tz("UTC")
+  let parsed = strptime(
+    "%a %B %d %H:%M:%S %Y", "Wed January 15 12:30:45 2025", tz,
+  )
+  assert_true(parsed is Some(_))
+  let dt = parsed.unwrap()
+  assert_eq(dt.timestamp(), 1736944245L)
+}

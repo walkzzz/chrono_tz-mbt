@@ -31,7 +31,7 @@ mooncakes 生态调研确认：截至 2026-10-23，**无任何完整 IANA 时区
 | 指标 | 数值 |
 |------|------|
 | 包数 | **7**（根 + core + data + tz + cmd/mcp + cmd/cli + cmd/agent） |
-| 测试数 | **156**（全部通过，native target） |
+| 测试数 | **165**（全部通过，native target） |
 | Warnings | **0** |
 | Errors | **0** |
 | IANA 时区数 | **597**（tzdata 2025b，6 大洲） |
@@ -41,7 +41,7 @@ mooncakes 生态调研确认：截至 2026-10-23，**无任何完整 IANA 时区
 | Hinnant 算法 | ✅ 纯整数 O(1)，支持负时间戳 |
 | RFC3339 | ✅ parse_rfc3339 / to_rfc3339 往返一致 |
 | strftime | ✅ %Y %m %d %H %M %S %Z %z %A %a %B %b %j %% |
-| strptime | ✅ 扩展版（%Y %m %d %H %M %S %y %j %% 及字面字符，通用解析器） |
+| strptime | ✅ 扩展版（%Y %m %d %H %M %S %y %j %B %b %A %a %Z %z %% 及字面字符，通用解析器） |
 | JSON 序列化 | ✅ DateTime / NaiveDateTime to_json / to_json_compact |
 | MCP 服务器 | ✅ 7 个时区工具（JSON-RPC stdio） |
 | CLI 工具 | ✅ 10 个子命令（list/info/convert/now/parse/format/dst/search/diff/repl） |
@@ -173,7 +173,7 @@ DeepSeek 流式聊天（SSE）+ 系统提示注入时区上下文（当前 UTC �
 | @quickcheck | 7 | ✅ Pass | civil↔day 互逆/timestamp 往返/分量范围/weekday/ordinal |
 | 基准测试 | 6 | ✅ Pass | from_str/offset/timestamp/strftime/rfc3339/parse 性能 |
 | strptime 扩展 | 8 | ✅ Pass | %y/%j/%%/自定义格式/日期only |
-| **总计** | **156** | **✅ All Pass** | **五维度全覆盖** |
+| **总计** | **165** | **✅ All Pass** | **五维度全覆盖** |
 
 ---
 
@@ -271,7 +271,7 @@ chrono_tz-mbt/
 |-----------|-------------|
 | MoonBit 为主 | 库自身 100% MoonBit 实现（时区算法 + DST + RFC3339 + MCP + CLI + Agent） |
 | 仓库公开 | GitHub 公开仓库，持续提交（S1-S14，14 轮 Sprint） |
-| 能够运行 | README + 可运行示例 + 156 测试 + 0 warnings |
+| 能够运行 | README + 可运行示例 + 165 测试 + 0 warnings |
 | 工作有效 | 从仓颉移植到 MoonBit，独立重写核心算法，2026-11 完成 |
 | 开源合规 | Apache-2.0 License，参考来源已标注 |
 | AI 可解释 | AI 辅助开发，所有算法经人工审查 |
@@ -288,7 +288,7 @@ chrono_tz-mbt/
 6. **@quickcheck 性质测试** — 7 个 Hinnant 算法性质测试（civil↔day 互逆 / timestamp 往返 / 分量范围）
 7. **三种交付形态** — MCP 服务器（JSON-RPC）+ CLI 工具（10 子命令）+ LLM Agent（DeepSeek 流式 + 7 tz: 工具调用）
 8. **零 warnings** — moon check 0 warnings 0 errors，代码质量严格
-9. **156 测试全通过** — 白盒 122 + 黑盒 15 + quickcheck 7 + 基准 6 + strptime 8，五维度全覆盖
+9. **165 测试全通过** — 白盒 131 + 黑盒 15 + quickcheck 7 + 基准 6 + strptime 17，五维度全覆盖
 10. **线性无环架构** — core ← data ← tz 三包线性，core 零依赖可独立复用
 
 ---
@@ -300,5 +300,5 @@ chrono_tz-mbt/
 | WASM local count 限制 | 597 match arm 在 WASM 报错 | 用 native target 测试（`--target native`） |
 | tzdata 版本更新 | 时区规则变更 | 数据文件按大洲分离，可独立更新 |
 | MoonBit 语言 beta-preview | 语言本身尚未 stable | 已可用于生产，不兼容变更严格评估 |
-| strptime 格式扩展 | 已支持 %Y %m %d %H %M %S %y %j %% 及字面字符 | 通用解析器架构，可继续扩展完整规格 |
+| strptime 格式扩展 | 已支持 %Y %m %d %H %M %S %y %j %B %b %A %a %Z %z %% 及字面字符 | 通用解析器架构，可继续扩展完整规格 |
 | LLM Agent 依赖外部 API | DeepSeek API 变更 | API 调用隔离在 agent 包，不影响核心库 |

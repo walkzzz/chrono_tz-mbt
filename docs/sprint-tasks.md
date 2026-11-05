@@ -389,7 +389,7 @@
 |------|------|
 | `chrono_tz-mbt.mbt` | 添加 `tz_count`/`tz_names` 引用 @tz |
 | `tz/tz_bench.mbt` | 引用 @bench/@quickcheck |
-| `tz/tz_format.mbt` | strptime 扩展支持 %Y %m %d %H %M %S %y %j %% 及字面字符 |
+| `tz/tz_format.mbt` | strptime 扩展支持 %Y %m %d %H %M %S %y %j %B %b %A %a %Z %z %% 及字面字符 |
 | `tz/tz_format_wbtest.mbt` | 8 个新 strptime 测试 |
 | `cmd/cli/main.mbt` | 3 新子命令：search/diff/repl |
 | `cmd/agent/main.mbt` | MCP 工具调用集成：tz:now/convert/offset/dst/search/list/help |
@@ -431,7 +431,7 @@
 
 ### 验收门禁
 
-- `moon check` 0 warnings + `moon test --target native` 156 测试通过
+- `moon check` 0 warnings + `moon test --target native` 165 测试通过
 - `moon info` + `moon fmt` 通过
 
 > 文件结束 | chrono_tz-mbt sprint-tasks v2.0 | 2026-11-05

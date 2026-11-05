@@ -90,7 +90,7 @@ You can browse and install extra skills here:
   - `tz/timezone_impl.mbt` — `pub trait` → `pub(open) trait` 供 Tz 实现
   - 注：WASM target 有 597 match arm local count 限制，用 native target 测试
 - **S6 tz 包 — strftime/strptime/RFC3339** ✅ 完成（moon check ✓ + moon test 100/100 ✓ native + moon info ✓ + moon fmt ✓）
-  - `tz/tz_format.mbt` — strftime(%Y%m%d%H%M%S%Z%z%A%a%B%b%j%%) + strptime(简化) + DateTime::parse_rfc3339（~270 行）
+  - `tz/tz_format.mbt` — strftime(%Y%m%d%H%M%S%Z%z%A%a%B%b%j%%) + strptime(%Y%m%d%H%M%S%y%j%B%b%A%a%Z%z%%) + DateTime::parse_rfc3339（~270 行）
   - `tz/tz_format_wbtest.mbt` — 24 白盒测试（strftime 各 specifier/RFC3339 往返/strptime）
   - 注：`RFC3339::format`/`RFC3339::parse` 命名不合法（RFC3339 非类型），format 委托已有 `DateTime::to_rfc3339`，parse 改为 `DateTime::parse_rfc3339`
 - **S7 tz 包 — 测试（黑盒/白盒/基准）** ✅ 完成（moon check ✓ + moon test 118/118 ✓ native + moon info ✓ + moon fmt ✓）
@@ -127,7 +127,7 @@ You can browse and install extra skills here:
   - 消除 3 个 unused_package 警告：根包添加 `tz_count`/`tz_names` 函数引用 @tz；tz 包添加 `tz_bench.mbt` 引用 @bench/@quickcheck
   - 消除 cmd/agent `is_empty` 未使用 + cmd/cli+cmd/mcp `local` 保留关键字 + cmd/cli `utf8` 未使用包
   - `hackathon2026_chrono_tz_mbt_proposal.md` — 本项目申报书（参照 moon-cross 格式）
-  - `tz/tz_format.mbt` — strptime 扩展支持 %Y %m %d %H %M %S %y %j %% 及字面字符（通用解析器）
+  - `tz/tz_format.mbt` — strptime 扩展支持 %Y %m %d %H %M %S %y %j %B %b %A %a %Z %z %% 及字面字符（通用解析器）
   - `tz/tz_format_wbtest.mbt` — 8 个新 strptime 测试（%y/%j/%%/自定义格式/日期only）
   - `cmd/cli/main.mbt` — 3 个新子命令：search（模糊搜索）/ diff（时差比较）/ repl（交互式模式）
   - `cmd/agent/main.mbt` — MCP 工具调用集成：tz:now/convert/offset/dst/search/list/help 直接调用 tz 包

@@ -148,7 +148,7 @@ Agent 自动注入时区上下文（当前 UTC 时间 + 14 常用时区偏移）
 
 ```bash
 moon check                    # 类型检查
-moon test --target native     # 运行测试（156 个，native target）
+moon test --target native     # 运行测试（165 个，native target）
 moon info                     # 更新 .mbti 接口
 moon fmt                      # 格式化
 ```

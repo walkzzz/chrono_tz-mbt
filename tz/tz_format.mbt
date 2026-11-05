@@ -143,6 +143,62 @@ fn parse_digits_at(
 }
 
 ///|
+/// 解析连续字母，返回 (字符串, 新位置)，失败返回 None。
+fn parse_alpha(s : Array[Char], start : Int32) -> (String, Int32)? {
+  if start >= s.length() {
+    return None
+  }
+  let mut buf = ""
+  let mut i = start
+  while i < s.length() {
+    let c = s[i]
+    if (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') {
+      buf = buf + c.to_string()
+      i = i + 1
+    } else {
+      break
+    }
+  }
+  if buf.length() == 0 {
+    None
+  } else {
+    Some((buf, i))
+  }
+}
+
+///|
+/// 查表匹配名称（大小写敏感），返回索引，失败返回 None。
+fn lookup_name(table : Array[String], name : String) -> Int32? {
+  let mut i = 0
+  while i < table.length() {
+    if table[i] == name {
+      return Some(i)
+    }
+    i = i + 1
+  }
+  None
+}
+
+///|
+/// 解析时区偏移 ±HHMM 或 ±HH:MM，返回 (offset_sec, 新位置)，失败返回 None。
+fn parse_offset(s : Array[Char], start : Int32) -> (Int32, Int32)? {
+  if start >= s.length() {
+    return None
+  }
+  let sign : Int32 = if s[start] == '+' {
+    1
+  } else if s[start] == '-' {
+    -1
+  } else {
+    return None
+  }
+  guard parse_digits_at(s, start + 1, 2) is Some((oh, p1)) else { return None }
+  let p2 = if p1 < s.length() && s[p1] == ':' { p1 + 1 } else { p1 }
+  guard parse_digits_at(s, p2, 2) is Some((om, p3)) else { return None }
+  Some((sign * (oh.to_int() * 3600 + om.to_int() * 60), p3))
+}
+
+///|
 /// RFC3339 解析：`YYYY-MM-DDTHH:MM:SS±HH:MM` 或 `YYYY-MM-DDTHH:MM:SSZ`。
 /// 返回 DateTime?（解析失败返回 None，不抛错，ADR-008 查无→T?）。
 pub fn DateTime::parse_rfc3339(s : String) -> DateTime? {
@@ -214,7 +270,9 @@ pub fn DateTime::parse_rfc3339(s : String) -> DateTime? {
 ///|
 /// strptime：按格式串解析输入为 DateTime。
 /// 支持：%Y(4位年) %m(2位月) %d(2位日) %H(2位时) %M(2位分) %S(2位秒)
-///       %y(2位年,00-68→2000s,69-99→1900s) %j(3位年中天数) %% 及字面字符。
+///       %y(2位年,00-68→2000s,69-99→1900s) %j(3位年中天数)
+///       %B(月份全名) %b(月份缩写) %A(星期全名) %a(星期缩写)
+///       %Z(时区缩写,仅消费) %z(偏移±HHMM/±HH:MM,仅消费) %% 及字面字符。
 /// 解析失败返回 None（ADR-008 查无→T?）。
 pub fn strptime(format : String, input : String, tz : Tz) -> DateTime? {
   let fmt_chars = format.to_array()
@@ -290,6 +348,44 @@ pub fn strptime(format : String, input : String, tz : Tz) -> DateTime? {
           }
           day = v
           has_yday = true
+          ii = np
+        }
+        'B' => {
+          guard parse_alpha(in_chars, ii) is Some((name, np)) else {
+            return None
+          }
+          guard lookup_name(month_full, name) is Some(m) else { return None }
+          month = m.to_int64()
+          ii = np
+        }
+        'b' => {
+          guard parse_alpha(in_chars, ii) is Some((name, np)) else {
+            return None
+          }
+          guard lookup_name(month_abbr, name) is Some(m) else { return None }
+          month = m.to_int64()
+          ii = np
+        }
+        'A' => {
+          guard parse_alpha(in_chars, ii) is Some((name, np)) else {
+            return None
+          }
+          guard lookup_name(weekday_full, name) is Some(_) else { return None }
+          ii = np
+        }
+        'a' => {
+          guard parse_alpha(in_chars, ii) is Some((name, np)) else {
+            return None
+          }
+          guard lookup_name(weekday_abbr, name) is Some(_) else { return None }
+          ii = np
+        }
+        'Z' => {
+          guard parse_alpha(in_chars, ii) is Some((_, np)) else { return None }
+          ii = np
+        }
+        'z' => {
+          guard parse_offset(in_chars, ii) is Some((_, np)) else { return None }
           ii = np
         }
         '%' => {

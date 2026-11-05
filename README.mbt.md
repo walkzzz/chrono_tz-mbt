@@ -58,7 +58,7 @@ enum LocalResult[T] {
 
 ```bash
 moon check                    # 类型检查（0 warnings）
-moon test --target native     # 运行测试（147 个，native target）
+moon test --target native     # 运行测试（165 个，native target）
 moon info && moon fmt         # 更新接口 + 格式化
 ```
 
