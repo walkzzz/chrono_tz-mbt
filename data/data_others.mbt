@@ -2,10 +2,8 @@
 // 移植自仓颉 src/data/data_others.cj
 
 ///|
-pub let antarctica__casey : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [
+fn _make_antarctica__casey() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
     (-31536000L, 332, 19),
     (1255802400L, 374, 27),
     (1267714800L, 332, 19),
@@ -23,14 +21,15 @@ pub let antarctica__casey : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (1647090000L, 332, 19),
     (1664640060L, 374, 27),
     (1678291200L, 332, 19),
-  ],
-)
+  ])
+}
 
 ///|
-pub let antarctica__davis : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [
+pub let antarctica__casey : @core.FixedTimespanSet = _make_antarctica__casey()
+
+///|
+fn _make_antarctica__davis() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
     (-409190400L, 319, 16),
     (-163062000L, 191, 38),
     (-28857600L, 319, 16),
@@ -38,14 +37,15 @@ pub let antarctica__davis : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (1268251200L, 319, 16),
     (1319742000L, 294, 11),
     (1329854400L, 319, 16),
-  ],
-)
+  ])
+}
 
 ///|
-pub let antarctica__macquarie : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [
+pub let antarctica__davis : @core.FixedTimespanSet = _make_antarctica__davis()
+
+///|
+fn _make_antarctica__macquarie() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
     (-2214259200L, 363, 68),
     (-1680508800L, 374, 67),
     (-1665388800L, 363, 68),
@@ -314,21 +314,26 @@ pub let antarctica__macquarie : @core.FixedTimespanSet = @core.FixedTimespanSet:
     (4063276800L, 374, 67),
     (4079001600L, 363, 68),
     (4094726400L, 374, 67),
-  ],
-)
+  ])
+}
 
 ///|
-pub let antarctica__mawson : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [(-501206400L, 310, 14), (1255809600L, 294, 11)],
-)
+pub let antarctica__macquarie : @core.FixedTimespanSet = _make_antarctica__macquarie()
 
 ///|
-pub let antarctica__palmer : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [
+fn _make_antarctica__mawson() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
+    (-501206400L, 310, 14),
+    (1255809600L, 294, 11),
+  ])
+}
+
+///|
+pub let antarctica__mawson : @core.FixedTimespanSet = _make_antarctica__mawson()
+
+///|
+fn _make_antarctica__palmer() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
     (-157766400L, 159, 43),
     (-152658000L, 134, 46),
     (-132955200L, 159, 43),
@@ -411,21 +416,23 @@ pub let antarctica__palmer : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (1463281200L, 134, 46),
     (1471147200L, 159, 43),
     (1480820400L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let antarctica__rothera : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [(218246400L, 159, 43)],
-)
+pub let antarctica__palmer : @core.FixedTimespanSet = _make_antarctica__palmer()
 
 ///|
-pub let antarctica__troll : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [
+fn _make_antarctica__rothera() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [(218246400L, 159, 43)])
+}
+
+///|
+pub let antarctica__rothera : @core.FixedTimespanSet = _make_antarctica__rothera()
+
+///|
+fn _make_antarctica__troll() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
     (1108166400L, 191, 0),
     (1111885200L, 232, 4),
     (1130634000L, 191, 0),
@@ -617,26 +624,28 @@ pub let antarctica__troll : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4065123600L, 191, 0),
     (4078429200L, 232, 4),
     (4096573200L, 191, 0),
-  ],
-)
+  ])
+}
 
 ///|
-pub let antarctica__vostok : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [
+pub let antarctica__troll : @core.FixedTimespanSet = _make_antarctica__troll()
+
+///|
+fn _make_antarctica__vostok() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
     (-380073600L, 319, 16),
     (760035600L, 191, 38),
     (783648000L, 319, 16),
     (1702839600L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let atlantic__azores : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  170,
-  126,
-  [
+pub let antarctica__vostok : @core.FixedTimespanSet = _make_antarctica__vostok()
+
+///|
+fn _make_atlantic__azores() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(170, 126, [
     (-2713904240L, 169, 112),
     (-1830376800L, 168, 41),
     (-1689548400L, 178, 39),
@@ -977,14 +986,15 @@ pub let atlantic__azores : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065123600L, 178, 39),
     (4078429200L, 191, 0),
     (4096573200L, 178, 39),
-  ],
-)
+  ])
+}
 
 ///|
-pub let atlantic__bermuda : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  125,
-  126,
-  [
+pub let atlantic__azores : @core.FixedTimespanSet = _make_atlantic__azores()
+
+///|
+fn _make_atlantic__bermuda() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(125, 126, [
     (-2524506042L, 125, 81),
     (-1664307642L, 155, 82),
     (-1648932042L, 125, 81),
@@ -1265,14 +1275,15 @@ pub let atlantic__bermuda : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4065742800L, 134, 75),
     (4076632800L, 159, 66),
     (4097192400L, 134, 75),
-  ],
-)
+  ])
+}
 
 ///|
-pub let atlantic__canary : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  177,
-  126,
-  [
+pub let atlantic__bermuda : @core.FixedTimespanSet = _make_atlantic__bermuda()
+
+///|
+fn _make_atlantic__canary() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(177, 126, [
     (-1509663504L, 178, 39),
     (-733874400L, 191, 168),
     (323827200L, 208, 167),
@@ -1515,26 +1526,28 @@ pub let atlantic__canary : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065123600L, 191, 168),
     (4078429200L, 208, 167),
     (4096573200L, 191, 168),
-  ],
-)
+  ])
+}
 
 ///|
-pub let atlantic__cape_verde : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  171,
-  126,
-  [
+pub let atlantic__canary : @core.FixedTimespanSet = _make_atlantic__canary()
+
+///|
+fn _make_atlantic__cape_verde() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(171, 126, [
     (-1830376800L, 168, 41),
     (-862610400L, 178, 39),
     (-764118000L, 168, 41),
     (186120000L, 178, 39),
-  ],
-)
+  ])
+}
 
 ///|
-pub let atlantic__faroe : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  184,
-  126,
-  [
+pub let atlantic__cape_verde : @core.FixedTimespanSet = _make_atlantic__cape_verde()
+
+///|
+fn _make_atlantic__faroe() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(184, 126, [
     (-1955748776L, 191, 168),
     (354675600L, 208, 167),
     (370400400L, 191, 168),
@@ -1774,14 +1787,15 @@ pub let atlantic__faroe : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 191, 168),
     (4078429200L, 208, 167),
     (4096573200L, 191, 168),
-  ],
-)
+  ])
+}
 
 ///|
-pub let atlantic__madeira : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  175,
-  126,
-  [
+pub let atlantic__faroe : @core.FixedTimespanSet = _make_atlantic__faroe()
+
+///|
+fn _make_atlantic__madeira() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(175, 126, [
     (-2713906344L, 175, 104),
     (-1830380400L, 178, 39),
     (-1689552000L, 191, 0),
@@ -2120,21 +2134,23 @@ pub let atlantic__madeira : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4065123600L, 191, 168),
     (4078429200L, 208, 167),
     (4096573200L, 191, 168),
-  ],
-)
+  ])
+}
 
 ///|
-pub let atlantic__south_georgia : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  164,
-  126,
-  [(-2524512832L, 168, 41)],
-)
+pub let atlantic__madeira : @core.FixedTimespanSet = _make_atlantic__madeira()
 
 ///|
-pub let atlantic__stanley : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  139,
-  126,
-  [
+fn _make_atlantic__south_georgia() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(164, 126, [(-2524512832L, 168, 41)])
+}
+
+///|
+pub let atlantic__south_georgia : @core.FixedTimespanSet = _make_atlantic__south_georgia()
+
+///|
+fn _make_atlantic__stanley() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(139, 126, [
     (-2524507716L, 139, 159),
     (-1824235716L, 134, 46),
     (-1018209600L, 159, 43),
@@ -2205,237 +2221,275 @@ pub let atlantic__stanley : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (1252216800L, 159, 43),
     (1271566800L, 134, 46),
     (1283666400L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let etc__gmt : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  106,
-  [],
-)
+pub let atlantic__stanley : @core.FixedTimespanSet = _make_atlantic__stanley()
 
 ///|
-pub let etc__gmtplus1 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  178,
-  39,
-  [],
-)
+fn _make_etc__gmt() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 106, [])
+}
 
 ///|
-pub let etc__gmtplus10 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  19,
-  56,
-  [],
-)
+pub let etc__gmt : @core.FixedTimespanSet = _make_etc__gmt()
 
 ///|
-pub let etc__gmtplus11 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  13,
-  59,
-  [],
-)
+fn _make_etc__gmtplus1() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(178, 39, [])
+}
 
 ///|
-pub let etc__gmtplus12 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  4,
-  62,
-  [],
-)
+pub let etc__gmtplus1 : @core.FixedTimespanSet = _make_etc__gmtplus1()
 
 ///|
-pub let etc__gmtplus2 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  168,
-  41,
-  [],
-)
+fn _make_etc__gmtplus10() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(19, 56, [])
+}
 
 ///|
-pub let etc__gmtplus3 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  159,
-  43,
-  [],
-)
+pub let etc__gmtplus10 : @core.FixedTimespanSet = _make_etc__gmtplus10()
 
 ///|
-pub let etc__gmtplus4 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  134,
-  46,
-  [],
-)
+fn _make_etc__gmtplus11() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(13, 59, [])
+}
 
 ///|
-pub let etc__gmtplus5 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  96,
-  48,
-  [],
-)
+pub let etc__gmtplus11 : @core.FixedTimespanSet = _make_etc__gmtplus11()
 
 ///|
-pub let etc__gmtplus6 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  62,
-  50,
-  [],
-)
+fn _make_etc__gmtplus12() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(4, 62, [])
+}
 
 ///|
-pub let etc__gmtplus7 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  50,
-  51,
-  [],
-)
+pub let etc__gmtplus12 : @core.FixedTimespanSet = _make_etc__gmtplus12()
 
 ///|
-pub let etc__gmtplus8 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  37,
-  52,
-  [],
-)
+fn _make_etc__gmtplus2() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(168, 41, [])
+}
 
 ///|
-pub let etc__gmtplus9 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  28,
-  54,
-  [],
-)
+pub let etc__gmtplus2 : @core.FixedTimespanSet = _make_etc__gmtplus2()
 
 ///|
-pub let etc__gmtminus1 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  208,
-  2,
-  [],
-)
+fn _make_etc__gmtplus3() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(159, 43, [])
+}
 
 ///|
-pub let etc__gmtminus10 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  363,
-  25,
-  [],
-)
+pub let etc__gmtplus3 : @core.FixedTimespanSet = _make_etc__gmtplus3()
 
 ///|
-pub let etc__gmtminus11 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  374,
-  27,
-  [],
-)
+fn _make_etc__gmtplus4() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(134, 46, [])
+}
 
 ///|
-pub let etc__gmtminus12 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  386,
-  30,
-  [],
-)
+pub let etc__gmtplus4 : @core.FixedTimespanSet = _make_etc__gmtplus4()
 
 ///|
-pub let etc__gmtminus13 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  397,
-  35,
-  [],
-)
+fn _make_etc__gmtplus5() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(96, 48, [])
+}
 
 ///|
-pub let etc__gmtminus14 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  400,
-  37,
-  [],
-)
+pub let etc__gmtplus5 : @core.FixedTimespanSet = _make_etc__gmtplus5()
 
 ///|
-pub let etc__gmtminus2 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  232,
-  4,
-  [],
-)
+fn _make_etc__gmtplus6() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(62, 50, [])
+}
 
 ///|
-pub let etc__gmtminus3 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  259,
-  7,
-  [],
-)
+pub let etc__gmtplus6 : @core.FixedTimespanSet = _make_etc__gmtplus6()
 
 ///|
-pub let etc__gmtminus4 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  279,
-  9,
-  [],
-)
+fn _make_etc__gmtplus7() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(50, 51, [])
+}
 
 ///|
-pub let etc__gmtminus5 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  294,
-  11,
-  [],
-)
+pub let etc__gmtplus7 : @core.FixedTimespanSet = _make_etc__gmtplus7()
 
 ///|
-pub let etc__gmtminus6 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  310,
-  14,
-  [],
-)
+fn _make_etc__gmtplus8() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(37, 52, [])
+}
 
 ///|
-pub let etc__gmtminus7 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  319,
-  16,
-  [],
-)
+pub let etc__gmtplus8 : @core.FixedTimespanSet = _make_etc__gmtplus8()
 
 ///|
-pub let etc__gmtminus8 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  332,
-  19,
-  [],
-)
+fn _make_etc__gmtplus9() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(28, 54, [])
+}
 
 ///|
-pub let etc__gmtminus9 : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  347,
-  22,
-  [],
-)
+pub let etc__gmtplus9 : @core.FixedTimespanSet = _make_etc__gmtplus9()
 
 ///|
-pub let etc__utc : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  163,
-  [],
-)
+fn _make_etc__gmtminus1() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(208, 2, [])
+}
 
 ///|
-pub let indian__chagos : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  290,
-  126,
-  [(-1988167780L, 294, 11), (820436400L, 310, 14)],
-)
+pub let etc__gmtminus1 : @core.FixedTimespanSet = _make_etc__gmtminus1()
 
 ///|
-pub let indian__maldives : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  292,
-  126,
-  [(-2840158440L, 292, 130), (-315636840L, 294, 11)],
-)
+fn _make_etc__gmtminus10() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(363, 25, [])
+}
 
 ///|
-pub let indian__mauritius : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  277,
-  126,
-  [
+pub let etc__gmtminus10 : @core.FixedTimespanSet = _make_etc__gmtminus10()
+
+///|
+fn _make_etc__gmtminus11() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(374, 27, [])
+}
+
+///|
+pub let etc__gmtminus11 : @core.FixedTimespanSet = _make_etc__gmtminus11()
+
+///|
+fn _make_etc__gmtminus12() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(386, 30, [])
+}
+
+///|
+pub let etc__gmtminus12 : @core.FixedTimespanSet = _make_etc__gmtminus12()
+
+///|
+fn _make_etc__gmtminus13() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(397, 35, [])
+}
+
+///|
+pub let etc__gmtminus13 : @core.FixedTimespanSet = _make_etc__gmtminus13()
+
+///|
+fn _make_etc__gmtminus14() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(400, 37, [])
+}
+
+///|
+pub let etc__gmtminus14 : @core.FixedTimespanSet = _make_etc__gmtminus14()
+
+///|
+fn _make_etc__gmtminus2() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(232, 4, [])
+}
+
+///|
+pub let etc__gmtminus2 : @core.FixedTimespanSet = _make_etc__gmtminus2()
+
+///|
+fn _make_etc__gmtminus3() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(259, 7, [])
+}
+
+///|
+pub let etc__gmtminus3 : @core.FixedTimespanSet = _make_etc__gmtminus3()
+
+///|
+fn _make_etc__gmtminus4() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(279, 9, [])
+}
+
+///|
+pub let etc__gmtminus4 : @core.FixedTimespanSet = _make_etc__gmtminus4()
+
+///|
+fn _make_etc__gmtminus5() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(294, 11, [])
+}
+
+///|
+pub let etc__gmtminus5 : @core.FixedTimespanSet = _make_etc__gmtminus5()
+
+///|
+fn _make_etc__gmtminus6() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(310, 14, [])
+}
+
+///|
+pub let etc__gmtminus6 : @core.FixedTimespanSet = _make_etc__gmtminus6()
+
+///|
+fn _make_etc__gmtminus7() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(319, 16, [])
+}
+
+///|
+pub let etc__gmtminus7 : @core.FixedTimespanSet = _make_etc__gmtminus7()
+
+///|
+fn _make_etc__gmtminus8() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(332, 19, [])
+}
+
+///|
+pub let etc__gmtminus8 : @core.FixedTimespanSet = _make_etc__gmtminus8()
+
+///|
+fn _make_etc__gmtminus9() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(347, 22, [])
+}
+
+///|
+pub let etc__gmtminus9 : @core.FixedTimespanSet = _make_etc__gmtminus9()
+
+///|
+fn _make_etc__utc() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 163, [])
+}
+
+///|
+pub let etc__utc : @core.FixedTimespanSet = _make_etc__utc()
+
+///|
+fn _make_indian__chagos() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(290, 126, [
+    (-1988167780L, 294, 11),
+    (820436400L, 310, 14),
+  ])
+}
+
+///|
+pub let indian__chagos : @core.FixedTimespanSet = _make_indian__chagos()
+
+///|
+fn _make_indian__maldives() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(292, 126, [
+    (-2840158440L, 292, 130),
+    (-315636840L, 294, 11),
+  ])
+}
+
+///|
+pub let indian__maldives : @core.FixedTimespanSet = _make_indian__maldives()
+
+///|
+fn _make_indian__mauritius() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(277, 126, [
     (-1988164200L, 279, 9),
     (403041600L, 294, 11),
     (417034800L, 279, 9),
     (1224972000L, 294, 11),
     (1238274000L, 279, 9),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__apia : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  393,
-  126,
-  [
+pub let indian__mauritius : @core.FixedTimespanSet = _make_indian__mauritius()
+
+///|
+fn _make_pacific__apia() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(393, 126, [
     (-2445424384L, 7, 126),
     (-1861878784L, 6, 61),
     (-631110600L, 13, 59),
@@ -2462,14 +2516,15 @@ pub let pacific__apia : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1586008800L, 397, 35),
     (1601128800L, 400, 37),
     (1617458400L, 397, 35),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__auckland : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  383,
-  126,
-  [
+pub let pacific__apia : @core.FixedTimespanSet = _make_pacific__apia()
+
+///|
+fn _make_pacific__auckland() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(383, 126, [
     (-3192435544L, 381, 142),
     (-1330335000L, 392, 143),
     (-1320057000L, 381, 142),
@@ -2750,27 +2805,29 @@ pub let pacific__auckland : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4062664800L, 397, 141),
     (4078994400L, 386, 143),
     (4094114400L, 397, 141),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__bougainville : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  368,
-  126,
-  [
+pub let pacific__auckland : @core.FixedTimespanSet = _make_pacific__auckland()
+
+///|
+fn _make_pacific__bougainville() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(368, 126, [
     (-2840178136L, 359, 148),
     (-2366790512L, 363, 25),
     (-868010400L, 347, 22),
     (-768906000L, 363, 25),
     (1419696000L, 374, 27),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__chatham : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  388,
-  126,
-  [
+pub let pacific__bougainville : @core.FixedTimespanSet = _make_pacific__bougainville()
+
+///|
+fn _make_pacific__chatham() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(388, 126, [
     (-3192437628L, 389, 31),
     (-757426500L, 395, 34),
     (152632800L, 399, 36),
@@ -3024,14 +3081,15 @@ pub let pacific__chatham : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4062664800L, 399, 36),
     (4078994400L, 395, 34),
     (4094114400L, 399, 36),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__easter : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  44,
-  126,
-  [
+pub let pacific__chatham : @core.FixedTimespanSet = _make_pacific__chatham()
+
+///|
+fn _make_pacific__easter() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(44, 126, [
     (-2524495352L, 44, 99),
     (-1178124152L, 50, 51),
     (-36619200L, 62, 50),
@@ -3295,14 +3353,15 @@ pub let pacific__easter : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4060900800L, 96, 48),
     (4079041200L, 62, 50),
     (4092350400L, 96, 48),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__efate : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  380,
-  126,
-  [
+pub let pacific__easter : @core.FixedTimespanSet = _make_pacific__easter()
+
+///|
+fn _make_pacific__efate() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(380, 126, [
     (-1829387596L, 374, 27),
     (125409600L, 386, 30),
     (133876800L, 374, 27),
@@ -3326,21 +3385,26 @@ pub let pacific__efate : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (696340800L, 374, 27),
     (719931600L, 386, 30),
     (727790400L, 374, 27),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__fakaofo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  8,
-  126,
-  [(-2177411704L, 13, 59), (1325242800L, 397, 35)],
-)
+pub let pacific__efate : @core.FixedTimespanSet = _make_pacific__efate()
 
 ///|
-pub let pacific__fiji : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  385,
-  126,
-  [
+fn _make_pacific__fakaofo() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(8, 126, [
+    (-2177411704L, 13, 59),
+    (1325242800L, 397, 35),
+  ])
+}
+
+///|
+pub let pacific__fakaofo : @core.FixedTimespanSet = _make_pacific__fakaofo()
+
+///|
+fn _make_pacific__fiji() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(385, 126, [
     (-1709985344L, 386, 30),
     (909842400L, 397, 35),
     (920124000L, 386, 30),
@@ -3370,40 +3434,44 @@ pub let pacific__fiji : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1578751200L, 386, 30),
     (1608386400L, 397, 35),
     (1610805600L, 386, 30),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__galapagos : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  64,
-  126,
-  [
+pub let pacific__fiji : @core.FixedTimespanSet = _make_pacific__fiji()
+
+///|
+fn _make_pacific__galapagos() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(64, 126, [
     (-1230746496L, 96, 48),
     (504939600L, 62, 50),
     (722930400L, 96, 48),
     (728888400L, 62, 50),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__gambier : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  29,
-  126,
-  [(-1806678012L, 28, 54)],
-)
+pub let pacific__galapagos : @core.FixedTimespanSet = _make_pacific__galapagos()
 
 ///|
-pub let pacific__guadalcanal : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  372,
-  126,
-  [(-1806748788L, 374, 27)],
-)
+fn _make_pacific__gambier() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(29, 126, [(-1806678012L, 28, 54)])
+}
 
 ///|
-pub let pacific__guam : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  2,
-  126,
-  [
+pub let pacific__gambier : @core.FixedTimespanSet = _make_pacific__gambier()
+
+///|
+fn _make_pacific__guadalcanal() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(372, 126, [(-1806748788L, 374, 27)])
+}
+
+///|
+pub let pacific__guadalcanal : @core.FixedTimespanSet = _make_pacific__guadalcanal()
+
+///|
+fn _make_pacific__guam() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(2, 126, [
     (-3944626740L, 356, 126),
     (-2177487540L, 363, 107),
     (-885549600L, 347, 22),
@@ -3425,14 +3493,15 @@ pub let pacific__guam : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (230659200L, 374, 105),
     (241542000L, 363, 107),
     (977493600L, 363, 93),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__honolulu : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  16,
-  126,
-  [
+pub let pacific__guam : @core.FixedTimespanSet = _make_pacific__guam()
+
+///|
+fn _make_pacific__honolulu() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(16, 126, [
     (-2334101314L, 17, 114),
     (-1157283000L, 22, 108),
     (-1155436200L, 17, 114),
@@ -3440,28 +3509,39 @@ pub let pacific__honolulu : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (-769395600L, 22, 113),
     (-765376200L, 17, 114),
     (-712150200L, 19, 114),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__kanton : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [(-1020470400L, 4, 62), (307627200L, 13, 59), (788871600L, 397, 35)],
-)
+pub let pacific__honolulu : @core.FixedTimespanSet = _make_pacific__honolulu()
 
 ///|
-pub let pacific__kiritimati : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  18,
-  126,
-  [(-2177415040L, 14, 58), (307622400L, 19, 56), (788868000L, 400, 37)],
-)
+fn _make_pacific__kanton() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
+    (-1020470400L, 4, 62),
+    (307627200L, 13, 59),
+    (788871600L, 397, 35),
+  ])
+}
 
 ///|
-pub let pacific__kosrae : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  3,
-  126,
-  [
+pub let pacific__kanton : @core.FixedTimespanSet = _make_pacific__kanton()
+
+///|
+fn _make_pacific__kiritimati() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(18, 126, [
+    (-2177415040L, 14, 58),
+    (307622400L, 19, 56),
+    (788868000L, 400, 37),
+  ])
+}
+
+///|
+pub let pacific__kiritimati : @core.FixedTimespanSet = _make_pacific__kiritimati()
+
+///|
+fn _make_pacific__kosrae() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(3, 126, [
     (-3944631116L, 373, 126),
     (-2177491916L, 374, 27),
     (-1743678000L, 347, 22),
@@ -3471,54 +3551,62 @@ pub let pacific__kosrae : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (-770634000L, 374, 27),
     (-7988400L, 386, 30),
     (915105600L, 374, 27),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__kwajalein : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  377,
-  126,
-  [
+pub let pacific__kosrae : @core.FixedTimespanSet = _make_pacific__kosrae()
+
+///|
+fn _make_pacific__kwajalein() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(377, 126, [
     (-2177492960L, 374, 27),
     (-1041418800L, 363, 25),
     (-907408800L, 347, 22),
     (-817462800L, 374, 27),
     (-7988400L, 4, 62),
     (745934400L, 386, 30),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__marquesas : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  24,
-  126,
-  [(-1806676920L, 22, 55)],
-)
+pub let pacific__kwajalein : @core.FixedTimespanSet = _make_pacific__kwajalein()
 
 ///|
-pub let pacific__nauru : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  376,
-  126,
-  [
+fn _make_pacific__marquesas() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(24, 126, [(-1806676920L, 22, 55)])
+}
+
+///|
+pub let pacific__marquesas : @core.FixedTimespanSet = _make_pacific__marquesas()
+
+///|
+fn _make_pacific__nauru() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(376, 126, [
     (-1545131260L, 381, 29),
     (-862918200L, 347, 22),
     (-767350800L, 381, 29),
     (287418600L, 386, 30),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__niue : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  11,
-  126,
-  [(-543069620L, 10, 60), (-173623200L, 13, 59)],
-)
+pub let pacific__nauru : @core.FixedTimespanSet = _make_pacific__nauru()
 
 ///|
-pub let pacific__norfolk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  378,
-  126,
-  [
+fn _make_pacific__niue() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(11, 126, [
+    (-543069620L, 10, 60),
+    (-173623200L, 13, 59),
+  ])
+}
+
+///|
+pub let pacific__niue : @core.FixedTimespanSet = _make_pacific__niue()
+
+///|
+fn _make_pacific__norfolk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(378, 126, [
     (-2177493112L, 379, 28),
     (-599656320L, 381, 29),
     (152029800L, 392, 33),
@@ -3685,14 +3773,15 @@ pub let pacific__norfolk : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4063273200L, 386, 30),
     (4078998000L, 374, 27),
     (4094722800L, 386, 30),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__noumea : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  375,
-  126,
-  [
+pub let pacific__norfolk : @core.FixedTimespanSet = _make_pacific__norfolk()
+
+///|
+fn _make_pacific__noumea() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(375, 126, [
     (-1829387148L, 374, 27),
     (250002000L, 386, 30),
     (257342400L, 374, 27),
@@ -3700,42 +3789,59 @@ pub let pacific__noumea : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (288878400L, 374, 27),
     (849366000L, 386, 30),
     (857228400L, 374, 27),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__pago_pago : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  394,
-  126,
-  [(-2445424632L, 9, 126), (-1861879032L, 13, 160)],
-)
+pub let pacific__noumea : @core.FixedTimespanSet = _make_pacific__noumea()
 
 ///|
-pub let pacific__palau : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  1,
-  126,
-  [(-3944624276L, 346, 126), (-2177485076L, 347, 22)],
-)
+fn _make_pacific__pago_pago() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(394, 126, [
+    (-2445424632L, 9, 126),
+    (-1861879032L, 13, 160),
+  ])
+}
 
 ///|
-pub let pacific__pitcairn : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  32,
-  126,
-  [(-2177421580L, 33, 53), (893665800L, 37, 52)],
-)
+pub let pacific__pago_pago : @core.FixedTimespanSet = _make_pacific__pago_pago()
 
 ///|
-pub let pacific__port_moresby : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  360,
-  126,
-  [(-2840176120L, 359, 148), (-2366790512L, 363, 25)],
-)
+fn _make_pacific__palau() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(1, 126, [
+    (-3944624276L, 346, 126),
+    (-2177485076L, 347, 22),
+  ])
+}
 
 ///|
-pub let pacific__rarotonga : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  398,
-  126,
-  [
+pub let pacific__palau : @core.FixedTimespanSet = _make_pacific__palau()
+
+///|
+fn _make_pacific__pitcairn() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(32, 126, [
+    (-2177421580L, 33, 53),
+    (893665800L, 37, 52),
+  ])
+}
+
+///|
+pub let pacific__pitcairn : @core.FixedTimespanSet = _make_pacific__pitcairn()
+
+///|
+fn _make_pacific__port_moresby() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(360, 126, [
+    (-2840176120L, 359, 148),
+    (-2366790512L, 363, 25),
+  ])
+}
+
+///|
+pub let pacific__port_moresby : @core.FixedTimespanSet = _make_pacific__port_moresby()
+
+///|
+fn _make_pacific__rarotonga() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(398, 126, [
     (-2209555256L, 15, 126),
     (-543072056L, 17, 57),
     (279714600L, 22, 55),
@@ -3764,28 +3870,31 @@ pub let pacific__rarotonga : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (636543000L, 19, 56),
     (657108000L, 22, 55),
     (667992600L, 19, 56),
-  ],
-)
+  ])
+}
 
 ///|
-pub let pacific__tahiti : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  21,
-  126,
-  [(-1806674504L, 19, 56)],
-)
+pub let pacific__rarotonga : @core.FixedTimespanSet = _make_pacific__rarotonga()
 
 ///|
-pub let pacific__tarawa : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  382,
-  126,
-  [(-2177494324L, 386, 30)],
-)
+fn _make_pacific__tahiti() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(21, 126, [(-1806674504L, 19, 56)])
+}
 
 ///|
-pub let pacific__tongatapu : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  390,
-  126,
-  [
+pub let pacific__tahiti : @core.FixedTimespanSet = _make_pacific__tahiti()
+
+///|
+fn _make_pacific__tarawa() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(382, 126, [(-2177494324L, 386, 30)])
+}
+
+///|
+pub let pacific__tarawa : @core.FixedTimespanSet = _make_pacific__tarawa()
+
+///|
+fn _make_pacific__tongatapu() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(390, 126, [
     (-767189952L, 391, 32),
     (-284041200L, 397, 35),
     (939214800L, 400, 37),
@@ -3796,5 +3905,8 @@ pub let pacific__tongatapu : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (1012046400L, 397, 35),
     (1478350800L, 400, 37),
     (1484398800L, 397, 35),
-  ],
-)
+  ])
+}
+
+///|
+pub let pacific__tongatapu : @core.FixedTimespanSet = _make_pacific__tongatapu()

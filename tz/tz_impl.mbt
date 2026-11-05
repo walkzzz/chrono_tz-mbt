@@ -1,11 +1,28 @@
-///|
-/// tz_impl.mbt — Tz 的 TimeZone 实现（timespans 自动生成，勿手改）
-/// 移植自仓颉 src/base/tz/tz_impl.cj + moon-chrono_tz/tz/tz_impl.mbt。
+// tz_impl.mbt — Tz 的 TimeZone 实现（timespans 自动生成，勿手改）
+// 移植自仓颉 src/base/tz/tz_impl.cj + moon-chrono_tz/tz/tz_impl.mbt。
 
 ///|
 /// 返回本时区的预计算过渡表（Tz variant → FixedTimespanSet 映射）。
+/// 拆分为 6 个子函数以避免 WASM local count 限制（597 match arm 单函数超限）。
 pub fn Tz::timespans(self : Tz) -> @core.FixedTimespanSet {
-  match self {
+  if self < Tz::America__Cordoba {
+    timespans_1(self)
+  } else if self < Tz::America__Santa_Isabel {
+    timespans_2(self)
+  } else if self < Tz::Asia__Novokuznetsk {
+    timespans_3(self)
+  } else if self < Tz::Etc__GMTPlus11 {
+    timespans_4(self)
+  } else if self < Tz::GMT0 {
+    timespans_5(self)
+  } else {
+    timespans_6(self)
+  }
+}
+
+///|
+fn timespans_1(tz : Tz) -> @core.FixedTimespanSet {
+  match tz {
     Tz::Africa__Abidjan => @data.africa__abidjan
     Tz::Africa__Accra => @data.africa__abidjan
     Tz::Africa__Addis_Ababa => @data.africa__nairobi
@@ -106,6 +123,13 @@ pub fn Tz::timespans(self : Tz) -> @core.FixedTimespanSet {
     Tz::America__Chihuahua => @data.america__chihuahua
     Tz::America__Ciudad_Juarez => @data.america__ciudad_juarez
     Tz::America__Coral_Harbour => @data.america__panama
+    _ => abort("unreachable in timespans_1")
+  }
+}
+
+///|
+fn timespans_2(tz : Tz) -> @core.FixedTimespanSet {
+  match tz {
     Tz::America__Cordoba => @data.america__argentina__cordoba
     Tz::America__Costa_Rica => @data.america__costa_rica
     Tz::America__Coyhaique => @data.america__coyhaique
@@ -206,6 +230,13 @@ pub fn Tz::timespans(self : Tz) -> @core.FixedTimespanSet {
     Tz::America__Resolute => @data.america__resolute
     Tz::America__Rio_Branco => @data.america__rio_branco
     Tz::America__Rosario => @data.america__argentina__cordoba
+    _ => abort("unreachable in timespans_2")
+  }
+}
+
+///|
+fn timespans_3(tz : Tz) -> @core.FixedTimespanSet {
+  match tz {
     Tz::America__Santa_Isabel => @data.america__tijuana
     Tz::America__Santarem => @data.america__santarem
     Tz::America__Santiago => @data.america__santiago
@@ -306,6 +337,13 @@ pub fn Tz::timespans(self : Tz) -> @core.FixedTimespanSet {
     Tz::Asia__Manila => @data.asia__manila
     Tz::Asia__Muscat => @data.asia__dubai
     Tz::Asia__Nicosia => @data.asia__nicosia
+    _ => abort("unreachable in timespans_3")
+  }
+}
+
+///|
+fn timespans_4(tz : Tz) -> @core.FixedTimespanSet {
+  match tz {
     Tz::Asia__Novokuznetsk => @data.asia__novokuznetsk
     Tz::Asia__Novosibirsk => @data.asia__novosibirsk
     Tz::Asia__Omsk => @data.asia__omsk
@@ -406,6 +444,13 @@ pub fn Tz::timespans(self : Tz) -> @core.FixedTimespanSet {
     Tz::Etc__GMTPlus0 => @data.etc__gmt
     Tz::Etc__GMTPlus1 => @data.etc__gmtplus1
     Tz::Etc__GMTPlus10 => @data.etc__gmtplus10
+    _ => abort("unreachable in timespans_4")
+  }
+}
+
+///|
+fn timespans_5(tz : Tz) -> @core.FixedTimespanSet {
+  match tz {
     Tz::Etc__GMTPlus11 => @data.etc__gmtplus11
     Tz::Etc__GMTPlus12 => @data.etc__gmtplus12
     Tz::Etc__GMTPlus2 => @data.etc__gmtplus2
@@ -506,6 +551,13 @@ pub fn Tz::timespans(self : Tz) -> @core.FixedTimespanSet {
     Tz::GMT => @data.etc__gmt
     Tz::GMTPlus0 => @data.etc__gmt
     Tz::GMTMinus0 => @data.etc__gmt
+    _ => abort("unreachable in timespans_5")
+  }
+}
+
+///|
+fn timespans_6(tz : Tz) -> @core.FixedTimespanSet {
+  match tz {
     Tz::GMT0 => @data.etc__gmt
     Tz::Greenwich => @data.etc__gmt
     Tz::HST => @data.pacific__honolulu
@@ -607,6 +659,7 @@ pub fn Tz::timespans(self : Tz) -> @core.FixedTimespanSet {
     Tz::WSU => @data.europe__moscow
     Tz::WET => @data.europe__lisbon
     Tz::Zulu => @data.etc__utc
+    _ => abort("unreachable in timespans_6")
   }
 }
 

@@ -2,10 +2,8 @@
 // 移植自仓颉 src/data/data_asia.cj
 
 ///|
-pub let asia__almaty : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  295,
-  126,
-  [
+fn _make_asia__almaty() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(295, 126, [
     (-1441170468L, 294, 11),
     (-1247547600L, 310, 14),
     (354909600L, 319, 16),
@@ -58,14 +56,15 @@ pub let asia__almaty : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1080417600L, 319, 16),
     (1099166400L, 310, 14),
     (1709229600L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__amman : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  247,
-  126,
-  [
+pub let asia__almaty : @core.FixedTimespanSet = _make_asia__almaty()
+
+///|
+fn _make_asia__amman() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(247, 126, [
     (-1230776624L, 232, 98),
     (108165600L, 259, 97),
     (118270800L, 232, 98),
@@ -153,14 +152,15 @@ pub let asia__amman : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1635458400L, 232, 98),
     (1645740000L, 259, 97),
     (1666908000L, 259, 7),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__anadyr : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  384,
-  126,
-  [
+pub let asia__amman : @core.FixedTimespanSet = _make_asia__amman()
+
+///|
+fn _make_asia__anadyr() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(384, 126, [
     (-1441194596L, 386, 30),
     (-1247572800L, 397, 35),
     (354884400L, 400, 37),
@@ -225,14 +225,15 @@ pub let asia__anadyr : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1269698400L, 386, 30),
     (1288450800L, 374, 27),
     (1301151600L, 386, 30),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__aqtau : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  267,
-  126,
-  [
+pub let asia__anadyr : @core.FixedTimespanSet = _make_asia__anadyr()
+
+///|
+fn _make_asia__aqtau() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(267, 126, [
     (-1441164064L, 279, 9),
     (-1247544000L, 294, 11),
     (370724400L, 310, 14),
@@ -283,14 +284,15 @@ pub let asia__aqtau : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1067119200L, 279, 9),
     (1080424800L, 294, 11),
     (1099173600L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__aqtobe : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  276,
-  126,
-  [
+pub let asia__aqtau : @core.FixedTimespanSet = _make_asia__aqtau()
+
+///|
+fn _make_asia__aqtobe() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(276, 126, [
     (-1441165720L, 279, 9),
     (-1247544000L, 294, 11),
     (354913200L, 310, 14),
@@ -342,14 +344,15 @@ pub let asia__aqtobe : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1067115600L, 294, 11),
     (1080421200L, 310, 14),
     (1099170000L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__ashgabat : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  278,
-  126,
-  [
+pub let asia__aqtobe : @core.FixedTimespanSet = _make_asia__aqtobe()
+
+///|
+fn _make_asia__ashgabat() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(278, 126, [
     (-1441166012L, 279, 9),
     (-1247544000L, 294, 11),
     (354913200L, 310, 14),
@@ -375,14 +378,15 @@ pub let asia__ashgabat : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (670366800L, 294, 11),
     (686095200L, 279, 9),
     (695772000L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__atyrau : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  271,
-  126,
-  [
+pub let asia__ashgabat : @core.FixedTimespanSet = _make_asia__ashgabat()
+
+///|
+fn _make_asia__atyrau() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(271, 126, [
     (-1441164464L, 259, 7),
     (-1247540400L, 294, 11),
     (370724400L, 310, 14),
@@ -433,14 +437,15 @@ pub let asia__atyrau : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1067119200L, 279, 9),
     (1080424800L, 294, 11),
     (1099173600L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__baghdad : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  256,
-  126,
-  [
+pub let asia__atyrau : @core.FixedTimespanSet = _make_asia__atyrau()
+
+///|
+fn _make_asia__baghdad() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(256, 126, [
     (-2524532260L, 255, 81),
     (-1641005856L, 259, 7),
     (389048400L, 279, 9),
@@ -495,14 +500,15 @@ pub let asia__baghdad : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1159660800L, 259, 7),
     (1175385600L, 279, 9),
     (1191196800L, 259, 7),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__baku : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  265,
-  126,
-  [
+pub let asia__baghdad : @core.FixedTimespanSet = _make_asia__baghdad()
+
+///|
+fn _make_asia__baku() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(265, 126, [
     (-1441163964L, 259, 7),
     (-405140400L, 279, 9),
     (354916800L, 294, 11),
@@ -569,21 +575,26 @@ pub let asia__baku : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1414281600L, 279, 9),
     (1427587200L, 294, 11),
     (1445731200L, 279, 9),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__bangkok : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  316,
-  126,
-  [(-2840164924L, 316, 81), (-1570084924L, 319, 16)],
-)
+pub let asia__baku : @core.FixedTimespanSet = _make_asia__baku()
 
 ///|
-pub let asia__barnaul : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  301,
-  126,
-  [
+fn _make_asia__bangkok() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(316, 126, [
+    (-2840164924L, 316, 81),
+    (-1570084924L, 319, 16),
+  ])
+}
+
+///|
+pub let asia__bangkok : @core.FixedTimespanSet = _make_asia__bangkok()
+
+///|
+fn _make_asia__barnaul() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(301, 126, [
     (-1579844100L, 310, 14),
     (-1247551200L, 319, 16),
     (354906000L, 332, 19),
@@ -651,14 +662,15 @@ pub let asia__barnaul : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1301169600L, 319, 16),
     (1414263600L, 310, 14),
     (1459022400L, 319, 16),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__beirut : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  246,
-  126,
-  [
+pub let asia__barnaul : @core.FixedTimespanSet = _make_asia__barnaul()
+
+///|
+fn _make_asia__beirut() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(246, 126, [
     (-2840149320L, 232, 98),
     (-1570413600L, 259, 97),
     (-1552186800L, 232, 98),
@@ -924,14 +936,15 @@ pub let asia__beirut : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065109200L, 232, 98),
     (4078418400L, 259, 97),
     (4096558800L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__bishkek : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  293,
-  126,
-  [
+pub let asia__beirut : @core.FixedTimespanSet = _make_asia__beirut()
+
+///|
+fn _make_asia__bishkek() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(293, 126, [
     (-1441169904L, 294, 11),
     (-1247547600L, 310, 14),
     (354909600L, 319, 16),
@@ -984,14 +997,15 @@ pub let asia__bishkek : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1099168200L, 294, 11),
     (1111872600L, 310, 14),
     (1123783200L, 310, 14),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__chita : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  327,
-  126,
-  [
+pub let asia__bishkek : @core.FixedTimespanSet = _make_asia__bishkek()
+
+///|
+fn _make_asia__chita() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(327, 126, [
     (-1579419232L, 332, 19),
     (-1247558400L, 347, 22),
     (354898800L, 363, 25),
@@ -1058,14 +1072,15 @@ pub let asia__chita : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1301158800L, 363, 25),
     (1414252800L, 332, 19),
     (1459015200L, 347, 22),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__colombo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  296,
-  126,
-  [
+pub let asia__chita : @core.FixedTimespanSet = _make_asia__chita()
+
+///|
+fn _make_asia__colombo() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(296, 126, [
     (-2840159964L, 297, 130),
     (-2019705572L, 299, 12),
     (-883287000L, 310, 14),
@@ -1074,14 +1089,15 @@ pub let asia__colombo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (832962600L, 315, 15),
     (846266400L, 310, 14),
     (1145039400L, 299, 12),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__damascus : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  248,
-  126,
-  [
+pub let asia__colombo : @core.FixedTimespanSet = _make_asia__colombo()
+
+///|
+fn _make_asia__damascus() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(248, 126, [
     (-1577931912L, 232, 98),
     (-1568592000L, 259, 97),
     (-1554080400L, 232, 98),
@@ -1203,14 +1219,15 @@ pub let asia__damascus : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1635454800L, 232, 98),
     (1648159200L, 259, 97),
     (1666904400L, 259, 7),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__dhaka : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  311,
-  126,
-  [
+pub let asia__damascus : @core.FixedTimespanSet = _make_asia__damascus()
+
+///|
+fn _make_asia__dhaka() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(311, 126, [
     (-2524543300L, 307, 112),
     (-891582800L, 315, 15),
     (-872058600L, 299, 12),
@@ -1218,33 +1235,36 @@ pub let asia__dhaka : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (-576138600L, 310, 14),
     (1245430800L, 319, 16),
     (1262278800L, 310, 14),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__dili : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  337,
-  126,
-  [
+pub let asia__dhaka : @core.FixedTimespanSet = _make_asia__dhaka()
+
+///|
+fn _make_asia__dili() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(337, 126, [
     (-1830412800L, 332, 19),
     (-879152400L, 347, 22),
     (199897200L, 332, 19),
     (969120000L, 347, 22),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__dubai : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  274,
-  126,
-  [(-1577936472L, 279, 9)],
-)
+pub let asia__dili : @core.FixedTimespanSet = _make_asia__dili()
 
 ///|
-pub let asia__dushanbe : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  287,
-  126,
-  [
+fn _make_asia__dubai() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(274, 126, [(-1577936472L, 279, 9)])
+}
+
+///|
+pub let asia__dubai : @core.FixedTimespanSet = _make_asia__dubai()
+
+///|
+fn _make_asia__dushanbe() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(287, 126, [
     (-1441168512L, 294, 11),
     (-1247547600L, 310, 14),
     (354909600L, 319, 16),
@@ -1269,14 +1289,15 @@ pub let asia__dushanbe : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (654638400L, 310, 14),
     (670363200L, 310, 14),
     (684363600L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__famagusta : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  239,
-  126,
-  [
+pub let asia__dushanbe : @core.FixedTimespanSet = _make_asia__dushanbe()
+
+///|
+fn _make_asia__famagusta() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(239, 126, [
     (-1518920148L, 232, 98),
     (166572000L, 259, 97),
     (182293200L, 232, 98),
@@ -1527,14 +1548,15 @@ pub let asia__famagusta : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 232, 98),
     (4078429200L, 259, 97),
     (4096573200L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__gaza : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  242,
-  126,
-  [
+pub let asia__famagusta : @core.FixedTimespanSet = _make_asia__famagusta()
+
+///|
+fn _make_asia__gaza() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(242, 126, [
     (-2185409872L, 232, 98),
     (-933638400L, 259, 97),
     (-923097600L, 232, 98),
@@ -1869,14 +1891,15 @@ pub let asia__gaza : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065030000L, 232, 98),
     (4078339200L, 259, 97),
     (4096479600L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__hebron : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  243,
-  126,
-  [
+pub let asia__gaza : @core.FixedTimespanSet = _make_asia__gaza()
+
+///|
+fn _make_asia__hebron() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(243, 126, [
     (-2185410023L, 232, 98),
     (-933638400L, 259, 97),
     (-923097600L, 232, 98),
@@ -2213,14 +2236,15 @@ pub let asia__hebron : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065030000L, 232, 98),
     (4078339200L, 259, 97),
     (4096479600L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__ho_chi_minh : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  320,
-  126,
-  [
+pub let asia__hebron : @core.FixedTimespanSet = _make_asia__hebron()
+
+///|
+fn _make_asia__ho_chi_minh() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(320, 126, [
     (-2004073590L, 320, 147),
     (-1851577590L, 319, 16),
     (-852105600L, 332, 19),
@@ -2230,14 +2254,15 @@ pub let asia__ho_chi_minh : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (-457772400L, 319, 16),
     (-315648000L, 332, 19),
     (171820800L, 319, 16),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__hong_kong : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  329,
-  126,
-  [
+pub let asia__ho_chi_minh : @core.FixedTimespanSet = _make_asia__ho_chi_minh()
+
+///|
+fn _make_asia__hong_kong() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(329, 126, [
     (-2056690800L, 332, 110),
     (-900910800L, 347, 109),
     (-891579600L, 340, 111),
@@ -2307,14 +2332,15 @@ pub let asia__hong_kong : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (214338600L, 332, 110),
     (295385400L, 347, 109),
     (309292200L, 332, 110),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__hovd : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  312,
-  126,
-  [
+pub let asia__hong_kong : @core.FixedTimespanSet = _make_asia__hong_kong()
+
+///|
+fn _make_asia__hovd() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(312, 126, [
     (-2032927596L, 310, 14),
     (252439200L, 319, 16),
     (417978000L, 332, 19),
@@ -2365,14 +2391,15 @@ pub let asia__hovd : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1443196800L, 319, 16),
     (1458932400L, 332, 19),
     (1474646400L, 319, 16),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__irkutsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  318,
-  126,
-  [
+pub let asia__hovd : @core.FixedTimespanSet = _make_asia__hovd()
+
+///|
+fn _make_asia__irkutsk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(318, 126, [
     (-2840165825L, 318, 118),
     (-1575874625L, 319, 16),
     (-1247554800L, 332, 19),
@@ -2439,14 +2466,15 @@ pub let asia__irkutsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1288461600L, 332, 19),
     (1301162400L, 347, 22),
     (1414256400L, 332, 19),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__jakarta : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  321,
-  126,
-  [
+pub let asia__irkutsk : @core.FixedTimespanSet = _make_asia__irkutsk()
+
+///|
+fn _make_asia__jakarta() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(321, 126, [
     (-3231299232L, 321, 81),
     (-1451719200L, 324, 17),
     (-1172906400L, 326, 18),
@@ -2455,21 +2483,27 @@ pub let asia__jakarta : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (-683883000L, 332, 19),
     (-620812800L, 326, 18),
     (-189415800L, 319, 169),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__jayapura : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  351,
-  126,
-  [(-1172913768L, 347, 22), (-799491600L, 353, 23), (-189423000L, 347, 170)],
-)
+pub let asia__jakarta : @core.FixedTimespanSet = _make_asia__jakarta()
 
 ///|
-pub let asia__jerusalem : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  245,
-  126,
-  [
+fn _make_asia__jayapura() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(351, 126, [
+    (-1172913768L, 347, 22),
+    (-799491600L, 353, 23),
+    (-189423000L, 347, 170),
+  ])
+}
+
+///|
+pub let asia__jayapura : @core.FixedTimespanSet = _make_asia__jayapura()
+
+///|
+fn _make_asia__jerusalem() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(245, 126, [
     (-2840149254L, 244, 121),
     (-1641003640L, 232, 119),
     (-933638400L, 259, 117),
@@ -2743,21 +2777,26 @@ pub let asia__jerusalem : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065116400L, 232, 119),
     (4078252800L, 259, 117),
     (4096566000L, 232, 119),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__kabul : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  288,
-  126,
-  [(-2524538208L, 279, 9), (-788932800L, 285, 10)],
-)
+pub let asia__jerusalem : @core.FixedTimespanSet = _make_asia__jerusalem()
 
 ///|
-pub let asia__kamchatka : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  370,
-  126,
-  [
+fn _make_asia__kabul() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(288, 126, [
+    (-2524538208L, 279, 9),
+    (-788932800L, 285, 10),
+  ])
+}
+
+///|
+pub let asia__kabul : @core.FixedTimespanSet = _make_asia__kabul()
+
+///|
+fn _make_asia__kamchatka() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(370, 126, [
     (-1487759676L, 374, 27),
     (-1247569200L, 386, 30),
     (354888000L, 397, 35),
@@ -2822,14 +2861,15 @@ pub let asia__kamchatka : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1269698400L, 386, 30),
     (1288450800L, 374, 27),
     (1301151600L, 386, 30),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__karachi : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  284,
-  126,
-  [
+pub let asia__kamchatka : @core.FixedTimespanSet = _make_asia__kamchatka()
+
+///|
+fn _make_asia__karachi() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(284, 126, [
     (-1988166492L, 299, 12),
     (-862637400L, 315, 15),
     (-764145000L, 299, 12),
@@ -2841,21 +2881,26 @@ pub let asia__karachi : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1225476000L, 294, 146),
     (1239735600L, 310, 145),
     (1257012000L, 294, 146),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__kathmandu : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  303,
-  126,
-  [(-1577943676L, 299, 12), (504901800L, 304, 13)],
-)
+pub let asia__karachi : @core.FixedTimespanSet = _make_asia__karachi()
 
 ///|
-pub let asia__khandyga : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  348,
-  126,
-  [
+fn _make_asia__kathmandu() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(303, 126, [
+    (-1577943676L, 299, 12),
+    (504901800L, 304, 13),
+  ])
+}
+
+///|
+pub let asia__kathmandu : @core.FixedTimespanSet = _make_asia__kathmandu()
+
+///|
+fn _make_asia__khandyga() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(348, 126, [
     (-1579424533L, 332, 19),
     (-1247558400L, 347, 22),
     (354898800L, 363, 25),
@@ -2923,14 +2968,15 @@ pub let asia__khandyga : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1301155200L, 374, 27),
     (1315832400L, 363, 25),
     (1414252800L, 347, 22),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__kolkata : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  308,
-  126,
-  [
+pub let asia__khandyga : @core.FixedTimespanSet = _make_asia__khandyga()
+
+///|
+fn _make_asia__kolkata() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(308, 126, [
     (-3645237208L, 307, 112),
     (-3155694800L, 298, 130),
     (-2019705670L, 299, 119),
@@ -2938,14 +2984,15 @@ pub let asia__kolkata : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (-872058600L, 299, 119),
     (-862637400L, 315, 15),
     (-764145000L, 299, 119),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__krasnoyarsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  313,
-  126,
-  [
+pub let asia__kolkata : @core.FixedTimespanSet = _make_asia__kolkata()
+
+///|
+fn _make_asia__krasnoyarsk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(313, 126, [
     (-1577513486L, 310, 14),
     (-1247551200L, 319, 16),
     (354906000L, 332, 19),
@@ -3011,14 +3058,15 @@ pub let asia__krasnoyarsk : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (1288465200L, 319, 16),
     (1301166000L, 332, 19),
     (1414260000L, 319, 16),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__kuching : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  325,
-  126,
-  [
+pub let asia__krasnoyarsk : @core.FixedTimespanSet = _make_asia__krasnoyarsk()
+
+///|
+fn _make_asia__kuching() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(325, 126, [
     (-1383463280L, 326, 18),
     (-1167636600L, 332, 19),
     (-1082448000L, 336, 20),
@@ -3037,14 +3085,15 @@ pub let asia__kuching : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (-885198000L, 332, 19),
     (-879667200L, 347, 22),
     (-767005200L, 332, 19),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__macau : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  328,
-  126,
-  [
+pub let asia__kuching : @core.FixedTimespanSet = _make_asia__kuching()
+
+///|
+fn _make_asia__macau() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(328, 126, [
     (-2056692850L, 332, 91),
     (-884509200L, 347, 22),
     (-873280800L, 363, 25),
@@ -3116,14 +3165,15 @@ pub let asia__macau : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (214338600L, 332, 91),
     (295385400L, 347, 85),
     (309292200L, 332, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__magadan : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  364,
-  126,
-  [
+pub let asia__macau : @core.FixedTimespanSet = _make_asia__macau()
+
+///|
+fn _make_asia__magadan() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(364, 126, [
     (-1441188192L, 363, 25),
     (-1247565600L, 374, 27),
     (354891600L, 386, 30),
@@ -3190,26 +3240,28 @@ pub let asia__magadan : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1301151600L, 386, 30),
     (1414245600L, 363, 25),
     (1461427200L, 374, 27),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__makassar : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  331,
-  126,
-  [
+pub let asia__magadan : @core.FixedTimespanSet = _make_asia__magadan()
+
+///|
+fn _make_asia__makassar() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(331, 126, [
     (-1577951856L, 331, 130),
     (-1172908656L, 332, 19),
     (-880272000L, 347, 22),
     (-766054800L, 332, 171),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__manila : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  0,
-  126,
-  [
+pub let asia__makassar : @core.FixedTimespanSet = _make_asia__makassar()
+
+///|
+fn _make_asia__manila() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(0, 126, [
     (-3944621032L, 333, 126),
     (-2219083200L, 332, 152),
     (-1046678400L, 347, 144),
@@ -3224,14 +3276,15 @@ pub let asia__manila : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (243702000L, 332, 152),
     (643219200L, 347, 144),
     (649177200L, 332, 152),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__nicosia : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  238,
-  126,
-  [
+pub let asia__manila : @core.FixedTimespanSet = _make_asia__manila()
+
+///|
+fn _make_asia__nicosia() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(238, 126, [
     (-1518920008L, 232, 98),
     (166572000L, 259, 97),
     (182293200L, 232, 98),
@@ -3483,14 +3536,15 @@ pub let asia__nicosia : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 232, 98),
     (4078429200L, 259, 97),
     (4096573200L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__novokuznetsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  305,
-  126,
-  [
+pub let asia__nicosia : @core.FixedTimespanSet = _make_asia__nicosia()
+
+///|
+fn _make_asia__novokuznetsk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(305, 126, [
     (-1441259328L, 310, 14),
     (-1247551200L, 319, 16),
     (354906000L, 332, 19),
@@ -3555,14 +3609,15 @@ pub let asia__novokuznetsk : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (1269716400L, 319, 16),
     (1288468800L, 310, 14),
     (1301169600L, 319, 16),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__novosibirsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  300,
-  126,
-  [
+pub let asia__novokuznetsk : @core.FixedTimespanSet = _make_asia__novokuznetsk()
+
+///|
+fn _make_asia__novosibirsk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(300, 126, [
     (-1579476700L, 310, 14),
     (-1247551200L, 319, 16),
     (354906000L, 332, 19),
@@ -3630,14 +3685,15 @@ pub let asia__novosibirsk : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (1301169600L, 319, 16),
     (1414263600L, 310, 14),
     (1469304000L, 319, 16),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__omsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  291,
-  126,
-  [
+pub let asia__novosibirsk : @core.FixedTimespanSet = _make_asia__novosibirsk()
+
+///|
+fn _make_asia__omsk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(291, 126, [
     (-1582088010L, 294, 11),
     (-1247547600L, 310, 14),
     (354909600L, 319, 16),
@@ -3703,14 +3759,15 @@ pub let asia__omsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1288468800L, 310, 14),
     (1301169600L, 319, 16),
     (1414263600L, 310, 14),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__oral : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  268,
-  126,
-  [
+pub let asia__omsk : @core.FixedTimespanSet = _make_asia__omsk()
+
+///|
+fn _make_asia__oral() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(268, 126, [
     (-1441164324L, 259, 7),
     (-1247540400L, 294, 11),
     (354913200L, 310, 14),
@@ -3762,14 +3819,15 @@ pub let asia__oral : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1067119200L, 279, 9),
     (1080424800L, 294, 11),
     (1099173600L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__pontianak : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  323,
-  126,
-  [
+pub let asia__oral : @core.FixedTimespanSet = _make_asia__oral()
+
+///|
+fn _make_asia__pontianak() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(323, 126, [
     (-1946186240L, 323, 149),
     (-1172906240L, 326, 18),
     (-881220600L, 347, 22),
@@ -3778,34 +3836,40 @@ pub let asia__pontianak : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (-620812800L, 326, 18),
     (-189415800L, 332, 171),
     (567964800L, 319, 169),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__pyongyang : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  338,
-  126,
-  [
+pub let asia__pontianak : @core.FixedTimespanSet = _make_asia__pontianak()
+
+///|
+fn _make_asia__pyongyang() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(338, 126, [
     (-1948782180L, 340, 125),
     (-1830414600L, 347, 122),
     (-768646800L, 347, 125),
     (1439564400L, 340, 125),
     (1525446000L, 347, 125),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__qatar : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  270,
-  126,
-  [(-1577935568L, 279, 9), (76190400L, 259, 7)],
-)
+pub let asia__pyongyang : @core.FixedTimespanSet = _make_asia__pyongyang()
 
 ///|
-pub let asia__qostanay : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  281,
-  126,
-  [
+fn _make_asia__qatar() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(270, 126, [
+    (-1577935568L, 279, 9),
+    (76190400L, 259, 7),
+  ])
+}
+
+///|
+pub let asia__qatar : @core.FixedTimespanSet = _make_asia__qatar()
+
+///|
+fn _make_asia__qostanay() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(281, 126, [
     (-1441167268L, 279, 9),
     (-1247544000L, 294, 11),
     (354913200L, 310, 14),
@@ -3858,14 +3922,15 @@ pub let asia__qostanay : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1080421200L, 310, 14),
     (1099170000L, 310, 14),
     (1709229600L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__qyzylorda : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  282,
-  126,
-  [
+pub let asia__qostanay : @core.FixedTimespanSet = _make_asia__qostanay()
+
+///|
+fn _make_asia__qyzylorda() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(282, 126, [
     (-1441167712L, 279, 9),
     (-1247544000L, 294, 11),
     (354913200L, 310, 14),
@@ -3918,21 +3983,23 @@ pub let asia__qyzylorda : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1080421200L, 310, 14),
     (1099170000L, 310, 14),
     (1545328800L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__riyadh : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  261,
-  126,
-  [(-719636812L, 259, 7)],
-)
+pub let asia__qyzylorda : @core.FixedTimespanSet = _make_asia__qyzylorda()
 
 ///|
-pub let asia__sakhalin : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  354,
-  126,
-  [
+fn _make_asia__riyadh() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(261, 126, [(-719636812L, 259, 7)])
+}
+
+///|
+pub let asia__riyadh : @core.FixedTimespanSet = _make_asia__riyadh()
+
+///|
+fn _make_asia__sakhalin() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(354, 126, [
     (-2031039048L, 347, 22),
     (-768560400L, 374, 27),
     (354891600L, 386, 30),
@@ -3999,14 +4066,15 @@ pub let asia__sakhalin : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1301155200L, 374, 27),
     (1414249200L, 363, 25),
     (1459008000L, 374, 27),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__samarkand : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  283,
-  126,
-  [
+pub let asia__sakhalin : @core.FixedTimespanSet = _make_asia__sakhalin()
+
+///|
+fn _make_asia__samarkand() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(283, 126, [
     (-1441168073L, 279, 9),
     (-1247544000L, 294, 11),
     (354913200L, 310, 14),
@@ -4031,14 +4099,15 @@ pub let asia__samarkand : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (654642000L, 294, 11),
     (670366800L, 310, 14),
     (686091600L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__seoul : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  339,
-  126,
-  [
+pub let asia__samarkand : @core.FixedTimespanSet = _make_asia__samarkand()
+
+///|
+fn _make_asia__seoul() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(339, 126, [
     (-1948782472L, 340, 125),
     (-1830414600L, 347, 122),
     (-767350800L, 347, 125),
@@ -4068,14 +4137,15 @@ pub let asia__seoul : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (560883600L, 347, 125),
     (579027600L, 363, 123),
     (592333200L, 347, 125),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__shanghai : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  334,
-  126,
-  [
+pub let asia__seoul : @core.FixedTimespanSet = _make_asia__seoul()
+
+///|
+fn _make_asia__shanghai() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(334, 126, [
     (-2177481943L, 332, 91),
     (-1600675200L, 347, 85),
     (-1585904400L, 332, 91),
@@ -4105,14 +4175,15 @@ pub let asia__shanghai : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (653418000L, 332, 91),
     (671565600L, 347, 85),
     (684867600L, 332, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__singapore : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  317,
-  126,
-  [
+pub let asia__shanghai : @core.FixedTimespanSet = _make_asia__shanghai()
+
+///|
+fn _make_asia__singapore() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(317, 126, [
     (-2177477725L, 317, 159),
     (-2038200925L, 319, 16),
     (-1167634800L, 324, 17),
@@ -4121,14 +4192,15 @@ pub let asia__singapore : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (-879665400L, 347, 22),
     (-767005200L, 326, 18),
     (378662400L, 332, 19),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__srednekolymsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  367,
-  126,
-  [
+pub let asia__singapore : @core.FixedTimespanSet = _make_asia__singapore()
+
+///|
+fn _make_asia__srednekolymsk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(367, 126, [
     (-1441188892L, 363, 25),
     (-1247565600L, 374, 27),
     (354891600L, 386, 30),
@@ -4194,14 +4266,15 @@ pub let asia__srednekolymsk : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (1288450800L, 374, 27),
     (1301151600L, 386, 30),
     (1414245600L, 374, 27),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__taipei : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  335,
-  126,
-  [
+pub let asia__srednekolymsk : @core.FixedTimespanSet = _make_asia__srednekolymsk()
+
+///|
+fn _make_asia__taipei() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(335, 126, [
     (-2335248360L, 332, 91),
     (-1017820800L, 347, 122),
     (-766224000L, 332, 91),
@@ -4243,14 +4316,15 @@ pub let asia__taipei : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (181321200L, 332, 91),
     (299606400L, 347, 85),
     (307551600L, 332, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__tashkent : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  289,
-  126,
-  [
+pub let asia__taipei : @core.FixedTimespanSet = _make_asia__taipei()
+
+///|
+fn _make_asia__tashkent() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(289, 126, [
     (-1441168631L, 294, 11),
     (-1247547600L, 310, 14),
     (354909600L, 319, 16),
@@ -4275,14 +4349,15 @@ pub let asia__tashkent : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (654638400L, 310, 14),
     (670363200L, 310, 14),
     (686091600L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__tbilisi : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  258,
-  126,
-  [
+pub let asia__tashkent : @core.FixedTimespanSet = _make_asia__tashkent()
+
+///|
+fn _make_asia__tbilisi() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(258, 126, [
     (-2840151551L, 258, 161),
     (-1441162751L, 259, 7),
     (-405140400L, 279, 9),
@@ -4335,14 +4410,15 @@ pub let asia__tbilisi : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1088276400L, 279, 9),
     (1099177200L, 259, 7),
     (1111878000L, 279, 9),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__tehran : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  269,
-  126,
-  [
+pub let asia__tbilisi : @core.FixedTimespanSet = _make_asia__tbilisi()
+
+///|
+fn _make_asia__tehran() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(269, 126, [
     (-1704165944L, 269, 162),
     (-1090466744L, 272, 8),
     (227820600L, 285, 10),
@@ -4414,21 +4490,26 @@ pub let asia__tehran : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1632252600L, 272, 8),
     (1647894600L, 285, 10),
     (1663788600L, 272, 8),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__thimphu : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  309,
-  126,
-  [(-706341516L, 299, 12), (560025000L, 310, 14)],
-)
+pub let asia__tehran : @core.FixedTimespanSet = _make_asia__tehran()
 
 ///|
-pub let asia__tokyo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  350,
-  126,
-  [
+fn _make_asia__thimphu() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(309, 126, [
+    (-706341516L, 299, 12),
+    (560025000L, 310, 14),
+  ])
+}
+
+///|
+pub let asia__thimphu : @core.FixedTimespanSet = _make_asia__thimphu()
+
+///|
+fn _make_asia__tokyo() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(350, 126, [
     (-2587712400L, 347, 122),
     (-683802000L, 363, 120),
     (-672310800L, 347, 122),
@@ -4438,14 +4519,15 @@ pub let asia__tokyo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (-609411600L, 347, 122),
     (-588848400L, 363, 120),
     (-577962000L, 347, 122),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__tomsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  302,
-  126,
-  [
+pub let asia__tokyo : @core.FixedTimespanSet = _make_asia__tokyo()
+
+///|
+fn _make_asia__tomsk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(302, 126, [
     (-1578807591L, 310, 14),
     (-1247551200L, 319, 16),
     (354906000L, 332, 19),
@@ -4513,14 +4595,15 @@ pub let asia__tomsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1301169600L, 319, 16),
     (1414263600L, 310, 14),
     (1464465600L, 319, 16),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__ulaanbaatar : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  322,
-  126,
-  [
+pub let asia__tomsk : @core.FixedTimespanSet = _make_asia__tomsk()
+
+///|
+fn _make_asia__ulaanbaatar() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(322, 126, [
     (-2032931252L, 319, 16),
     (252435600L, 332, 19),
     (417974400L, 347, 22),
@@ -4571,21 +4654,23 @@ pub let asia__ulaanbaatar : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (1443193200L, 332, 19),
     (1458928800L, 347, 22),
     (1474642800L, 332, 19),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__urumqi : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  306,
-  126,
-  [(-1325483420L, 310, 14)],
-)
+pub let asia__ulaanbaatar : @core.FixedTimespanSet = _make_asia__ulaanbaatar()
 
 ///|
-pub let asia__ustnera : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  355,
-  126,
-  [
+fn _make_asia__urumqi() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(306, 126, [(-1325483420L, 310, 14)])
+}
+
+///|
+pub let asia__urumqi : @core.FixedTimespanSet = _make_asia__urumqi()
+
+///|
+fn _make_asia__ustnera() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(355, 126, [
     (-1579426374L, 332, 19),
     (-1247558400L, 347, 22),
     (354898800L, 386, 30),
@@ -4652,14 +4737,15 @@ pub let asia__ustnera : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1301151600L, 386, 30),
     (1315828800L, 374, 27),
     (1414249200L, 363, 25),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__vladivostok : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  345,
-  126,
-  [
+pub let asia__ustnera : @core.FixedTimespanSet = _make_asia__ustnera()
+
+///|
+fn _make_asia__vladivostok() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(345, 126, [
     (-1487321251L, 347, 22),
     (-1247562000L, 363, 25),
     (354895200L, 374, 27),
@@ -4725,14 +4811,15 @@ pub let asia__vladivostok : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (1288454400L, 363, 25),
     (1301155200L, 374, 27),
     (1414249200L, 363, 25),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__yakutsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  342,
-  126,
-  [
+pub let asia__vladivostok : @core.FixedTimespanSet = _make_asia__vladivostok()
+
+///|
+fn _make_asia__yakutsk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(342, 126, [
     (-1579423138L, 332, 19),
     (-1247558400L, 347, 22),
     (354898800L, 363, 25),
@@ -4798,26 +4885,28 @@ pub let asia__yakutsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1288458000L, 347, 22),
     (1301158800L, 363, 25),
     (1414252800L, 347, 22),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__yangon : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  314,
-  126,
-  [
+pub let asia__yakutsk : @core.FixedTimespanSet = _make_asia__yakutsk()
+
+///|
+fn _make_asia__yangon() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(314, 126, [
     (-2840163887L, 314, 155),
     (-1577946287L, 315, 15),
     (-873268200L, 347, 22),
     (-778410000L, 315, 15),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__yekaterinburg : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  280,
-  126,
-  [
+pub let asia__yangon : @core.FixedTimespanSet = _make_asia__yangon()
+
+///|
+fn _make_asia__yekaterinburg() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(280, 126, [
     (-1688270553L, 275, 149),
     (-1592610305L, 279, 9),
     (-1247544000L, 294, 11),
@@ -4884,14 +4973,15 @@ pub let asia__yekaterinburg : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (1288472400L, 294, 11),
     (1301173200L, 310, 14),
     (1414267200L, 294, 11),
-  ],
-)
+  ])
+}
 
 ///|
-pub let asia__yerevan : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  257,
-  126,
-  [
+pub let asia__yekaterinburg : @core.FixedTimespanSet = _make_asia__yekaterinburg()
+
+///|
+fn _make_asia__yerevan() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(257, 126, [
     (-1441162680L, 259, 7),
     (-405140400L, 279, 9),
     (354916800L, 294, 11),
@@ -4954,5 +5044,8 @@ pub let asia__yerevan : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1288476000L, 279, 9),
     (1301176800L, 294, 11),
     (1319925600L, 279, 9),
-  ],
-)
+  ])
+}
+
+///|
+pub let asia__yerevan : @core.FixedTimespanSet = _make_asia__yerevan()

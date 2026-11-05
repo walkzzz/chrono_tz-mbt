@@ -2,17 +2,16 @@
 // 移植自仓颉 src/data/data_africa.cj
 
 ///|
-pub let africa__abidjan : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  188,
-  126,
-  [(-1830383032L, 191, 106)],
-)
+fn _make_africa__abidjan() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(188, 126, [(-1830383032L, 191, 106)])
+}
 
 ///|
-pub let africa__algiers : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  194,
-  126,
-  [
+pub let africa__abidjan : @core.FixedTimespanSet = _make_africa__abidjan()
+
+///|
+fn _make_africa__algiers() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(194, 126, [
     (-2486592732L, 193, 149),
     (-1855958961L, 191, 168),
     (-1689814800L, 208, 167),
@@ -47,21 +46,26 @@ pub let africa__algiers : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (325468800L, 208, 167),
     (341802000L, 191, 168),
     (357523200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__bissau : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  176,
-  126,
-  [(-1830380400L, 178, 39), (157770000L, 191, 106)],
-)
+pub let africa__algiers : @core.FixedTimespanSet = _make_africa__algiers()
 
 ///|
-pub let africa__cairo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  234,
-  126,
-  [
+fn _make_africa__bissau() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(176, 126, [
+    (-1830380400L, 178, 39),
+    (157770000L, 191, 106),
+  ])
+}
+
+///|
+pub let africa__bissau : @core.FixedTimespanSet = _make_africa__bissau()
+
+///|
+fn _make_africa__cairo() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(234, 126, [
     (-2185409109L, 232, 98),
     (-929844000L, 259, 97),
     (-923108400L, 232, 98),
@@ -343,14 +347,15 @@ pub let africa__cairo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065541200L, 232, 98),
     (4080664800L, 259, 97),
     (4096990800L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__casablanca : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  183,
-  126,
-  [
+pub let africa__cairo : @core.FixedTimespanSet = _make_africa__cairo()
+
+///|
+fn _make_africa__casablanca() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(183, 126, [
     (-1773012580L, 191, 0),
     (-956361600L, 208, 2),
     (-950490000L, 191, 0),
@@ -548,14 +553,15 @@ pub let africa__casablanca : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (3672612000L, 208, 2),
     (3699828000L, 191, 0),
     (3703456800L, 208, 2),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__ceuta : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  187,
-  126,
-  [
+pub let africa__casablanca : @core.FixedTimespanSet = _make_africa__casablanca()
+
+///|
+fn _make_africa__ceuta() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(187, 126, [
     (-2177452800L, 191, 168),
     (-1630112400L, 208, 167),
     (-1616810400L, 191, 168),
@@ -806,14 +812,15 @@ pub let africa__ceuta : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__el_aaiun : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  179,
-  126,
-  [
+pub let africa__ceuta : @core.FixedTimespanSet = _make_africa__ceuta()
+
+///|
+fn _make_africa__el_aaiun() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(179, 126, [
     (-1136070432L, 178, 39),
     (198291600L, 191, 0),
     (199756800L, 208, 2),
@@ -1000,28 +1007,30 @@ pub let africa__el_aaiun : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (3672612000L, 208, 2),
     (3699828000L, 191, 0),
     (3703456800L, 208, 2),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__johannesburg : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  227,
-  126,
-  [
+pub let africa__el_aaiun : @core.FixedTimespanSet = _make_africa__el_aaiun()
+
+///|
+fn _make_africa__johannesburg() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(227, 126, [
     (-2458173120L, 216, 156),
     (-2109288600L, 232, 156),
     (-860976000L, 259, 156),
     (-845254800L, 232, 156),
     (-829526400L, 259, 156),
     (-813805200L, 232, 156),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__juba : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  235,
-  126,
-  [
+pub let africa__johannesburg : @core.FixedTimespanSet = _make_africa__johannesburg()
+
+///|
+fn _make_africa__juba() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(235, 126, [
     (-1230775588L, 232, 84),
     (10360800L, 259, 83),
     (24786000L, 232, 84),
@@ -1057,14 +1066,15 @@ pub let africa__juba : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (498171600L, 232, 84),
     (947930400L, 259, 95),
     (1612126800L, 232, 84),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__khartoum : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  236,
-  126,
-  [
+pub let africa__juba : @core.FixedTimespanSet = _make_africa__juba()
+
+///|
+fn _make_africa__khartoum() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(236, 126, [
     (-1230775808L, 232, 84),
     (10360800L, 259, 83),
     (24786000L, 232, 84),
@@ -1100,72 +1110,87 @@ pub let africa__khartoum : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (498171600L, 232, 84),
     (947930400L, 259, 95),
     (1509483600L, 232, 84),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__lagos : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  195,
-  126,
-  [
+pub let africa__khartoum : @core.FixedTimespanSet = _make_africa__khartoum()
+
+///|
+fn _make_africa__lagos() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(195, 126, [
     (-2035584815L, 191, 106),
     (-1940889600L, 195, 126),
     (-1767226415L, 199, 1),
     (-1588465800L, 208, 165),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__maputo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  237,
-  126,
-  [(-1924999818L, 232, 84)],
-)
+pub let africa__lagos : @core.FixedTimespanSet = _make_africa__lagos()
 
 ///|
-pub let africa__monrovia : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  181,
-  126,
-  [(-2776979812L, 181, 130), (-1604359012L, 180, 130), (63593070L, 191, 106)],
-)
+fn _make_africa__maputo() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(237, 126, [(-1924999818L, 232, 84)])
+}
 
 ///|
-pub let africa__nairobi : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  249,
-  126,
-  [
+pub let africa__maputo : @core.FixedTimespanSet = _make_africa__maputo()
+
+///|
+fn _make_africa__monrovia() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(181, 126, [
+    (-2776979812L, 181, 130),
+    (-1604359012L, 180, 130),
+    (63593070L, 191, 106),
+  ])
+}
+
+///|
+pub let africa__monrovia : @core.FixedTimespanSet = _make_africa__monrovia()
+
+///|
+fn _make_africa__nairobi() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(249, 126, [
     (-1946168836L, 250, 5),
     (-1309746600L, 259, 95),
     (-1261969200L, 250, 5),
     (-1041388200L, 254, 6),
     (-865305900L, 259, 95),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__ndjamena : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  209,
-  126,
-  [(-1830387612L, 208, 165), (308703600L, 232, 164), (321314400L, 208, 165)],
-)
+pub let africa__nairobi : @core.FixedTimespanSet = _make_africa__nairobi()
 
 ///|
-pub let africa__sao_tome : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  197,
-  126,
-  [
+fn _make_africa__ndjamena() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(209, 126, [
+    (-1830387612L, 208, 165),
+    (308703600L, 232, 164),
+    (321314400L, 208, 165),
+  ])
+}
+
+///|
+pub let africa__ndjamena : @core.FixedTimespanSet = _make_africa__ndjamena()
+
+///|
+fn _make_africa__sao_tome() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(197, 126, [
     (-2713912016L, 182, 126),
     (-1830384000L, 191, 106),
     (1514768400L, 208, 165),
     (1546304400L, 191, 106),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__tripoli : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  204,
-  126,
-  [
+pub let africa__sao_tome : @core.FixedTimespanSet = _make_africa__sao_tome()
+
+///|
+fn _make_africa__tripoli() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(204, 126, [
     (-1577926364L, 208, 88),
     (-574902000L, 232, 87),
     (-568087200L, 208, 88),
@@ -1198,14 +1223,15 @@ pub let africa__tripoli : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1352505600L, 208, 88),
     (1364515200L, 232, 87),
     (1382659200L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__tunis : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  202,
-  126,
-  [
+pub let africa__tripoli : @core.FixedTimespanSet = _make_africa__tripoli()
+
+///|
+fn _make_africa__tunis() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(202, 126, [
     (-2797202444L, 193, 149),
     (-1855958961L, 208, 88),
     (-969242400L, 232, 87),
@@ -1240,14 +1266,15 @@ pub let africa__tunis : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1193533200L, 208, 88),
     (1206838800L, 232, 87),
     (1224982800L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let africa__windhoek : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  211,
-  126,
-  [
+pub let africa__tunis : @core.FixedTimespanSet = _make_africa__tunis()
+
+///|
+fn _make_africa__windhoek() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(211, 126, [
     (-2458170504L, 216, 3),
     (-2109288600L, 232, 156),
     (-860976000L, 259, 156),
@@ -1301,5 +1328,8 @@ pub let africa__windhoek : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (1472950800L, 232, 84),
     (1491091200L, 208, 165),
     (1504400400L, 232, 84),
-  ],
-)
+  ])
+}
+
+///|
+pub let africa__windhoek : @core.FixedTimespanSet = _make_africa__windhoek()

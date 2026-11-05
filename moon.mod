@@ -32,6 +32,8 @@ keywords = [
 
 preferred_target = "wasm"
 
+supported_targets = "+wasm+wasm-gc+js+native"
+
 description = "MoonBit IANA 时区库 — 597 时区 + DST 三分支 + Hinnant civil↔days + RFC3339 + strftime/strptime，移植自 Rust chrono-tz 0.11.0"
 
 import {

@@ -2,10 +2,8 @@
 // 移植自仓颉 src/data/data_america.cj
 
 ///|
-pub let america__adak : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  387,
-  126,
-  [
+fn _make_america__adak() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(387, 126, [
     (-3225223727L, 5, 126),
     (-2188944802L, 13, 139),
     (-880196400L, 19, 140),
@@ -275,14 +273,15 @@ pub let america__adak : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065764400L, 19, 114),
     (4076654400L, 28, 108),
     (4097214000L, 19, 114),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__anchorage : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  401,
-  126,
-  [
+pub let america__adak : @core.FixedTimespanSet = _make_america__adak()
+
+///|
+fn _make_america__anchorage() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(401, 126, [
     (-3225223727L, 20, 126),
     (-2188951224L, 19, 75),
     (-880200000L, 28, 78),
@@ -552,14 +551,15 @@ pub let america__anchorage : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (4065760800L, 28, 72),
     (4076650800L, 37, 71),
     (4097210400L, 28, 72),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__araguaina : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  157,
-  126,
-  [
+pub let america__anchorage : @core.FixedTimespanSet = _make_america__anchorage()
+
+///|
+fn _make_america__araguaina() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(157, 126, [
     (-1767214032L, 159, 43),
     (-1206957600L, 168, 41),
     (-1191362400L, 159, 43),
@@ -611,14 +611,15 @@ pub let america__araguaina : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (1045360800L, 159, 43),
     (1350788400L, 168, 41),
     (1361066400L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__argentina__buenos_aires : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  137,
-  126,
-  [
+pub let america__araguaina : @core.FixedTimespanSet = _make_america__araguaina()
+
+///|
+fn _make_america__argentina__buenos_aires() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(137, 126, [
     (-2372097972L, 127, 89),
     (-1567453392L, 134, 46),
     (-1233432000L, 159, 43),
@@ -680,14 +681,15 @@ pub let america__argentina__buenos_aires : @core.FixedTimespanSet = @core.FixedT
     (1205632800L, 159, 43),
     (1224385200L, 168, 41),
     (1237082400L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__argentina__catamarca : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  121,
-  126,
-  [
+pub let america__argentina__buenos_aires : @core.FixedTimespanSet = _make_america__argentina__buenos_aires()
+
+///|
+fn _make_america__argentina__catamarca() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(121, 126, [
     (-2372096212L, 127, 89),
     (-1567453392L, 134, 46),
     (-1233432000L, 159, 43),
@@ -749,14 +751,15 @@ pub let america__argentina__catamarca : @core.FixedTimespanSet = @core.FixedTime
     (1087704000L, 159, 43),
     (1198983600L, 168, 41),
     (1205632800L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__argentina__cordoba : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  127,
-  126,
-  [
+pub let america__argentina__catamarca : @core.FixedTimespanSet = _make_america__argentina__catamarca()
+
+///|
+fn _make_america__argentina__cordoba() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(127, 126, [
     (-2372096592L, 127, 89),
     (-1567453392L, 134, 46),
     (-1233432000L, 159, 43),
@@ -818,14 +821,15 @@ pub let america__argentina__cordoba : @core.FixedTimespanSet = @core.FixedTimesp
     (1205632800L, 159, 43),
     (1224385200L, 168, 41),
     (1237082400L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__argentina__jujuy : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  123,
-  126,
-  [
+pub let america__argentina__cordoba : @core.FixedTimespanSet = _make_america__argentina__cordoba()
+
+///|
+fn _make_america__argentina__jujuy() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(123, 126, [
     (-2372096328L, 127, 89),
     (-1567453392L, 134, 46),
     (-1233432000L, 159, 43),
@@ -885,14 +889,15 @@ pub let america__argentina__jujuy : @core.FixedTimespanSet = @core.FixedTimespan
     (952052400L, 159, 43),
     (1198983600L, 168, 41),
     (1205632800L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__argentina__la_rioja : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  118,
-  126,
-  [
+pub let america__argentina__jujuy : @core.FixedTimespanSet = _make_america__argentina__jujuy()
+
+///|
+fn _make_america__argentina__la_rioja() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(118, 126, [
     (-2372095956L, 127, 89),
     (-1567453392L, 134, 46),
     (-1233432000L, 159, 43),
@@ -955,14 +960,15 @@ pub let america__argentina__la_rioja : @core.FixedTimespanSet = @core.FixedTimes
     (1087704000L, 159, 43),
     (1198983600L, 168, 41),
     (1205632800L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__argentina__mendoza : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  109,
-  126,
-  [
+pub let america__argentina__la_rioja : @core.FixedTimespanSet = _make_america__argentina__la_rioja()
+
+///|
+fn _make_america__argentina__mendoza() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(109, 126, [
     (-2372095484L, 127, 89),
     (-1567453392L, 134, 46),
     (-1233432000L, 159, 43),
@@ -1024,14 +1030,15 @@ pub let america__argentina__mendoza : @core.FixedTimespanSet = @core.FixedTimesp
     (1096171200L, 159, 43),
     (1198983600L, 168, 41),
     (1205632800L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__argentina__rio_gallegos : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  108,
-  126,
-  [
+pub let america__argentina__mendoza : @core.FixedTimespanSet = _make_america__argentina__mendoza()
+
+///|
+fn _make_america__argentina__rio_gallegos() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(108, 126, [
     (-2372095388L, 127, 89),
     (-1567453392L, 134, 46),
     (-1233432000L, 159, 43),
@@ -1093,14 +1100,15 @@ pub let america__argentina__rio_gallegos : @core.FixedTimespanSet = @core.FixedT
     (1087704000L, 159, 43),
     (1198983600L, 168, 41),
     (1205632800L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__argentina__salta : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  122,
-  126,
-  [
+pub let america__argentina__rio_gallegos : @core.FixedTimespanSet = _make_america__argentina__rio_gallegos()
+
+///|
+fn _make_america__argentina__salta() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(122, 126, [
     (-2372096300L, 127, 89),
     (-1567453392L, 134, 46),
     (-1233432000L, 159, 43),
@@ -1160,14 +1168,15 @@ pub let america__argentina__salta : @core.FixedTimespanSet = @core.FixedTimespan
     (952052400L, 159, 43),
     (1198983600L, 168, 41),
     (1205632800L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__argentina__san_juan : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  111,
-  126,
-  [
+pub let america__argentina__salta : @core.FixedTimespanSet = _make_america__argentina__salta()
+
+///|
+fn _make_america__argentina__san_juan() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(111, 126, [
     (-2372095556L, 127, 89),
     (-1567453392L, 134, 46),
     (-1233432000L, 159, 43),
@@ -1230,14 +1239,15 @@ pub let america__argentina__san_juan : @core.FixedTimespanSet = @core.FixedTimes
     (1090728000L, 159, 43),
     (1198983600L, 168, 41),
     (1205632800L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__argentina__san_luis : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  119,
-  126,
-  [
+pub let america__argentina__san_juan : @core.FixedTimespanSet = _make_america__argentina__san_juan()
+
+///|
+fn _make_america__argentina__san_luis() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(119, 126, [
     (-2372096076L, 127, 89),
     (-1567453392L, 134, 46),
     (-1233432000L, 159, 43),
@@ -1300,14 +1310,15 @@ pub let america__argentina__san_luis : @core.FixedTimespanSet = @core.FixedTimes
     (1223784000L, 159, 43),
     (1236481200L, 134, 46),
     (1255233600L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__argentina__tucuman : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  124,
-  126,
-  [
+pub let america__argentina__san_luis : @core.FixedTimespanSet = _make_america__argentina__san_luis()
+
+///|
+fn _make_america__argentina__tucuman() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(124, 126, [
     (-2372096348L, 127, 89),
     (-1567453392L, 134, 46),
     (-1233432000L, 159, 43),
@@ -1371,14 +1382,15 @@ pub let america__argentina__tucuman : @core.FixedTimespanSet = @core.FixedTimesp
     (1205632800L, 159, 43),
     (1224385200L, 168, 41),
     (1237082400L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__argentina__ushuaia : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  112,
-  126,
-  [
+pub let america__argentina__tucuman : @core.FixedTimespanSet = _make_america__argentina__tucuman()
+
+///|
+fn _make_america__argentina__ushuaia() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(112, 126, [
     (-2372095608L, 127, 89),
     (-1567453392L, 134, 46),
     (-1233432000L, 159, 43),
@@ -1440,14 +1452,15 @@ pub let america__argentina__ushuaia : @core.FixedTimespanSet = @core.FixedTimesp
     (1087704000L, 159, 43),
     (1198983600L, 168, 41),
     (1205632800L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__asuncion : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  140,
-  126,
-  [
+pub let america__argentina__ushuaia : @core.FixedTimespanSet = _make_america__argentina__ushuaia()
+
+///|
+fn _make_america__asuncion() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(140, 126, [
     (-2524507760L, 140, 73),
     (-1206389360L, 134, 46),
     (86760000L, 159, 43),
@@ -1552,14 +1565,15 @@ pub let america__asuncion : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (1711249200L, 134, 46),
     (1728187200L, 159, 43),
     (1728961200L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__bahia : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  160,
-  126,
-  [
+pub let america__asuncion : @core.FixedTimespanSet = _make_america__asuncion()
+
+///|
+fn _make_america__bahia() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(160, 126, [
     (-1767216356L, 159, 43),
     (-1206957600L, 168, 41),
     (-1191362400L, 159, 43),
@@ -1621,14 +1635,15 @@ pub let america__bahia : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1045360800L, 159, 43),
     (1318734000L, 168, 41),
     (1330221600L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__bahia_banderas : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  49,
-  126,
-  [
+pub let america__bahia : @core.FixedTimespanSet = _make_america__bahia()
+
+///|
+fn _make_america__bahia_banderas() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(49, 126, [
     (-1514739600L, 50, 134),
     (-1343149200L, 62, 91),
     (-1234807200L, 50, 134),
@@ -1690,14 +1705,15 @@ pub let america__bahia_banderas : @core.FixedTimespanSet = @core.FixedTimespanSe
     (1635663600L, 62, 91),
     (1648972800L, 96, 85),
     (1667113200L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__barbados : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  136,
-  126,
-  [
+pub let america__bahia_banderas : @core.FixedTimespanSet = _make_america__bahia_banderas()
+
+///|
+fn _make_america__barbados() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(136, 126, [
     (-1841256091L, 134, 75),
     (-874263600L, 159, 66),
     (-862682400L, 134, 75),
@@ -1713,14 +1729,15 @@ pub let america__barbados : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (307515600L, 134, 75),
     (325058400L, 159, 66),
     (338706000L, 134, 75),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__belem : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  156,
-  126,
-  [
+pub let america__barbados : @core.FixedTimespanSet = _make_america__barbados()
+
+///|
+fn _make_america__belem() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(156, 126, [
     (-1767213964L, 159, 43),
     (-1206957600L, 168, 41),
     (-1191362400L, 159, 43),
@@ -1750,14 +1767,15 @@ pub let america__belem : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (540266400L, 159, 43),
     (562129200L, 168, 41),
     (571197600L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__belize : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  66,
-  126,
-  [
+pub let america__belem : @core.FixedTimespanSet = _make_america__belem()
+
+///|
+fn _make_america__belize() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(66, 126, [
     (-1822500432L, 62, 91),
     (-1616954400L, 85, 49),
     (-1606069800L, 62, 91),
@@ -1856,14 +1874,15 @@ pub let america__belize : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (129618000L, 62, 91),
     (409039200L, 96, 85),
     (413874000L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__boa_vista : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  131,
-  126,
-  [
+pub let america__belize : @core.FixedTimespanSet = _make_america__belize()
+
+///|
+fn _make_america__boa_vista() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(131, 126, [
     (-1767211040L, 134, 46),
     (-1206954000L, 159, 43),
     (-1191358800L, 134, 46),
@@ -1897,26 +1916,28 @@ pub let america__boa_vista : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (951620400L, 134, 46),
     (970977600L, 159, 43),
     (971578800L, 134, 46),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__bogota : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  97,
-  126,
-  [
+pub let america__boa_vista : @core.FixedTimespanSet = _make_america__boa_vista()
+
+///|
+fn _make_america__bogota() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(97, 126, [
     (-2707671824L, 97, 81),
     (-1739041424L, 96, 48),
     (704869200L, 134, 46),
     (729057600L, 96, 48),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__boise : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  40,
-  126,
-  [
+pub let america__bogota : @core.FixedTimespanSet = _make_america__bogota()
+
+///|
+fn _make_america__boise() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(40, 126, [
     (-2717640000L, 37, 152),
     (-1633269600L, 50, 144),
     (-1615129200L, 37, 152),
@@ -2192,14 +2213,15 @@ pub let america__boise : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065753600L, 50, 134),
     (4076643600L, 62, 129),
     (4097203200L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__cambridge_bay : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [
+pub let america__boise : @core.FixedTimespanSet = _make_america__boise()
+
+///|
+fn _make_america__cambridge_bay() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
     (-1577923200L, 50, 134),
     (-880210800L, 62, 135),
     (-769395600L, 62, 131),
@@ -2461,14 +2483,15 @@ pub let america__cambridge_bay : @core.FixedTimespanSet = @core.FixedTimespanSet
     (4065753600L, 50, 134),
     (4076643600L, 62, 129),
     (4097203200L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__campo_grande : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  149,
-  126,
-  [
+pub let america__cambridge_bay : @core.FixedTimespanSet = _make_america__cambridge_bay()
+
+///|
+fn _make_america__campo_grande() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(149, 126, [
     (-1767212492L, 134, 46),
     (-1206954000L, 159, 43),
     (-1191358800L, 134, 46),
@@ -2560,14 +2583,15 @@ pub let america__campo_grande : @core.FixedTimespanSet = @core.FixedTimespanSet:
     (1518922800L, 134, 46),
     (1541304000L, 159, 43),
     (1550372400L, 134, 46),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__cancun : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  72,
-  126,
-  [
+pub let america__campo_grande : @core.FixedTimespanSet = _make_america__campo_grande()
+
+///|
+fn _make_america__cancun() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(72, 126, [
     (-1514743200L, 62, 91),
     (378201600L, 96, 101),
     (410504400L, 62, 91),
@@ -2611,34 +2635,40 @@ pub let america__cancun : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1396771200L, 96, 85),
     (1414306800L, 62, 91),
     (1422777600L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__caracas : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  116,
-  126,
-  [
+pub let america__cancun : @core.FixedTimespanSet = _make_america__cancun()
+
+///|
+fn _make_america__caracas() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(116, 126, [
     (-2524505536L, 117, 89),
     (-1826739140L, 115, 47),
     (-157750200L, 134, 46),
     (1197183600L, 115, 47),
     (1462086000L, 134, 46),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__cayenne : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  153,
-  126,
-  [(-1846269040L, 134, 46), (-71092800L, 159, 43)],
-)
+pub let america__caracas : @core.FixedTimespanSet = _make_america__caracas()
 
 ///|
-pub let america__chicago : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  67,
-  126,
-  [
+fn _make_america__cayenne() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(153, 126, [
+    (-1846269040L, 134, 46),
+    (-71092800L, 159, 43),
+  ])
+}
+
+///|
+pub let america__cayenne : @core.FixedTimespanSet = _make_america__cayenne()
+
+///|
+fn _make_america__chicago() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(67, 126, [
     (-2717647200L, 62, 91),
     (-1633276800L, 96, 85),
     (-1615136400L, 62, 91),
@@ -2999,14 +3029,15 @@ pub let america__chicago : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065750000L, 62, 91),
     (4076640000L, 96, 85),
     (4097199600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__chihuahua : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  48,
-  126,
-  [
+pub let america__chicago : @core.FixedTimespanSet = _make_america__chicago()
+
+///|
+fn _make_america__chihuahua() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(48, 126, [
     (-1514739600L, 50, 134),
     (-1343149200L, 62, 91),
     (-1234807200L, 50, 134),
@@ -3067,14 +3098,15 @@ pub let america__chihuahua : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (1635667200L, 50, 134),
     (1648976400L, 62, 129),
     (1667116800L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__ciudad_juarez : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  46,
-  126,
-  [
+pub let america__chihuahua : @core.FixedTimespanSet = _make_america__chihuahua()
+
+///|
+fn _make_america__ciudad_juarez() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(46, 126, [
     (-1514739600L, 50, 134),
     (-1343149200L, 62, 91),
     (-1234807200L, 50, 134),
@@ -3290,14 +3322,15 @@ pub let america__ciudad_juarez : @core.FixedTimespanSet = @core.FixedTimespanSet
     (4065753600L, 50, 134),
     (4076643600L, 62, 129),
     (4097203200L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__costa_rica : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  83,
-  126,
-  [
+pub let america__ciudad_juarez : @core.FixedTimespanSet = _make_america__ciudad_juarez()
+
+///|
+fn _make_america__costa_rica() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(83, 126, [
     (-2524501427L, 83, 158),
     (-1545071027L, 62, 91),
     (288770400L, 96, 85),
@@ -3308,14 +3341,15 @@ pub let america__costa_rica : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (678344400L, 62, 91),
     (695714400L, 96, 85),
     (700635600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__coyhaique : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  101,
-  126,
-  [
+pub let america__costa_rica : @core.FixedTimespanSet = _make_america__costa_rica()
+
+///|
+fn _make_america__coyhaique() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(101, 126, [
     (-2524504304L, 104, 159),
     (-1892661435L, 96, 48),
     (-1688410800L, 104, 159),
@@ -3449,14 +3483,15 @@ pub let america__coyhaique : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (1712458800L, 134, 46),
     (1725768000L, 159, 43),
     (1742439600L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__cuiaba : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  144,
-  126,
-  [
+pub let america__coyhaique : @core.FixedTimespanSet = _make_america__coyhaique()
+
+///|
+fn _make_america__cuiaba() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(144, 126, [
     (-1767212140L, 134, 46),
     (-1206954000L, 159, 43),
     (-1191358800L, 134, 46),
@@ -3546,14 +3581,15 @@ pub let america__cuiaba : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1518922800L, 134, 46),
     (1541304000L, 159, 43),
     (1550372400L, 134, 46),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__danmarkshavn : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  174,
-  126,
-  [
+pub let america__cuiaba : @core.FixedTimespanSet = _make_america__cuiaba()
+
+///|
+fn _make_america__danmarkshavn() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(174, 126, [
     (-1686091520L, 159, 43),
     (323845200L, 168, 41),
     (338950800L, 159, 43),
@@ -3588,14 +3624,15 @@ pub let america__danmarkshavn : @core.FixedTimespanSet = @core.FixedTimespanSet:
     (796179600L, 168, 41),
     (811904400L, 159, 43),
     (820465200L, 191, 106),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__dawson : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  25,
-  126,
-  [
+pub let america__danmarkshavn : @core.FixedTimespanSet = _make_america__danmarkshavn()
+
+///|
+fn _make_america__dawson() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(25, 126, [
     (-2188996940L, 28, 176),
     (-1632056400L, 37, 174),
     (-1615125600L, 28, 176),
@@ -3689,14 +3726,15 @@ pub let america__dawson : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1572771600L, 37, 152),
     (1583661600L, 50, 144),
     (1604214000L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__dawson_creek : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  36,
-  126,
-  [
+pub let america__dawson : @core.FixedTimespanSet = _make_america__dawson()
+
+///|
+fn _make_america__dawson_creek() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(36, 126, [
     (-2713881544L, 37, 152),
     (-1632060000L, 50, 144),
     (-1615129200L, 37, 152),
@@ -3755,14 +3793,15 @@ pub let america__dawson_creek : @core.FixedTimespanSet = @core.FixedTimespanSet:
     (57747600L, 37, 152),
     (73476000L, 50, 144),
     (84013200L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__denver : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  51,
-  126,
-  [
+pub let america__dawson_creek : @core.FixedTimespanSet = _make_america__dawson_creek()
+
+///|
+fn _make_america__denver() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(51, 126, [
     (-2717643600L, 50, 134),
     (-1633273200L, 62, 129),
     (-1615132800L, 50, 134),
@@ -4045,14 +4084,15 @@ pub let america__denver : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065753600L, 50, 134),
     (4076643600L, 62, 129),
     (4097203200L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__detroit : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  84,
-  126,
-  [
+pub let america__denver : @core.FixedTimespanSet = _make_america__denver()
+
+///|
+fn _make_america__detroit() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(84, 126, [
     (-2051202469L, 62, 91),
     (-1724083200L, 96, 101),
     (-880218000L, 134, 102),
@@ -4318,14 +4358,15 @@ pub let america__detroit : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__edmonton : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  41,
-  126,
-  [
+pub let america__detroit : @core.FixedTimespanSet = _make_america__detroit()
+
+///|
+fn _make_america__edmonton() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(41, 126, [
     (-1998663968L, 50, 134),
     (-1632063600L, 62, 129),
     (-1615132800L, 50, 134),
@@ -4600,14 +4641,15 @@ pub let america__edmonton : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4065753600L, 50, 134),
     (4076643600L, 62, 129),
     (4097203200L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__eirunepe : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  107,
-  126,
-  [
+pub let america__edmonton : @core.FixedTimespanSet = _make_america__edmonton()
+
+///|
+fn _make_america__eirunepe() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(107, 126, [
     (-1767208832L, 96, 48),
     (-1206950400L, 134, 46),
     (-1191355200L, 96, 48),
@@ -4641,27 +4683,29 @@ pub let america__eirunepe : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (761716800L, 96, 48),
     (1214283600L, 134, 46),
     (1384056000L, 96, 48),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__el_salvador : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  65,
-  126,
-  [
+pub let america__eirunepe : @core.FixedTimespanSet = _make_america__eirunepe()
+
+///|
+fn _make_america__el_salvador() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(65, 126, [
     (-1546279392L, 62, 91),
     (547020000L, 96, 85),
     (559717200L, 62, 91),
     (578469600L, 96, 85),
     (591166800L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__fort_nelson : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  35,
-  126,
-  [
+pub let america__el_salvador : @core.FixedTimespanSet = _make_america__el_salvador()
+
+///|
+fn _make_america__fort_nelson() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(35, 126, [
     (-2713880953L, 37, 152),
     (-1632060000L, 50, 144),
     (-1615129200L, 37, 152),
@@ -4805,14 +4849,15 @@ pub let america__fort_nelson : @core.FixedTimespanSet = @core.FixedTimespanSet::
     (1394359200L, 50, 144),
     (1414918800L, 37, 152),
     (1425808800L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__fortaleza : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  161,
-  126,
-  [
+pub let america__fort_nelson : @core.FixedTimespanSet = _make_america__fort_nelson()
+
+///|
+fn _make_america__fortaleza() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(161, 126, [
     (-1767216360L, 159, 43),
     (-1206957600L, 168, 41),
     (-1191362400L, 159, 43),
@@ -4852,14 +4897,15 @@ pub let america__fortaleza : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (972180000L, 159, 43),
     (1003028400L, 168, 41),
     (1013911200L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__glace_bay : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  135,
-  126,
-  [
+pub let america__fortaleza : @core.FixedTimespanSet = _make_america__fortaleza()
+
+///|
+fn _make_america__glace_bay() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(135, 126, [
     (-2131646412L, 134, 75),
     (-1632074400L, 159, 66),
     (-1615143600L, 134, 75),
@@ -5124,14 +5170,15 @@ pub let america__glace_bay : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (4065742800L, 134, 75),
     (4076632800L, 159, 66),
     (4097192400L, 134, 75),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__goose_bay : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  132,
-  126,
-  [
+pub let america__glace_bay : @core.FixedTimespanSet = _make_america__glace_bay()
+
+///|
+fn _make_america__goose_bay() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(132, 126, [
     (-2713895900L, 151, 139),
     (-1632076148L, 162, 137),
     (-1615145348L, 151, 139),
@@ -5460,14 +5507,15 @@ pub let america__goose_bay : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (4065742800L, 134, 75),
     (4076632800L, 159, 66),
     (4097192400L, 134, 75),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__grand_turk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  102,
-  126,
-  [
+pub let america__goose_bay : @core.FixedTimespanSet = _make_america__goose_bay()
+
+///|
+fn _make_america__grand_turk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(102, 126, [
     (-2524504528L, 95, 124),
     (-1827687170L, 96, 101),
     (294217200L, 134, 96),
@@ -5707,14 +5755,15 @@ pub let america__grand_turk : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__guatemala : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  61,
-  126,
-  [
+pub let america__grand_turk : @core.FixedTimespanSet = _make_america__grand_turk()
+
+///|
+fn _make_america__guatemala() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(61, 126, [
     (-1617040676L, 62, 91),
     (123055200L, 96, 85),
     (130914000L, 62, 91),
@@ -5724,38 +5773,41 @@ pub let america__guatemala : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (684219600L, 62, 91),
     (1146376800L, 96, 85),
     (1159678800L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__guayaquil : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  89,
-  126,
-  [
+pub let america__guatemala : @core.FixedTimespanSet = _make_america__guatemala()
+
+///|
+fn _make_america__guayaquil() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(89, 126, [
     (-2524502440L, 92, 154),
     (-1230749160L, 96, 48),
     (722926800L, 134, 46),
     (728884800L, 96, 48),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__guyana : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  138,
-  126,
-  [
+pub let america__guayaquil : @core.FixedTimespanSet = _make_america__guayaquil()
+
+///|
+fn _make_america__guyana() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(138, 126, [
     (-1843589241L, 134, 46),
     (-1730577600L, 141, 45),
     (176096700L, 159, 43),
     (701841600L, 134, 46),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__halifax : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  129,
-  126,
-  [
+pub let america__guyana : @core.FixedTimespanSet = _make_america__guyana()
+
+///|
+fn _make_america__halifax() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(129, 126, [
     (-2131645536L, 134, 75),
     (-1696276800L, 159, 66),
     (-1680469200L, 134, 75),
@@ -6108,14 +6160,15 @@ pub let america__halifax : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065742800L, 134, 75),
     (4076632800L, 159, 66),
     (4097192400L, 134, 75),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__havana : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  87,
-  126,
-  [
+pub let america__halifax : @core.FixedTimespanSet = _make_america__halifax()
+
+///|
+fn _make_america__havana() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(87, 126, [
     (-2524501832L, 86, 112),
     (-1402813824L, 96, 91),
     (-1311534000L, 134, 85),
@@ -6396,14 +6449,15 @@ pub let america__havana : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065742800L, 96, 91),
     (4076629200L, 134, 85),
     (4097192400L, 96, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__hermosillo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  43,
-  126,
-  [
+pub let america__havana : @core.FixedTimespanSet = _make_america__havana()
+
+///|
+fn _make_america__hermosillo() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(43, 126, [
     (-1514739600L, 50, 134),
     (-1343149200L, 62, 91),
     (-1234807200L, 50, 134),
@@ -6417,14 +6471,15 @@ pub let america__hermosillo : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (877852800L, 50, 134),
     (891766800L, 62, 129),
     (909302400L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__indiana__indianapolis : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  79,
-  126,
-  [
+pub let america__hermosillo : @core.FixedTimespanSet = _make_america__hermosillo()
+
+///|
+fn _make_america__indiana__indianapolis() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(79, 126, [
     (-2717647200L, 62, 91),
     (-1633276800L, 96, 85),
     (-1615136400L, 62, 91),
@@ -6648,14 +6703,15 @@ pub let america__indiana__indianapolis : @core.FixedTimespanSet = @core.FixedTim
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__indiana__knox : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  74,
-  126,
-  [
+pub let america__indiana__indianapolis : @core.FixedTimespanSet = _make_america__indiana__indianapolis()
+
+///|
+fn _make_america__indiana__knox() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(74, 126, [
     (-2717647200L, 62, 91),
     (-1633276800L, 96, 85),
     (-1615136400L, 62, 91),
@@ -6934,14 +6990,15 @@ pub let america__indiana__knox : @core.FixedTimespanSet = @core.FixedTimespanSet
     (4065750000L, 62, 91),
     (4076640000L, 96, 85),
     (4097199600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__indiana__marengo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  76,
-  126,
-  [
+pub let america__indiana__knox : @core.FixedTimespanSet = _make_america__indiana__knox()
+
+///|
+fn _make_america__indiana__marengo() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(76, 126, [
     (-2717647200L, 62, 91),
     (-1633276800L, 96, 85),
     (-1615136400L, 62, 91),
@@ -7169,14 +7226,15 @@ pub let america__indiana__marengo : @core.FixedTimespanSet = @core.FixedTimespan
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__indiana__petersburg : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  70,
-  126,
-  [
+pub let america__indiana__marengo : @core.FixedTimespanSet = _make_america__indiana__marengo()
+
+///|
+fn _make_america__indiana__petersburg() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(70, 126, [
     (-2717647200L, 62, 91),
     (-1633276800L, 96, 85),
     (-1615136400L, 62, 91),
@@ -7417,14 +7475,15 @@ pub let america__indiana__petersburg : @core.FixedTimespanSet = @core.FixedTimes
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__indiana__tell_city : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  73,
-  126,
-  [
+pub let america__indiana__petersburg : @core.FixedTimespanSet = _make_america__indiana__petersburg()
+
+///|
+fn _make_america__indiana__tell_city() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(73, 126, [
     (-2717647200L, 62, 91),
     (-1633276800L, 96, 85),
     (-1615136400L, 62, 91),
@@ -7647,14 +7706,15 @@ pub let america__indiana__tell_city : @core.FixedTimespanSet = @core.FixedTimesp
     (4065750000L, 62, 91),
     (4076640000L, 96, 85),
     (4097199600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__indiana__vevay : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  81,
-  126,
-  [
+pub let america__indiana__tell_city : @core.FixedTimespanSet = _make_america__indiana__tell_city()
+
+///|
+fn _make_america__indiana__vevay() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(81, 126, [
     (-2717647200L, 62, 91),
     (-1633276800L, 96, 85),
     (-1615136400L, 62, 91),
@@ -7860,14 +7920,15 @@ pub let america__indiana__vevay : @core.FixedTimespanSet = @core.FixedTimespanSe
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__indiana__vincennes : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  69,
-  126,
-  [
+pub let america__indiana__vevay : @core.FixedTimespanSet = _make_america__indiana__vevay()
+
+///|
+fn _make_america__indiana__vincennes() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(69, 126, [
     (-2717647200L, 62, 91),
     (-1633276800L, 96, 85),
     (-1615136400L, 62, 91),
@@ -8093,14 +8154,15 @@ pub let america__indiana__vincennes : @core.FixedTimespanSet = @core.FixedTimesp
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__indiana__winamac : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  75,
-  126,
-  [
+pub let america__indiana__vincennes : @core.FixedTimespanSet = _make_america__indiana__vincennes()
+
+///|
+fn _make_america__indiana__winamac() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(75, 126, [
     (-2717647200L, 62, 91),
     (-1633276800L, 96, 85),
     (-1615136400L, 62, 91),
@@ -8332,14 +8394,15 @@ pub let america__indiana__winamac : @core.FixedTimespanSet = @core.FixedTimespan
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__inuvik : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [
+pub let america__indiana__winamac : @core.FixedTimespanSet = _make_america__indiana__winamac()
+
+///|
+fn _make_america__inuvik() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
     (-536457600L, 37, 152),
     (73476000L, 50, 144),
     (89197200L, 37, 152),
@@ -8597,14 +8660,15 @@ pub let america__inuvik : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065753600L, 50, 134),
     (4076643600L, 62, 129),
     (4097203200L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__iqaluit : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [
+pub let america__inuvik : @core.FixedTimespanSet = _make_america__inuvik()
+
+///|
+fn _make_america__iqaluit() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
     (-865296000L, 134, 102),
     (-769395600L, 134, 100),
     (-765396000L, 96, 101),
@@ -8864,14 +8928,15 @@ pub let america__iqaluit : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__jamaica : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  95,
-  126,
-  [
+pub let america__iqaluit : @core.FixedTimespanSet = _make_america__iqaluit()
+
+///|
+fn _make_america__jamaica() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(95, 126, [
     (-2524503170L, 95, 124),
     (-1827687170L, 96, 101),
     (126687600L, 134, 96),
@@ -8894,14 +8959,15 @@ pub let america__jamaica : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (404892000L, 96, 101),
     (420015600L, 134, 96),
     (436341600L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__juneau : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  404,
-  126,
-  [
+pub let america__jamaica : @core.FixedTimespanSet = _make_america__jamaica()
+
+///|
+fn _make_america__juneau() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(404, 126, [
     (-3225223727L, 30, 126),
     (-2188954939L, 37, 152),
     (-880207200L, 50, 153),
@@ -9170,14 +9236,15 @@ pub let america__juneau : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065760800L, 28, 72),
     (4076650800L, 37, 71),
     (4097210400L, 28, 72),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__kentucky__louisville : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  80,
-  126,
-  [
+pub let america__juneau : @core.FixedTimespanSet = _make_america__juneau()
+
+///|
+fn _make_america__kentucky__louisville() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(80, 126, [
     (-2717647200L, 62, 91),
     (-1633276800L, 96, 85),
     (-1615136400L, 62, 91),
@@ -9480,14 +9547,15 @@ pub let america__kentucky__louisville : @core.FixedTimespanSet = @core.FixedTime
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__kentucky__monticello : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  82,
-  126,
-  [
+pub let america__kentucky__louisville : @core.FixedTimespanSet = _make_america__kentucky__louisville()
+
+///|
+fn _make_america__kentucky__monticello() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(82, 126, [
     (-2717647200L, 62, 91),
     (-1633276800L, 96, 85),
     (-1615136400L, 62, 91),
@@ -9760,21 +9828,27 @@ pub let america__kentucky__monticello : @core.FixedTimespanSet = @core.FixedTime
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__la_paz : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  113,
-  126,
-  [(-2524505244L, 113, 89), (-1205954844L, 150, 82), (-1192307244L, 134, 46)],
-)
+pub let america__kentucky__monticello : @core.FixedTimespanSet = _make_america__kentucky__monticello()
 
 ///|
-pub let america__lima : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  94,
-  126,
-  [
+fn _make_america__la_paz() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(113, 126, [
+    (-2524505244L, 113, 89),
+    (-1205954844L, 150, 82),
+    (-1192307244L, 134, 46),
+  ])
+}
+
+///|
+pub let america__la_paz : @core.FixedTimespanSet = _make_america__la_paz()
+
+///|
+fn _make_america__lima() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(94, 126, [
     (-2524503108L, 93, 126),
     (-1938538284L, 96, 48),
     (-1009825200L, 134, 46),
@@ -9791,14 +9865,15 @@ pub let america__lima : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (638942400L, 96, 48),
     (757400400L, 134, 46),
     (765172800L, 96, 48),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__los_angeles : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  38,
-  126,
-  [
+pub let america__lima : @core.FixedTimespanSet = _make_america__lima()
+
+///|
+fn _make_america__los_angeles() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(38, 126, [
     (-2717640000L, 37, 152),
     (-1633269600L, 50, 144),
     (-1615129200L, 37, 152),
@@ -10109,14 +10184,15 @@ pub let america__los_angeles : @core.FixedTimespanSet = @core.FixedTimespanSet::
     (4065757200L, 37, 152),
     (4076647200L, 50, 144),
     (4097206800L, 37, 152),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__maceio : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  165,
-  126,
-  [
+pub let america__los_angeles : @core.FixedTimespanSet = _make_america__los_angeles()
+
+///|
+fn _make_america__maceio() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(165, 126, [
     (-1767217028L, 159, 43),
     (-1206957600L, 168, 41),
     (-1191362400L, 159, 43),
@@ -10158,14 +10234,15 @@ pub let america__maceio : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (972180000L, 159, 43),
     (1003028400L, 168, 41),
     (1013911200L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__managua : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  78,
-  126,
-  [
+pub let america__maceio : @core.FixedTimespanSet = _make_america__maceio()
+
+///|
+fn _make_america__managua() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(78, 126, [
     (-2524500892L, 77, 130),
     (-1121105688L, 62, 91),
     (105084000L, 96, 101),
@@ -10182,14 +10259,15 @@ pub let america__managua : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (1128229200L, 62, 91),
     (1146384000L, 96, 85),
     (1159682400L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__manaus : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  133,
-  126,
-  [
+pub let america__managua : @core.FixedTimespanSet = _make_america__managua()
+
+///|
+fn _make_america__manaus() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(133, 126, [
     (-1767211196L, 134, 46),
     (-1206954000L, 159, 43),
     (-1191358800L, 134, 46),
@@ -10221,26 +10299,28 @@ pub let america__manaus : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (571201200L, 134, 46),
     (750830400L, 159, 43),
     (761713200L, 134, 46),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__martinique : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  130,
-  126,
-  [
+pub let america__manaus : @core.FixedTimespanSet = _make_america__manaus()
+
+///|
+fn _make_america__martinique() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(130, 126, [
     (-2524506940L, 130, 103),
     (-1851537340L, 134, 75),
     (323841600L, 159, 66),
     (338958000L, 134, 75),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__matamoros : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  59,
-  126,
-  [
+pub let america__martinique : @core.FixedTimespanSet = _make_america__martinique()
+
+///|
+fn _make_america__matamoros() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(59, 126, [
     (-1514743200L, 62, 91),
     (576057600L, 96, 85),
     (594198000L, 62, 91),
@@ -10452,14 +10532,15 @@ pub let america__matamoros : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (4065750000L, 62, 91),
     (4076640000L, 96, 85),
     (4097199600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__mazatlan : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  47,
-  126,
-  [
+pub let america__matamoros : @core.FixedTimespanSet = _make_america__matamoros()
+
+///|
+fn _make_america__mazatlan() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(47, 126, [
     (-1514739600L, 50, 134),
     (-1343149200L, 62, 91),
     (-1234807200L, 50, 134),
@@ -10521,14 +10602,15 @@ pub let america__mazatlan : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (1635667200L, 50, 134),
     (1648976400L, 62, 129),
     (1667116800L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__menominee : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  68,
-  126,
-  [
+pub let america__mazatlan : @core.FixedTimespanSet = _make_america__mazatlan()
+
+///|
+fn _make_america__menominee() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(68, 126, [
     (-2659759773L, 62, 91),
     (-1633276800L, 96, 85),
     (-1615136400L, 62, 91),
@@ -10796,14 +10878,15 @@ pub let america__menominee : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (4065750000L, 62, 91),
     (4076640000L, 96, 85),
     (4097199600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__merida : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  63,
-  126,
-  [
+pub let america__menominee : @core.FixedTimespanSet = _make_america__menominee()
+
+///|
+fn _make_america__merida() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(63, 126, [
     (-1514743200L, 62, 91),
     (378201600L, 96, 101),
     (405068400L, 62, 91),
@@ -10861,14 +10944,15 @@ pub let america__merida : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1635663600L, 62, 91),
     (1648972800L, 96, 85),
     (1667113200L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__metlakatla : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  405,
-  126,
-  [
+pub let america__merida : @core.FixedTimespanSet = _make_america__merida()
+
+///|
+fn _make_america__metlakatla() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(405, 126, [
     (-3225223727L, 31, 126),
     (-2188955622L, 37, 152),
     (-880207200L, 50, 153),
@@ -11074,14 +11158,15 @@ pub let america__metlakatla : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (4065760800L, 28, 72),
     (4076650800L, 37, 71),
     (4097210400L, 28, 72),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__mexico_city : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  58,
-  126,
-  [
+pub let america__metlakatla : @core.FixedTimespanSet = _make_america__metlakatla()
+
+///|
+fn _make_america__mexico_city() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(58, 126, [
     (-1514739600L, 50, 134),
     (-1343149200L, 62, 91),
     (-1234807200L, 50, 134),
@@ -11150,14 +11235,15 @@ pub let america__mexico_city : @core.FixedTimespanSet = @core.FixedTimespanSet::
     (1635663600L, 62, 91),
     (1648972800L, 96, 85),
     (1667113200L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__miquelon : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  143,
-  126,
-  [
+pub let america__mexico_city : @core.FixedTimespanSet = _make_america__mexico_city()
+
+///|
+fn _make_america__miquelon() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(143, 126, [
     (-1847650520L, 134, 75),
     (326001600L, 159, 43),
     (544597200L, 168, 41),
@@ -11386,14 +11472,15 @@ pub let america__miquelon : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4065739200L, 159, 43),
     (4076629200L, 168, 41),
     (4097188800L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__moncton : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  126,
-  126,
-  [
+pub let america__miquelon : @core.FixedTimespanSet = _make_america__miquelon()
+
+///|
+fn _make_america__moncton() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(126, 126, [
     (-2715882052L, 96, 101),
     (-2131642800L, 134, 75),
     (-1632074400L, 159, 66),
@@ -11725,14 +11812,15 @@ pub let america__moncton : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065742800L, 134, 75),
     (4076632800L, 159, 66),
     (4097192400L, 134, 75),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__monterrey : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  57,
-  126,
-  [
+pub let america__moncton : @core.FixedTimespanSet = _make_america__moncton()
+
+///|
+fn _make_america__monterrey() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(57, 126, [
     (-1514743200L, 50, 134),
     (-1343149200L, 62, 91),
     (-1234807200L, 50, 134),
@@ -11795,14 +11883,15 @@ pub let america__monterrey : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (1635663600L, 62, 91),
     (1648972800L, 96, 85),
     (1667113200L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__montevideo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  142,
-  126,
-  [
+pub let america__monterrey : @core.FixedTimespanSet = _make_america__monterrey()
+
+///|
+fn _make_america__montevideo() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(142, 126, [
     (-1942690509L, 142, 130),
     (-1567455309L, 134, 46),
     (-1459627200L, 159, 43),
@@ -11889,14 +11978,15 @@ pub let america__montevideo : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (1394337600L, 159, 43),
     (1412485200L, 168, 41),
     (1425787200L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__new_york : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  98,
-  126,
-  [
+pub let america__montevideo : @core.FixedTimespanSet = _make_america__montevideo()
+
+///|
+fn _make_america__new_york() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(98, 126, [
     (-2717650800L, 96, 101),
     (-1633280400L, 134, 96),
     (-1615140000L, 96, 101),
@@ -12257,14 +12347,15 @@ pub let america__new_york : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__nome : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  396,
-  126,
-  [
+pub let america__new_york : @core.FixedTimespanSet = _make_america__new_york()
+
+///|
+fn _make_america__nome() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(396, 126, [
     (-3225223727L, 12, 126),
     (-2188947502L, 13, 139),
     (-880196400L, 19, 140),
@@ -12534,14 +12625,15 @@ pub let america__nome : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065760800L, 28, 72),
     (4076650800L, 37, 71),
     (4097210400L, 28, 72),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__noronha : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  167,
-  126,
-  [
+pub let america__nome : @core.FixedTimespanSet = _make_america__nome()
+
+///|
+fn _make_america__noronha() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(167, 126, [
     (-1767217820L, 168, 41),
     (-1206961200L, 178, 39),
     (-1191366000L, 168, 41),
@@ -12581,14 +12673,15 @@ pub let america__noronha : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (971571600L, 168, 41),
     (1003024800L, 178, 39),
     (1013907600L, 168, 41),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__north_dakota__beulah : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  54,
-  126,
-  [
+pub let america__noronha : @core.FixedTimespanSet = _make_america__noronha()
+
+///|
+fn _make_america__north_dakota__beulah() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(54, 126, [
     (-2717643600L, 50, 134),
     (-1633273200L, 62, 129),
     (-1615132800L, 50, 134),
@@ -12863,14 +12956,15 @@ pub let america__north_dakota__beulah : @core.FixedTimespanSet = @core.FixedTime
     (4065750000L, 62, 91),
     (4076640000L, 96, 85),
     (4097199600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__north_dakota__center : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  56,
-  126,
-  [
+pub let america__north_dakota__beulah : @core.FixedTimespanSet = _make_america__north_dakota__beulah()
+
+///|
+fn _make_america__north_dakota__center() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(56, 126, [
     (-2717643600L, 50, 134),
     (-1633273200L, 62, 129),
     (-1615132800L, 50, 134),
@@ -13145,14 +13239,15 @@ pub let america__north_dakota__center : @core.FixedTimespanSet = @core.FixedTime
     (4065750000L, 62, 91),
     (4076640000L, 96, 85),
     (4097199600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__north_dakota__new_salem : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  55,
-  126,
-  [
+pub let america__north_dakota__center : @core.FixedTimespanSet = _make_america__north_dakota__center()
+
+///|
+fn _make_america__north_dakota__new_salem() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(55, 126, [
     (-2717643600L, 50, 134),
     (-1633273200L, 62, 129),
     (-1615132800L, 50, 134),
@@ -13427,14 +13522,15 @@ pub let america__north_dakota__new_salem : @core.FixedTimespanSet = @core.FixedT
     (4065750000L, 62, 91),
     (4076640000L, 96, 85),
     (4097199600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__nuuk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  154,
-  126,
-  [
+pub let america__north_dakota__new_salem : @core.FixedTimespanSet = _make_america__north_dakota__new_salem()
+
+///|
+fn _make_america__nuuk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(154, 126, [
     (-1686083584L, 159, 43),
     (323845200L, 168, 41),
     (338950800L, 159, 43),
@@ -13675,14 +13771,15 @@ pub let america__nuuk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 168, 41),
     (4078429200L, 178, 39),
     (4096573200L, 168, 41),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__ojinaga : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  53,
-  126,
-  [
+pub let america__nuuk : @core.FixedTimespanSet = _make_america__nuuk()
+
+///|
+fn _make_america__ojinaga() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(53, 126, [
     (-1514739600L, 50, 134),
     (-1343149200L, 62, 91),
     (-1234807200L, 50, 134),
@@ -13897,33 +13994,39 @@ pub let america__ojinaga : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065750000L, 62, 91),
     (4076640000L, 96, 85),
     (4097199600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__panama : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  90,
-  126,
-  [(-2524502512L, 88, 89), (-1946918424L, 96, 101)],
-)
+pub let america__ojinaga : @core.FixedTimespanSet = _make_america__ojinaga()
 
 ///|
-pub let america__paramaribo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  146,
-  126,
-  [
+fn _make_america__panama() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(90, 126, [
+    (-2524502512L, 88, 89),
+    (-1946918424L, 96, 101),
+  ])
+}
+
+///|
+pub let america__panama : @core.FixedTimespanSet = _make_america__panama()
+
+///|
+fn _make_america__paramaribo() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(146, 126, [
     (-1861906760L, 145, 149),
     (-1104524348L, 147, 149),
     (-765317964L, 152, 44),
     (465449400L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__phoenix : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  42,
-  126,
-  [
+pub let america__paramaribo : @core.FixedTimespanSet = _make_america__paramaribo()
+
+///|
+fn _make_america__phoenix() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(42, 126, [
     (-2717643600L, 50, 134),
     (-1633273200L, 62, 129),
     (-1615132800L, 50, 134),
@@ -13935,14 +14038,15 @@ pub let america__phoenix : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (-796845540L, 50, 134),
     (-84380400L, 62, 129),
     (-68659200L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__portauprince : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  99,
-  126,
-  [
+pub let america__phoenix : @core.FixedTimespanSet = _make_america__phoenix()
+
+///|
+fn _make_america__portauprince() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(99, 126, [
     (-2524504240L, 100, 150),
     (-1670483460L, 96, 101),
     (421218000L, 134, 96),
@@ -14153,14 +14257,15 @@ pub let america__portauprince : @core.FixedTimespanSet = @core.FixedTimespanSet:
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__porto_velho : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  128,
-  126,
-  [
+pub let america__portauprince : @core.FixedTimespanSet = _make_america__portauprince()
+
+///|
+fn _make_america__porto_velho() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(128, 126, [
     (-1767210264L, 134, 46),
     (-1206954000L, 159, 43),
     (-1191358800L, 134, 46),
@@ -14190,26 +14295,28 @@ pub let america__porto_velho : @core.FixedTimespanSet = @core.FixedTimespanSet::
     (540270000L, 134, 46),
     (562132800L, 159, 43),
     (571201200L, 134, 46),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__puerto_rico : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  120,
-  126,
-  [
+pub let america__porto_velho : @core.FixedTimespanSet = _make_america__porto_velho()
+
+///|
+fn _make_america__puerto_rico() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(120, 126, [
     (-2233035335L, 134, 75),
     (-873057600L, 159, 78),
     (-769395600L, 159, 74),
     (-765399600L, 134, 75),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__punta_arenas : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  103,
-  126,
-  [
+pub let america__puerto_rico : @core.FixedTimespanSet = _make_america__puerto_rico()
+
+///|
+fn _make_america__punta_arenas() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(103, 126, [
     (-2524504580L, 104, 159),
     (-1892661435L, 96, 48),
     (-1688410800L, 104, 159),
@@ -14327,14 +14434,15 @@ pub let america__punta_arenas : @core.FixedTimespanSet = @core.FixedTimespanSet:
     (1463281200L, 134, 46),
     (1471147200L, 159, 43),
     (1480820400L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__rankin_inlet : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [
+pub let america__punta_arenas : @core.FixedTimespanSet = _make_america__punta_arenas()
+
+///|
+fn _make_america__rankin_inlet() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
     (-410227200L, 62, 91),
     (73468800L, 96, 85),
     (89190000L, 62, 91),
@@ -14592,14 +14700,15 @@ pub let america__rankin_inlet : @core.FixedTimespanSet = @core.FixedTimespanSet:
     (4065750000L, 62, 91),
     (4076640000L, 96, 85),
     (4097199600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__recife : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  166,
-  126,
-  [
+pub let america__rankin_inlet : @core.FixedTimespanSet = _make_america__rankin_inlet()
+
+///|
+fn _make_america__recife() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(166, 126, [
     (-1767217224L, 159, 43),
     (-1206957600L, 168, 41),
     (-1191362400L, 159, 43),
@@ -14639,14 +14748,15 @@ pub let america__recife : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (971575200L, 159, 43),
     (1003028400L, 168, 41),
     (1013911200L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__regina : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  52,
-  126,
-  [
+pub let america__recife : @core.FixedTimespanSet = _make_america__recife()
+
+///|
+fn _make_america__regina() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(52, 126, [
     (-2030202084L, 50, 134),
     (-1632063600L, 62, 129),
     (-1615132800L, 50, 134),
@@ -14700,14 +14810,15 @@ pub let america__regina : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (-337186800L, 62, 129),
     (-321465600L, 50, 134),
     (-305737200L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__resolute : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  191,
-  38,
-  [
+pub let america__regina : @core.FixedTimespanSet = _make_america__regina()
+
+///|
+fn _make_america__resolute() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(191, 38, [
     (-704937600L, 62, 91),
     (73468800L, 96, 85),
     (89190000L, 62, 91),
@@ -14965,14 +15076,15 @@ pub let america__resolute : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4065750000L, 62, 91),
     (4076640000L, 96, 85),
     (4097199600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__rio_branco : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  114,
-  126,
-  [
+pub let america__resolute : @core.FixedTimespanSet = _make_america__resolute()
+
+///|
+fn _make_america__rio_branco() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(114, 126, [
     (-1767209328L, 96, 48),
     (-1206950400L, 134, 46),
     (-1191355200L, 96, 48),
@@ -15004,14 +15116,15 @@ pub let america__rio_branco : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (571204800L, 96, 48),
     (1214283600L, 134, 46),
     (1384056000L, 96, 48),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__santarem : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  148,
-  126,
-  [
+pub let america__rio_branco : @core.FixedTimespanSet = _make_america__rio_branco()
+
+///|
+fn _make_america__santarem() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(148, 126, [
     (-1767212472L, 134, 46),
     (-1206954000L, 159, 43),
     (-1191358800L, 134, 46),
@@ -15042,14 +15155,15 @@ pub let america__santarem : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (562132800L, 159, 43),
     (571201200L, 134, 46),
     (1214280000L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__santiago : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  104,
-  126,
-  [
+pub let america__santarem : @core.FixedTimespanSet = _make_america__santarem()
+
+///|
+fn _make_america__santiago() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(104, 126, [
     (-2524504635L, 104, 159),
     (-1892661435L, 96, 48),
     (-1688410800L, 104, 159),
@@ -15333,14 +15447,15 @@ pub let america__santiago : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4060900800L, 159, 43),
     (4079041200L, 134, 46),
     (4092350400L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__santo_domingo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  106,
-  126,
-  [
+pub let america__santiago : @core.FixedTimespanSet = _make_america__santiago()
+
+///|
+fn _make_america__santo_domingo() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(106, 126, [
     (-2524504824L, 105, 157),
     (-1159773600L, 96, 101),
     (-100119600L, 134, 96),
@@ -15358,14 +15473,15 @@ pub let america__santo_domingo : @core.FixedTimespanSet = @core.FixedTimespanSet
     (152082000L, 134, 75),
     (972799200L, 96, 101),
     (975823200L, 134, 75),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__sao_paulo : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  158,
-  126,
-  [
+pub let america__santo_domingo : @core.FixedTimespanSet = _make_america__santo_domingo()
+
+///|
+fn _make_america__sao_paulo() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(158, 126, [
     (-1767214412L, 159, 43),
     (-1206957600L, 168, 41),
     (-1191362400L, 159, 43),
@@ -15457,14 +15573,15 @@ pub let america__sao_paulo : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (1518919200L, 159, 43),
     (1541300400L, 168, 41),
     (1550368800L, 159, 43),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__scoresbysund : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  173,
-  126,
-  [
+pub let america__sao_paulo : @core.FixedTimespanSet = _make_america__sao_paulo()
+
+///|
+fn _make_america__scoresbysund() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(173, 126, [
     (-1686090728L, 168, 41),
     (323841600L, 178, 39),
     (338961600L, 168, 41),
@@ -15706,14 +15823,15 @@ pub let america__scoresbysund : @core.FixedTimespanSet = @core.FixedTimespanSet:
     (4065123600L, 168, 41),
     (4078429200L, 178, 39),
     (4096573200L, 168, 41),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__sitka : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  403,
-  126,
-  [
+pub let america__scoresbysund : @core.FixedTimespanSet = _make_america__scoresbysund()
+
+///|
+fn _make_america__sitka() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(403, 126, [
     (-3225223727L, 26, 126),
     (-2188954727L, 37, 152),
     (-880207200L, 50, 153),
@@ -15982,14 +16100,15 @@ pub let america__sitka : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065760800L, 28, 72),
     (4076650800L, 37, 71),
     (4097210400L, 28, 72),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__st_johns : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  151,
-  126,
-  [
+pub let america__sitka : @core.FixedTimespanSet = _make_america__sitka()
+
+///|
+fn _make_america__st_johns() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(151, 126, [
     (-2713897748L, 151, 139),
     (-1664130548L, 162, 137),
     (-1650137348L, 151, 139),
@@ -16353,14 +16472,15 @@ pub let america__st_johns : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4065741000L, 152, 139),
     (4076631000L, 163, 137),
     (4097190600L, 152, 139),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__swift_current : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  45,
-  126,
-  [
+pub let america__st_johns : @core.FixedTimespanSet = _make_america__st_johns()
+
+///|
+fn _make_america__swift_current() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(45, 126, [
     (-2030201320L, 50, 134),
     (-1632063600L, 62, 129),
     (-1615132800L, 50, 134),
@@ -16384,14 +16504,15 @@ pub let america__swift_current : @core.FixedTimespanSet = @core.FixedTimespanSet
     (-273682800L, 62, 129),
     (-260985600L, 50, 134),
     (73472400L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__tegucigalpa : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  71,
-  126,
-  [
+pub let america__swift_current : @core.FixedTimespanSet = _make_america__swift_current()
+
+///|
+fn _make_america__tegucigalpa() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(71, 126, [
     (-1538503868L, 62, 91),
     (547020000L, 96, 85),
     (559717200L, 62, 91),
@@ -16399,14 +16520,15 @@ pub let america__tegucigalpa : @core.FixedTimespanSet = @core.FixedTimespanSet::
     (591166800L, 62, 91),
     (1146981600L, 96, 85),
     (1154926800L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__thule : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  110,
-  126,
-  [
+pub let america__tegucigalpa : @core.FixedTimespanSet = _make_america__tegucigalpa()
+
+///|
+fn _make_america__thule() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(110, 126, [
     (-1686079492L, 134, 75),
     (670399200L, 159, 66),
     (686120400L, 134, 75),
@@ -16626,14 +16748,15 @@ pub let america__thule : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065742800L, 134, 75),
     (4076632800L, 159, 66),
     (4097192400L, 134, 75),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__tijuana : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  39,
-  126,
-  [
+pub let america__thule : @core.FixedTimespanSet = _make_america__thule()
+
+///|
+fn _make_america__tijuana() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(39, 126, [
     (-1514739600L, 50, 134),
     (-1451667600L, 37, 152),
     (-1343145600L, 50, 134),
@@ -16913,14 +17036,15 @@ pub let america__tijuana : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065757200L, 37, 152),
     (4076647200L, 50, 144),
     (4097206800L, 37, 152),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__toronto : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  91,
-  126,
-  [
+pub let america__tijuana : @core.FixedTimespanSet = _make_america__tijuana()
+
+///|
+fn _make_america__toronto() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(91, 126, [
     (-2366736148L, 96, 101),
     (-1632070800L, 134, 96),
     (-1615140000L, 96, 101),
@@ -17278,14 +17402,15 @@ pub let america__toronto : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065746400L, 96, 101),
     (4076636400L, 134, 96),
     (4097196000L, 96, 101),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__vancouver : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  34,
-  126,
-  [
+pub let america__toronto : @core.FixedTimespanSet = _make_america__toronto()
+
+///|
+fn _make_america__vancouver() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(34, 126, [
     (-2713880852L, 37, 152),
     (-1632060000L, 50, 144),
     (-1615129200L, 37, 152),
@@ -17600,14 +17725,15 @@ pub let america__vancouver : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (4065757200L, 37, 152),
     (4076647200L, 50, 144),
     (4097206800L, 37, 152),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__whitehorse : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  27,
-  126,
-  [
+pub let america__vancouver : @core.FixedTimespanSet = _make_america__vancouver()
+
+///|
+fn _make_america__whitehorse() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(27, 126, [
     (-2188997988L, 28, 176),
     (-1632056400L, 37, 174),
     (-1615125600L, 28, 176),
@@ -17701,14 +17827,15 @@ pub let america__whitehorse : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (1572771600L, 37, 152),
     (1583661600L, 50, 144),
     (1604214000L, 50, 134),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__winnipeg : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  60,
-  126,
-  [
+pub let america__whitehorse : @core.FixedTimespanSet = _make_america__whitehorse()
+
+///|
+fn _make_america__winnipeg() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(60, 126, [
     (-2602258284L, 62, 91),
     (-1694368800L, 96, 85),
     (-1681671600L, 62, 91),
@@ -18019,14 +18146,15 @@ pub let america__winnipeg : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4065750000L, 62, 91),
     (4076640000L, 96, 85),
     (4097199600L, 62, 91),
-  ],
-)
+  ])
+}
 
 ///|
-pub let america__yakutat : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  402,
-  126,
-  [
+pub let america__winnipeg : @core.FixedTimespanSet = _make_america__winnipeg()
+
+///|
+fn _make_america__yakutat() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(402, 126, [
     (-3225223727L, 23, 126),
     (-2188953665L, 28, 176),
     (-880203600L, 37, 177),
@@ -18295,5 +18423,8 @@ pub let america__yakutat : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065760800L, 28, 72),
     (4076650800L, 37, 71),
     (4097210400L, 28, 72),
-  ],
-)
+  ])
+}
+
+///|
+pub let america__yakutat : @core.FixedTimespanSet = _make_america__yakutat()

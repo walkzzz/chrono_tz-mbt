@@ -2,10 +2,8 @@
 // 移植自仓颉 src/data/data_australasia.cj
 
 ///|
-pub let australia__adelaide : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  349,
-  126,
-  [
+fn _make_australia__adelaide() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(349, 126, [
     (-2364110060L, 347, 64),
     (-2230189200L, 353, 64),
     (-1672558200L, 369, 63),
@@ -273,14 +271,15 @@ pub let australia__adelaide : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (4063278600L, 369, 63),
     (4079003400L, 353, 64),
     (4094728200L, 369, 63),
-  ],
-)
+  ])
+}
 
 ///|
-pub let australia__brisbane : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  366,
-  126,
-  [
+pub let australia__adelaide : @core.FixedTimespanSet = _make_australia__adelaide()
+
+///|
+fn _make_australia__brisbane() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(366, 126, [
     (-2366791928L, 363, 68),
     (-1672560000L, 374, 67),
     (-1665388800L, 363, 68),
@@ -298,14 +297,15 @@ pub let australia__brisbane : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (667929600L, 363, 68),
     (688492800L, 374, 67),
     (699379200L, 363, 68),
-  ],
-)
+  ])
+}
 
 ///|
-pub let australia__broken_hill : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  352,
-  126,
-  [
+pub let australia__brisbane : @core.FixedTimespanSet = _make_australia__brisbane()
+
+///|
+fn _make_australia__broken_hill() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(352, 126, [
     (-2364110748L, 363, 68),
     (-2314951200L, 347, 64),
     (-2230189200L, 353, 64),
@@ -574,14 +574,15 @@ pub let australia__broken_hill : @core.FixedTimespanSet = @core.FixedTimespanSet
     (4063278600L, 369, 63),
     (4079003400L, 353, 64),
     (4094728200L, 369, 63),
-  ],
-)
+  ])
+}
 
 ///|
-pub let australia__darwin : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  343,
-  126,
-  [
+pub let australia__broken_hill : @core.FixedTimespanSet = _make_australia__broken_hill()
+
+///|
+fn _make_australia__darwin() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(343, 126, [
     (-2364108200L, 347, 64),
     (-2230189200L, 353, 64),
     (-1672558200L, 369, 63),
@@ -592,14 +593,15 @@ pub let australia__darwin : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (-844673400L, 353, 64),
     (-828343800L, 369, 63),
     (-813223800L, 353, 64),
-  ],
-)
+  ])
+}
 
 ///|
-pub let australia__eucla : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  341,
-  126,
-  [
+pub let australia__darwin : @core.FixedTimespanSet = _make_australia__darwin()
+
+///|
+fn _make_australia__eucla() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(341, 126, [
     (-2337928528L, 344, 21),
     (-1672555500L, 358, 24),
     (-1665384300L, 344, 21),
@@ -619,14 +621,15 @@ pub let australia__eucla : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (1206810900L, 344, 21),
     (1224954900L, 358, 24),
     (1238260500L, 344, 21),
-  ],
-)
+  ])
+}
 
 ///|
-pub let australia__hobart : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  361,
-  126,
-  [
+pub let australia__eucla : @core.FixedTimespanSet = _make_australia__eucla()
+
+///|
+fn _make_australia__hobart() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(361, 126, [
     (-2345795356L, 363, 68),
     (-1680508800L, 374, 67),
     (-1665388800L, 363, 68),
@@ -905,14 +908,15 @@ pub let australia__hobart : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4063276800L, 374, 67),
     (4079001600L, 363, 68),
     (4094726400L, 374, 67),
-  ],
-)
+  ])
+}
 
 ///|
-pub let australia__lindeman : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  362,
-  126,
-  [
+pub let australia__hobart : @core.FixedTimespanSet = _make_australia__hobart()
+
+///|
+fn _make_australia__lindeman() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(362, 126, [
     (-2366790956L, 363, 68),
     (-1672560000L, 374, 67),
     (-1665388800L, 363, 68),
@@ -934,14 +938,15 @@ pub let australia__lindeman : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (731433600L, 363, 68),
     (751996800L, 374, 67),
     (762883200L, 363, 68),
-  ],
-)
+  ])
+}
 
 ///|
-pub let australia__lord_howe : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  371,
-  126,
-  [
+pub let australia__lindeman : @core.FixedTimespanSet = _make_australia__lindeman()
+
+///|
+fn _make_australia__lord_howe() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(371, 126, [
     (-2364114980L, 363, 68),
     (352216800L, 369, 26),
     (372785400L, 381, 29),
@@ -1181,14 +1186,15 @@ pub let australia__lord_howe : @core.FixedTimespanSet = @core.FixedTimespanSet::
     (4063275000L, 374, 27),
     (4078998000L, 369, 26),
     (4094724600L, 374, 27),
-  ],
-)
+  ])
+}
 
 ///|
-pub let australia__melbourne : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  357,
-  126,
-  [
+pub let australia__lord_howe : @core.FixedTimespanSet = _make_australia__lord_howe()
+
+///|
+fn _make_australia__melbourne() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(357, 126, [
     (-2364111592L, 363, 68),
     (-1672560000L, 374, 67),
     (-1665388800L, 363, 68),
@@ -1455,14 +1461,15 @@ pub let australia__melbourne : @core.FixedTimespanSet = @core.FixedTimespanSet::
     (4063276800L, 374, 67),
     (4079001600L, 363, 68),
     (4094726400L, 374, 67),
-  ],
-)
+  ])
+}
 
 ///|
-pub let australia__perth : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  330,
-  126,
-  [
+pub let australia__melbourne : @core.FixedTimespanSet = _make_australia__melbourne()
+
+///|
+fn _make_australia__perth() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(330, 126, [
     (-2337925404L, 332, 77),
     (-1672552800L, 347, 76),
     (-1665381600L, 332, 77),
@@ -1482,14 +1489,15 @@ pub let australia__perth : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (1206813600L, 332, 77),
     (1224957600L, 347, 76),
     (1238263200L, 332, 77),
-  ],
-)
+  ])
+}
 
 ///|
-pub let australia__sydney : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  365,
-  126,
-  [
+pub let australia__perth : @core.FixedTimespanSet = _make_australia__perth()
+
+///|
+fn _make_australia__sydney() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(365, 126, [
     (-2364113092L, 363, 68),
     (-1672560000L, 374, 67),
     (-1665388800L, 363, 68),
@@ -1756,5 +1764,8 @@ pub let australia__sydney : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4063276800L, 374, 67),
     (4079001600L, 363, 68),
     (4094726400L, 374, 67),
-  ],
-)
+  ])
+}
+
+///|
+pub let australia__sydney : @core.FixedTimespanSet = _make_australia__sydney()

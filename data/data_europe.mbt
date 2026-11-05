@@ -2,10 +2,8 @@
 // 移植自仓颉 src/data/data_europe.cj
 
 ///|
-pub let europe__andorra : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  192,
-  126,
-  [
+fn _make_europe__andorra() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(192, 126, [
     (-2177453164L, 191, 168),
     (-733881600L, 208, 88),
     (481078800L, 232, 87),
@@ -238,14 +236,15 @@ pub let europe__andorra : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__astrakhan : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  262,
-  126,
-  [
+pub let europe__andorra : @core.FixedTimespanSet = _make_europe__andorra()
+
+///|
+fn _make_europe__astrakhan() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(262, 126, [
     (-1441249932L, 259, 7),
     (-1247540400L, 279, 9),
     (354916800L, 294, 11),
@@ -310,14 +309,15 @@ pub let europe__astrakhan : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (1301180400L, 279, 9),
     (1414274400L, 259, 7),
     (1459033200L, 279, 9),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__athens : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  218,
-  126,
-  [
+pub let europe__astrakhan : @core.FixedTimespanSet = _make_europe__astrakhan()
+
+///|
+fn _make_europe__athens() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(218, 126, [
     (-2344642492L, 218, 73),
     (-1686101632L, 232, 98),
     (-1182996000L, 259, 97),
@@ -580,14 +580,15 @@ pub let europe__athens : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 232, 98),
     (4078429200L, 259, 97),
     (4096573200L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__belgrade : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  214,
-  126,
-  [
+pub let europe__athens : @core.FixedTimespanSet = _make_europe__athens()
+
+///|
+fn _make_europe__belgrade() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(214, 126, [
     (-2713915320L, 208, 88),
     (-905824800L, 232, 87),
     (-857257200L, 208, 88),
@@ -831,14 +832,15 @@ pub let europe__belgrade : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__berlin : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  205,
-  126,
-  [
+pub let europe__belgrade : @core.FixedTimespanSet = _make_europe__belgrade()
+
+///|
+fn _make_europe__berlin() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(205, 126, [
     (-2422054408L, 208, 88),
     (-1693706400L, 232, 87),
     (-1680483600L, 208, 88),
@@ -1106,14 +1108,15 @@ pub let europe__berlin : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__brussels : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  196,
-  126,
-  [
+pub let europe__berlin : @core.FixedTimespanSet = _make_europe__berlin()
+
+///|
+fn _make_europe__brussels() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(196, 126, [
     (-2840141850L, 196, 81),
     (-2450995200L, 191, 168),
     (-1740355200L, 208, 88),
@@ -1423,14 +1426,15 @@ pub let europe__brussels : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__bucharest : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  224,
-  126,
-  [
+pub let europe__brussels : @core.FixedTimespanSet = _make_europe__brussels()
+
+///|
+fn _make_europe__bucharest() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(224, 126, [
     (-2469404664L, 224, 81),
     (-1213148664L, 232, 98),
     (-1187056800L, 259, 97),
@@ -1691,14 +1695,15 @@ pub let europe__bucharest : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4065123600L, 232, 98),
     (4078429200L, 259, 97),
     (4096573200L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__budapest : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  212,
-  126,
-  [
+pub let europe__bucharest : @core.FixedTimespanSet = _make_europe__bucharest()
+
+///|
+fn _make_europe__budapest() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(212, 126, [
     (-2498260580L, 208, 88),
     (-1693706400L, 232, 87),
     (-1680483600L, 208, 88),
@@ -1974,14 +1979,15 @@ pub let europe__budapest : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__chisinau : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  229,
-  126,
-  [
+pub let europe__budapest : @core.FixedTimespanSet = _make_europe__budapest()
+
+///|
+fn _make_europe__chisinau() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(229, 126, [
     (-2840147720L, 228, 89),
     (-1637114100L, 224, 81),
     (-1213148664L, 232, 98),
@@ -2247,14 +2253,15 @@ pub let europe__chisinau : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065120000L, 232, 98),
     (4078425600L, 259, 97),
     (4096569600L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__dublin : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  185,
-  126,
-  [
+pub let europe__chisinau : @core.FixedTimespanSet = _make_europe__chisinau()
+
+///|
+fn _make_europe__dublin() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(185, 126, [
     (-2821649679L, 185, 94),
     (-1691962479L, 201, 119),
     (-1680471279L, 191, 106),
@@ -2607,14 +2614,15 @@ pub let europe__dublin : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 191, 106),
     (4078429200L, 208, 119),
     (4096573200L, 191, 106),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__gibraltar : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  186,
-  126,
-  [
+pub let europe__dublin : @core.FixedTimespanSet = _make_europe__dublin()
+
+///|
+fn _make_europe__gibraltar() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(186, 126, [
     (-2821649916L, 191, 106),
     (-1691964000L, 208, 82),
     (-1680472800L, 191, 106),
@@ -2937,14 +2945,15 @@ pub let europe__gibraltar : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__helsinki : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  222,
-  126,
-  [
+pub let europe__gibraltar : @core.FixedTimespanSet = _make_europe__gibraltar()
+
+///|
+fn _make_europe__helsinki() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(222, 126, [
     (-2890258789L, 222, 112),
     (-1535938789L, 232, 98),
     (-875671200L, 259, 97),
@@ -3187,14 +3196,15 @@ pub let europe__helsinki : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (4065123600L, 232, 98),
     (4078429200L, 259, 97),
     (4096573200L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__istanbul : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  230,
-  126,
-  [
+pub let europe__helsinki : @core.FixedTimespanSet = _make_europe__helsinki()
+
+///|
+fn _make_europe__istanbul() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(230, 126, [
     (-2840147752L, 231, 118),
     (-1869875816L, 232, 98),
     (-1693706400L, 259, 97),
@@ -3310,14 +3320,15 @@ pub let europe__istanbul : @core.FixedTimespanSet = @core.FixedTimespanSet::make
     (1446944400L, 232, 98),
     (1459040400L, 259, 97),
     (1473195600L, 259, 7),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__kaliningrad : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  214,
-  126,
-  [
+pub let europe__istanbul : @core.FixedTimespanSet = _make_europe__istanbul()
+
+///|
+fn _make_europe__kaliningrad() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(214, 126, [
     (-2422056120L, 208, 88),
     (-1693706400L, 232, 87),
     (-1680483600L, 208, 88),
@@ -3398,14 +3409,15 @@ pub let europe__kaliningrad : @core.FixedTimespanSet = @core.FixedTimespanSet::m
     (1288483200L, 232, 98),
     (1301184000L, 259, 7),
     (1414278000L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__kirov : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  264,
-  126,
-  [
+pub let europe__kaliningrad : @core.FixedTimespanSet = _make_europe__kaliningrad()
+
+///|
+fn _make_europe__kirov() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(264, 126, [
     (-1593820800L, 259, 7),
     (-1247540400L, 279, 9),
     (354916800L, 294, 11),
@@ -3469,14 +3481,15 @@ pub let europe__kirov : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1288479600L, 259, 133),
     (1301180400L, 279, 133),
     (1414274400L, 259, 133),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__kyiv : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  233,
-  126,
-  [
+pub let europe__kirov : @core.FixedTimespanSet = _make_europe__kirov()
+
+///|
+fn _make_europe__kyiv() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(233, 126, [
     (-2840148124L, 233, 124),
     (-1441159324L, 232, 98),
     (-1247536800L, 259, 133),
@@ -3722,14 +3735,15 @@ pub let europe__kyiv : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 232, 98),
     (4078429200L, 259, 97),
     (4096573200L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__lisbon : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  182,
-  126,
-  [
+pub let europe__kyiv : @core.FixedTimespanSet = _make_europe__kyiv()
+
+///|
+fn _make_europe__lisbon() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(182, 126, [
     (-1830384000L, 191, 168),
     (-1689555600L, 208, 167),
     (-1677801600L, 191, 168),
@@ -4078,14 +4092,15 @@ pub let europe__lisbon : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 191, 168),
     (4078429200L, 208, 167),
     (4096573200L, 191, 168),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__london : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  190,
-  126,
-  [
+pub let europe__lisbon : @core.FixedTimespanSet = _make_europe__lisbon()
+
+///|
+fn _make_europe__london() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(190, 126, [
     (-3852662325L, 191, 106),
     (-1691964000L, 208, 82),
     (-1680472800L, 191, 106),
@@ -4452,14 +4467,15 @@ pub let europe__london : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 191, 106),
     (4078429200L, 208, 82),
     (4096573200L, 191, 106),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__madrid : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  189,
-  126,
-  [
+pub let europe__london : @core.FixedTimespanSet = _make_europe__london()
+
+///|
+fn _make_europe__madrid() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(189, 126, [
     (-2177452800L, 191, 168),
     (-1631926800L, 208, 167),
     (-1616889600L, 191, 168),
@@ -4746,14 +4762,15 @@ pub let europe__madrid : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__malta : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  207,
-  126,
-  [
+pub let europe__madrid : @core.FixedTimespanSet = _make_europe__madrid()
+
+///|
+fn _make_europe__malta() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(207, 126, [
     (-2403478684L, 208, 88),
     (-1690765200L, 232, 87),
     (-1680487200L, 208, 88),
@@ -5047,14 +5064,15 @@ pub let europe__malta : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__minsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  226,
-  126,
-  [
+pub let europe__malta : @core.FixedTimespanSet = _make_europe__malta()
+
+///|
+fn _make_europe__minsk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(226, 126, [
     (-2840147416L, 225, 130),
     (-1441158600L, 232, 98),
     (-1247536800L, 259, 133),
@@ -5123,14 +5141,15 @@ pub let europe__minsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1269734400L, 259, 97),
     (1288483200L, 232, 98),
     (1301184000L, 259, 7),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__moscow : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  251,
-  126,
-  [
+pub let europe__minsk : @core.FixedTimespanSet = _make_europe__minsk()
+
+///|
+fn _make_europe__moscow() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(251, 126, [
     (-2840149817L, 251, 130),
     (-1688265017L, 252, 130),
     (-1656819079L, 273, 134),
@@ -5209,14 +5228,15 @@ pub let europe__moscow : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1288479600L, 259, 133),
     (1301180400L, 279, 133),
     (1414274400L, 259, 133),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__paris : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  193,
-  126,
-  [
+pub let europe__moscow : @core.FixedTimespanSet = _make_europe__moscow()
+
+///|
+fn _make_europe__paris() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(193, 126, [
     (-2486592561L, 193, 149),
     (-1855958961L, 191, 168),
     (-1689814800L, 208, 167),
@@ -5525,14 +5545,15 @@ pub let europe__paris : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__prague : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  206,
-  126,
-  [
+pub let europe__paris : @core.FixedTimespanSet = _make_europe__paris()
+
+///|
+fn _make_europe__prague() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(206, 126, [
     (-3786829064L, 206, 149),
     (-2469401864L, 208, 88),
     (-1693706400L, 232, 87),
@@ -5801,14 +5822,15 @@ pub let europe__prague : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__riga : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  220,
-  126,
-  [
+pub let europe__prague : @core.FixedTimespanSet = _make_europe__prague()
+
+///|
+fn _make_europe__riga() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(220, 126, [
     (-2840146594L, 220, 155),
     (-1632008194L, 253, 127),
     (-1618702594L, 220, 155),
@@ -6059,14 +6081,15 @@ pub let europe__riga : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 232, 98),
     (4078429200L, 259, 97),
     (4096573200L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__rome : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  203,
-  126,
-  [
+pub let europe__riga : @core.FixedTimespanSet = _make_europe__riga()
+
+///|
+fn _make_europe__rome() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(203, 126, [
     (-3252098996L, 203, 155),
     (-2403565200L, 208, 88),
     (-1690765200L, 232, 87),
@@ -6361,14 +6384,15 @@ pub let europe__rome : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__samara : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  266,
-  126,
-  [
+pub let europe__rome : @core.FixedTimespanSet = _make_europe__rome()
+
+///|
+fn _make_europe__samara() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(266, 126, [
     (-1593820800L, 259, 7),
     (-1247540400L, 279, 9),
     (354916800L, 294, 11),
@@ -6433,14 +6457,15 @@ pub let europe__samara : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1269727200L, 279, 9),
     (1288479600L, 259, 7),
     (1301180400L, 279, 9),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__saratov : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  260,
-  126,
-  [
+pub let europe__samara : @core.FixedTimespanSet = _make_europe__samara()
+
+///|
+fn _make_europe__saratov() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(260, 126, [
     (-1593820800L, 259, 7),
     (-1247540400L, 279, 9),
     (354916800L, 294, 11),
@@ -6505,14 +6530,15 @@ pub let europe__saratov : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (1301180400L, 279, 9),
     (1414274400L, 259, 7),
     (1480806000L, 279, 9),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__simferopol : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  241,
-  126,
-  [
+pub let europe__saratov : @core.FixedTimespanSet = _make_europe__saratov()
+
+///|
+fn _make_europe__simferopol() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(241, 126, [
     (-2840148984L, 240, 159),
     (-1441160160L, 232, 98),
     (-1247536800L, 259, 133),
@@ -6588,14 +6614,15 @@ pub let europe__simferopol : @core.FixedTimespanSet = @core.FixedTimespanSet::ma
     (1382835600L, 232, 98),
     (1396137600L, 279, 133),
     (1414274400L, 259, 133),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__sofia : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  217,
-  126,
-  [
+pub let europe__simferopol : @core.FixedTimespanSet = _make_europe__simferopol()
+
+///|
+fn _make_europe__sofia() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(217, 126, [
     (-2840146396L, 231, 118),
     (-2369527016L, 232, 98),
     (-857257200L, 208, 88),
@@ -6846,14 +6873,15 @@ pub let europe__sofia : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 232, 98),
     (4078429200L, 259, 97),
     (4096573200L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__tallinn : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  221,
-  126,
-  [
+pub let europe__sofia : @core.FixedTimespanSet = _make_europe__sofia()
+
+///|
+fn _make_europe__tallinn() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(221, 126, [
     (-2840146740L, 221, 162),
     (-1638322740L, 208, 88),
     (-1632006000L, 232, 87),
@@ -7101,14 +7129,15 @@ pub let europe__tallinn : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 232, 98),
     (4078429200L, 259, 97),
     (4096573200L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__tirane : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  213,
-  126,
-  [
+pub let europe__tallinn : @core.FixedTimespanSet = _make_europe__tallinn()
+
+///|
+fn _make_europe__tirane() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(213, 126, [
     (-1767230360L, 208, 88),
     (-932346000L, 232, 87),
     (-857257200L, 208, 88),
@@ -7366,14 +7395,15 @@ pub let europe__tirane : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__ulyanovsk : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  263,
-  126,
-  [
+pub let europe__tirane : @core.FixedTimespanSet = _make_europe__tirane()
+
+///|
+fn _make_europe__ulyanovsk() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(263, 126, [
     (-1593820800L, 259, 7),
     (-1247540400L, 279, 9),
     (354916800L, 294, 11),
@@ -7440,14 +7470,15 @@ pub let europe__ulyanovsk : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (1301180400L, 279, 9),
     (1414274400L, 259, 7),
     (1459033200L, 279, 9),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__vienna : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  210,
-  126,
-  [
+pub let europe__ulyanovsk : @core.FixedTimespanSet = _make_europe__ulyanovsk()
+
+///|
+fn _make_europe__vienna() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(210, 126, [
     (-2422055121L, 208, 88),
     (-1693706400L, 232, 87),
     (-1680483600L, 208, 88),
@@ -7711,14 +7742,15 @@ pub let europe__vienna : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__vilnius : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  223,
-  126,
-  [
+pub let europe__vienna : @core.FixedTimespanSet = _make_europe__vienna()
+
+///|
+fn _make_europe__vilnius() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(223, 126, [
     (-2840146876L, 215, 172),
     (-1672536240L, 219, 124),
     (-1585100136L, 208, 88),
@@ -7963,14 +7995,15 @@ pub let europe__vilnius : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 232, 98),
     (4078429200L, 259, 97),
     (4096573200L, 232, 98),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__volgograd : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  256,
-  126,
-  [
+pub let europe__vilnius : @core.FixedTimespanSet = _make_europe__vilnius()
+
+///|
+fn _make_europe__volgograd() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(256, 126, [
     (-1577761060L, 259, 7),
     (-1247540400L, 279, 9),
     (354916800L, 294, 11),
@@ -8036,14 +8069,15 @@ pub let europe__volgograd : @core.FixedTimespanSet = @core.FixedTimespanSet::mak
     (1414274400L, 259, 133),
     (1540681200L, 279, 9),
     (1609020000L, 259, 133),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__warsaw : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  215,
-  126,
-  [
+pub let europe__volgograd : @core.FixedTimespanSet = _make_europe__volgograd()
+
+///|
+fn _make_europe__warsaw() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(215, 126, [
     (-2840145840L, 215, 172),
     (-1717032240L, 208, 88),
     (-1693706400L, 232, 87),
@@ -8333,14 +8367,15 @@ pub let europe__warsaw : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
 
 ///|
-pub let europe__zurich : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
-  200,
-  126,
-  [
+pub let europe__warsaw : @core.FixedTimespanSet = _make_europe__warsaw()
+
+///|
+fn _make_europe__zurich() -> @core.FixedTimespanSet {
+  @core.FixedTimespanSet::make(200, 126, [
     (-3675198848L, 198, 81),
     (-2385246586L, 208, 88),
     (-904435200L, 232, 87),
@@ -8585,5 +8620,8 @@ pub let europe__zurich : @core.FixedTimespanSet = @core.FixedTimespanSet::make(
     (4065123600L, 208, 88),
     (4078429200L, 232, 87),
     (4096573200L, 208, 88),
-  ],
-)
+  ])
+}
+
+///|
+pub let europe__zurich : @core.FixedTimespanSet = _make_europe__zurich()
