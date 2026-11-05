@@ -2,7 +2,7 @@
 
 > 各操作的目标时间复杂度与空间占用，作为 S1-S13 验收基准。
 > 基于源仓颉 `chrono_tz_cangjie` 与参考 `moon-chrono_tz` 的实测数据。
-> 实际测试：147 个测试全通过（native target），0 warnings。
+> 实际测试：156 个测试全通过（native target），0 warnings。
 
 ## 一、核心操作复杂度
 

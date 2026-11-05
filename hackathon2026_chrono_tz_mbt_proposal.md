@@ -31,13 +31,13 @@ mooncakes 生态调研确认：截至 2026-10-23，**无任何完整 IANA 时区
 | 指标 | 数值 |
 |------|------|
 | 包数 | **7**（根 + core + data + tz + cmd/mcp + cmd/cli + cmd/agent） |
-| 测试数 | **147**（全部通过，native target） |
+| 测试数 | **156**（全部通过，native target） |
 | Warnings | **0** |
 | Errors | **0** |
 | IANA 时区数 | **597**（tzdata 2025b，6 大洲） |
 | DST 处理 | 三分支（Gap / Ambiguous / Normal） |
 | 数据行数 | **38711**（6 大洲 IANA tzdata 数据文件） |
-| Sprint 迭代 | **14** 轮（S1-S14 全部完成） |
+| Sprint 迭代 | **15** 轮（S1-S15 全部完成） |
 | Hinnant 算法 | ✅ 纯整数 O(1)，支持负时间戳 |
 | RFC3339 | ✅ parse_rfc3339 / to_rfc3339 往返一致 |
 | strftime | ✅ %Y %m %d %H %M %S %Z %z %A %a %B %b %j %% |
@@ -63,7 +63,7 @@ data（6 大洲 IANA tzdata 数据）
   ↑
 tz（时区算法：Tz 枚举 + DateTime + DST + RFC3339 + strftime/strptime）
   ↑
-根包（文档入口 + tz_count/tz_names 便捷函数）
+根包（文档入口 + 14 个便捷函数：tz_from_str/offset_from_utc/convert_timezone/to_rfc3339/parse_rfc3339/strftime/strptime/detect_gap/from_local/...）
 ```
 
 线性无环依赖，core 零依赖可独立复用。
@@ -168,12 +168,12 @@ DeepSeek 流式聊天（SSE）+ 系统提示注入时区上下文（当前 UTC �
 
 | 测试手段 | 测试数 | 状态 | 覆盖维度 |
 |----------|--------|------|----------|
-| 白盒测试 | 113 | ✅ Pass | Hinnant/FixedTimespan/DateTime/DST/RFC3339/strftime/strptime/序列化 |
+| 白盒测试 | 122 | ✅ Pass | Hinnant/FixedTimespan/DateTime/DST/RFC3339/strftime/strptime/序列化/根包便捷API |
 | 黑盒测试 | 15 | ✅ Pass | from_str roundtrip/RFC3339 往返/时区转换/597 扫描/strftime |
 | @quickcheck | 7 | ✅ Pass | civil↔day 互逆/timestamp 往返/分量范围/weekday/ordinal |
 | 基准测试 | 6 | ✅ Pass | from_str/offset/timestamp/strftime/rfc3339/parse 性能 |
 | strptime 扩展 | 8 | ✅ Pass | %y/%j/%%/自定义格式/日期only |
-| **总计** | **147** | **✅ All Pass** | **五维度全覆盖** |
+| **总计** | **156** | **✅ All Pass** | **五维度全覆盖** |
 
 ---
 
@@ -181,7 +181,7 @@ DeepSeek 流式聊天（SSE）+ 系统提示注入时区上下文（当前 UTC �
 
 ```
 chrono_tz-mbt/
-├── moon.mod / moon.pkg          # 根包（文档入口 + tz_count/tz_names）
+├── moon.mod / moon.pkg          # 根包（文档入口 + 14 个便捷函数）
 ├── core/                        # 零依赖核心类型
 │   ├── hinnant.mbt              #   Hinnant civil↔days 算法
 │   └── timezone_core.mbt       #   Ordering + FixedTimespan + Span + 全局查表
@@ -236,6 +236,7 @@ chrono_tz-mbt/
 | S12 | 根包文档 + 申报书 | 6 白盒 + 5 黑盒 | ✅ 完成 |
 | S13 | 消除 warning + strptime 扩展 + CLI 增强 + Agent 工具集成 | 8 strptime 测试 + 3 CLI 子命令 + 7 tz: 工具 | ✅ 完成 |
 | S14 | 文档完善 + 元数据修正 | moon.mod/README/docs 全部更新 v2.0 | ✅ 完成 |
+| S15 | 根包便捷 API 扩展 + 接口文档完善 | 2→14 函数 + 9 smoke test（147→156） | ✅ 完成 |
 
 ---
 
@@ -270,7 +271,7 @@ chrono_tz-mbt/
 |-----------|-------------|
 | MoonBit 为主 | 库自身 100% MoonBit 实现（时区算法 + DST + RFC3339 + MCP + CLI + Agent） |
 | 仓库公开 | GitHub 公开仓库，持续提交（S1-S14，14 轮 Sprint） |
-| 能够运行 | README + 可运行示例 + 147 测试 + 0 warnings |
+| 能够运行 | README + 可运行示例 + 156 测试 + 0 warnings |
 | 工作有效 | 从仓颉移植到 MoonBit，独立重写核心算法，2026-11 完成 |
 | 开源合规 | Apache-2.0 License，参考来源已标注 |
 | AI 可解释 | AI 辅助开发，所有算法经人工审查 |
@@ -287,7 +288,7 @@ chrono_tz-mbt/
 6. **@quickcheck 性质测试** — 7 个 Hinnant 算法性质测试（civil↔day 互逆 / timestamp 往返 / 分量范围）
 7. **三种交付形态** — MCP 服务器（JSON-RPC）+ CLI 工具（10 子命令）+ LLM Agent（DeepSeek 流式 + 7 tz: 工具调用）
 8. **零 warnings** — moon check 0 warnings 0 errors，代码质量严格
-9. **147 测试全通过** — 白盒 113 + 黑盒 15 + quickcheck 7 + 基准 6 + strptime 8，五维度全覆盖
+9. **156 测试全通过** — 白盒 122 + 黑盒 15 + quickcheck 7 + 基准 6 + strptime 8，五维度全覆盖
 10. **线性无环架构** — core ← data ← tz 三包线性，core 零依赖可独立复用
 
 ---

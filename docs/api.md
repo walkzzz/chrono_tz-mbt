@@ -7,10 +7,69 @@
 
 | 包 | 路径 | 职责 |
 |----|------|------|
-| `@chrono_tz-mbt` | 根 | `reexport.mbt` 统一入口 |
+| `@chrono_tz-mbt` | 根 | 文档入口 + 14 个便捷函数（委托 `@tz`） |
 | `@chrono_tz-mbt/core` | `core/` | 零依赖核心类型 + 全局查表 |
 | `@chrono_tz-mbt/data` | `data/` | 6 大洲时区数据常量 |
 | `@chrono_tz-mbt/tz` | `tz/` | 时区算法层 |
+
+---
+
+## 根包便捷 API（14 函数）
+
+根包提供无状态便捷函数，委托 `@tz` 完成常见时区操作，调用方不必直接引用 `@tz` 静态方法。涉及 `Tz`/`DateTime`/`NaiveDateTime` 等类型的构造与判别仍需 `@tz`。
+
+```moonbit
+/// 时区总数（597）。
+pub fn tz_count() -> Int32
+
+/// 全部 IANA 时区名称。
+pub fn tz_names() -> Array[String]
+
+/// 解析 IANA 时区名，失败返回 None。
+pub fn tz_from_str(name : String) -> @tz.Tz?
+
+/// 返回时区的 IANA 名称。
+pub fn tz_name(tz : @tz.Tz) -> String
+
+/// 时区在给定 UTC 时间戳下的偏移量（秒）。东区为正。
+pub fn offset_from_utc(tz : @tz.Tz, timestamp : Int64) -> Int32
+
+/// 时区在给定本地时刻下的偏移结果（处理 DST gap/ambiguous）。
+pub fn offset_from_local(tz : @tz.Tz, naive : @tz.NaiveDateTime) -> @tz.LocalResult[@tz.TzOffset]
+
+/// 从 UTC 时间戳和时区构造 DateTime。
+pub fn datetime_from_timestamp(timestamp : Int64, tz : @tz.Tz) -> @tz.DateTime
+
+/// 将 DateTime 转换到目标时区（时间戳不变）。
+pub fn convert_timezone(dt : @tz.DateTime, target : @tz.Tz) -> @tz.DateTime
+
+/// DateTime → RFC 3339 字符串。
+pub fn to_rfc3339(dt : @tz.DateTime) -> String
+
+/// 解析 RFC 3339 字符串为 DateTime。
+pub fn parse_rfc3339(s : String) -> @tz.DateTime?
+
+/// strftime 格式化。
+pub fn strftime(fmt : String, dt : @tz.DateTime) -> String
+
+/// strptime 解析（需指定结果所属时区）。
+pub fn strptime(fmt : String, s : String, tz : @tz.Tz) -> @tz.DateTime?
+
+/// DST gap 检测（时钟前跳，该本地时刻不存在）。
+pub fn detect_gap(tz : @tz.Tz, naive : @tz.NaiveDateTime) -> @tz.GapInfo?
+
+/// 从本地时刻构造 DateTime（处理 DST gap/ambiguous）。
+pub fn from_local(tz : @tz.Tz, naive : @tz.NaiveDateTime) -> @tz.LocalResult[@tz.DateTime]
+```
+
+**示例**：
+
+```moonbit
+let tz = tz_from_str("Asia/Shanghai").unwrap()
+assert_eq(offset_from_utc(tz, 0L), 28800)   // +08:00
+let dt = datetime_from_timestamp(0L, tz_from_str("UTC").unwrap())
+assert_eq(to_rfc3339(dt), "1970-01-01T00:00:00+00:00")
+```
 
 ---
 

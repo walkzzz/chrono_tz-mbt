@@ -1,8 +1,36 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "walkzzz/chrono_tz-mbt"
 
+import {
+  "walkzzz/chrono_tz-mbt/tz",
+}
+
 // Values
+pub fn convert_timezone(@tz.DateTime, @tz.Tz) -> @tz.DateTime
+
+pub fn datetime_from_timestamp(Int64, @tz.Tz) -> @tz.DateTime
+
+pub fn detect_gap(@tz.Tz, @tz.NaiveDateTime) -> @tz.GapInfo?
+
+pub fn from_local(@tz.Tz, @tz.NaiveDateTime) -> @tz.LocalResult[@tz.DateTime]
+
+pub fn offset_from_local(@tz.Tz, @tz.NaiveDateTime) -> @tz.LocalResult[@tz.TzOffset]
+
+pub fn offset_from_utc(@tz.Tz, Int64) -> Int32
+
+pub fn parse_rfc3339(String) -> @tz.DateTime?
+
+pub fn strftime(String, @tz.DateTime) -> String
+
+pub fn strptime(String, String, @tz.Tz) -> @tz.DateTime?
+
+pub fn to_rfc3339(@tz.DateTime) -> String
+
 pub fn tz_count() -> Int32
+
+pub fn tz_from_str(String) -> @tz.Tz?
+
+pub fn tz_name(@tz.Tz) -> String
 
 pub fn tz_names() -> Array[String]
 

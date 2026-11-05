@@ -400,4 +400,38 @@
 - `moon check` 0 warnings + `moon test --target native` 147 测试通过
 - `moon info` + `moon fmt` 通过
 
+---
+
+## S15：根包便捷 API 扩展 + 接口文档完善
+
+### 文件清单
+
+| 文件 | 内容 |
+|------|------|
+| `chrono_tz-mbt.mbt` | 新增 12 个便捷 pub fn（tz_from_str/tz_name/offset_from_utc/offset_from_local/datetime_from_timestamp/convert_timezone/to_rfc3339/parse_rfc3339/strftime/strptime/detect_gap/from_local） |
+| `chrono_tz-mbt_wbtest.mbt` | 新增 9 个白盒 smoke test |
+| `pkg.generated.mbti` | moon info 重新生成（2→14 函数） |
+
+### 新增函数
+
+| 函数 | 签名 | 说明 |
+|------|------|------|
+| `tz_from_str` | `(String) -> @tz.Tz?` | 解析时区名 |
+| `tz_name` | `(@tz.Tz) -> String` | 时区名 |
+| `offset_from_utc` | `(@tz.Tz, Int64) -> Int32` | UTC 时间戳→偏移秒 |
+| `offset_from_local` | `(@tz.Tz, @tz.NaiveDateTime) -> @tz.LocalResult[@tz.TzOffset]` | 本地时刻→偏移（三分支） |
+| `datetime_from_timestamp` | `(Int64, @tz.Tz) -> @tz.DateTime` | 时间戳+时区→DateTime |
+| `convert_timezone` | `(@tz.DateTime, @tz.Tz) -> @tz.DateTime` | 时区转换 |
+| `to_rfc3339` | `(@tz.DateTime) -> String` | RFC3339 格式化 |
+| `parse_rfc3339` | `(String) -> @tz.DateTime?` | RFC3339 解析 |
+| `strftime` | `(String, @tz.DateTime) -> String` | strftime 格式化 |
+| `strptime` | `(String, String, @tz.Tz) -> @tz.DateTime?` | strptime 解析 |
+| `detect_gap` | `(@tz.Tz, @tz.NaiveDateTime) -> @tz.GapInfo?` | DST gap 检测 |
+| `from_local` | `(@tz.Tz, @tz.NaiveDateTime) -> @tz.LocalResult[@tz.DateTime]` | 本地时刻→DateTime（三分支） |
+
+### 验收门禁
+
+- `moon check` 0 warnings + `moon test --target native` 156 测试通过
+- `moon info` + `moon fmt` 通过
+
 > 文件结束 | chrono_tz-mbt sprint-tasks v2.0 | 2026-11-05

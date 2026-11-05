@@ -34,7 +34,7 @@
 ## 包结构
 
 ```
-chrono_tz-mbt/                  # 根包：reexport.mbt 统一入口 @chrono_tz-mbt
+chrono_tz-mbt/                  # 根包：文档入口 + 14 个便捷函数（委托 @tz）
 ├── core/                       # 运行时核心类型（零依赖）
 │   └── timezone_core.mbt      # FixedTimespan/Span/FixedTimespanSet + 全局查表
 ├── data/                       # 时区数据（自动生成，340 常量）
@@ -50,7 +50,7 @@ chrono_tz-mbt/                  # 根包：reexport.mbt 统一入口 @chrono_tz-
 │   ├── tz_variants.mbt        # Tz 枚举(597)/name()/from_str + NAME_TO_TZ 表
 │   ├── tz_impl.mbt            # timespans() + offset_from_utc/local（DST 算法）
 │   └── tz_format.mbt          # strftime/strptime/RFC3339
-├── reexport.mbt                # 根包重导出
+├── chrono_tz-mbt.mbt           # 根包：文档入口 + 14 个便捷函数
 └── docs/                       # 开发文档（10 份）
     ├── roadmap.md              # 本文件：项目定位/范围/Sprint 计划/验收门禁
     ├── architecture.md         # ADR-001~016 架构决策记录
@@ -83,6 +83,8 @@ chrono_tz-mbt/                  # 根包：reexport.mbt 统一入口 @chrono_tz-
 | S11 | LLM Agent（DeepSeek 流式聊天 + 时区上下文注入） | ✅ 完成 | - |
 | S12 | 根包文档 + hackathon 申报书 | ✅ 完成 | - |
 | S13 | 消除 warning + strptime 扩展 + CLI 增强 + Agent 工具集成 | ✅ 完成 | - |
+| S14 | 文档完善 + 元数据修正（moon.mod/README/docs v2.0） | ✅ 完成 | - |
+| S15 | 根包便捷 API 扩展（2→14 函数）+ 接口文档完善 + 9 smoke test | ✅ 完成 | - |
 
 ## 验收门禁
 

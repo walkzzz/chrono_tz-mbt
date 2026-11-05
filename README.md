@@ -12,6 +12,7 @@ MoonBit IANA 时区库，移植自 [chrono_tz_cangjie](https://github.com/chrono
 - **RFC3339 解析/格式化** — `parse_rfc3339` / `to_rfc3339` 往返一致
 - **strftime/strptime** — `%Y %m %d %H %M %S %Z %z %A %a %B %b %j %%` 等
 - **时区转换** — `with_timezone` 跨时区 DateTime 转换
+- **根包便捷 API** — 14 个无状态函数（`tz_from_str`/`offset_from_utc`/`convert_timezone`/`to_rfc3339`/`parse_rfc3339`/`strftime`/`strptime`/`detect_gap`/`from_local` 等），委托 `@tz` 完成常见操作
 - **JSON 序列化** — DateTime / NaiveDateTime 的 `to_json` / `to_json_compact`
 - **MCP 服务器** — 7 个时区工具（list_timezones / get_offset / convert_time / parse_rfc3339 / format_time / get_current_time / detect_dst）
 - **CLI 工具** — 10 个子命令（list / info / convert / now / parse / format / dst / search / diff / repl）
@@ -74,6 +75,27 @@ enum LocalResult[T] {
 }
 ```
 
+### 根包便捷 API（14 函数）
+
+根包 `walkzzz/chrono_tz-mbt` 提供无状态便捷函数，委托 `@tz` 完成常见操作，调用方不必直接引用 `@tz` 静态方法：
+
+| 函数 | 签名 | 说明 |
+|------|------|------|
+| `tz_count` | `() -> Int32` | 时区总数（597） |
+| `tz_names` | `() -> Array[String]` | 全部时区名 |
+| `tz_from_str` | `(String) -> Tz?` | 解析时区名 |
+| `tz_name` | `(Tz) -> String` | 时区名 |
+| `offset_from_utc` | `(Tz, Int64) -> Int32` | UTC 时间戳→偏移秒 |
+| `offset_from_local` | `(Tz, NaiveDateTime) -> LocalResult[TzOffset]` | 本地时刻→偏移（三分支） |
+| `datetime_from_timestamp` | `(Int64, Tz) -> DateTime` | 时间戳+时区→DateTime |
+| `convert_timezone` | `(DateTime, Tz) -> DateTime` | 时区转换 |
+| `to_rfc3339` | `(DateTime) -> String` | RFC3339 格式化 |
+| `parse_rfc3339` | `(String) -> DateTime?` | RFC3339 解析 |
+| `strftime` | `(String, DateTime) -> String` | strftime 格式化 |
+| `strptime` | `(String, String, Tz) -> DateTime?` | strptime 解析 |
+| `detect_gap` | `(Tz, NaiveDateTime) -> GapInfo?` | DST gap 检测 |
+| `from_local` | `(Tz, NaiveDateTime) -> LocalResult[DateTime]` | 本地时刻→DateTime（三分支） |
+
 ## 包结构
 
 ```
@@ -82,9 +104,10 @@ chrono_tz-mbt/
 ├── data/          # 6 大洲 IANA tzdata 数据（38711 行）
 ├── tz/            # 时区算法（Tz 枚举 + DateTime + DST + RFC3339 + strftime/strptime）
 ├── cmd/mcp/       # MCP 服务器（JSON-RPC + 7 时区工具）
-├── cmd/cli/       # CLI 工具（7 子命令）
+├── cmd/cli/       # CLI 工具（10 子命令）
 ├── cmd/agent/     # LLM Agent（DeepSeek 流式聊天 + 时区上下文）
 └── docs/          # 开发文档（roadmap / architecture / api / testing / ...）
+# 根包：文档入口 + 14 个便捷函数（tz_from_str/offset_from_utc/convert_timezone/...）
 ```
 
 ## CLI 用法
@@ -125,7 +148,7 @@ Agent 自动注入时区上下文（当前 UTC 时间 + 14 常用时区偏移）
 
 ```bash
 moon check                    # 类型检查
-moon test --target native     # 运行测试（147 个，native target）
+moon test --target native     # 运行测试（156 个，native target）
 moon info                     # 更新 .mbti 接口
 moon fmt                      # 格式化
 ```
@@ -149,6 +172,8 @@ moon fmt                      # 格式化
 | S11 | LLM Agent | ✅ |
 | S12 | 根包文档 + hackathon 申报书 | ✅ |
 | S13 | 消除 warning + strptime 扩展 + CLI 增强 + Agent 工具集成 | ✅ |
+| S14 | 文档完善 + 元数据修正 | ✅ |
+| S15 | 根包便捷 API 扩展（2→14 函数）+ 接口文档完善 | ✅ |
 
 ## 许可证
 

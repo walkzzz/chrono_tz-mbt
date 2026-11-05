@@ -29,7 +29,7 @@
 
 **背景**：时区库分核心类型、数据表、算法层三块，需决定包组织。
 
-**决策**：`core`（零依赖核心类型）← `data`（纯数据常量）← `tz`（算法）三包，根包 `reexport.mbt` 重导出统一入口 `@chrono_tz-mbt`。
+**决策**：`core`（零依赖核心类型）← `data`（纯数据常量）← `tz`（算法）三包，根包 `chrono_tz-mbt.mbt` 提供 14 个便捷函数（委托 `@tz`）作为统一入口 `@chrono_tz-mbt`。
 
 **理由**：
 - 关注点分离：`core` 无依赖可被 `data`/`tz` 共用；`data` 纯数据可脚本生成；`tz` 装算法。
@@ -37,7 +37,7 @@
 - 按需导入：用户可只 `@tz` 而不拉根包。
 - MoonBit 惯例：单 `moon.mod` + 子目录 `moon.pkg`。
 
-**后果**：正面—边界清晰、编译可并行；负面—`reexport.mbt` 需手动维护新增类型。
+**后果**：正面—边界清晰、编译可并行；负面—根包便捷函数需手动维护新增委托。
 
 ---
 
@@ -445,14 +445,15 @@ pub fn Tz::from_str(s : String) -> Tz?
 
 ### 5. 包间依赖与重导出
 
-- **依赖链**（ADR-001）：`core` ← `data` ← `tz` ← 根 `reexport.mbt`，线性无环
+- **依赖链**（ADR-001）：`core` ← `data` ← `tz` ← 根 `chrono_tz-mbt.mbt`，线性无环
 - **`moon.pkg` 声明**：每包 `moon.pkg` 列 `deps`（如 tz 包 `"deps": ["core", "data"]`）
-- **根重导出**：根包 `reexport.mbt` 用 `pub use` 汇集 core/data/tz 公共 API
+- **根便捷 API**：根包 `chrono_tz-mbt.mbt` 提供 14 个便捷函数（委托 `@tz`）作为统一入口
   ```moonbit
-  pub use @core.{FixedTimespan, Span, FixedTimespanSet, TzOffset, TzError}
-  pub use @tz.{Tz, NaiveDateTime, DateTime, Date, LocalResult, TimeZone, DateTimeLike}
+  pub fn tz_from_str(s : String) -> Tz? { @tz.Tz::from_str(s) }
+  pub fn offset_from_utc(tz : Tz, ts : Int64) -> Int32 { @tz.Tz::offset_from_utc(tz, ts) }
+  // ... 共 14 个便捷函数
   ```
-- **用户导入**：`use @chrono_tz_mbt` 即得全部公共 API
+- **用户导入**：`use @chrono_tz_mbt` 即得常用 API 便捷入口
 
 ### 6. internal 包
 
@@ -462,7 +463,7 @@ pub fn Tz::from_str(s : String) -> Tz?
 ### 7. using 与 reexport
 
 - **`using`**：在测试文件（`_test.mbt`/`_wbtest.mbt`）和文档示例中用 `using` 导入被测/演示包，简化引用
-- **`reexport`**：仅根包用 `pub use` 重导出，子包不互相 reexport（避免循环）
+- **`reexport`**：根包用便捷函数委托（非 `pub use`），子包不互相 reexport（避免循环）
 
 ### 8. 虚拟包
 
@@ -483,7 +484,7 @@ pub fn Tz::from_str(s : String) -> Tz?
 **本项目应用**：
 - core 包：`FixedTimespan`/`Span`/`TzOffset`/`TzError` 用 `pub(all)`；`FixedTimespanSet`/查表用 `pub`
 - tz 包：`Tz`/`NaiveDateTime`/`DateTime`/`Date`/`LocalResult` 用 `pub(all)`；`TimeZone`/`DateTimeLike` 用 `pub(open) trait`
-- 根包：`reexport.mbt` 用 `pub use` 汇集公共 API
+- 根包：`chrono_tz-mbt.mbt` 用 14 个便捷函数委托 `@tz` 提供统一入口
 - 测试：`using @core`/`using @tz` 导入
 
 **理由**：
