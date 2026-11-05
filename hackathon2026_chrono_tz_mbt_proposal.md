@@ -1,6 +1,6 @@
 # chrono_tz-mbt 项目申报书
 
-> 2026 MoonBit 十月赛参赛申报 | 方向：开发者工具 | 截止：2026-10-31
+> 2026 MoonBit 国产基础软件开源大赛参赛申报 | 方向：开发者工具 | 申报日期：2026-11-05
 
 ---
 
@@ -8,7 +8,7 @@
 
 - 项目名称：chrono_tz-mbt：MoonBit IANA 时区库
 - 参赛者：walkzzz
-- 联系方式：（待填写）
+- 联系方式：13689047817 745244185@qq.com
 - GitHub 仓库链接：https://github.com/walkzzz/chrono_tz-mbt.git
 - mooncakes 包名：`walkzzz/chrono_tz-mbt`
 - 项目方向：开发者工具 — 时区核心库
@@ -18,7 +18,7 @@
 
 ## 项目简介
 
-chrono_tz-mbt 是一个 MoonBit IANA 时区库，提供完整的时区计算能力：IANA tzdata 2025b（597 时区）+ DST 三分支（Gap/Ambiguous/Normal）+ Hinnant civil↔days 算法 + RFC3339 解析/格式化 + strftime/strptime。库同时提供三种交付形态：MCP 服务器（JSON-RPC stdio，7 个时区工具）、CLI 工具（7 个子命令）、LLM Agent（DeepSeek 流式聊天 + 时区上下文注入）。
+chrono_tz-mbt 是一个 MoonBit IANA 时区库，提供完整的时区计算能力：IANA tzdata 2025b（597 时区）+ DST 三分支（Gap/Ambiguous/Normal）+ Hinnant civil↔days 算法 + RFC3339 解析/格式化 + strftime/strptime。库同时提供三种交付形态：MCP 服务器（JSON-RPC stdio，7 个时区工具）、CLI 工具（10 个子命令）、LLM Agent（DeepSeek 流式聊天 + 时区上下文注入 + 7 个 tz: 工具调用）。
 
 项目从仓颉版 chrono_tz_cangjie 移植到 MoonBit，**独立重写**核心算法（非直接代码转换），追求更 idiomatic 的 MoonBit 风格（trait/方法/derive 去重）。源数据来自 IANA tzdata 2025b，覆盖全球 6 大洲 597 个时区，包含完整的 DST 历史规则。
 
@@ -31,21 +31,21 @@ mooncakes 生态调研确认：截至 2026-10-23，**无任何完整 IANA 时区
 | 指标 | 数值 |
 |------|------|
 | 包数 | **7**（根 + core + data + tz + cmd/mcp + cmd/cli + cmd/agent） |
-| 测试数 | **141**（全部通过，native target） |
+| 测试数 | **147**（全部通过，native target） |
 | Warnings | **0** |
 | Errors | **0** |
 | IANA 时区数 | **597**（tzdata 2025b，6 大洲） |
 | DST 处理 | 三分支（Gap / Ambiguous / Normal） |
 | 数据行数 | **38711**（6 大洲 IANA tzdata 数据文件） |
-| Sprint 迭代 | **12** 轮（S1-S12 全部完成） |
+| Sprint 迭代 | **14** 轮（S1-S14 全部完成） |
 | Hinnant 算法 | ✅ 纯整数 O(1)，支持负时间戳 |
 | RFC3339 | ✅ parse_rfc3339 / to_rfc3339 往返一致 |
 | strftime | ✅ %Y %m %d %H %M %S %Z %z %A %a %B %b %j %% |
-| strptime | ✅ 简化版（%Y-%m-%d %H:%M:%S / %Y-%m-%dT%H:%M:%S） |
+| strptime | ✅ 扩展版（%Y %m %d %H %M %S %y %j %% 及字面字符，通用解析器） |
 | JSON 序列化 | ✅ DateTime / NaiveDateTime to_json / to_json_compact |
 | MCP 服务器 | ✅ 7 个时区工具（JSON-RPC stdio） |
-| CLI 工具 | ✅ 7 个子命令（list/info/convert/now/parse/format/dst） |
-| LLM Agent | ✅ DeepSeek 流式聊天 + 时区上下文注入 |
+| CLI 工具 | ✅ 10 个子命令（list/info/convert/now/parse/format/dst/search/diff/repl） |
+| LLM Agent | ✅ DeepSeek 流式聊天 + 时区上下文注入 + 7 个 tz: 工具调用 |
 | @quickcheck | ✅ 7 个 Hinnant 算法性质测试 |
 | 基准测试 | ✅ 6 个（from_str/offset/timestamp/strftime/rfc3339/parse） |
 | 工具链 | MoonBit v0.1.20260920 |
@@ -139,7 +139,7 @@ JSON-RPC over stdio，7 个时区工具：
 
 ### CLI 工具（cmd/cli）
 
-7 个子命令：
+10 个子命令：
 
 - `list` — 列出全部 597 时区
 - `info <tz>` — 时区详情（偏移/DST）
@@ -148,20 +148,32 @@ JSON-RPC over stdio，7 个时区工具：
 - `parse <rfc3339>` — RFC3339 解析
 - `format <fmt> <rfc3339>` — strftime 格式化
 - `dst <tz>` — DST 检测
+- `search <keyword>` — 模糊搜索时区名
+- `diff <ts> <tz1> <tz2>` — 两时区时间差比较
+- `repl` — 交互式 REPL 模式
 
 ### LLM Agent（cmd/agent）
 
-DeepSeek 流式聊天（SSE）+ 系统提示注入时区上下文（当前 UTC 时间 + 14 常用时区偏移）+ 思考过程灰色显示 + Ctrl+C 中断 + 多轮对话。
+DeepSeek 流式聊天（SSE）+ 系统提示注入时区上下文（当前 UTC 时间 + 14 常用时区偏移）+ 思考过程灰色显示 + Ctrl+C 中断 + 多轮对话 + **7 个 tz: 工具调用**：
+
+- `tz:now <tz>` — 获取指定时区当前时间
+- `tz:convert <ts> <from> <to>` — 时区转换
+- `tz:offset <tz>` — 查询时区偏移
+- `tz:dst <tz>` — DST 检测
+- `tz:search <keyword>` — 模糊搜索时区
+- `tz:list` — 列出全部时区
+- `tz:help` — 显示帮助
 
 ### 质量与测试
 
 | 测试手段 | 测试数 | 状态 | 覆盖维度 |
 |----------|--------|------|----------|
-| 白盒测试 | 113 | ✅ Pass | Hinnant/FixedTimespan/DateTime/DST/RFC3339/strftime/序列化 |
+| 白盒测试 | 113 | ✅ Pass | Hinnant/FixedTimespan/DateTime/DST/RFC3339/strftime/strptime/序列化 |
 | 黑盒测试 | 15 | ✅ Pass | from_str roundtrip/RFC3339 往返/时区转换/597 扫描/strftime |
 | @quickcheck | 7 | ✅ Pass | civil↔day 互逆/timestamp 往返/分量范围/weekday/ordinal |
 | 基准测试 | 6 | ✅ Pass | from_str/offset/timestamp/strftime/rfc3339/parse 性能 |
-| **总计** | **141** | **✅ All Pass** | **四维度全覆盖** |
+| strptime 扩展 | 8 | ✅ Pass | %y/%j/%%/自定义格式/日期only |
+| **总计** | **147** | **✅ All Pass** | **五维度全覆盖** |
 
 ---
 
@@ -189,8 +201,8 @@ chrono_tz-mbt/
 │   ├── tz_serialize.mbt         #   JSON 序列化
 │   └── tz_bench.mbt             #   公开基准测试 API
 ├── cmd/mcp/                     # MCP 服务器（JSON-RPC + 7 时区工具）
-├── cmd/cli/                     # CLI 工具（7 子命令）
-├── cmd/agent/                   # LLM Agent（DeepSeek 流式聊天）
+├── cmd/cli/                     # CLI 工具（10 子命令：list/info/convert/now/parse/format/dst/search/diff/repl）
+├── cmd/agent/                   # LLM Agent（DeepSeek 流式聊天 + 7 tz: 工具调用）
 └── docs/                        # 开发文档（10 份）
     ├── roadmap.md
     ├── architecture.md          # ADR-001~016
@@ -222,6 +234,8 @@ chrono_tz-mbt/
 | S10 | CLI 工具 | 7 子命令 | ✅ 完成 |
 | S11 | LLM Agent | DeepSeek 流式聊天 + 时区上下文 | ✅ 完成 |
 | S12 | 根包文档 + 申报书 | 6 白盒 + 5 黑盒 | ✅ 完成 |
+| S13 | 消除 warning + strptime 扩展 + CLI 增强 + Agent 工具集成 | 8 strptime 测试 + 3 CLI 子命令 + 7 tz: 工具 | ✅ 完成 |
+| S14 | 文档完善 + 元数据修正 | moon.mod/README/docs 全部更新 v2.0 | ✅ 完成 |
 
 ---
 
@@ -255,9 +269,9 @@ chrono_tz-mbt/
 | 大赛验收项 | 本项目满足方式 |
 |-----------|-------------|
 | MoonBit 为主 | 库自身 100% MoonBit 实现（时区算法 + DST + RFC3339 + MCP + CLI + Agent） |
-| 仓库公开 | GitHub 公开仓库，持续提交（S1-S12，12 轮 Sprint） |
-| 能够运行 | README + 可运行示例 + 141 测试 + 0 warnings |
-| 工作有效 | 从仓颉移植到 MoonBit，独立重写核心算法，10 月完成 |
+| 仓库公开 | GitHub 公开仓库，持续提交（S1-S14，14 轮 Sprint） |
+| 能够运行 | README + 可运行示例 + 147 测试 + 0 warnings |
+| 工作有效 | 从仓颉移植到 MoonBit，独立重写核心算法，2026-11 完成 |
 | 开源合规 | Apache-2.0 License，参考来源已标注 |
 | AI 可解释 | AI 辅助开发，所有算法经人工审查 |
 
@@ -271,9 +285,9 @@ chrono_tz-mbt/
 4. **全局查表去重** — 406 段 + 178 索引压缩存储，内存高效
 5. **RFC3339 往返一致** — parse_rfc3339 ∘ to_rfc3339 = id
 6. **@quickcheck 性质测试** — 7 个 Hinnant 算法性质测试（civil↔day 互逆 / timestamp 往返 / 分量范围）
-7. **三种交付形态** — MCP 服务器（JSON-RPC）+ CLI 工具（7 子命令）+ LLM Agent（DeepSeek 流式）
+7. **三种交付形态** — MCP 服务器（JSON-RPC）+ CLI 工具（10 子命令）+ LLM Agent（DeepSeek 流式 + 7 tz: 工具调用）
 8. **零 warnings** — moon check 0 warnings 0 errors，代码质量严格
-9. **141 测试全通过** — 白盒 113 + 黑盒 15 + quickcheck 7 + 基准 6，四维度全覆盖
+9. **147 测试全通过** — 白盒 113 + 黑盒 15 + quickcheck 7 + 基准 6 + strptime 8，五维度全覆盖
 10. **线性无环架构** — core ← data ← tz 三包线性，core 零依赖可独立复用
 
 ---
@@ -285,5 +299,5 @@ chrono_tz-mbt/
 | WASM local count 限制 | 597 match arm 在 WASM 报错 | 用 native target 测试（`--target native`） |
 | tzdata 版本更新 | 时区规则变更 | 数据文件按大洲分离，可独立更新 |
 | MoonBit 语言 beta-preview | 语言本身尚未 stable | 已可用于生产，不兼容变更严格评估 |
-| strptime 格式有限 | 仅支持 2 种格式 | 后续可扩展完整 strptime |
+| strptime 格式扩展 | 已支持 %Y %m %d %H %M %S %y %j %% 及字面字符 | 通用解析器架构，可继续扩展完整规格 |
 | LLM Agent 依赖外部 API | DeepSeek API 变更 | API 调用隔离在 agent 包，不影响核心库 |
