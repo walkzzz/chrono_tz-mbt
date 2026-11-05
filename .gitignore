@@ -3,4 +3,6 @@ _build/
 target/
 target
 .mooncakes/
-.moonagent/
+.moonagent/_ref_mcp/
+.env
+*.exe

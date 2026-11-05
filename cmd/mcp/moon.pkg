@@ -1,0 +1,9 @@
+import {
+  "walkzzz/chrono_tz-mbt/tz",
+  "moonbitlang/core/json",
+  "moonbitlang/core/encoding/utf8",
+}
+
+pkgtype(kind: "executable")
+
+supported_targets = "-all+native"

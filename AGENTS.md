@@ -100,12 +100,21 @@ You can browse and install extra skills here:
   - `tz/tz_bench_wbtest.mbt` — 6 基准测试（from_str/offset_from_utc/timestamp/strftime/to_rfc3339/parse_rfc3339）
   - `tz/moon.pkg` — 添加 `moonbitlang/core/bench` 依赖
   - 注：Hinnant @quickcheck + 与 moon-chrono_tz 快照对比留 S8 可选扩展
-- **S8 tz 包 — 可选扩展（quickcheck/序列化）** 🔄 进行中
-  - `tz/tz_quickcheck_wbtest.mbt` — 7 Hinnant @quickcheck 性质测试（civil↔days 互逆 + timestamp 往返 + 分量范围 + weekday/ordinal 范围）
+- **S8 tz 包 — 可选扩展（quickcheck/序列化）** ✅ 完成（moon check ✓ + moon test 130/130 ✓ native + moon info ✓ + moon fmt ✓）
+  - `tz/tz_quickcheck_wbtest.mbt` — 7 Hinnant @quickcheck 性质测试（civil↔day 互逆 + timestamp 往返 + 分量范围 + weekday/ordinal 范围）
   - `tz/tz_serialize.mbt` — DateTime/NaiveDateTime JSON 序列化（to_json/to_json_compact）
   - `tz/tz_serialize_wbtest.mbt` — 5 序列化白盒测试
   - `tz/moon.pkg` — 添加 `moonbitlang/core/quickcheck` 依赖
-  - 注：尚未运行 moon test 验证（bash step limit），待验证后更新状态
+- **S9 MCP 服务器** ✅ 完成（moon check ✓ + moon test 130/130 ✓ native + moon info ✓ + moon fmt ✓）
+  - `cmd/mcp/moon.pkg` — 依赖 tz + json + utf8，native target，executable
+  - `cmd/mcp/main.mbt` — C FFI stdio + JSON-RPC 协议 + 7 个时区工具（list_timezones/get_offset/convert_time/parse_rfc3339/format_time/get_current_time/detect_dst）
+- **S10 CLI 工具** ✅ 完成（moon check ✓ + moon test 130/130 ✓ native + moon info ✓ + moon fmt ✓）
+  - `cmd/cli/moon.pkg` — 依赖 tz + json + utf8 + env，native target，executable
+  - `cmd/cli/main.mbt` — 7 子命令（list/info/convert/now/parse/format/dst）+ 参数解析 + usage
+- **S11 LLM Agent** ✅ 完成（moon check ✓ + moon test 130/130 ✓ native + moon info ✓ + moon fmt ✓）
+  - `cmd/agent/moon.pkg` — 依赖 tz + json + env + async/http/fs/stdio + tty/input/color，native target，executable
+  - `cmd/agent/main.mbt` — DeepSeek 流式聊天（SSE）+ 系统提示注入时区上下文（当前 UTC + 14 常用时区偏移）+ 思考过程灰色显示 + Ctrl+C 中断 + 多轮对话
+  - `moon.mod` — 添加 `moonbitlang/async@0.22.5` + `moonbit-community/tty@0.6.2` 依赖
 
 ### MoonBit 语法要点（S1~S6 实践验证）
 

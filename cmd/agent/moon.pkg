@@ -1,0 +1,17 @@
+import {
+  "walkzzz/chrono_tz-mbt/tz",
+  "moonbitlang/core/json",
+  "moonbitlang/core/env",
+  "moonbitlang/core/debug",
+  "moonbitlang/async",
+  "moonbitlang/async/http",
+  "moonbitlang/async/fs",
+  "moonbitlang/async/stdio" @async/stdio,
+  "moonbit-community/tty",
+  "moonbit-community/tty/input",
+  "moonbit-community/tty/color",
+}
+
+pkgtype(kind: "executable")
+
+supported_targets = "-all+native"
