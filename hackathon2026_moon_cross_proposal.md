@@ -8,7 +8,7 @@
 
 - 项目名称：Moon Cross：MoonBit 跨平台 Native 框架
 - 参赛者：walkzzz
-- 联系方式：（待填写）
+- 联系方式：13689047817 745244185@qq.com
 - GitHub 仓库链接：https://github.com/walkzzz/moon-cross.git
 - mooncakes 包名：`walkzzz/moon-cross`
 - 项目方向：开发者工具 — 跨平台框架与开发体验
@@ -151,21 +151,7 @@ MoonBit native 后端生成的 C 代码具有以下特征（2026-10-15 实测验
 
 - `moon-cross build --config moon-cross.json --platform ios,android,windows,ohos,linux` — 一键五平台编译
 - `moon-cross build --platform ios --arch arm64,x86_64` — 指定平台和架构
-- `moon-cross check --config moon-cross.json` — 验证配置和函数签名, "type": "Double"},
-      {"name": "y", "type": "Double"}
-    ]}
-  ]
-}
-```
 
----
-
-## 核心功能范围
-
-### CLI 工具
-
-- `moon-cross build --config moon-cross.json --platform ios,android,windows,ohos,linux` — 一键五平台编译
-- `moon-cross build --platform ios --arch arm64,x86_64` — 指定平台和架构
 - `moon-cross check --config moon-cross.json` — 验证配置和函数签名
 - `moon-cross plan --config moon-cross.json` — 输出构建计划（dry-run）
 - `moon-cross init --name my-lib --platform all` — 初始化跨平台项目骨架
@@ -208,7 +194,7 @@ MoonBit native 后端生成的 C 代码具有以下特征（2026-10-15 实测验
 | `Verifiable` | 可验证 `verify(Self) -> Bool`（: Checkable） | 1 |
 | `Versioned` | 有版本 `version(Self) -> String` | 0 |
 | `Ordered` | 可排序 `compare(Self, Self) -> Int` | 0 |
-| `Displayable` | 可展示（: Named + Describable）A | 0 |
+| `Displayable` | 可展示（: Named + Describable） | 0 |
 | `Runnable` | 可运行 `run(Self) -> Bool` | 0 |
 
 子特征层次：`Verifiable : Checkable`、`Displayable : Named + Describable`
@@ -225,7 +211,7 @@ MoonBit native 后端生成的 C 代码具有以下特征（2026-10-15 实测验
 | Trait 验证 | 30 | ✅ Pass | 跨包多态/行为抽象 |
 | CRAP 指标 | 1346 fn | ✅ Pass | 平均 1.9（目标 < 12），高复杂度 = 0 |
 | 变异测试 | 110 mutant | ✅ Pass | 20 套件，分数 100%，等级 A |
-| **总计** | **2253** | **✅ All Pass** | **八维度全覆盖** |
+| **总计** | **2289** | **✅ All Pass** | **八维度全覆盖** |
 
 ---
 
@@ -239,7 +225,7 @@ moon-cross/
 ├── platform/      # 5 平台编译配置（ios/android/windows/ohos/linux）
 ├── codegen/       # 代码生成引擎 + FFI 绑定（codegen + ffi）
 ├── integration/   # 集成目标库 pipeline（1 包）
-├── tools/         # CLI/scaffold/b.uilder/formatter/linter/docs/publish（10 包）
+├── tools/         # CLI/scaffold/builder/formatter/linter/docs/publish（10 包）
 ├── runtime/       # cache/pool/timer/event/stream/sync+sync/memory（13 包）
 ├── analysis/      # coverage/profiler/benchmark/diff/discovery/perf（11 包）
 ├── patterns/      # 设计模式 chain/visitor/observer/strategy/state/...（10 包）
@@ -248,7 +234,7 @@ moon-cross/
     ├── rules.md       # R1-R19 规则全集
     ├── roadmap.md     # 迭代路线（v0.0.7 → v0.3.21）
     ├── changelog.md   # 变更日志
-   7    ├── arch_test_report.md      # 多手段测试报告
+    ├── arch_test_report.md      # 多手段测试报告
     └── crap_mutation_report.md     # CRAP + 变异测试报告
 ```
 
@@ -263,7 +249,7 @@ moon-cross/
 | R3 | 所有 `pub fn` 必须有 `///` 注释 | ✅ |
 | R4 | 每个子包有 README.md | ✅ |
 | R5 | 迭代路线 `docs/roadmap.md` | ✅ |
-| R6 | 提交查9证，回写 roadmap + commit hash | ✅ |
+| R6 | 提交查验证，回写 roadmap + commit hash | ✅ |
 | R7 | 自动迭代触发 | ✅ |
 | R8 | 文档治理 | ✅ |
 | R9 | 经验沉淀 | ✅ |
@@ -306,7 +292,7 @@ moon-cross/
 - **统一类型映射**：一套 MoonBit 类型 → 五平台原生类型映射表
 - **自动 C 适配层生成**：自动生成各平台 FFI 入口代码（JNI/NAPI/DllImport/Swift interop/dlopen）
 - **框架级抽象**：不仅提供编译能力，还提供运行时初始化、内存管理适配、错误处理统一接口
-- **Trait 优先**：14 个 pub(open) trait 抽象公共行为，184 个实现跨 71 包（88% 覆盖）
+- **Trait 优先**：14 个 pub(open) trait 抽象公共行为，188 个实现跨 71 包（88% 覆盖）
 
 ### 生态协同
 
@@ -336,8 +322,8 @@ moon-cross/
 3. **C 代码平台无关** — 已验证 MoonBit native 后端生成的 C 代码仅 `_WIN32` 条件差异，runtime 零平台依赖
 4. **自动 FFI 绑定生成** — 自动生成 JNI/NAPI/DllImport/Swift interop/dlopen，开发者只需声明函数签名
 5. **引用计数内存管理** — 非 GC，各平台无需特殊运行时，嵌入成本低
-6. **14 个 pub(open) trait** — 子特征层次（Verifiable : Checkable, Displayable : Named + Describable），184 实现跨 71 包
-7. **多根包架构** — 79 包组织为 10 个一级分类目录，平铺到根目录
+6. **14 个 pub(open) trait** — 子特征层次（Verifiable : Checkable, Displayable : Named + Describable），188 实现跨 71 包
+7. **多根包架构** — 80 包组织为 10 个一级分类目录，平铺到根目录
 8. **CRAP 指标 + 变异测试** — 平均 CRAP = 1.9（高复杂度 = 0），变异分数 100%（等级 A）
 9. **多手段测试** — 形式化证明 + AI/FAKE/MOCK/E2E + CRAP + 变异测试，八维度全覆盖
 10. **R1-R19 规则体系** — 19 条开发规则全部合规，连续迭代不停顿

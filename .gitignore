@@ -4,5 +4,6 @@ target/
 target
 .mooncakes/
 .moonagent/_ref_mcp/
+_ref_mcp/
 .env
 *.exe

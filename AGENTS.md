@@ -115,6 +115,14 @@ You can browse and install extra skills here:
   - `cmd/agent/moon.pkg` — 依赖 tz + json + env + async/http/fs/stdio + tty/input/color，native target，executable
   - `cmd/agent/main.mbt` — DeepSeek 流式聊天（SSE）+ 系统提示注入时区上下文（当前 UTC + 14 常用时区偏移）+ 思考过程灰色显示 + Ctrl+C 中断 + 多轮对话
   - `moon.mod` — 添加 `moonbitlang/async@0.22.5` + `moonbit-community/tty@0.6.2` 依赖
+- **S12 根包文档 + hackathon 申报书完善** ✅ 完成（moon check ✓ + moon test 141/141 ✓ native + moon info ✓ + moon fmt ✓）
+  - `moon.pkg`（根）— 添加 `walkzzz/chrono_tz-mbt/tz` 依赖
+  - `chrono_tz-mbt.mbt` — 文档入口（包结构 + 快速开始示例）
+  - `chrono_tz-mbt_wbtest.mbt` — 6 白盒测试（tz API 可从根包访问）
+  - `chrono_tz-mbt_test.mbt` — 5 黑盒测试（from_str roundtrip / RFC3339 / 时区转换 / 597时区 / strftime）
+  - `README.md` — 完整项目文档（删除符号链接，独立文件：功能特性 / 安装 / API 概览 / CLI/MCP/Agent 用法 / Sprint 进度）
+  - `README.mbt.md` — 包级别简短文档（32 行）
+  - `hackathon2026_moon_cross_proposal.md` — 修复乱码/重复段落/数据不一致（测试数 2289 / trait 实现 188 / 包数 80）
 
 ### MoonBit 语法要点（S1~S6 实践验证）
 
