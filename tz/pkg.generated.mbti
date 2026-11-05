@@ -33,25 +33,6 @@ pub(all) suberror TzError {
 pub fn TzError::to_repr(Self) -> @debug.Repr
 
 // Types and methods
-pub struct CjDuration {
-  secs : Int64
-} derive(Compare, Eq, @debug.Debug)
-pub fn CjDuration::compare(Self, Self) -> Int32
-pub fn CjDuration::equal(Self, Self) -> Bool
-pub fn CjDuration::hours(Int64) -> Self
-pub fn CjDuration::make(Int64) -> Self
-pub fn CjDuration::minutes(Int64) -> Self
-pub fn CjDuration::not_equal(Self, Self) -> Bool
-pub fn CjDuration::of_seconds(Int64) -> Self
-pub fn CjDuration::op_add(Self, Self) -> Self
-pub fn CjDuration::op_ge(Self, Self) -> Bool
-pub fn CjDuration::op_gt(Self, Self) -> Bool
-pub fn CjDuration::op_le(Self, Self) -> Bool
-pub fn CjDuration::op_lt(Self, Self) -> Bool
-pub fn CjDuration::op_sub(Self, Self) -> Self
-pub fn CjDuration::to_repr(Self) -> @debug.Repr
-pub fn CjDuration::zero() -> Self
-
 pub struct Date {
   year : Int64
   month : Int64
@@ -96,6 +77,25 @@ pub fn DateTime::to_rfc3339(Self) -> String
 pub fn DateTime::to_string(Self) -> String
 pub fn DateTime::tz_id(Self) -> String
 pub fn DateTime::with_timezone(Self, Tz) -> Self
+
+pub struct Duration {
+  secs : Int64
+} derive(Compare, Eq, @debug.Debug)
+pub fn Duration::compare(Self, Self) -> Int32
+pub fn Duration::equal(Self, Self) -> Bool
+pub fn Duration::hours(Int64) -> Self
+pub fn Duration::make(Int64) -> Self
+pub fn Duration::minutes(Int64) -> Self
+pub fn Duration::not_equal(Self, Self) -> Bool
+pub fn Duration::of_seconds(Int64) -> Self
+pub fn Duration::op_add(Self, Self) -> Self
+pub fn Duration::op_ge(Self, Self) -> Bool
+pub fn Duration::op_gt(Self, Self) -> Bool
+pub fn Duration::op_le(Self, Self) -> Bool
+pub fn Duration::op_lt(Self, Self) -> Bool
+pub fn Duration::op_sub(Self, Self) -> Self
+pub fn Duration::to_repr(Self) -> @debug.Repr
+pub fn Duration::zero() -> Self
 
 pub struct GapInfo {
   begin : (NaiveDateTime, TzOffset)?

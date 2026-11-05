@@ -111,13 +111,13 @@
 
 ---
 
-## S3：tz 包 — NaiveDateTime/Date/CjDuration
+## S3：tz 包 — NaiveDateTime/Date/Duration
 
 ### 文件清单
 
 | 文件 | 内容 | 行数估算 |
 |------|------|---------|
-| `tz/datetime.mbt` | NaiveDateTime/Date/CjDuration + Hinnant 集成 | ~300 |
+| `tz/datetime.mbt` | NaiveDateTime/Date/Duration + Hinnant 集成 | ~300 |
 | `tz/datetime_wbtest.mbt` | 白盒测试 | ~150 |
 
 ### 函数清单
@@ -135,7 +135,7 @@
 | `NaiveDateTime::to_string` | derive Show | YYYY-MM-DD HH:MM:SS |
 | `Date::make` | `(Int64, Int64, Int64) -> Date raise TzError` | 构造+校验 |
 | `Date::from_ordinal` | `(Int64, Int64) -> Date raise TzError` | 年+积日 |
-| `CjDuration` 相关 | 加减/比较 | — |
+| `Duration` 相关 | 加减/比较 | — |
 
 ### 测试清单
 

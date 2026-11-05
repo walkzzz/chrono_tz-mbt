@@ -1,32 +1,32 @@
 ///|
-/// datetime_wbtest.mbt — NaiveDateTime / Date / CjDuration 白盒测试
+/// datetime_wbtest.mbt — NaiveDateTime / Date / Duration 白盒测试
 
 ///|
-test "CjDuration::make + secs" {
-  let d = CjDuration::make(3600L)
-  assert_eq(d, CjDuration::{ secs: 3600L, })
+test "Duration::make + secs" {
+  let d = Duration::make(3600L)
+  assert_eq(d, Duration::{ secs: 3600L, })
 }
 
 ///|
-test "CjDuration::hours/minutes/of_seconds/zero" {
-  assert_eq(CjDuration::hours(1L), CjDuration::make(3600L))
-  assert_eq(CjDuration::minutes(1L), CjDuration::make(60L))
-  assert_eq(CjDuration::of_seconds(42L), CjDuration::make(42L))
-  assert_eq(CjDuration::zero(), CjDuration::make(0L))
+test "Duration::hours/minutes/of_seconds/zero" {
+  assert_eq(Duration::hours(1L), Duration::make(3600L))
+  assert_eq(Duration::minutes(1L), Duration::make(60L))
+  assert_eq(Duration::of_seconds(42L), Duration::make(42L))
+  assert_eq(Duration::zero(), Duration::make(0L))
 }
 
 ///|
-test "CjDuration add/sub" {
-  let a = CjDuration::make(100L)
-  let b = CjDuration::make(60L)
-  assert_eq(a.op_add(b), CjDuration::make(160L))
-  assert_eq(a.op_sub(b), CjDuration::make(40L))
+test "Duration add/sub" {
+  let a = Duration::make(100L)
+  let b = Duration::make(60L)
+  assert_eq(a.op_add(b), Duration::make(160L))
+  assert_eq(a.op_sub(b), Duration::make(40L))
 }
 
 ///|
-test "CjDuration Eq + Compare" {
-  let a = CjDuration::make(100L)
-  let b = CjDuration::make(200L)
+test "Duration Eq + Compare" {
+  let a = Duration::make(100L)
+  let b = Duration::make(200L)
   assert_true(a != b)
   assert_true(a < b)
   assert_true(b > a)

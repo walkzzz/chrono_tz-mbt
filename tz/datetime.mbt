@@ -1,62 +1,62 @@
 ///|
-/// datetime.mbt — NaiveDateTime / Date / CjDuration（chrono_tz-mbt MoonBit 移植）
+/// datetime.mbt — NaiveDateTime / Date / Duration（chrono_tz-mbt MoonBit 移植）
 /// 移植自仓颉 src/base/tz/datetime.cj，集成 core2 core/hinnant.mbt 算法。
 
 ///|
 /// 秒级时长，用于 NaiveDateTime 的加减运算。
-pub struct CjDuration {
+pub struct Duration {
   secs : Int64
 } derive(Eq, Compare, Debug)
 
 ///|
-pub extend CjDuration with Eq::{not_equal, equal}
+pub extend Duration with Eq::{not_equal, equal}
 
 ///|
-pub extend CjDuration with Compare::{op_lt, op_le, op_ge, compare, op_gt}
+pub extend Duration with Compare::{op_lt, op_le, op_ge, compare, op_gt}
 
 ///|
-pub extend CjDuration with Debug::{to_repr}
+pub extend Duration with Debug::{to_repr}
 
 ///|
 /// 由秒数直接构造。
-pub fn CjDuration::make(secs : Int64) -> CjDuration {
-  CjDuration::{ secs, }
+pub fn Duration::make(secs : Int64) -> Duration {
+  Duration::{ secs, }
 }
 
 ///|
 /// 构造 `h` 小时的时长。
-pub fn CjDuration::hours(h : Int64) -> CjDuration {
-  CjDuration::{ secs: h * 3600L, }
+pub fn Duration::hours(h : Int64) -> Duration {
+  Duration::{ secs: h * 3600L, }
 }
 
 ///|
 /// 构造 `m` 分钟的时长。
-pub fn CjDuration::minutes(m : Int64) -> CjDuration {
-  CjDuration::{ secs: m * 60L, }
+pub fn Duration::minutes(m : Int64) -> Duration {
+  Duration::{ secs: m * 60L, }
 }
 
 ///|
 /// 构造 `s` 秒的时长。
-pub fn CjDuration::of_seconds(s : Int64) -> CjDuration {
-  CjDuration::{ secs: s, }
+pub fn Duration::of_seconds(s : Int64) -> Duration {
+  Duration::{ secs: s, }
 }
 
 ///|
 /// 零时长。
-pub fn CjDuration::zero() -> CjDuration {
-  CjDuration::{ secs: 0L, }
+pub fn Duration::zero() -> Duration {
+  Duration::{ secs: 0L, }
 }
 
 ///|
 /// 时长加法。
-pub fn CjDuration::op_add(self : CjDuration, rhs : CjDuration) -> CjDuration {
-  CjDuration::{ secs: self.secs + rhs.secs, }
+pub fn Duration::op_add(self : Duration, rhs : Duration) -> Duration {
+  Duration::{ secs: self.secs + rhs.secs, }
 }
 
 ///|
 /// 时长减法。
-pub fn CjDuration::op_sub(self : CjDuration, rhs : CjDuration) -> CjDuration {
-  CjDuration::{ secs: self.secs - rhs.secs, }
+pub fn Duration::op_sub(self : Duration, rhs : Duration) -> Duration {
+  Duration::{ secs: self.secs - rhs.secs, }
 }
 
 ///|

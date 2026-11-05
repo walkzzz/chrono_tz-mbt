@@ -105,7 +105,7 @@ core 包存储 406 个时区时间段 + 178 个偏移/缩写索引，通过 `Fix
 | `DateTime` | 带时区时刻 | `DateTime::make(ts, offset)` |
 | `Date` | 仅年月日 | `Date::make(2025, 7, 15)` |
 | `TzOffset` | 时区偏移 | `tz.offset_from_utc_date_time(naive)` |
-| `CjDuration` | 秒级时长 | `CjDuration::hours(3)` |
+| `Duration` | 秒级时长 | `Duration::hours(3)` |
 | `LocalResult[T]` | DST 三分支 | `Single / Ambiguous / None` |
 | `GapInfo` | DST 缺口信息 | `GapInfo::detect(tz, naive)` |
 
@@ -194,7 +194,7 @@ chrono_tz-mbt/
 │   └── europe.mbt
 ├── tz/                          # 时区算法
 │   ├── tz_variants.mbt          #   Tz 枚举 597 + from_str（二分查找）
-│   ├── datetime.mbt             #   NaiveDateTime + Date + DateTime + CjDuration
+│   ├── datetime.mbt             #   NaiveDateTime + Date + DateTime + Duration
 │   ├── timezone_impl.mbt        #   TzOffset + LocalResult + TimeZone trait
 │   ├── tz_impl.mbt              #   timespans + offset_from_utc/local + GapInfo
 │   ├── tz_format.mbt            #   strftime + strptime + RFC3339
@@ -224,7 +224,7 @@ chrono_tz-mbt/
 |--------|---------|---------|---------|
 | S1 | core 包 — Hinnant + FixedTimespan + 全局查表 | 11 白盒测试 | ✅ 完成 |
 | S2 | data 包 + Tz 枚举 597 + from_str | 3 黑盒测试 | ✅ 完成 |
-| S3 | NaiveDateTime / Date / CjDuration | 28 白盒测试 | ✅ 完成 |
+| S3 | NaiveDateTime / Date / Duration | 28 白盒测试 | ✅ 完成 |
 | S4 | TzOffset + LocalResult + TimeZone trait | 12 白盒测试 | ✅ 完成 |
 | S5 | DateTime + DST + GapInfo | 22 白盒测试 | ✅ 完成 |
 | S6 | strftime / strptime / RFC3339 | 24 白盒测试 | ✅ 完成 |

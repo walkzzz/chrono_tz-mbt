@@ -161,7 +161,7 @@ moon fmt                      # 格式化
 |--------|------|------|
 | S1 | core 包 — Hinnant + FixedTimespan + 全局查表 | ✅ |
 | S2 | data 包 + Tz 枚举 597 + from_str | ✅ |
-| S3 | NaiveDateTime / Date / CjDuration | ✅ |
+| S3 | NaiveDateTime / Date / Duration | ✅ |
 | S4 | TzOffset + LocalResult + TimeZone trait | ✅ |
 | S5 | DateTime + DST + GapInfo | ✅ |
 | S6 | strftime / strptime / RFC3339 | ✅ |

@@ -82,7 +82,7 @@
 | `src/data/data_australasia.cj` | `data/data_australasia.mbt` | 大洋洲 |
 | `src/data/data_europe.cj` | `data/data_europe.mbt` | 欧洲 |
 | `src/data/data_others.cj` | `data/data_others.mbt` | 南极/大西洋/等 |
-| `src/base/tz/datetime.cj` | `tz/datetime.mbt` | `CjDuration`/`NaiveDateTime`/`DateTime`/`Date`（Hinnant） |
+| `src/base/tz/datetime.cj` | `tz/datetime.mbt` | `Duration`/`NaiveDateTime`/`DateTime`/`Date`（Hinnant） |
 | `src/base/tz/tz_variants.cj` | `tz/tz_variants.mbt` | `Tz` 枚举 597 + `name`/`from_str` |
 | `src/base/tz/timezone_impl.cj` | `tz/timezone_impl.mbt` | `TzOffset`/`LocalResult`/`TimeZone` trait/`binary_search`/`GapInfo` |
 | `src/base/tz/tz_impl.cj` | `tz/tz_impl.mbt` | `timespans()` + DST 算法 |

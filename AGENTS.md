@@ -76,8 +76,8 @@ You can browse and install extra skills here:
   - `data/` — 6 大洲数据文件（38711 行，从 moon-chrono_tz 复制事实性 IANA tzdata）
   - `tz/tz_variants.mbt` — Tz 枚举 597 + name + from_str（独立重写，纯二分查找，去掉 LRU 缓存）
   - `tz/tz_variants_test.mbt` — 3 黑盒测试
-- **S3 tz 包 — NaiveDateTime/Date/CjDuration** ✅ 完成（moon check ✓ + moon test 42/42 ✓ + moon info ✓ + moon fmt ✓）
-  - `tz/datetime.mbt` — CjDuration + NaiveDateTime + Date（~340 行，集成 Hinnant 算法）
+- **S3 tz 包 — NaiveDateTime/Date/Duration** ✅ 完成（moon check ✓ + moon test 42/42 ✓ + moon info ✓ + moon fmt ✓）
+  - `tz/datetime.mbt` — Duration + NaiveDateTime + Date（~340 行，集成 Hinnant 算法）
   - `tz/datetime_wbtest.mbt` — 28 白盒测试
 - **S4 tz 包 — tz_offset / local_result / trait** ✅ 完成（moon check ✓ + moon test 54/54 ✓ + moon info ✓ + moon fmt ✓）
   - `tz/timezone_impl.mbt` — TzError suberror + binary_search + TzOffset + LocalResult[T] + TimeZone trait（~140 行）

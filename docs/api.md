@@ -374,16 +374,16 @@ pub struct GapInfo {
 pub fn GapInfo::detect(dt : NaiveDateTime, tz : Tz) -> GapInfo?
 ```
 
-### CjDuration
+### Duration
 
 ```moonbit
-pub struct CjDuration { secs : Int64 } derive(Eq, Compare, Show)
+pub struct Duration { secs : Int64 } derive(Eq, Compare, Show)
 
-pub fn CjDuration::make(secs : Int64) -> CjDuration
-pub fn CjDuration::of_seconds(secs : Int64) -> CjDuration
-pub fn CjDuration::minutes(m : Int64) -> CjDuration
-pub fn CjDuration::hours(h : Int64) -> CjDuration
-pub fn CjDuration::zero() -> CjDuration
+pub fn Duration::make(secs : Int64) -> Duration
+pub fn Duration::of_seconds(secs : Int64) -> Duration
+pub fn Duration::minutes(m : Int64) -> Duration
+pub fn Duration::hours(h : Int64) -> Duration
+pub fn Duration::zero() -> Duration
 ```
 
 ### 错误类型

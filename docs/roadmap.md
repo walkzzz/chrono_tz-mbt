@@ -15,7 +15,7 @@
 - DST 三分支：春进缺口（`None`）、秋退重叠（`Ambiguous`）、正常（`Single`）
 - Hinnant civil↔days 算法：公历 ↔ Unix 时间戳 O(1) 互转，支持负时间戳
 - UTC⇄本地双向转换
-- `NaiveDateTime` / `DateTime` / `Date` / `TzOffset` / `CjDuration` 核心类型
+- `NaiveDateTime` / `DateTime` / `Date` / `TzOffset` / `Duration` 核心类型
 - RFC 3339 输出 + 常用 strftime/strptime 格式符子集
 - 全局查表去重（`tz_offset_table` / `tz_name_table`）
 
@@ -45,7 +45,7 @@ chrono_tz-mbt/                  # 根包：文档入口 + 14 个便捷函数（�
 │   ├── data_europe.mbt
 │   └── data_others.mbt
 ├── tz/                         # 时区算法层
-│   ├── datetime.mbt           # CjDuration/NaiveDateTime/DateTime/Date（Hinnant）
+│   ├── datetime.mbt           # Duration/NaiveDateTime/DateTime/Date（Hinnant）
 │   ├── timezone_impl.mbt      # binarySearch/TzOffset/LocalResult/TimeZone trait/GapInfo
 │   ├── tz_variants.mbt        # Tz 枚举(597)/name()/from_str + NAME_TO_TZ 表
 │   ├── tz_impl.mbt            # timespans() + offset_from_utc/local（DST 算法）
@@ -72,7 +72,7 @@ chrono_tz-mbt/                  # 根包：文档入口 + 14 个便捷函数（�
 |--------|------|------|--------|
 | S1 | `core` 包：`FixedTimespan`/`Span`/`FixedTimespanSet` + `tz_offset_table`(406)/`tz_name_table`(178) + Hinnant + `Ordering` | ✅ 完成 | - |
 | S2 | `data` 包：6 文件 38711 行 + `Tz` 枚举 597 + `name`/`from_str`（纯二分查找） | ✅ 完成 | - |
-| S3 | `tz/datetime.mbt`：`CjDuration`/`NaiveDateTime`/`Date`（Hinnant 集成） | ✅ 完成 | - |
+| S3 | `tz/datetime.mbt`：`Duration`/`NaiveDateTime`/`Date`（Hinnant 集成） | ✅ 完成 | - |
 | S4 | `tz/timezone_impl.mbt`：`TzOffset`/`LocalResult[T]`/`TimeZone` trait/`binary_search`/`GapInfo` | ✅ 完成 | - |
 | S5 | `tz/tz_impl.mbt`：`timespans()`(597 arm) + DST 算法 + `DateTime` + `from_local` | ✅ 完成 | - |
 | S6 | `tz/tz_format.mbt`：strftime + strptime + RFC3339 | ✅ 完成 | - |
