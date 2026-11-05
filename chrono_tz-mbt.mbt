@@ -10,8 +10,8 @@
 /// - `data` — 6 大洲 IANA tzdata 数据文件
 /// - `tz` — 时区算法（Tz 枚举 + DateTime + DST + RFC3339 + strftime/strptime）
 /// - `cmd/mcp` — MCP 服务器（stdio JSON-RPC，7 个时区工具）
-/// - `cmd/cli` — CLI 工具（7 个子命令）
-/// - `cmd/agent` — LLM Agent（DeepSeek 流式聊天 + 时区上下文注入）
+/// - `cmd/cli` — CLI 工具（10 个子命令）
+/// - `cmd/agent` — LLM Agent（DeepSeek 流式聊天 + 时区上下文注入 + 7 个 tz: 工具调用）
 ///
 /// ## 快速开始
 ///

@@ -291,29 +291,113 @@
 
 ---
 
-## S8：可选扩展
+## S8：可选扩展 — quickcheck + 序列化
 
-| 扩展 | 文件 | 说明 |
-|------|------|------|
-| TzCache LRU | `tz/tz_cache.mbt` | LRU 缓存 (ADR-011) |
-| TzUtils | `tz/tz_utils.mbt` | 便利查询（system_local_tz 等） |
-| 闰秒 | `tz/tz_leap.mbt` | LeapSecondTable |
-| DateRange | `tz/tz_daterange.mbt` | 日期区间迭代 |
-| 序列化 | `tz/tz_serialize.mbt` | JSON 导出 |
-| BusinessCalendar | `tz/tz_calendar.mbt` | 营业日历 |
+### 文件清单
+
+| 文件 | 内容 | 行数估算 |
+|------|------|---------|
+| `tz/tz_quickcheck_wbtest.mbt` | 7 Hinnant @quickcheck 性质测试 | ~120 |
+| `tz/tz_serialize.mbt` | DateTime/NaiveDateTime JSON 序列化 | ~80 |
+| `tz/tz_serialize_wbtest.mbt` | 5 序列化白盒测试 | ~60 |
 
 ### 验收门禁
 
-- 每个扩展独立 `moon check` + `moon test` 通过
-- 不影响核心包
+- `moon check` + `moon test --target native` 通过（130 测试）
+- quickcheck 性质：civil↔day 互逆 + timestamp 往返 + 分量范围
 
 ---
 
-## 根包 reexport
+## S9：MCP 服务器
+
+### 文件清单
 
 | 文件 | 内容 |
 |------|------|
-| `reexport.mbt` | 重导出 core/tz 公共类型与函数 |
-| `moon.pkg` | 依赖 core/data/tz |
+| `cmd/mcp/moon.pkg` | 依赖 tz + json + utf8，native target，executable |
+| `cmd/mcp/main.mbt` | C FFI stdio + JSON-RPC 协议 + 7 时区工具 |
 
-> 文件结束 | chrono_tz-mbt sprint-tasks v1.0 | 2026-11-04
+### 工具清单
+
+`list_timezones` / `get_offset` / `convert_time` / `parse_rfc3339` / `format_time` / `get_current_time` / `detect_dst`
+
+### 验收门禁
+
+- `moon check` 通过，`moon test --target native` 130 测试通过
+
+---
+
+## S10：CLI 工具
+
+### 文件清单
+
+| 文件 | 内容 |
+|------|------|
+| `cmd/cli/moon.pkg` | 依赖 tz + json + utf8 + env，native target，executable |
+| `cmd/cli/main.mbt` | 10 子命令 + 参数解析 + usage |
+
+### 子命令清单
+
+`list` / `info` / `convert` / `now` / `parse` / `format` / `dst` / `search` / `diff` / `repl`
+
+### 验收门禁
+
+- `moon check` 通过，`moon test --target native` 130 测试通过
+
+---
+
+## S11：LLM Agent
+
+### 文件清单
+
+| 文件 | 内容 |
+|------|------|
+| `cmd/agent/moon.pkg` | 依赖 tz + json + env + async/http/fs/stdio + tty/input/color，native target，executable |
+| `cmd/agent/main.mbt` | DeepSeek 流式聊天（SSE）+ 系统提示注入时区上下文 + 思考过程灰色显示 + Ctrl+C 中断 + 多轮对话 |
+
+### 验收门禁
+
+- `moon check` 通过，`moon test --target native` 130 测试通过
+
+---
+
+## S12：根包文档 + hackathon 申报书
+
+### 文件清单
+
+| 文件 | 内容 |
+|------|------|
+| `moon.pkg`（根） | 添加 `walkzzz/chrono_tz-mbt/tz` 依赖 |
+| `chrono_tz-mbt.mbt` | 文档入口（包结构 + 快速开始示例） |
+| `chrono_tz-mbt_wbtest.mbt` | 6 白盒测试 |
+| `chrono_tz-mbt_test.mbt` | 5 黑盒测试 |
+| `README.md` | 完整项目文档 |
+| `README.mbt.md` | 包级别简短文档 |
+| `hackathon2026_moon_cross_proposal.md` | 修复乱码/重复段落 |
+
+### 验收门禁
+
+- `moon check` + `moon test --target native` 141 测试通过
+
+---
+
+## S13：消除 warning + strptime 扩展 + CLI 增强 + Agent 工具集成
+
+### 文件清单
+
+| 文件 | 内容 |
+|------|------|
+| `chrono_tz-mbt.mbt` | 添加 `tz_count`/`tz_names` 引用 @tz |
+| `tz/tz_bench.mbt` | 引用 @bench/@quickcheck |
+| `tz/tz_format.mbt` | strptime 扩展支持 %Y %m %d %H %M %S %y %j %% 及字面字符 |
+| `tz/tz_format_wbtest.mbt` | 8 个新 strptime 测试 |
+| `cmd/cli/main.mbt` | 3 新子命令：search/diff/repl |
+| `cmd/agent/main.mbt` | MCP 工具调用集成：tz:now/convert/offset/dst/search/list/help |
+| `hackathon2026_chrono_tz_mbt_proposal.md` | 本项目申报书 |
+
+### 验收门禁
+
+- `moon check` 0 warnings + `moon test --target native` 147 测试通过
+- `moon info` + `moon fmt` 通过
+
+> 文件结束 | chrono_tz-mbt sprint-tasks v2.0 | 2026-11-05

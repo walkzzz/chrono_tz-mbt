@@ -17,10 +17,10 @@
 
 ```bash
 moon fmt                                  # 格式化
-moon check --target all --warn-list +73   # 全后端类型检查，0 error 0 warning
-moon test --target native                 # 运行测试
+moon check                                # 类型检查，0 error 0 warning
+moon test --target native                 # 运行测试（147 个，native target）
 moon test --update                        # 刷新快照
-moon info --target native                 # 更新 .mbti，审查 API diff
+moon info                                 # 更新 .mbti，审查 API diff
 moon coverage analyze > uncovered.log     # 覆盖率盲区
 ```
 
@@ -281,4 +281,4 @@ test "bench_offset_lookup" (b : @bench.T) {
 - 高 CRAP 函数：`offset_from_local_date_time`（DST 三分支，圈复杂度高）→ 重点补测试
 - 变异测试：MoonBit 暂无原生工具，可手动构造等价变异体验证测试有效性
 
-> 文件结束 | chrono_tz-mbt testing v1.1 | 2026-11-04
+> 文件结束 | chrono_tz-mbt testing v2.0 | 2026-11-05

@@ -371,4 +371,4 @@ test "dst_gap" {
 }
 ```
 
-> 文件结束 | chrono_tz-mbt api v1.0 | 2026-11-04
+> 文件结束 | chrono_tz-mbt api v2.0 | 2026-11-05

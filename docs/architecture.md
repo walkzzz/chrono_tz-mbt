@@ -577,4 +577,4 @@ core/
 
 **后果**：正面—S8 可为核心算法提供机检正确性保证，Hinnant 互逆性可证；负面—实验性特性可能变动需跟踪，环境依赖（Why3+求解器）增加 CI 复杂度（独立 job 隔离）。
 
-> 文件结束 | chrono_tz-mbt architecture v1.4 | 2026-11-04
+> 文件结束 | chrono_tz-mbt architecture v2.0 | 2026-11-05

@@ -15,15 +15,24 @@ version = "0.1.0"
 
 readme = "README.mbt.md"
 
-repository = ""
+repository = "https://github.com/walkzzz/chrono_tz-mbt.git"
 
 license = "Apache-2.0"
 
-keywords = [ ]
+keywords = [
+  "timezone",
+  "iana",
+  "tzdata",
+  "dst",
+  "rfc3339",
+  "strftime",
+  "hinnant",
+  "chrono",
+]
 
 preferred_target = "wasm"
 
-description = ""
+description = "MoonBit IANA 时区库 — 597 时区 + DST 三分支 + Hinnant civil↔days + RFC3339 + strftime/strptime，移植自 Rust chrono-tz 0.11.0"
 
 import {
   "moonbitlang/async@0.22.5",

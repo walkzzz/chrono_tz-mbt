@@ -25,13 +25,13 @@
 
 ```bash
 # 开发循环
-moon check && moon test
+moon check ; moon test --target native
 
 # 提交前
-moon fmt && moon check && moon test && moon info
+moon fmt ; moon check ; moon test --target native ; moon info
 
 # CI 完整
-moon fmt --check && moon check --target all && moon test --target all && moon info --check
+moon fmt --check ; moon check ; moon test --target native ; moon info --check
 ```
 
 ## 二、项目配置
@@ -39,14 +39,14 @@ moon fmt --check && moon check --target all && moon test --target all && moon in
 ### moon.mod
 
 ```toml
-[module]
 name = "walkzzz/chrono_tz-mbt"
 version = "0.1.0"
-description = "IANA timezone library for MoonBit (chrono-tz port)"
-
-[module]
-supported_targets = "+wasm+wasm-gc+js+native"
+readme = "README.mbt.md"
+repository = "https://github.com/walkzzz/chrono_tz-mbt.git"
+license = "Apache-2.0"
+keywords = ["timezone", "iana", "tzdata", "dst", "rfc3339", "strftime", "hinnant", "chrono"]
 preferred_target = "wasm"
+description = "MoonBit IANA 时区库 — 597 时区 + DST 三分支 + Hinnant civil↔days + RFC3339 + strftime/strptime"
 ```
 
 ### moon.pkg（各包）
@@ -55,8 +55,13 @@ preferred_target = "wasm"
 |----|------|------|
 | `core/` | 无 | 零依赖核心 |
 | `data/` | `core` | 纯数据 |
-| `tz/` | `core` | 算法（tz_variants 不依赖 data） |
-| 根 | `core`, `data`, `tz` | reexport |
+| `tz/` | `core`, `data` | 算法 |
+| 根 | `tz` | 文档入口 |
+| `cmd/mcp/` | `tz`, `json`, `utf8` | MCP 服务器（native, executable） |
+| `cmd/cli/` | `tz`, `json`, `env` | CLI 工具（native, executable） |
+| `cmd/agent/` | `tz`, `json`, `env`, `async`, `tty` | LLM Agent（native, executable） |
+
+> **注**：WASM target 有 597 match arm local count 限制，测试需用 `--target native`。
 
 ## 三、CI 集成
 
@@ -193,4 +198,4 @@ moon test  # 确认本项目通过
 # （编写对比脚本或快照测试）
 ```
 
-> 文件结束 | chrono_tz-mbt build-ci v1.0 | 2026-11-04
+> 文件结束 | chrono_tz-mbt build-ci v2.0 | 2026-11-05

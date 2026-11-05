@@ -70,14 +70,19 @@ chrono_tz-mbt/                  # 根包：reexport.mbt 统一入口 @chrono_tz-
 
 | Sprint | 内容 | 状态 | commit |
 |--------|------|------|--------|
-| S1 | `core` 包：`FixedTimespan`/`Span`/`FixedTimespanSet` + `tz_offset_table`(406)/`tz_name_table`(178) + `lookup_offset_idx`/`lookup_abbr_idx` + `Ordering` | 待开始 | - |
-| S2 | `data` 包：6 文件 340 常量（脚本 `scripts/cj2mbt.py` 自动转换仓颉 `data_*.cj`→`.mbt`） | 待开始 | - |
-| S3 | `tz/datetime.mbt`：`CjDuration`/`NaiveDateTime`(Hinnant `days_from_civil`/`civil_from_days`)/`DateTime`/`Date` + `derive(Eq,Compare,Show)` 去重 | 待开始 | - |
-| S4 | `tz/tz_variants.mbt`：`Tz` 枚举 597 variant + `name()` + `from_str`（`T?` 返回，非抛错）+ `NAME_TO_TZ` 二分表 + `derive(Eq,Compare)` | 待开始 | - |
-| S5 | `tz/timezone_impl.mbt` + `tz_impl.mbt`：`binary_search`/`TzOffset`/`LocalResult[T]`/`TimeZone` trait/`GapInfo` + `timespans()`/`offset_from_utc_date_time`/`offset_from_local_date_time`（DST 算法） | 待开始 | - |
-| S6 | `tz/tz_format.mbt`：RFC 3339 输出 + strftime/strptime 常用格式符子集 | 待开始 | - |
-| S7 | 根包 `reexport.mbt` + 黑盒/白盒测试 + 文档测试（`mbt check`）+ `moon check` 0 warning + `moon test` 全通过 | 待开始 | - |
-| S8 | （可选）扩展：`TzCache`/`TzUtils`/闰秒/`DateRange`/序列化 | 待开始 | - |
+| S1 | `core` 包：`FixedTimespan`/`Span`/`FixedTimespanSet` + `tz_offset_table`(406)/`tz_name_table`(178) + Hinnant + `Ordering` | ✅ 完成 | - |
+| S2 | `data` 包：6 文件 38711 行 + `Tz` 枚举 597 + `name`/`from_str`（纯二分查找） | ✅ 完成 | - |
+| S3 | `tz/datetime.mbt`：`CjDuration`/`NaiveDateTime`/`Date`（Hinnant 集成） | ✅ 完成 | - |
+| S4 | `tz/timezone_impl.mbt`：`TzOffset`/`LocalResult[T]`/`TimeZone` trait/`binary_search`/`GapInfo` | ✅ 完成 | - |
+| S5 | `tz/tz_impl.mbt`：`timespans()`(597 arm) + DST 算法 + `DateTime` + `from_local` | ✅ 完成 | - |
+| S6 | `tz/tz_format.mbt`：strftime + strptime + RFC3339 | ✅ 完成 | - |
+| S7 | 黑盒/白盒/基准测试（全 597 扫描 + DST 检测 + UTC 零偏移） | ✅ 完成 | - |
+| S8 | quickcheck 性质测试 + JSON 序列化（`to_json`/`to_json_compact`） | ✅ 完成 | - |
+| S9 | MCP 服务器（JSON-RPC + 7 时区工具） | ✅ 完成 | - |
+| S10 | CLI 工具（10 子命令：list/info/convert/now/parse/format/dst/search/diff/repl） | ✅ 完成 | - |
+| S11 | LLM Agent（DeepSeek 流式聊天 + 时区上下文注入） | ✅ 完成 | - |
+| S12 | 根包文档 + hackathon 申报书 | ✅ 完成 | - |
+| S13 | 消除 warning + strptime 扩展 + CLI 增强 + Agent 工具集成 | ✅ 完成 | - |
 
 ## 验收门禁
 
@@ -106,4 +111,4 @@ chrono_tz-mbt/                  # 根包：reexport.mbt 统一入口 @chrono_tz-
 | 错误处理 | `suberror`+`raise`+`T?` | `T?` + `Result` |
 | 复用关系 | 参考 `moon-chrono_tz/tz` 与 `core` 的实现思路，但独立重写更精炼版本 | 既有实现，不改动 |
 
-> 文件结束 | chrono_tz-mbt roadmap v1.1 | 2026-11-04
+> 文件结束 | chrono_tz-mbt roadmap v2.0 | 2026-11-05

@@ -14,8 +14,8 @@ MoonBit IANA 时区库，移植自 [chrono_tz_cangjie](https://github.com/chrono
 - **时区转换** — `with_timezone` 跨时区 DateTime 转换
 - **JSON 序列化** — DateTime / NaiveDateTime 的 `to_json` / `to_json_compact`
 - **MCP 服务器** — 7 个时区工具（list_timezones / get_offset / convert_time / parse_rfc3339 / format_time / get_current_time / detect_dst）
-- **CLI 工具** — 7 个子命令（list / info / convert / now / parse / format / dst）
-- **LLM Agent** — DeepSeek 流式聊天 + 时区上下文注入
+- **CLI 工具** — 10 个子命令（list / info / convert / now / parse / format / dst / search / diff / repl）
+- **LLM Agent** — DeepSeek 流式聊天 + 时区上下文注入 + 7 个 tz: 工具调用（now / convert / offset / dst / search / list / help）
 
 ## 安装
 
@@ -97,6 +97,9 @@ moon run cmd/cli -- now Asia/Shanghai       # 当前时间
 moon run cmd/cli -- parse "2026-01-01T00:00:00Z"  # RFC3339 解析
 moon run cmd/cli -- format "%Y-%m-%d %H:%M" "2026-01-01T00:00:00Z"  # strftime
 moon run cmd/cli -- dst Asia/Shanghai       # DST 检测
+moon run cmd/cli -- search Shanghai         # 模糊搜索时区名
+moon run cmd/cli -- diff Asia/Shanghai America/New_York  # 时差比较
+moon run cmd/cli -- repl                    # 交互式 REPL 模式
 ```
 
 ## MCP 服务器
@@ -116,13 +119,13 @@ DEEPSEEK_API_KEY=sk-xxx
 moon run cmd/agent  # 启动 DeepSeek 流式聊天（Ctrl+C 中断）
 ```
 
-Agent 自动注入时区上下文（当前 UTC 时间 + 14 常用时区偏移）到系统提示。
+Agent 自动注入时区上下文（当前 UTC 时间 + 14 常用时区偏移）到系统提示，并支持直接调用 7 个时区工具：`tz:now` / `tz:convert` / `tz:offset` / `tz:dst` / `tz:search` / `tz:list` / `tz:help`。
 
 ## 构建与测试
 
 ```bash
 moon check                    # 类型检查
-moon test --target native     # 运行测试（141 个，native target）
+moon test --target native     # 运行测试（147 个，native target）
 moon info                     # 更新 .mbti 接口
 moon fmt                      # 格式化
 ```
@@ -144,7 +147,9 @@ moon fmt                      # 格式化
 | S9 | MCP 服务器 | ✅ |
 | S10 | CLI 工具 | ✅ |
 | S11 | LLM Agent | ✅ |
+| S12 | 根包文档 + hackathon 申报书 | ✅ |
+| S13 | 消除 warning + strptime 扩展 + CLI 增强 + Agent 工具集成 | ✅ |
 
 ## 许可证
 
-MIT License
+Apache-2.0

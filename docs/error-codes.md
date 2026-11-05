@@ -149,4 +149,4 @@ match tz.offset_from_local_date_time(naive) {
 }
 ```
 
-> 文件结束 | chrono_tz-mbt error-codes v1.0 | 2026-11-04
+> 文件结束 | chrono_tz-mbt error-codes v2.0 | 2026-11-05

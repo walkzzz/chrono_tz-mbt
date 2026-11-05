@@ -131,6 +131,12 @@ You can browse and install extra skills here:
   - `tz/tz_format_wbtest.mbt` — 8 个新 strptime 测试（%y/%j/%%/自定义格式/日期only）
   - `cmd/cli/main.mbt` — 3 个新子命令：search（模糊搜索）/ diff（时差比较）/ repl（交互式模式）
   - `cmd/agent/main.mbt` — MCP 工具调用集成：tz:now/convert/offset/dst/search/list/help 直接调用 tz 包
+- **S14 文档完善 + 元数据修正** ✅ 完成（moon check 0 warnings ✓ + moon test 147/147 ✓ native + moon info ✓ + moon fmt ✓）
+  - `moon.mod` — 填充 repository（github.com/walkzzz/chrono_tz-mbt.git）/ keywords（8 个）/ description
+  - `README.md` — 许可证 MIT→Apache-2.0；Sprint 进度加 S12/S13；CLI 7→10 子命令；Agent 工具描述；测试数 141→147
+  - `README.mbt.md` — 完善包级别文档（核心 API 列表 + DST 三分支 + 构建测试 + 许可证）
+  - `docs/` 10 份文档全部更新：roadmap（Sprint 表全✅+包结构加 cmd/）/ sprint-tasks（加 S8-S13 拆解）/ api / build-ci（moon.mod 配置+WASM 限制）/ testing / performance / architecture / error-codes / tz-names（from_str 二分查找）/ migration-map — 版本号统一升 v2.0
+  - `chrono_tz-mbt.mbt` — 根包文档注释 CLI 7→10 子命令 + Agent 工具调用描述
 
 ### MoonBit 语法要点（S1~S6 实践验证）
 

@@ -145,7 +145,7 @@ pub fn Tz::from_str(s : String) -> Tz? {
 - O(1) 均摊，但初始化建表 O(n) + 哈希表内存开销
 - 适合高频调用场景
 
-**本项目默认方案 1**（线性查表），S8 可选方案 2/3 优化。
+**本项目采用方案 2**（二分查找，NAME_TO_TZ 按字典序预排序），S2 独立重写去掉 LRU 缓存。
 
 ## 六、tzdata 版本
 
@@ -153,4 +153,4 @@ pub fn Tz::from_str(s : String) -> Tz? {
 - 版本号存储在 `tz/tz_variants.mbt` 顶层常量 `TZDATA_VERSION : String = "2025b"`
 - 升级 tzdata 时需重新生成 data 包 + tz_variants.mbt
 
-> 文件结束 | chrono_tz-mbt tz-names v1.0 | 2026-11-04
+> 文件结束 | chrono_tz-mbt tz-names v2.0 | 2026-11-05

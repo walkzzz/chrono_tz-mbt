@@ -1,7 +1,8 @@
 # 性能预算表 / Performance Budget
 
-> 各操作的目标时间复杂度与空间占用，作为 S1-S7 验收基准。
+> 各操作的目标时间复杂度与空间占用，作为 S1-S13 验收基准。
 > 基于源仓颉 `chrono_tz_cangjie` 与参考 `moon-chrono_tz` 的实测数据。
+> 实际测试：147 个测试全通过（native target），0 warnings。
 
 ## 一、核心操作复杂度
 
@@ -87,4 +88,4 @@
 
 > `moon build --target wasm` 后检查 `.wasm` 文件大小。
 
-> 文件结束 | chrono_tz-mbt performance v1.0 | 2026-11-04
+> 文件结束 | chrono_tz-mbt performance v2.0 | 2026-11-05
