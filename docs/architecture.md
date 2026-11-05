@@ -20,6 +20,8 @@
 - [ADR-014：方法系统 + trait 系统 + 运算符重载策略](#adr-014)
 - [ADR-015：包管理与访问控制策略](#adr-015)
 - [ADR-016：形式化验证策略（moon prove）](#adr-016)
+- [ADR-017：POSIX TZ footer 外推（引入 tzif-engine）](#adr-017)
+- [ADR-018：Local 宿主时区 + RFC2822/HTTP dates + cron 表达式](#adr-018)
 
 ---
 

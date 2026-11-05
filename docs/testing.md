@@ -281,4 +281,4 @@ test "bench_offset_lookup" (b : @bench.T) {
 - 高 CRAP 函数：`offset_from_local_date_time`（DST 三分支，圈复杂度高）→ 重点补测试
 - 变异测试：MoonBit 暂无原生工具，可手动构造等价变异体验证测试有效性
 
-> 文件结束 | chrono_tz-mbt testing v2.0 | 2026-11-05
+> 文件结束 | chrono_tz-mbt testing v2.2 | 2026-11-05

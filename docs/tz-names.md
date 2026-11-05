@@ -153,4 +153,4 @@ pub fn Tz::from_str(s : String) -> Tz? {
 - 版本号存储在 `tz/tz_variants.mbt` 顶层常量 `TZDATA_VERSION : String = "2025b"`
 - 升级 tzdata 时需重新生成 data 包 + tz_variants.mbt
 
-> 文件结束 | chrono_tz-mbt tz-names v2.0 | 2026-11-05
+> 文件结束 | chrono_tz-mbt tz-names v2.2 | 2026-11-05

@@ -66,7 +66,7 @@ chrono_tz-mbt/                  # 根包：文档入口 + 14 个便捷函数（�
 ├── Makefile                    # 工程严格度（--deny-warn --target all 四后端零警告）
 └── docs/                       # 开发文档（10 份）
     ├── roadmap.md              # 本文件：项目定位/范围/Sprint 计划/验收门禁
-    ├── architecture.md         # ADR-001~017 架构决策记录
+    ├── architecture.md         # ADR-001~018 架构决策记录
     ├── api.md                  # core/tz 公共 API 契约
     ├── migration-map.md        # 仓颉→MoonBit 移植映射 + 语法/类型/错误/属性 + 陷阱
     ├── testing.md              # 六层测试策略 + 验收用例
@@ -128,4 +128,4 @@ chrono_tz-mbt/                  # 根包：文档入口 + 14 个便捷函数（�
 | 错误处理 | `suberror`+`raise`+`T?` | `T?` + `Result` |
 | 复用关系 | 参考 `moon-chrono_tz/tz` 与 `core` 的实现思路，但独立重写更精炼版本 | 既有实现，不改动 |
 
-> 文件结束 | chrono_tz-mbt roadmap v2.0 | 2026-11-05
+> 文件结束 | chrono_tz-mbt roadmap v2.2 | 2026-11-05

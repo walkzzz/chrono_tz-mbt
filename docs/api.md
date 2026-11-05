@@ -419,7 +419,7 @@ pub fn Tz::local_tz() -> Tz?
 pub fn DateTime::to_rfc2822(self : DateTime) -> String
 
 /// RFC2822 解析。
-pub fn DateTime::parse_rfc2829(s : String) -> DateTime?
+pub fn DateTime::parse_rfc2822(s : String) -> DateTime?
 
 /// HTTP date 格式化（RFC 7231 IMF-fixdate，如 "Tue, 10 May 2016 12:00:00 GMT"）。
 pub fn DateTime::to_http_date(self : DateTime) -> String
@@ -475,4 +475,4 @@ test "dst_gap" {
 }
 ```
 
-> 文件结束 | chrono_tz-mbt api v2.0 | 2026-11-05
+> 文件结束 | chrono_tz-mbt api v2.2 | 2026-11-05

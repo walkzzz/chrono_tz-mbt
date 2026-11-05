@@ -19,6 +19,9 @@ MoonBit IANA 时区库，移植自 [chrono_tz_cangjie](https://github.com/chrono
 - **LLM Agent** — DeepSeek 流式聊天 + 时区上下文注入 + 7 个 tz: 工具调用（now / convert / offset / dst / search / list / help）
 - **四后端支持** — wasm / wasm-gc / js / native 全通过（`moon check --target all` + `moon test --target all` 201/201 ✓），`--deny-warn` 零警告强制
 - **POSIX TZ footer 外推** — 超出内置 transition 后用 IANA POSIX TZ footer（如 `EST5EDT,M3.2.0,M11.1.0`）外推未来 DST 规则，引入 `caijiewei295/tzif-engine` 依赖
+- **cron 表达式** — 5 字段 cron，支持 * n-m n-m/s */s a,b,c 及名称 sun-sat/jan-dec，dom∧dow OR 语义
+- **Local 宿主时区** — `Tz::local_tz()` 读 `$TZ` 环境变量返回宿主时区
+- **RFC2822/HTTP dates** — `to_rfc2822`/`parse_rfc2822`/`to_http_date`/`parse_http_date`，RFC 7231 IMF-fixdate
 
 ## 安装
 
@@ -177,6 +180,8 @@ moon fmt                      # 格式化
 | S13 | 消除 warning + strptime 扩展 + CLI 增强 + Agent 工具集成 | ✅ |
 | S14 | 文档完善 + 元数据修正 | ✅ |
 | S15 | 根包便捷 API 扩展（2→14 函数）+ 接口文档完善 | ✅ |
+| S16 | 工程严格度（Makefile --deny-warn）+ POSIX TZ footer 外推 | ✅ |
+| S17 | Local 宿主时区 + RFC2822/HTTP dates + cron 表达式 | ✅ |
 
 ## 许可证
 

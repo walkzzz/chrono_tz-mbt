@@ -1,6 +1,6 @@
 # Sprint 任务拆解 / Sprint Task Breakdown
 
-> S1-S8 每个 Sprint 的详细任务拆解：文件/函数/测试清单。
+> S1-S17 每个 Sprint 的详细任务拆解：文件/函数/测试清单。
 > 比 roadmap.md 更细，供实现时逐项打勾。
 
 ## S1：core 包 — 核心类型 + 全局查表 + Hinnant 算法
@@ -434,4 +434,38 @@
 - `moon check` 0 warnings + `moon test --target native` 201 测试通过
 - `moon info` + `moon fmt` 通过
 
-> 文件结束 | chrono_tz-mbt sprint-tasks v2.0 | 2026-11-05
+## S16：工程严格度 + POSIX TZ footer 外推
+
+### 文件清单
+
+| 文件 | 内容 |
+|------|------|
+| `Makefile` | `check` 目标用 `--deny-warn --target all` 四后端零警告强制 |
+| `data/posix_tz.mbt` | 598 时区 POSIX TZ footer 字符串查表 |
+| `tz/posix_extrapolate.mbt` | `offset_from_utc_extrapolated`/`offset_from_local_extrapolated`（引入 tzif-engine） |
+| `tz/posix_extrapolate_wbtest.mbt` | 8 白盒测试 |
+
+### 验收门禁
+
+- `moon check --deny-warn --target all` 0 warnings
+- `moon test --target native` 181 测试通过
+
+## S17：Local 宿主时区 + RFC2822/HTTP dates + cron 表达式
+
+### 文件清单
+
+| 文件 | 内容 |
+|------|------|
+| `tz/tz_local.mbt` | `Tz::local_tz()` 读 `$TZ` 环境变量返回宿主时区 |
+| `tz/tz_rfc2822.mbt` | `to_rfc2822`/`parse_rfc2822`/`to_http_date`/`parse_http_date` |
+| `tz/tz_cron.mbt` | `Cron` struct + `parse`/`matches`/`next`（5 字段，dom∧dow OR 语义，timespans 缓存） |
+| `tz/tz_local_wbtest.mbt` | 4 白盒测试 |
+| `tz/tz_rfc2822_wbtest.mbt` | 10 白盒测试 |
+| `tz/tz_cron_wbtest.mbt` | 14 白盒测试 |
+
+### 验收门禁
+
+- `moon check --deny-warn --target all` 0 warnings
+- `moon test --target native` 201 测试通过
+
+> 文件结束 | chrono_tz-mbt sprint-tasks v2.2 | 2026-11-05

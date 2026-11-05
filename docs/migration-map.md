@@ -720,4 +720,4 @@ verify: check test
 - `hurl --test backend/api.hurl`：HTTP API 测试
 - 本项目无 HTTP API，不适用；若 S8 添加 CLI 工具可考虑
 
-> 文件结束 | chrono_tz-mbt migration-map v2.0 | 2026-11-05
+> 文件结束 | chrono_tz-mbt migration-map v2.2 | 2026-11-05

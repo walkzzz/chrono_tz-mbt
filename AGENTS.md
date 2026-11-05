@@ -183,4 +183,4 @@ You can browse and install extra skills here:
 
 ### 文档
 
-开发文档在 `docs/`（10 份）：roadmap / architecture(ADR-001~016) / api / migration-map / testing / performance / error-codes / tz-names / sprint-tasks / build-ci。
+开发文档在 `docs/`（10 份）：roadmap / architecture(ADR-001~018) / api / migration-map / testing / performance / error-codes / tz-names / sprint-tasks / build-ci。

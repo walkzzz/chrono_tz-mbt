@@ -169,14 +169,12 @@ DeepSeek 流式聊天（SSE）+ 系统提示注入时区上下文（当前 UTC �
 
 ### 质量与测试
 
-| 测试手段 | 测试数 | 状态 | 覆盖维度 |
-|----------|--------|------|----------|
-| 白盒测试 | 122 | ✅ Pass | Hinnant/FixedTimespan/DateTime/DST/RFC3339/strftime/strptime/序列化/根包便捷API |
-| 黑盒测试 | 15 | ✅ Pass | from_str roundtrip/RFC3339 往返/时区转换/597 扫描/strftime |
-| @quickcheck | 7 | ✅ Pass | civil↔day 互逆/timestamp 往返/分量范围/weekday/ordinal |
-| 基准测试 | 6 | ✅ Pass | from_str/offset/timestamp/strftime/rfc3339/parse 性能 |
-| strptime 扩展 | 8 | ✅ Pass | %y/%j/%%/自定义格式/日期only |
-| **总计** | **173** | **✅ All Pass** | **五维度全覆盖** |
+| 测试包 | 测试数 | 状态 | 覆盖维度 |
+|--------|--------|------|----------|
+| core | 11 | ✅ Pass | Hinnant/FixedTimespan/全局查表 |
+| tz | 170 | ✅ Pass | DateTime/DST/RFC3339/strftime/strptime/序列化/quickcheck/基准/POSIX 外推/Local/RFC2822/cron |
+| 根包 | 20 | ✅ Pass | 便捷API/from_str roundtrip/RFC3339/时区转换/597 扫描/strftime |
+| **总计** | **201** | **✅ All Pass** | **多维度全覆盖** |
 
 ---
 
@@ -216,7 +214,7 @@ chrono_tz-mbt/
 │   └── agent/                   # LLM Agent（DeepSeek 流式聊天 + 7 tz: 工具调用）
 └── docs/                        # 开发文档（10 份）
     ├── roadmap.md
-    ├── architecture.md          # ADR-001~017
+    ├── architecture.md          # ADR-001~018
     ├── api.md
     ├── migration-map.md
     ├── testing.md
@@ -248,6 +246,8 @@ chrono_tz-mbt/
 | S13 | 消除 warning + strptime 扩展 + CLI 增强 + Agent 工具集成 | 8 strptime 测试 + 3 CLI 子命令 + 7 tz: 工具 | ✅ 完成 |
 | S14 | 文档完善 + 元数据修正 | moon.mod/README/docs 全部更新 v2.0 | ✅ 完成 |
 | S15 | 根包便捷 API 扩展 + 接口文档完善 | 2→14 函数 + 9 smoke test（147→156） | ✅ 完成 |
+| S16 | 工程严格度 + POSIX TZ footer 外推 | Makefile --deny-warn + tzif-engine + 8 测试（156→181） | ✅ 完成 |
+| S17 | Local 宿主时区 + RFC2822/HTTP dates + cron 表达式 | 28 测试（181→201） | ✅ 完成 |
 
 ---
 

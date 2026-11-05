@@ -50,7 +50,7 @@ enum LocalResult[T] {
 
 ## 包
 
-- `tz` — 时区算法（Tz 枚举 597 + DateTime + DST + RFC3339 + strftime/strptime + JSON 序列化）
+- `tz` — 时区算法（Tz 枚举 597 + DateTime + DST + RFC3339 + strftime/strptime + JSON 序列化 + cron + Local + RFC2822/HTTP dates + POSIX 外推）
 - `core` — 零依赖核心类型（Hinnant + FixedTimespan + 全局查表）
 - `data` — 6 大洲 IANA tzdata 数据（38711 行）
 
