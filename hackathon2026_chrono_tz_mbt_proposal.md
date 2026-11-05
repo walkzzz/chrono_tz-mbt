@@ -26,18 +26,21 @@ mooncakes 生态调研确认：截至 2026-10-23，**无任何完整 IANA 时区
 
 ---
 
-## 当前完成状态（v0.1.0）
+## 当前完成状态（v0.1.9）
 
 | 指标 | 数值 |
 |------|------|
 | 包数 | **7**（根 + core + data + tz + cmd/mcp + cmd/cli + cmd/agent） |
-| 测试数 | **165**（全部通过，native target） |
+| 测试数 | **201**（全部通过，四后端 wasm/wasm-gc/js/native） |
+| 后端覆盖 | ✅ **四后端全绿**（`moon check --target all` + `moon test --target all` 201/201 ✓） |
+| 工程严格度 | ✅ `--deny-warn` 零警告强制（Makefile check 目标） |
+| POSIX TZ 外推 | ✅ 超出内置 transition 后用 POSIX footer 外推未来 DST（引入 tzif-engine） |
 | Warnings | **0** |
 | Errors | **0** |
 | IANA 时区数 | **597**（tzdata 2025b，6 大洲） |
 | DST 处理 | 三分支（Gap / Ambiguous / Normal） |
 | 数据行数 | **38711**（6 大洲 IANA tzdata 数据文件） |
-| Sprint 迭代 | **15** 轮（S1-S15 全部完成） |
+| Sprint 迭代 | **17** 轮（S1-S17 全部完成） |
 | Hinnant 算法 | ✅ 纯整数 O(1)，支持负时间戳 |
 | RFC3339 | ✅ parse_rfc3339 / to_rfc3339 往返一致 |
 | strftime | ✅ %Y %m %d %H %M %S %Z %z %A %a %B %b %j %% |
@@ -173,7 +176,7 @@ DeepSeek 流式聊天（SSE）+ 系统提示注入时区上下文（当前 UTC �
 | @quickcheck | 7 | ✅ Pass | civil↔day 互逆/timestamp 往返/分量范围/weekday/ordinal |
 | 基准测试 | 6 | ✅ Pass | from_str/offset/timestamp/strftime/rfc3339/parse 性能 |
 | strptime 扩展 | 8 | ✅ Pass | %y/%j/%%/自定义格式/日期only |
-| **总计** | **165** | **✅ All Pass** | **五维度全覆盖** |
+| **总计** | **173** | **✅ All Pass** | **五维度全覆盖** |
 
 ---
 
@@ -182,30 +185,38 @@ DeepSeek 流式聊天（SSE）+ 系统提示注入时区上下文（当前 UTC �
 ```
 chrono_tz-mbt/
 ├── moon.mod / moon.pkg          # 根包（文档入口 + 14 个便捷函数）
+├── chrono_tz-mbt.mbt            #   根包文档 + 便捷函数
+├── Makefile                     # 工程严格度（--deny-warn --target all 四后端零警告）
 ├── core/                        # 零依赖核心类型
 │   ├── hinnant.mbt              #   Hinnant civil↔days 算法
-│   └── timezone_core.mbt       #   Ordering + FixedTimespan + Span + 全局查表
-├── data/                        # 6 大洲 IANA tzdata 数据（38711 行）
-│   ├── africa.mbt
-│   ├── america.mbt
-│   ├── antarctica.mbt
-│   ├── asia.mbt
-│   ├── australasia.mbt
-│   └── europe.mbt
+│   ├── timezone_core.mbt        #   Ordering + FixedTimespan + Span + 全局查表
+│   └── timezone_core_wbtest.mbt #   11 白盒测试
+├── data/                        # 6 大洲 IANA tzdata（38711 行）+ POSIX TZ footer
+│   ├── data_africa.mbt
+│   ├── data_america.mbt
+│   ├── data_asia.mbt
+│   ├── data_australasia.mbt
+│   ├── data_europe.mbt
+│   ├── data_others.mbt
+│   └── posix_tz.mbt             #   598 时区 POSIX TZ footer 字符串
 ├── tz/                          # 时区算法
-│   ├── tz_variants.mbt          #   Tz 枚举 597 + from_str（二分查找）
-│   ├── datetime.mbt             #   NaiveDateTime + Date + DateTime + Duration
-│   ├── timezone_impl.mbt        #   TzOffset + LocalResult + TimeZone trait
+│   ├── tz_variants.mbt          #   Tz 枚举 597 + name + from_str（二分查找）+ all
+│   ├── datetime.mbt             #   Duration + NaiveDateTime + Date + DateTime
+│   ├── timezone_impl.mbt        #   TzError + TzOffset + LocalResult + TimeZone trait
 │   ├── tz_impl.mbt              #   timespans + offset_from_utc/local + GapInfo
 │   ├── tz_format.mbt            #   strftime + strptime + RFC3339
 │   ├── tz_serialize.mbt         #   JSON 序列化
-│   └── tz_bench.mbt             #   公开基准测试 API
-├── cmd/mcp/                     # MCP 服务器（JSON-RPC + 7 时区工具）
-├── cmd/cli/                     # CLI 工具（10 子命令：list/info/convert/now/parse/format/dst/search/diff/repl）
-├── cmd/agent/                   # LLM Agent（DeepSeek 流式聊天 + 7 tz: 工具调用）
+│   ├── tz_bench.mbt             #   公开基准测试 API
+│   ├── posix_extrapolate.mbt    #   POSIX TZ footer 外推（引入 tzif-engine）
+│   └── *_wbtest.mbt             #   白盒测试（core/datetime/impl/format/serialize/bench/quickcheck/all/posix）
+├── cmd/
+│   ├── main/                    # 入口
+│   ├── cli/                     # CLI 工具（10 子命令：list/info/convert/now/parse/format/dst/search/diff/repl）
+│   ├── mcp/                     # MCP 服务器（JSON-RPC + 7 时区工具）
+│   └── agent/                   # LLM Agent（DeepSeek 流式聊天 + 7 tz: 工具调用）
 └── docs/                        # 开发文档（10 份）
     ├── roadmap.md
-    ├── architecture.md          # ADR-001~016
+    ├── architecture.md          # ADR-001~017
     ├── api.md
     ├── migration-map.md
     ├── testing.md
@@ -265,13 +276,61 @@ chrono_tz-mbt/
 
 ---
 
+## mooncakes.io 生态对比分析（截至 2026-11-05）
+
+在 mooncakes.io 全量 3566 个 MoonBit 包中检索时区/时间/日期相关库，筛出 15 个相关包，其中提供 IANA 时区数据库功能的仅 3 个。下表按相关性排序，数据来源为 mooncakes.io 公开页面。
+
+### 提供完整 IANA 时区功能的库
+
+| 库 | 版本 | 下载 | 时区数据方式 | 精度 | DST 三分支 | strftime/strptime | RFC3339 | cron | 工具链 | 移植血缘 | 四后端 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| **walkzzz/chrono_tz-mbt**（本项目） | 0.1.9 | — | 编译期硬编码 597 时区查表 | 秒 | ✅ Gap/Amb/None | ✅ | ✅+RFC2822+HTTP | ✅ | ✅ CLI+MCP+Agent | ✅ Rust chrono-tz 0.11.0 | ✅ 201 测试 |
+| connect0459/almanac | 0.3.0 | 48 | 运行时解析 TZif (RFC 8536) | 纳秒 | ✅ MappedLocalTime | ✅ | ✅+RFC2822+HTTP | ✅ | ✗ | ✗ 未标注 | ✅ |
+| caijiewei295/tzif-engine | 0.1.0 | 233 | 不内嵌（接收 Bytes 解析） | 秒 | ✅ Gap/Overlap | ✗ 仅 ISO-8601 | ✅ | ✗ | ✅ CLI | ✗ 原创 | ✅ |
+
+### 仅提供日期/时间（无完整 IANA 时区数据库）的库
+
+| 库 | 定位 | 与本项目关系 |
+|---|---|---|
+| marianoguerra/temporal v0.1.2 | ECMAScript Temporal 规范实现 | 差异化，规范驱动非 tzdata 驱动 |
+| bobzhang/dateutil v0.1.0 | python-dateutil 移植（rrule/tz） | tz 模块为 tzlocal/tzutc，非完整 IANA |
+| moonbitstack/moondate v0.1.4 | date/time/cron + utc-offset | 固定偏移，非 IANA 数据库 |
+| brickfrog/tempo v0.8.1 / Asterless/MoonPtime / SupremeHuaji/ptime | 仅 UTC / POSIX time | 无时区数据库 |
+| lxz123411/moonrrule v0.1.0 | timezone-safe rrule 调度 | 时区为辅助，非核心 |
+| iceBear67/time v0.1.2 | zone offsets + clocks | 固定偏移，非 IANA 数据库 |
+
+### 本项目差异化定位（强依据）
+
+1. **唯一 Rust chrono-tz 移植** — mooncakes.io 上无其他库标注移植自 chrono-tz；本项目是 Rust 生态复杂库向 MoonBit 移植的示范，证明 MoonBit 可承载 chrono-tz 级别的时区算法
+2. **唯一 Hinnant 算法** — Hinnant civil↔days 纯整数 O(1) 互逆转换是 chrono-tz 的核心特色；almanac 用 day count 但未标注 Hinnant 血缘
+3. **编译期硬编码 597 时区** — FixedTimespanSet 查表，启动零解析开销；almanac 运行时解析 TZif 字节有解析成本
+4. **唯一三工具链交付** — CLI（10 子命令）+ MCP 服务器（JSON-RPC）+ LLM Agent（DeepSeek 流式）；almanac/tzif-engine 无工具链
+5. **全局查表去重** — 406 段 + 178 索引压缩存储；almanac 每时区独立 TZif 数据块
+6. **201 测试 + @quickcheck 性质测试** — 五维度全覆盖（白盒/黑盒/quickcheck/基准/POSIX 外推）；almanac 测试数未公开
+7. **类型安全枚举** — Tz 为 597 arm 枚举 + from_str 二分查找，编译期穷举；almanac 用 Location::load 字符串
+
+### 诚实承认的差距（S17 后缩小）
+
+- **精度**：almanac 纳秒级，本项目秒级（NaiveTime 无纳秒分量）— 唯一剩余功能差距
+- **零依赖**：almanac 零依赖，本项目 S16 引入 tzif-engine 做 POSIX 外推
+- **Local Intl**：almanac 在 js 后端读 Intl.DateTimeFormat，本项目仅读 $TZ（四后端统一）
+
+### 大赛要求满足结论
+
+本项目与 almanac 功能差距已大幅缩小（S17 新增 cron + Local + RFC2822/HTTP dates），仅剩纳秒精度差距。满足大赛要求的三个不可替代点：
+1. **填补生态空白**：mooncakes.io 首个 Rust chrono-tz 移植版本，证明 MoonBit 移植 Rust 生态复杂库的可行性
+2. **工程严格度**：四后端零警告 + 201 测试 + Makefile 固化 + @quickcheck 性质测试
+3. **工具链生态**：CLI/MCP/Agent 三形态交付，almanac/tzif-engine 均无
+
+---
+
 ## 验收标准对齐（大赛要求）
 
 | 大赛验收项 | 本项目满足方式 |
 |-----------|-------------|
 | MoonBit 为主 | 库自身 100% MoonBit 实现（时区算法 + DST + RFC3339 + MCP + CLI + Agent） |
-| 仓库公开 | GitHub 公开仓库，持续提交（S1-S14，14 轮 Sprint） |
-| 能够运行 | README + 可运行示例 + 165 测试 + 0 warnings |
+| 仓库公开 | GitHub 公开仓库，持续提交（S1-S17，17 轮 Sprint） |
+| 能够运行 | README + 可运行示例 + 201 测试 + 0 warnings |
 | 工作有效 | 从仓颉移植到 MoonBit，独立重写核心算法，2026-11 完成 |
 | 开源合规 | Apache-2.0 License，参考来源已标注 |
 | AI 可解释 | AI 辅助开发，所有算法经人工审查 |
@@ -288,8 +347,11 @@ chrono_tz-mbt/
 6. **@quickcheck 性质测试** — 7 个 Hinnant 算法性质测试（civil↔day 互逆 / timestamp 往返 / 分量范围）
 7. **三种交付形态** — MCP 服务器（JSON-RPC）+ CLI 工具（10 子命令）+ LLM Agent（DeepSeek 流式 + 7 tz: 工具调用）
 8. **零 warnings** — moon check 0 warnings 0 errors，代码质量严格
-9. **165 测试全通过** — 白盒 131 + 黑盒 15 + quickcheck 7 + 基准 6 + strptime 17，五维度全覆盖
+9. **201 测试全通过** — core 11 + tz 170 + 根包 20，覆盖白盒/黑盒/quickcheck/基准/POSIX 外推/cron/Local/RFC2822
 10. **线性无环架构** — core ← data ← tz 三包线性，core 零依赖可独立复用
+11. **cron 表达式** — 5 字段 cron，支持 * n-m n-m/s */s a,b,c 及名称 sun-sat/jan-dec，dom∧dow OR 语义，next 缓存 timespans
+12. **Local 宿主时区** — Tz::local_tz() 读 $TZ 环境变量返回宿主时区
+13. **RFC2822/HTTP dates** — to_rfc2822/parse_rfc2822/to_http_date/parse_http_date，RFC 7231 IMF-fixdate
 
 ---
 

@@ -626,6 +626,8 @@ pub let indian__maldives : @core.FixedTimespanSet
 
 pub let indian__mauritius : @core.FixedTimespanSet
 
+pub fn lookup_posix_tz(String) -> String?
+
 pub let pacific__apia : @core.FixedTimespanSet
 
 pub let pacific__auckland : @core.FixedTimespanSet
@@ -685,6 +687,8 @@ pub let pacific__tahiti : @core.FixedTimespanSet
 pub let pacific__tarawa : @core.FixedTimespanSet
 
 pub let pacific__tongatapu : @core.FixedTimespanSet
+
+pub let posix_tz_table : Array[(String, String)]
 
 // Errors
 

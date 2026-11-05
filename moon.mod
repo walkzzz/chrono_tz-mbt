@@ -11,7 +11,7 @@
 
 name = "walkzzz/chrono_tz-mbt"
 
-version = "0.1.5"
+version = "0.1.9"
 
 readme = "README.mbt.md"
 
@@ -39,4 +39,5 @@ description = "MoonBit IANA 时区库 — 597 时区 + DST 三分支 + Hinnant c
 import {
   "moonbitlang/async@0.22.5",
   "moonbit-community/tty@0.6.2",
+  "caijiewei295/tzif-engine@0.1.0",
 }

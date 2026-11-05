@@ -33,6 +33,20 @@ pub(all) suberror TzError {
 pub fn TzError::to_repr(Self) -> @debug.Repr
 
 // Types and methods
+pub struct Cron {
+  minutes : Array[Bool]
+  hours : Array[Bool]
+  doms : Array[Bool]
+  months : Array[Bool]
+  dows : Array[Bool]
+  dom_restricted : Bool
+  dow_restricted : Bool
+} derive(@debug.Debug)
+pub fn Cron::matches(Self, DateTime) -> Bool
+pub fn Cron::next(Self, DateTime) -> DateTime?
+pub fn Cron::parse(String) -> Self?
+pub fn Cron::to_repr(Self) -> @debug.Repr
+
 pub struct Date {
   year : Int64
   month : Int64
@@ -68,11 +82,15 @@ pub fn DateTime::naive_local(Self) -> NaiveDateTime
 pub fn DateTime::not_equal(Self, Self) -> Bool
 pub fn DateTime::offset(Self) -> TzOffset
 pub fn DateTime::offset_sec(Self) -> Int32
+pub fn DateTime::parse_http_date(String) -> Self?
+pub fn DateTime::parse_rfc2822(String) -> Self?
 pub fn DateTime::parse_rfc3339(String) -> Self?
 pub fn DateTime::timestamp(Self) -> Int64
+pub fn DateTime::to_http_date(Self) -> String
 pub fn DateTime::to_json(Self) -> String
 pub fn DateTime::to_json_compact(Self) -> String
 pub fn DateTime::to_repr(Self) -> @debug.Repr
+pub fn DateTime::to_rfc2822(Self) -> String
 pub fn DateTime::to_rfc3339(Self) -> String
 pub fn DateTime::to_string(Self) -> String
 pub fn DateTime::tz_id(Self) -> String
@@ -758,10 +776,13 @@ pub fn Tz::compare(Self, Self) -> Int32
 pub fn Tz::equal(Self, Self) -> Bool
 pub fn Tz::from_local_date_time(Self, NaiveDateTime) -> LocalResult[DateTime]
 pub fn Tz::from_str(String) -> Self?
+pub fn Tz::local_tz() -> Self?
 pub fn Tz::name(Self) -> String
 pub fn Tz::not_equal(Self, Self) -> Bool
 pub fn Tz::offset_from_local_date_time(Self, NaiveDateTime) -> LocalResult[TzOffset]
+pub fn Tz::offset_from_local_extrapolated(Self, NaiveDateTime) -> LocalResult[TzOffset]
 pub fn Tz::offset_from_utc_date_time(Self, NaiveDateTime) -> TzOffset
+pub fn Tz::offset_from_utc_extrapolated(Self, NaiveDateTime) -> TzOffset
 pub fn Tz::op_ge(Self, Self) -> Bool
 pub fn Tz::op_gt(Self, Self) -> Bool
 pub fn Tz::op_le(Self, Self) -> Bool

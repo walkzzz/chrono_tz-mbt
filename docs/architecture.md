@@ -578,4 +578,23 @@ core/
 
 **后果**：正面—S8 可为核心算法提供机检正确性保证，Hinnant 互逆性可证；负面—实验性特性可能变动需跟踪，环境依赖（Why3+求解器）增加 CI 复杂度（独立 job 隔离）。
 
-> 文件结束 | chrono_tz-mbt architecture v2.0 | 2026-11-05
+## ADR-017：POSIX TZ footer 外推（引入 tzif-engine）
+
+**背景**：内置 FixedTimespanSet 最后一段 end=None（无界），对无 DST 时区外推正确；对有 DST 时区（如 America/New_York），跨年 DST 转换不外推，未来年份 DST 会错。
+
+**决策**：引入 `caijiewei295/tzif-engine` 依赖，内置 598 时区 POSIX TZ footer 字符串（`data/posix_tz.mbt`），新增 `offset_from_utc_extrapolated`/`offset_from_local_extrapolated` 函数，超出最后 transition 时用 `apply_posix_rule` 外推未来 DST。
+
+**后果**：正面—有 DST 时区未来年份 DST 正确（如 2030 年 New_York 夏 EDT -4 / 冬 EST -5）；负面—新增 tzif-engine 依赖增加包体积，每次调用需解析 POSIX TZ 字符串（可后续缓存 PosixTzRule）。
+
+## ADR-018：Local 宿主时区 + RFC2822/HTTP dates + cron 表达式
+
+**背景**：S16 后与 almanac 仍有功能差距（cron/Local/RFC2822），需缩小差距提升竞争力。
+
+**决策**：
+- **Local**：`Tz::local_tz() -> Tz?` 读 `$TZ` 环境变量返回宿主时区（`local` 是 MoonBit 保留关键字，方法名用 `local_tz`）
+- **RFC2822/HTTP dates**：`to_rfc2822`/`parse_rfc2822`/`to_http_date`/`parse_http_date`，RFC 7231 IMF-fixdate 格式
+- **cron 表达式**：`Cron` struct + `parse`/`matches`/`next`，5 字段（分 时 日 月 周），支持 * n-m n-m/s */s a,b,c 及名称 sun-sat/jan-dec，dom∧dow OR 语义，`next` 缓存 timespans 避免循环内重复构造数组
+
+**后果**：正面—功能差距大幅缩小（仅剩纳秒精度），201 测试覆盖；负面—cron::next 需缓存 timespans 否则 527040 次迭代超时，`local` 保留关键字需 workaround。
+
+> 文件结束 | chrono_tz-mbt architecture v2.2 | 2026-11-05

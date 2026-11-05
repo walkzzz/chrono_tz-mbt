@@ -18,7 +18,7 @@
 ```bash
 moon fmt                                  # 格式化
 moon check                                # 类型检查，0 error 0 warning
-moon test --target native                 # 运行测试（165 个，native target）
+moon test --target native                 # 运行测试（201 个，native target）
 moon test --update                        # 刷新快照
 moon info                                 # 更新 .mbti，审查 API diff
 moon coverage analyze > uncovered.log     # 覆盖率盲区

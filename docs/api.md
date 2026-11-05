@@ -212,6 +212,12 @@ pub fn Tz::offset_from_utc_date_time(self : Tz, dt : NaiveDateTime) -> TzOffset
 /// 本地时刻的偏移（三分支，DST 缺口/重叠）。
 pub fn Tz::offset_from_local_date_time(self : Tz, dt : NaiveDateTime) -> LocalResult[TzOffset]
 
+/// UTC 时刻偏移 + POSIX TZ footer 外推（超出内置 transition 后用 POSIX 规则外推未来 DST）。
+pub fn Tz::offset_from_utc_extrapolated(self : Tz, dt : NaiveDateTime) -> TzOffset
+
+/// 本地时刻偏移 + POSIX TZ footer 外推。
+pub fn Tz::offset_from_local_extrapolated(self : Tz, dt : NaiveDateTime) -> LocalResult[TzOffset]
+
 /// 构造 Date（仅年月日，时分秒默认 0）。
 pub fn Tz::ymd(self : Tz, year : Int32, month : Int32, day : Int32) -> Date
 ```
@@ -397,6 +403,45 @@ suberror TzError {
 
 pub extend TzError with Debug::{to_repr}
 pub extend TzError with Show::{to_string}
+```
+
+### Local 宿主时区
+
+```moonbit
+/// 读取 $TZ 环境变量返回宿主时区，未设置或无效返回 None。
+pub fn Tz::local_tz() -> Tz?
+```
+
+### RFC2822 / HTTP dates
+
+```moonbit
+/// RFC2822 格式化（如 "Tue, 10 May 2016 12:00:00 +0100"）。
+pub fn DateTime::to_rfc2822(self : DateTime) -> String
+
+/// RFC2822 解析。
+pub fn DateTime::parse_rfc2829(s : String) -> DateTime?
+
+/// HTTP date 格式化（RFC 7231 IMF-fixdate，如 "Tue, 10 May 2016 12:00:00 GMT"）。
+pub fn DateTime::to_http_date(self : DateTime) -> String
+
+/// HTTP date 解析。
+pub fn DateTime::parse_http_date(s : String) -> DateTime?
+```
+
+### cron 表达式
+
+```moonbit
+/// cron 表达式（5 字段：分 时 日 月 周）。
+pub struct Cron
+
+/// 解析 cron 表达式，支持 * n-m n-m/s */s a,b,c 及名称 sun-sat/jan-dec。
+pub fn Cron::parse(expr : String) -> Cron?
+
+/// 判断 DateTime 是否匹配 cron 表达式。
+pub fn Cron::matches(self : Cron, dt : DateTime) -> Bool
+
+/// 查找从 from 起下一个匹配的 DateTime（缓存 timespans 优化性能）。
+pub fn Cron::next(self : Cron, from : DateTime, tz : Tz) -> DateTime?
 ```
 
 ---

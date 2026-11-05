@@ -36,32 +36,45 @@
 ```
 chrono_tz-mbt/                  # 根包：文档入口 + 14 个便捷函数（委托 @tz）
 ├── core/                       # 运行时核心类型（零依赖）
-│   └── timezone_core.mbt      # FixedTimespan/Span/FixedTimespanSet + 全局查表
-├── data/                       # 时区数据（自动生成，340 常量）
+│   ├── hinnant.mbt             #   Hinnant civil↔days 算法
+│   ├── timezone_core.mbt       #   FixedTimespan/Span/FixedTimespanSet + 全局查表
+│   └── timezone_core_wbtest.mbt
+├── data/                       # 时区数据（自动生成，340 常量）+ POSIX TZ footer
 │   ├── data_africa.mbt
 │   ├── data_america.mbt
 │   ├── data_asia.mbt
 │   ├── data_australasia.mbt
 │   ├── data_europe.mbt
-│   └── data_others.mbt
+│   ├── data_others.mbt
+│   └── posix_tz.mbt            #   598 时区 POSIX TZ footer 字符串
 ├── tz/                         # 时区算法层
-│   ├── datetime.mbt           # Duration/NaiveDateTime/DateTime/Date（Hinnant）
-│   ├── timezone_impl.mbt      # binarySearch/TzOffset/LocalResult/TimeZone trait/GapInfo
-│   ├── tz_variants.mbt        # Tz 枚举(597)/name()/from_str + NAME_TO_TZ 表
-│   ├── tz_impl.mbt            # timespans() + offset_from_utc/local（DST 算法）
-│   └── tz_format.mbt          # strftime/strptime/RFC3339
+│   ├── datetime.mbt            #   Duration/NaiveDateTime/DateTime/Date（Hinnant）
+│   ├── timezone_impl.mbt       #   binarySearch/TzOffset/LocalResult/TimeZone trait/GapInfo
+│   ├── tz_variants.mbt         #   Tz 枚举(597)/name()/from_str + NAME_TO_TZ 表 + all
+│   ├── tz_impl.mbt             #   timespans() + offset_from_utc/local（DST 算法）
+│   ├── tz_format.mbt           #   strftime/strptime/RFC3339
+│   ├── tz_serialize.mbt        #   JSON 序列化
+│   ├── tz_bench.mbt            #   公开基准测试 API
+│   ├── posix_extrapolate.mbt   #   POSIX TZ footer 外推（引入 tzif-engine）
+│   └── *_wbtest.mbt            #   白盒测试（datetime/impl/format/serialize/bench/quickcheck/all/posix）
+├── cmd/
+│   ├── main/                   #   入口
+│   ├── cli/                    #   CLI 工具（10 子命令）
+│   ├── mcp/                    #   MCP 服务器（JSON-RPC + 7 时区工具）
+│   └── agent/                  #   LLM Agent（DeepSeek 流式聊天 + tz: 工具调用）
 ├── chrono_tz-mbt.mbt           # 根包：文档入口 + 14 个便捷函数
+├── Makefile                    # 工程严格度（--deny-warn --target all 四后端零警告）
 └── docs/                       # 开发文档（10 份）
     ├── roadmap.md              # 本文件：项目定位/范围/Sprint 计划/验收门禁
-    ├── architecture.md         # ADR-001~016 架构决策记录
+    ├── architecture.md         # ADR-001~017 架构决策记录
     ├── api.md                  # core/tz 公共 API 契约
     ├── migration-map.md        # 仓颉→MoonBit 移植映射 + 语法/类型/错误/属性 + 陷阱
     ├── testing.md              # 六层测试策略 + 验收用例
     ├── performance.md          # 性能预算表（复杂度/体积/基准目标）
     ├── error-codes.md          # TzError 子错误清单
     ├── tz-names.md             # 597 时区名命名规则/生成方式/from_str 策略
-    ├── sprint-tasks.md         # S1-S8 详细任务拆解（文件/函数/测试）
-    └── build-ci.md             # 构建命令/CI 集成/发布流程
+    ├── sprint-tasks.md         # S1-S17 详细任务拆解（文件/函数/测试）
+    └── build-ci.md             # 构建命令/CI 集成/发布流程 + Makefile
 ```
 
 依赖方向：`core ← data ← tz ← root`，线性无环。
@@ -85,6 +98,8 @@ chrono_tz-mbt/                  # 根包：文档入口 + 14 个便捷函数（�
 | S13 | 消除 warning + strptime 扩展 + CLI 增强 + Agent 工具集成 | ✅ 完成 | - |
 | S14 | 文档完善 + 元数据修正（moon.mod/README/docs v2.0） | ✅ 完成 | - |
 | S15 | 根包便捷 API 扩展（2→14 函数）+ 接口文档完善 + 9 smoke test | ✅ 完成 | - |
+| S16 | 工程严格度（Makefile --deny-warn）+ POSIX TZ footer 外推（引入 tzif-engine，8 测试） | ✅ 完成 | - |
+| S17 | Local 宿主时区 + RFC2822/HTTP dates + cron 表达式（28 测试） | ✅ 完成 | - |
 
 ## 验收门禁
 

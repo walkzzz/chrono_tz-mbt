@@ -137,12 +137,26 @@ You can browse and install extra skills here:
   - `README.mbt.md` — 完善包级别文档（核心 API 列表 + DST 三分支 + 构建测试 + 许可证）
   - `docs/` 10 份文档全部更新：roadmap（Sprint 表全✅+包结构加 cmd/）/ sprint-tasks（加 S8-S13 拆解）/ api / build-ci（moon.mod 配置+WASM 限制）/ testing / performance / architecture / error-codes / tz-names（from_str 二分查找）/ migration-map — 版本号统一升 v2.0
   - `chrono_tz-mbt.mbt` — 根包文档注释 CLI 7→10 子命令 + Agent 工具调用描述
-- **S15 多后端支持（wasm/wasm-gc/js/native）** ✅ 完成（moon check 0 warnings ✓ + moon test 165/165 ✓ × 4 targets + moon info ✓ + moon fmt ✓）
+- **S15 多后端支持（wasm/wasm-gc/js/native）** ✅ 完成（moon check 0 warnings ✓ + moon test 173/173 ✓ × 4 targets + moon info ✓ + moon fmt ✓）
   - `moon.mod` — 添加 `supported_targets = "+wasm+wasm-gc+js+native"`
   - `tz/tz_variants.mbt` — Tz 添加 `Compare` derive；`Tz::name` 597-arm match 改为线性查 `name_to_tz` 表（避免 WASM local count 限制）
   - `tz/tz_impl.mbt` — `Tz::timespans` 597-arm match 拆分为 6 个 ~100-arm 私有函数 + 比较分发
   - `data/*.mbt` — 340 个 `pub let` 包装为 `fn _make_xxx() -> Type { Expr }` + `pub let xxx = _make_xxx()`，将数组字面量移出 `__moonbit__init` 函数，解决 WASM local count too large
-  - 四后端验证：wasm 165/165 ✓ / wasm-gc 165/165 ✓ / js 165/165 ✓ / native 165/165 ✓
+  - 四后端验证：wasm 173/173 ✓ / wasm-gc 173/173 ✓ / js 173/173 ✓ / native 173/173 ✓
+- **S16 工程严格度 + POSIX TZ footer 外推** ✅ 完成（moon check 0 warnings ✓ + moon test 173/173 ✓ native + moon info ✓ + moon fmt ✓）
+  - `Makefile` — `check` 目标用 `--deny-warn --target all` 四后端零警告强制
+  - `data/posix_tz.mbt` — 598 时区 POSIX TZ footer 字符串查表（从 IANA tzdata 2026a 提取）
+  - `tz/posix_extrapolate.mbt` — `offset_from_utc_extrapolated`/`offset_from_local_extrapolated` 引入 `caijiewei295/tzif-engine` 做 POSIX 外推
+  - `tz/posix_extrapolate_wbtest.mbt` — 8 白盒测试（America/New_York 夏/冬、Asia/Shanghai、UTC、Europe/London 夏/冬、LA、Sydney）
+  - `tz/moon.pkg` — 添加 `caijiewei295/tzif-engine` parser/posix/types + `moonbitlang/core/encoding/utf8` 依赖
+- **S17 Local 宿主时区 + RFC2822/HTTP dates + cron** ✅ 完成（moon check 0 warnings ✓ + moon test 201/201 ✓ native + moon info ✓ + moon fmt ✓）
+  - `tz/tz_local.mbt` — `Tz::local_tz()` 读 $TZ 环境变量返回宿主时区
+  - `tz/tz_rfc2822.mbt` — `to_rfc2822`/`parse_rfc2822`/`to_http_date`/`parse_http_date`（RFC2822 + RFC 7231 IMF-fixdate）
+  - `tz/tz_cron.mbt` — `Cron::parse`/`matches`/`next`（5 字段 cron，支持 * n-m n-m/s */s a,b,c 及名称 sun-sat/jan-dec，dom∧dow OR 语义，next 缓存 timespans）
+  - `tz/tz_local_wbtest.mbt` — 4 白盒测试
+  - `tz/tz_rfc2822_wbtest.mbt` — 10 白盒测试
+  - `tz/tz_cron_wbtest.mbt` — 14 白盒测试
+  - `tz/moon.pkg` — 添加 `moonbitlang/core/env` 依赖
 
 ### MoonBit 语法要点（S1~S6 实践验证）
 

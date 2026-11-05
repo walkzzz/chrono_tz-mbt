@@ -17,6 +17,8 @@ MoonBit IANA 时区库，移植自 [chrono_tz_cangjie](https://github.com/chrono
 - **MCP 服务器** — 7 个时区工具（list_timezones / get_offset / convert_time / parse_rfc3339 / format_time / get_current_time / detect_dst）
 - **CLI 工具** — 10 个子命令（list / info / convert / now / parse / format / dst / search / diff / repl）
 - **LLM Agent** — DeepSeek 流式聊天 + 时区上下文注入 + 7 个 tz: 工具调用（now / convert / offset / dst / search / list / help）
+- **四后端支持** — wasm / wasm-gc / js / native 全通过（`moon check --target all` + `moon test --target all` 201/201 ✓），`--deny-warn` 零警告强制
+- **POSIX TZ footer 外推** — 超出内置 transition 后用 IANA POSIX TZ footer（如 `EST5EDT,M3.2.0,M11.1.0`）外推未来 DST 规则，引入 `caijiewei295/tzif-engine` 依赖
 
 ## 安装
 
@@ -101,13 +103,14 @@ enum LocalResult[T] {
 ```
 chrono_tz-mbt/
 ├── core/          # 零依赖核心类型（Hinnant + FixedTimespan + 全局查表）
-├── data/          # 6 大洲 IANA tzdata 数据（38711 行）
-├── tz/            # 时区算法（Tz 枚举 + DateTime + DST + RFC3339 + strftime/strptime）
+├── data/          # 6 大洲 IANA tzdata（38711 行）+ posix_tz.mbt（598 POSIX TZ footer）
+├── tz/            # 时区算法（Tz 枚举 + DateTime + DST + RFC3339 + strftime/strptime + POSIX 外推）
 ├── cmd/mcp/       # MCP 服务器（JSON-RPC + 7 时区工具）
 ├── cmd/cli/       # CLI 工具（10 子命令）
 ├── cmd/agent/     # LLM Agent（DeepSeek 流式聊天 + 时区上下文）
-└── docs/          # 开发文档（roadmap / architecture / api / testing / ...）
-# 根包：文档入口 + 14 个便捷函数（tz_from_str/offset_from_utc/convert_timezone/...）
+├── docs/          # 开发文档（10 份）
+├── Makefile       # 工程严格度（--deny-warn --target all 四后端零警告）
+└── 根包            # 文档入口 + 14 个便捷函数（tz_from_str/offset_from_utc/convert_timezone/...）
 ```
 
 ## CLI 用法
@@ -148,7 +151,7 @@ Agent 自动注入时区上下文（当前 UTC 时间 + 14 常用时区偏移）
 
 ```bash
 moon check                    # 类型检查
-moon test --target native     # 运行测试（165 个，native target）
+moon test --target native     # 运行测试（201 个，native target）
 moon info                     # 更新 .mbti 接口
 moon fmt                      # 格式化
 ```

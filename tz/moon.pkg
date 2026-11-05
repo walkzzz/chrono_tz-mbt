@@ -3,4 +3,9 @@ import {
   "walkzzz/chrono_tz-mbt/data",
   "moonbitlang/core/bench",
   "moonbitlang/core/quickcheck",
+  "moonbitlang/core/encoding/utf8",
+  "moonbitlang/core/env",
+  "caijiewei295/tzif-engine/parser",
+  "caijiewei295/tzif-engine/posix",
+  "caijiewei295/tzif-engine/types",
 }

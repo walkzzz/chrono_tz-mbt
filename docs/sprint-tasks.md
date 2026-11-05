@@ -431,7 +431,7 @@
 
 ### 验收门禁
 
-- `moon check` 0 warnings + `moon test --target native` 165 测试通过
+- `moon check` 0 warnings + `moon test --target native` 201 测试通过
 - `moon info` + `moon fmt` 通过
 
 > 文件结束 | chrono_tz-mbt sprint-tasks v2.0 | 2026-11-05

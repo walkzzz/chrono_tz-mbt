@@ -40,7 +40,7 @@ moon fmt --check ; moon check ; moon test --target native ; moon info --check
 
 ```toml
 name = "walkzzz/chrono_tz-mbt"
-version = "0.1.0"
+version = "0.1.9"
 readme = "README.mbt.md"
 repository = "https://github.com/walkzzz/chrono_tz-mbt.git"
 license = "Apache-2.0"
@@ -198,4 +198,18 @@ moon test  # 确认本项目通过
 # （编写对比脚本或快照测试）
 ```
 
-> 文件结束 | chrono_tz-mbt build-ci v2.0 | 2026-11-05
+## 七、Makefile 工程严格度
+
+项目根目录 `Makefile` 固化 `--deny-warn` 零警告强制检查：
+
+```bash
+make check   # moon check --deny-warn --target all（四后端零警告）
+make test    # moon test --target all（四后端测试）
+make fmt     # moon fmt + moon info（格式化 + 接口更新）
+make all     # fmt + check + test（完整检查）
+make clean   # moon clean
+```
+
+> 对齐 tzif-engine 工程严格度：`--deny-warn` 把所有 warning 提升为 Error，四后端全 deny。
+
+> 文件结束 | chrono_tz-mbt build-ci v2.1 | 2026-11-05
