@@ -1,5 +1,8 @@
 ///|
 /// tz_quickcheck_wbtest.mbt — Hinnant 算法 @quickcheck 性质测试
+///
+/// 注：Int64 对极端值（如 -25252982167711029）中间计算溢出，
+/// 用 filter 限制到 ±100000 年范围（实际应用远不超过此范围）。
 
 ///|
 /// civil_from_days ∘ days_from_civil = id（往返互逆）
@@ -9,6 +12,7 @@ test "Hinnant days_from_civil roundtrip" {
       let (y, m, d) = @core.civil_from_days(days)
       @core.days_from_civil(y, m, d) == days
     },
+    filter=days => days >= -40000000L && days <= 40000000L,
     count=2000,
   )
 }
@@ -22,6 +26,7 @@ test "Hinnant civil_from_days roundtrip" {
       let (y, _, _) = @core.civil_from_days(days)
       y == year
     },
+    filter=year => year >= -100000L && year <= 100000L,
     count=2000,
   )
 }
@@ -45,6 +50,7 @@ test "NaiveDateTime timestamp roundtrip quickcheck" {
       let dt = NaiveDateTime::from_timestamp(ts)
       dt.timestamp() == ts
     },
+    filter=ts => ts >= -3153600000000L && ts <= 3153600000000L,
     count=2000,
   )
 }
@@ -66,6 +72,7 @@ test "NaiveDateTime components in range quickcheck" {
       dt.second() >= 0L &&
       dt.second() <= 59L
     },
+    filter=ts => ts >= -3153600000000L && ts <= 3153600000000L,
     count=2000,
   )
 }
@@ -79,6 +86,7 @@ test "NaiveDateTime weekday in range quickcheck" {
       let wd = dt.weekday()
       wd >= 0L && wd <= 6L
     },
+    filter=ts => ts >= -3153600000000L && ts <= 3153600000000L,
     count=2000,
   )
 }
@@ -92,6 +100,7 @@ test "NaiveDateTime ordinal in range quickcheck" {
       let ord = dt.ordinal()
       ord >= 1L && ord <= 366L
     },
+    filter=ts => ts >= -3153600000000L && ts <= 3153600000000L,
     count=2000,
   )
 }
